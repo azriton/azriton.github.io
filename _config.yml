@@ -71,3 +71,13 @@ deploy:
   type: git
   repo: git@github.com:azriton/azriton.github.io.git
   branch: master
+
+
+# Plugins
+
+## hexo-generator-feed (https://github.com/hexojs/hexo-generator-feed)
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub: http://pubsubhubbub.appspot.com
