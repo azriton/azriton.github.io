@@ -71,6 +71,7 @@ deploy:
   type: git
   repo: git@github.com:azriton/azriton.github.io.git
   branch: master
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }} [ci skip]"
 
 
 # Plugins

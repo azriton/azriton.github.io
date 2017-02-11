@@ -1,0 +1,23 @@
+general:
+  branches:
+    only:
+      - source
+
+machine:
+  timezone: Asia/Tokyo
+  node:
+    version: 6.9.5
+
+test:
+  override:
+    - echo "skip test"
+
+deployment:
+  deploy:
+    branch: source
+    commands:
+      - git config --global user.name "CircleCI"
+      - git config --global user.email agent.azriton@gmail.com
+      - hexo clean
+      - hexo generate
+      - hexo deploy
