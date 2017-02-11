@@ -52,11 +52,11 @@ Botkit に 組み込むので、Node.js で コーディングします.
 ※ [API_KEY] を 上記で取得した API キー に 置き換えます.
 ```javascript
 const http = require('http');
-http.get("http://api.openweathermap.org/data/2.5/weather?id=1850147&units=metric&appid=[API_KEY]", function(response) {
-    var text = '';
-    response.setEncoding('utf8').on('data', function (chunk) {  text += chunk;  });
-    response.on('end', function() {
-        var current = JSON.parse(text);
+http.get("http://api.openweathermap.org/data/2.5/weather?id=1850147&units=metric&appid=[API_KEY]", (response) => {
+    let buffer = '';
+    response.setEncoding('utf8').on('data', (chunk) => {  buffer += chunk;  });
+    response.on('end', () => {
+        let current = JSON.parse(buffer);
         console.log(current)
     });
 });
@@ -108,11 +108,11 @@ JSON の 内容については、次回にしたいと思います.
 先の実装と変わるのは URL の パス が `/weather` から `/forecast` に なる点です.
 ```javascript
 const http = require('http');
-http.get("http://api.openweathermap.org/data/2.5/forecast?id=1850147&units=metric&appid=[API_KEY]", function(response) {
-    var text = '';
-    response.setEncoding('utf8').on('data', function (chunk) {  text += chunk;  });
-    response.on('end', function() {
-        var forecast = JSON.parse(text);
+http.get("http://api.openweathermap.org/data/2.5/forecast?id=1850147&units=metric&appid=[API_KEY]", (response) => {
+    let buffer = '';
+    response.setEncoding('utf8').on('data', (chunk) => {  buffer += chunk;  });
+    response.on('end', () => {
+        let forecast = JSON.parse(buffer);
         console.log(forecast)
     });
 });
