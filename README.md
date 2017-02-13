@@ -77,6 +77,7 @@ git config --local user.email agent.azriton@gmail.com
   - Add sitemap generator for search engine
   - Make banner and footer settings the default theme
   - Set up Google Analytics integration for default theme
+  - Add Twitter Cards setting to default theme
   - Remove unused language file from default theme
   - Revise the template of new posts
   - Change file path of posts for simplify file management
