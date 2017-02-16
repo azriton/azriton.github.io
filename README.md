@@ -75,6 +75,7 @@ git config --local user.email agent.azriton@gmail.com
   - Set initial configuration of blog in Hexo
   - Add feed generator of Atom and PubSubHubbub
   - Add sitemap generator for search engine
+  - Open Disqus comment field
   - Make banner and footer settings the default theme
   - Set up Google Analytics integration for default theme
   - Add Twitter Cards setting to default theme
