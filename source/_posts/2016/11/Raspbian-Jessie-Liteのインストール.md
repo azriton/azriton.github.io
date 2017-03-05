@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite の インストール
 date: 2016-11-19
+updated: 2017-03-07
 comments: true
 categories: 電子工作
 tags:
@@ -72,6 +73,21 @@ SD カード と ドライブを確認し、問題なければ [Yes] を クリ�
 書き込みが完了したら、Complete の ダイアログが出るので、[OK] を クリックし、元のウィンドウ の Win32 Disk Imager から [Exit] を クリックして閉じます.
 ![](/images/raspi/raspbian-jessie-lite/08.png)
 ![](/images/raspi/raspbian-jessie-lite/09.png)
+
+
+## SSH 有効化 の ファイル作成 (2017.03.07 追記)
+本ポストを書いていた 2016.11.19 現在 [`2016-11-25-raspbian-jessie-lite.zip`](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-11-29) の OS イメージ を 使用していましたが、次のリリース `2016-11-25-raspbian-jessie-lite.zip` からは SSH が デフォルトで無効になりました. そのため 2017年3月 現在、以下の手順も必要となり追記します.
+
+ブート・パーティション に "ssh" というファイルを作成します.
+Windows からは、エクスプローラー で SD カード の ドライブを開いて、"ssh" というファイルを作成します.
+
+作るファイルのもとは何でもよく拡張子を削除して作るだけになります. 今回はビットマップ イメージを選び、最初から入力されていた `新しいビットマップ イメージ.bmp` を 消して `ssh` としました. "拡張子を変更すると、ファイルが使えなくなる可能性があります。" と 警告表示されますが、今回は特に問題ないので [はい] を クリックして進めます.
+![](/images/raspi/raspbian-jessie-lite/11.png)
+
+"ssh" というファイルが置かれました. これで完了、後は起動するだけです.
+![](/images/raspi/raspbian-jessie-lite/12.png)
+
+このあたりについては [最近インストールした Raspbian Jessie Lite で SSH 接続できない？](/2017/03/07/最近インストールしたRaspbian-Jessie-LiteがSSH接続できない？/) の ポストも、もしよろしければご覧ください.
 
 
 ## Raspbian Jessie Lite 起動！
