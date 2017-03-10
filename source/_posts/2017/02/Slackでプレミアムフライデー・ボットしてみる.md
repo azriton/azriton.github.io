@@ -1,6 +1,7 @@
 ---
 title: Slack で プレミアムフライデー・ボット してみる
 date: 2017-02-22
+updated: 2017-03-10
 comments: true
 categories: ボット
 tags:
@@ -17,7 +18,7 @@ tags:
 **作業環境**
 - Slack
 - Node.js 6.9.1 LTS
-- Botkit 0.4.9
+- Botkit ~~0.4.9~~ 0.5.1
 - node-cron 1.2.1
 - moment-timezone 0.5.10
 
@@ -57,6 +58,7 @@ tags:
 
 
 ## ボット実装
+※ [自動切断のワークアラウンド・コードを削除](/2017/03/10/Botkitが自動切断されなくなった、みたい/)する更新をしました (2017年3月10日)
 ```javascript
 'use strict';
 const Botkit = require('botkit');
@@ -68,33 +70,29 @@ const controller = Botkit.slackbot();
 moment.locale('ja');
 moment.tz.setDefault('Asia/Tokyo');
 
-function start() {
-    controller.spawn({
-        token: process.env.bot_access_token
-    }).startRTM((err, bot, payload) => {
-        new cron.CronJob({  cronTime: '00 00 11 * * 5',  timeZone: 'Asia/Tokyo',  start: true,  onTick: () => {
-            let now = moment();
-            if (now.month() != now.clone().add(7, 'days').month()) {
+controller.spawn({
+    token: process.env.bot_access_token
+}).startRTM((err, bot, payload) => {
+    new cron.CronJob({  cronTime: '00 00 11 * * 5',  timeZone: 'Asia/Tokyo',  start: true,  onTick: () => {
+        let now = moment();
+        if (now.month() != now.clone().add(7, 'days').month()) {
+            bot.say({
+                channel: 'random',
+                text: '今日、月末の金曜日は午後３時に退社して余暇を楽しもうという ' +
+                      '<https://premium-friday.go.jp/#section_about|プレミアムフライデー> だよ！ ' +
+                      '退社時間が早まることで消費が活性化するし、働き方改革にもつながる施策なんだ. ' +
+                      'さぁ～ みんな３時には帰って、買い物、食事や旅行などして普段よりも豊かな生活を送ろう！！',
+                username: 'プレミアムフライデー ボット',
+                icon_url: 'http://www.meti.go.jp/press/2016/12/20161212001/20161212001-a.jpg'
+            }, (err, response) => {
                 bot.say({
                     channel: 'random',
-                    text: '今日、月末の金曜日は午後３時に退社して余暇を楽しもうという ' +
-                          '<https://premium-friday.go.jp/#section_about|プレミアムフライデー> だよ！ ' +
-                          '退社時間が早まることで消費が活性化するし、働き方改革にもつながる施策なんだ. ' +
-                          'さぁ～ みんな３時には帰って、買い物、食事や旅行などして普段よりも豊かな生活を送ろう！！',
-                    username: 'プレミアムフライデー ボット',
-                    icon_url: 'http://www.meti.go.jp/press/2016/12/20161212001/20161212001-a.jpg'
-                }, (err, response) => {
-                    bot.say({
-                        channel: 'random',
-                        text: `<http://[YOUR_IMG_URL]/image.jpg?${moment().unix()}| >`
-                    });
+                    text: `<http://[YOUR_IMG_URL]/image.jpg?${moment().unix()}| >`
                 });
-            }
-        }});
-    });
-};
-controller.on('rtm_close', (bot, err) => {  start();  });
-start();
+            });
+        }
+    }});
+});
 ```
 
 Botkit や Moment.js の セットアップ系はいつも通りで、定時処理は毎度の `new cron.CronJob()` で ジョブを作成します.
