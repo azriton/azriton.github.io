@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite の SSH/公開鍵認証 設定
 date: 2016-11-29
+updated: 2017-03-13
 comments: true
 categories: 電子工作
 tags:
@@ -29,6 +30,7 @@ Raspbian Jessie Lite に SSH 公開鍵認証 の 設定を行います.
 ## キー・ペア の 生成
 `ssh-keygen` を 使い、キー・ペアを生成します. `ed25519` は 鍵長 が 256 bit 固定とのことなので、`-t ed25519` のみの指定となります.
 ファイルの場所は特に問題ないのでデフォルトのままにしました. パスフレーズは設定したほうが安全です. 秘密鍵のファイルをとられてしまうと、守るものがなくなり素通しとなってしまいます.
+`ssh-keygen` は Microsoft が 開発している [Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases) を 使いました. (2017年3月13日 追記)
 ```shell-session
 c:\> ssh-keygen -t ed25519 -C ""
 Generating public/private ed25519 key pair.
