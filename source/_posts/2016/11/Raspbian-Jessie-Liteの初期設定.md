@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite の 初期設定
 date: 2016-11-22
+updated: 2017-03-22
 comments: true
 categories: 電子工作
 tags:
@@ -68,13 +69,17 @@ tmpfs           463M     0  463M   0% /sys/fs/cgroup
 /dev/mmcblk0p1   63M   21M   43M  33% /boot
 ```
 
-よくわかりませんが、念のためファイルシステムの拡張を実行しておきます.
-`sudo raspi-config` コマンドから実行します.
-1. `1 Expand Filesystem` を 選択
-2. `OK` する
-3. `Finish` して再起動
+**2017年3月22日 追記**
+リリース・ノート 2016-05-10 に 下記の記述がありました.
+ファイルシステムは自動的に拡張されているので下記手順は不要でした.
+"File system automatically expanded on first boot -- [Release notes](http://downloads.raspberrypi.org/raspbian/release_notes.txt)"
 
-再起動後 の `df -h` に 変化がないので 16GB が ちゃんと使えているようです.
+~~よくわかりませんが、念のためファイルシステムの拡張を実行しておきます.~~
+~~`sudo raspi-config` コマンドから実行します.~~
+~~1. `1 Expand Filesystem` を 選択~~
+~~2. `OK` する~~
+~~3. `Finish` して再起動~~
+~~再起動後 の `df -h` に 変化がないので 16GB が ちゃんと使えているようです.~~
 
 
 ## ホスト名 の 設定
