@@ -76,6 +76,8 @@ git config --local user.email agent.azriton@gmail.com
   - Add feed generator of Atom and PubSubHubbub
   - Add sitemap generator for search engine
   - Open Disqus comment field
+  - Customize font settings for default theme
+  - Customize blockquote style for default theme
   - Make banner and footer settings the default theme
   - Set up Google Analytics integration for default theme
   - Add Twitter Cards setting to default theme
