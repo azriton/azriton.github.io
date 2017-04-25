@@ -80,7 +80,7 @@ c:\Develop\repos\slack-bot> npm install botkit --save
 ```
 
 ボットのプログラムを作成します. プロジェクト直下に `index.js` ファイルを作成します.
-まずは基本動作の確認からなので、Botkit の readme.md [#Basic Usage](https://github.com/howdyai/botkit/blob/master/readme.md#basic-usage) になります.
+まずは基本動作の確認からなので、Botkit の readme.md [#Basic Usage](https://github.com/howdyai/botkit/blob/master/docs/readme.md#basic-usage) になります.
 ```javascript
 const Botkit = require('botkit');
 const controller = Botkit.slackbot();
