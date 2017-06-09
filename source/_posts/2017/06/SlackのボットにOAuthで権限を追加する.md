@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット に OAuth で 権限を追加する
 date: 2017-06-01
+updated: 2017-06-07
 comments: true
 categories: ボット
 tags:
@@ -46,6 +47,10 @@ OAuth で ボットに権限を追加するには、アプリ・ボット(勝手
 ## OAuth で 権限を追加
 Slack の [OAuth Scopes](https://api.slack.com/docs/oauth-scopes) の ページから、必要な権限をピックアップします. 今回は、今後使っていきたい想定で `bot`, `channels:history` ,`emoji:read`, `files:read`, `files:write:user`, `users:read` の権限を取得することにしました.
 ※ 本来は必要になり次第、以下の手順で追加していくべきですが、一連の流れで作っていくのでまとめて取得しました. あまりとりすぎるとボットができる範囲が大きくなりすぎるので、何かあった際の影響も大きくなるため権限の設定は注意が必要です.
+
+**2017年6月7日 追記**
+以下の手順を簡易化するためのツールを作りました. よろしかったら、こちらもご利用ください.
+Slack OAuth Helper - [https://azriton.github.io/slack-oauth-helper/](https://azriton.github.io/slack-oauth-helper/)
 
 必要な権限のスコープが決まったのでブラウザで `https://slack.com/oauth/authorize?client_id=REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID&scope=REPLACE_THIS_WITH_YOUR_OAUTH_SCOPE` へ アクセスします.
 `REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID` は、先ほどアプリ・ボットを作成した際にひかえた [Client ID] を、
