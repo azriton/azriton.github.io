@@ -35,6 +35,15 @@
   <% } %>
 </article>
 
+<nav id="related-posts" class="article-inner" style="font-size: smaller">
+  <div class="article-entry">
+    <h2>関連記事</h2>
+    <%-
+      popular_posts({ PPMixingRate: 0.0 })
+    %>
+  </div>
+</nav>
+
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
   <div id="disqus_thread">
