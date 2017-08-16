@@ -8,6 +8,7 @@ tags:
 - Slack
 - Botkit
 - Node.js
+- JavaScript
 ---
 
 ![](/images/slack/hanakin/premium-friday.png "Premium Friday")

@@ -5,6 +5,7 @@ comments: true
 categories: ボット
 tags:
 - Slack
+- JavaScript
 ---
 
 ![](/images/slack/slack.png "Slack")

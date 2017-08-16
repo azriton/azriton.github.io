@@ -7,6 +7,7 @@ tags:
 - Slack
 - Botkit
 - Node.js
+- JavaScript
 ---
 
 ![](/images/slack/slack.png "Slack")
