@@ -5,6 +5,7 @@ comments: true
 categories: ブログ
 tags:
 - Hexo
+- Git
 - GitHub
 - CircleCI
 ---
