@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code 最初の設定変更
 date: 2017-08-26
+updated: 2017-09-04
 comments: true
 categories: 開発環境
 tags:
@@ -71,19 +72,21 @@ Visual Studio Code の 再起動が必要な場合は、ダイアログが表示
 
 今回は以下の設定を行いました.
 
-| 設定項目                       | 設定値     | 設定内容                                        |
-|:-------------------------------|:-----------|:------------------------------------------------|
-| editor.fontFamily              | 'Migu 1M'  | フォント を Migu 1M                             |
-| editor.rulers                  | [80, 120]  | 垂直ルーラー は 標準の `80` と よく使う `120`   |
-| editor.cursorBlinking          | "smooth"   | カーソル・アニメーション を スムーズに          |
-| editor.renderWhitespace        | "boundary" | 空白文字を単語間の単一スペース以外表示          |
-| files.autoGuessEncoding        | true       | ファイルを開くときに文字セット エンコードを推測 |
-| files.eol                      | "\n"       | 既定の改行文字を LF に設定                      |
-| files.trimTrailingWhitespace   | true       | ファイルの保存時に末尾の空白をトリミング        |
-| files.insertFinalNewline       | true       | ファイルの保存時に最新の行を末尾に挿入          |
-| terminal.integrated.scrollback | 200000     | ターミナルの最大行数                            |
+|            設定項目            |   設定値    |                    設定内容                     |
+| :----------------------------- | :---------- | :---------------------------------------------- |
+| editor.fontFamily              | "'Migu 1M'" | フォント を Migu 1M                             |
+| editor.rulers                  | [80, 120]   | 垂直ルーラー は 標準の `80` と よく使う `120`   |
+| editor.minimap.showSlider      | "always"    | ミニマップのスライダー を 常に表示              |
+| editor.cursorBlinking          | "smooth"    | カーソル・アニメーション を スムーズに          |
+| editor.renderWhitespace        | "boundary"  | 空白文字を単語間の単一スペース以外表示          |
+| files.autoGuessEncoding        | true        | ファイルを開くときに文字セット エンコードを推測 |
+| files.eol                      | "\n"        | 既定の改行文字を LF に設定                      |
+| files.trimTrailingWhitespace   | true        | ファイルの保存時に末尾の空白をトリミング        |
+| files.insertFinalNewline       | true        | ファイルの保存時に最新の行を末尾に挿入          |
+| terminal.integrated.scrollback | 200000      | ターミナルの最大行数                            |
 
-![](/images/vscode/config/10.png)
+**更新**
+2017年9月4日 `editor.minimap.showSlider` を 追加
 
 
 
