@@ -1,6 +1,7 @@
 ---
 title: PortableGit for Windows 64bit の インストール
 date: 2017-08-21
+updated: 2017-09-10
 comments: true
 categories: 開発環境
 tags:
@@ -83,6 +84,10 @@ type nul > %USERPROFILE%\.gitignore
 ```.gitignore
 Thumbs.db
 ```
+
+** 2017年9月10日 追記 **
+もっと良い設定方法があったので、全体 .gitignore の 設定 を 見直しました.
+詳しくは、こちら [Git の 全体 gitignore を 再設定する](/2017/09/10/Gitの全体gitignoreを再設定する/) を ご参照ください.
 
 
 ## Proxy が 必要な環境での設定
