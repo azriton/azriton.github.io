@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code の インストール
 date: 2017-08-18
+updated: 2017-09-19
 comments: true
 categories: 開発環境
 tags:
@@ -31,8 +32,22 @@ Visual Studio Code の ウェブサイト [https://code.visualstudio.com/](https
 ※ [Download for Windows] を 直接クリックすると 32bit 版がダウンロードされたので、プラットフォームを直接指定しました.
 ![](/images/vscode/install/01.png)
 
-チェックサムが見つからなかったので、そのままダウンロードされた [VSCodeSetup-x64-1.14.2.exe] を ダブルクリックして、インストーラーを起動します.
-チェックサム、確認したいんだけどなぁ...
+*2017年9月19日 追記*
+[https://code.visualstudio.com/download](https://code.visualstudio.com/download) の 下に [See SHA-256 Hashes] が ありました.
+~~チェックサムが見つからなかったので、そのままダウンロードされた [VSCodeSetup-x64-1.16.1.exe] を ダブルクリックして、インストーラーを起動します.~~
+~~チェックサム、確認したいんだけどなぁ...~~
+
+いつもの Windows PowerShell の `Get-FileHash` コマンドでチェックサムを確認します.
+先のダウンロード・ページに記載されている Windows 64 bit の チェックサムは `62b6f28d0bd02c0193389fb1b716fed1a2e8d5aea7d38ed39c70e2c2d0b20797` でした.
+```console
+c:\> powershell Get-FileHash -Algorithm SHA256 c:\temp\VSCodeSetup-x64-1.16.1.exe
+
+Algorithm  Hash
+---------  ----
+SHA256     62b6f28d0bd02c0193389fb1b716fed1a2e8d5aea7d38ed39c70e2c2d0b20797
+```
+
+ダウンロードされた [VSCodeSetup-x64-1.16.1.exe] を ダブルクリックして、インストーラーを起動します.
 ![](/images/vscode/install/02.png)
 
 セットアップウィザードが表示されるので、[次へ] ボタンをクリックして進めます.
