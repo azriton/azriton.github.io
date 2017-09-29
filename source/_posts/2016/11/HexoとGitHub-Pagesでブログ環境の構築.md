@@ -5,6 +5,7 @@ comments: true
 categories: ブログ
 tags:
 - Hexo
+- GitHub
 ---
 
 ![](/images/hexo/hexo-3.2.png "Hexo")

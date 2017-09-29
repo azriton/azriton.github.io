@@ -5,6 +5,7 @@ comments: true
 categories: 開発環境
 tags:
 - CircleCI
+- GitHub
 ---
 
 ![](/images/circleci/circleci.png "CircleCI")

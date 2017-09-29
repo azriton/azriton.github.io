@@ -5,6 +5,7 @@ comments: true
 categories: ブログ
 tags:
 - CircleCI
+- GitHub
 ---
 
 ![](/images/circleci/circleci.png "CircleCI")
