@@ -22,5 +22,14 @@
     "hexo-renderer-stylus": "^0.3.3",
     "hexo-server": "^0.2.2",
     "hexo-uglify": "0.0.4"
+  },
+  "devDependencies": {
+    "hexo-cli": "*"
+  },
+  "scripts": {
+    "setup": "npm install && npm dedupe",
+    "build": "hexo clean && hexo generate",
+    "test": "echo Testing is unnecessary and does not exist.",
+    "start": "hexo server -o"
   }
 }
