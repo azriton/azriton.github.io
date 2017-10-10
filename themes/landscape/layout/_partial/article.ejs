@@ -1,8 +1,10 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-    <%- partial('post/category') %>
-  </div>
+  <% if (post.path != "404.html"){ %>
+    <div class="article-meta">
+      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+      <%- partial('post/category') %>
+    </div>
+  <% } %>
   <div class="article-inner">
     <%- partial('post/gallery') %>
     <% if (post.link || post.title){ %>
@@ -22,27 +24,31 @@
         <%- post.content %>
       <% } %>
     </div>
-    <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
-      <% } %>
-      <%- partial('post/tag') %>
-    </footer>
+    <% if (post.path != "404.html"){ %>
+      <footer class="article-footer">
+        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
+        <% if (post.comments && config.disqus_shortname){ %>
+          <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+        <% } %>
+        <%- partial('post/tag') %>
+      </footer>
+    <% } %>
   </div>
   <% if (!index){ %>
     <%- partial('post/nav') %>
   <% } %>
 </article>
 
-<nav id="related-posts" class="article-inner" style="font-size: smaller">
-  <div class="article-entry">
-    <h2>関連記事</h2>
-    <%-
-      popular_posts({ PPMixingRate: 0.0 })
-    %>
-  </div>
-</nav>
+<% if (post.path != "404.html"){ %>
+  <nav id="related-posts" class="article-inner" style="font-size: smaller">
+    <div class="article-entry">
+      <h2>関連記事</h2>
+      <%-
+        popular_posts({ PPMixingRate: 0.0 })
+      %>
+    </div>
+  </nav>
+<% } %>
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
