@@ -1,5 +1,5 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
-  <% if (post.path != "404.html"){ %>
+  <% if (post.meta || post.meta === undefined){ %>
     <div class="article-meta">
       <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
       <%- partial('post/category') %>
@@ -24,7 +24,7 @@
         <%- post.content %>
       <% } %>
     </div>
-    <% if (post.path != "404.html"){ %>
+    <% if (post.footer || post.footer === undefined){ %>
       <footer class="article-footer">
         <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
         <% if (post.comments && config.disqus_shortname){ %>
@@ -39,7 +39,7 @@
   <% } %>
 </article>
 
-<% if (post.path != "404.html"){ %>
+<% if (post.relation || post.relation === undefined){ %>
   <nav id="related-posts" class="article-inner" style="font-size: smaller">
     <div class="article-entry">
       <h2>関連記事</h2>
