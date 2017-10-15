@@ -1,8 +1,9 @@
 ---
 title: いつか消えた PPT の アバター とか、 Style 1541 とか
 date: 2017-03-25
+updated: 2017-10-14
 comments: true
-categories: 雑記
+categories: プレゼン
 tags:
 ---
 
