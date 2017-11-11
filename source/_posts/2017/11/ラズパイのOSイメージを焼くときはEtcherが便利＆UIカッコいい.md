@@ -1,110 +1,126 @@
 ---
-title: Raspbian Jessie Lite の インストール
-date: 2016-11-19
-updated: 2017-11-12
+title: ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい
+date: 2017-11-12
 comments: true
 categories: 電子工作
 tags:
 - Raspberry Pi
 - Raspbian
+- Google AIY
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/images/raspi/etcher/etcher.png "Etcher")
 
-Raspberry Pi に 公式の OS である Raspbian の 最小構成 Lite を インストールしたいと思います.
-NOOBS(New Out Of the Box Software) という OS の インストーラーが用意されており、これを使うことで簡単に Raspberry Pi へ OS を インストールすることができますが、ディスク容量を圧迫する、USB の キーボード と マウス が 必須であることから、OS イメージ を 直接 SD カードへ書き込む方法を取ることにします.
+[Google AIY Voice Kit を 組み立てた](/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/) ので、OS の イメージを用意して起動、と行きたいところですが、OS イメージ を マイクロ SD に 焼く方法が気になったので確認と整理します.
 
 **作業環境**
-- Windows 7
+- Windows 10 64 bit
+- Etcher for Windows x64
+- Raspberry Pi 3 Model B
 - Raspbian Jessie Lite
+- Google AIY Voice Kit
 
 
-## SD カード の 準備
-*2017.03.07 追記*
-*[ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい](/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/) の 記事を追加しました. こちらの手順の方が簡単なので、よろしければ こちらも ご参照ください.*
+## 何があった？
+Google AIY Voice Kit の 説明書 P. 34 からの Chapter Four / Set up the software で "Burn the image to a microSD card using a program like Etcher(etcher.io) on a Mac, Windows, or Linux computer." という文章がありました.
+
+また Web の リファレンス では [Get the Voice Kit SD Image - Assembly Guide](https://aiyprojects.withgoogle.com/voice/#assembly-guide-1-get-the-voice-kit-sd-image) に "Write the image to an SD card using a card writing utility (Etcher.io is a popular tool for this)" とあり、 **popular tool for this** と 気になる記述もあります.
+
+普段だったら使い慣れているソフトで サクッと SD カードを作ってしまうのですが、せっかく新しいことを始めているのだから、調べてみることにしました.
 
 
-使用する Raspberry Pi の モデル に 合わせた SD カード を 用意します.
-今回 は Raspberry Pi Zero を 使いますので、microSD カード と PC で 使うための SD Adapter を 用意しました.
+## Etcher とは？
+[Etcher](https://etcher.io/) は [Resin.io](https://resin.io/) さん が OSS として開発しているツールで、トップエージに大きく "Burn. Better." と 書かれている通り、SD カード や USB メモリ に OS イメージを安全で簡単に焼いてくれるツールです.
+ところで CD ではないのに、なんで Burn、焼くんだろう...
 
-続いて、SD カード を フォーマットします.
-OS の ツールではうまくいかないケースがあるので、SD カード フォーマッター を ダウンロードして使いました.
-ダウンロードは、こちらから → [https://www.sdcard.org/jp/downloads](https://www.sdcard.org/jp/downloads)
+Resin.io さん は、サービス自体は使ったことないのですが [Raspbian Jessie Lite で Docker する](/2017/03/30/Raspbian-Jessie-LiteでDockerする-インストール編/) 際にも、参考にさせていただいたりとお世話になっております. ありがとうございます.
 
-SD カード フォーマッター を 起動し、[オプション設定] を クリックします.
-![](/images/raspi/raspbian-jessie-lite/01.png)
+[Electron](https://electron.atom.io/) で できているので、Windows、Mac、Linux の クロス・プラットフォームで動作します.
 
-論理サイズ調整 を [ON] に 設定し、[OK] を クリックします.
-通常は OFF で 問題ないとのことですが、OS 付属のツールでフォーマットしたりすると論理サイズが異なったりと問題が出るケースがあるらしいです. その場合は ON に することで解決できるとのことですが、後でトラブルがあった際に問題の切り分けをするのもめんどくさいので ON に しました.
-論理サイズ調整については、SD カード フォーマッター の [マニュアルの記載](https://www.sdcard.org/jp/downloads/formatter_4/SDFormatter_4jp.pdf) や [Raspberry Pi フォーラム の ポスト](https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=83372&p=651745#p677748) などに情報があります.
-![](/images/raspi/raspbian-jessie-lite/02.png)
+そして何より素晴らしいのが、３ステップ完了できるということ.
+`img` ファイルだけでなく、 `zip` などにも対応しているので、解凍するという作業無しで直接メディアを作ることができます.
 
-元のウィンドウに戻るので、[Drive] と [Volume Label] が 正しいかを確認し、フォーマットを実行してよければ [フォーマット] を クリックします.
-クイックフォーマットと、フォーマット中に関する注意事項のダイアログが表示されます. 内容を確認し問題なければ、それぞれ [OK] を クリックして作業を進めます.
-![](/images/raspi/raspbian-jessie-lite/03.png)
-
-フォーマットが終わったらダイアログが出るので、SD カード を 取り出し、[OK] を クリックし、また元のウィンドウ の SD カード フォーマッター も [終了] を クリックして閉じます.
-![](/images/raspi/raspbian-jessie-lite/04.png)
+Etcher は Raspbian 公式ドキュメント の [INSTALLING OPERATING SYSTEM IMAGES](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) や The MagPi の [BURN SD CARDS WITH ETCHER](https://www.raspberrypi.org/magpi/pi-sd-etcher/) などでも紹介されている方法になります.
+※ なのに、なぜか [INSTALLING OPERATING SYSTEM IMAGES USING WINDOWS](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md) へ 行って、`Win32DiskImager` を 使ってたんだよなぁ...
 
 
-## OS イメージ の 書き込み
-Raspbian の サイト [https://www.raspberrypi.org/downloads/raspbian](https://www.raspberrypi.org/downloads/raspbian) から Raspbian Jessie Lite を ダウンロードします.
-ここでは、[C:\Develop\images] に ダウンロードしたものとします.
-![](/images/raspi/raspbian-jessie-lite/05.png)
+## インストール
+Etcher の ウェブサイト [https://etcher.io/](https://etcher.io/) へ アクセスします.
+すでに OS を 判別してダウンロードボタンを作ってくれていますので、ボタンをクリックしてダウンロードします.
+![](/images/raspi/etcher/01.png)
 
-ダウンロードしたファイルが正しいかハッシュ値を確認します.
-Windows PowerShell 4.0 以降は、Get-FileHash が あるので、それを使います.
-Raspbian の ウェブサイトに記載されているハッシュ値と同じなので正しくダウンロードできたようです.
+チェックサムは見つからなかったので確認できず. 残念.
+ダウンロードしたファイルをダブルクリックしてインストーラを起動します.
+![](/images/raspi/etcher/02.png)
+
+ライセンスの確認が表示されるので、内容を確認し同意できるようだったら [同意する] ボタンをクリックして進めます. 同意できなかったら利用できません. キャンセルしましょう.
+![](/images/raspi/etcher/03.png)
+
+特に選択しなくインストールが進み、Etcher が 自動的に起動します.
+
+
+## イメージを焼く、前に設定をしておく
+さっそく SD カード に Google AIY Voice Kit の イメージを焼きたいところですが、ちょっと設定をしておきます.
+ウィンドウ右上、⚙ 歯車 の アイコンをクリックします.
+![](/images/raspi/etcher/04.png)
+
+設定が表示されるので、[Eject on success] の チェックを外します.
+ここにチェックがついていると、イメージを焼いた後に SD カード の マウントを解除してしまうため、Raspbian の OS イメージを焼いた後に `ssh` ファイルを作成するのに、SD カードの入れ直しが必要になってしまうためです.
+チェックを外したらウィドウ右上 [< Back] を クリックして戻ります.
+![](/images/raspi/etcher/05.png)
+
+ウィンドウ中段 の 左 [Select image] を クリックし、焼きたい OS イメージを選択します.
+`img` や `iso` だけでなく、`zip`, `bz2`, `dmg`, `dsk`, `etch`, `gz`, `hddimg`, `raw`, `rpi-sdimg`, `sdcard`, `xz` などにも対応しています.
+今回は `aiyprojects-2017-09-11.img.xz` を 選択しました. `xz` を 解凍する必要がないので助かります.
+![](/images/raspi/etcher/04.png)
+
+イメージを選択すると、フォーカス が ウィンドウ中段 の 右 [Flash!] に 移ります.
+SD Card が 挿入済みのため、一気に [Flash!] へ 進み、事実上 ２ステップです. 素晴らしい！
+なお、ドライブが違う場合は ウィンドウ中央 の [Change] から変更できます.
+![](/images/raspi/etcher/06.png)
+
+用意ができたら [Flash!] を クリックし、焼きます.
+ところで、なんでここは Burn じゃないんだろう...
+![](/images/raspi/etcher/07.png)
+
+しばらく待つと焼き終わります.  フォーマット と 検証 も 自動的に行っておいてくれるので簡単です.
+何よりこれ一つで終わりというのがいいですね.
+![](/images/raspi/etcher/08.png)
+
+
+## Raspbian / Google AIY Voice Kit SD image の 初期ファイル配置
+SD カード が 焼き終わったら、必要に応じて エクスプローラー で SD カード の ドライブを開き、初期ファイルを配置しておきます.
+
+### SSH 接続を許可する ssh ファイル
+SSH で アクセスできるようにするには `ssh` というファイルを置いておく必要があります.
+エクスプローラーの右クリック から [新規作成] を 選択し、適当なファイルを選択して、ファイル名を `ssh` に して作成します. 
+“拡張子を変更すると、ファイルが使えなくなる可能性があります。” と 警告表示されますが、今回は特に問題ないので [はい] を クリックします.
+![](/images/raspi/etcher/09.png)
+
+このあたりにつきましては、下記の記事も合わせてご参照いただければ幸いです.
+- [Raspbian Jessie Lite の インストール](/2016/11/19/Raspbian-Jessie-Liteのインストール/)
+- [最近インストールした Raspbian Jessie Lite が SSH 接続できない？](/2017/03/07/最近インストールしたRaspbian-Jessie-LiteがSSH接続できない？/)
+
+
+### Wi-Fi 設定 の wpa_supplicant.conf ファイル
+Raspberry Pi 3 や Raspberry Pi Zero W を 使う場合は Wi-Fi が 利用できます.
+あらかじめ `wpa_supplicant.conf` ファイルを用意しておくことで、起動時に 所定の場所である `/etc/wpa_supplicant/wpa_supplicant.conf` へ ファイルを移動し Wi-Fi へ 接続しておいてくれます.
+![](/images/raspi/etcher/10.png)
+
+ファイルの内容は以下で、 `ssid` と `psk` に 接続する Wi-Fi の 設定を記述します.
+ファイルの改行コードは Windows の `CRLF` ではなく `LF` のため、メモ帳ではなく改行コードが設定できるエディタを使います.
 ```
-c:\> powershell Get-FileHash -Algorithm SHA1 "C:\Develop\images\2016-09-23-raspbian-jessie-lite.images"
-
-Algorithm  Hash
----------  ----
-SHA1       3A34E7B05E1E6E9042294B29065144748625BEA8
+country=JP
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+        ssid="----Your-WiFi-SSID----"
+        psk="----PLAIN-PASSPHRASE----"
+}
 ```
 
-続いて、OS イメージ を SD カード に 書き込みます.
-今回は [公式ドキュメント](https://www.raspberrypi.org/documentation/installation/installing-images/windows.md) で あげられていた [Win32 Disk Imager] を 使います.
-ダウンロードは、こちらから → [https://sourceforge.net/projects/win32diskimager/](https://sourceforge.net/projects/win32diskimager/)
-
-Image File に ダウンロードして ZIP を 解凍した images ファイルを指定し、[Write] を クリックします.
-ここでは、[C:\Develop\images] に 解凍したものとします.
-![](/images/raspi/raspbian-jessie-lite/06.png)
-
-SD カード と ドライブを確認し、問題なければ [Yes] を クリックします.
-![](/images/raspi/raspbian-jessie-lite/07.png)
-
-書き込みが完了したら、Complete の ダイアログが出るので、[OK] を クリックし、元のウィンドウ の Win32 Disk Imager から [Exit] を クリックして閉じます.
-![](/images/raspi/raspbian-jessie-lite/08.png)
-![](/images/raspi/raspbian-jessie-lite/09.png)
-
-
-## SSH 有効化 の ファイル作成 (2017.03.07 追記)
-本ポストを書いていた 2016.11.19 現在 [`2016-11-25-raspbian-jessie-lite.zip`](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-11-29) の OS イメージ を 使用していましたが、次のリリース `2016-11-25-raspbian-jessie-lite.zip` からは SSH が デフォルトで無効になりました. そのため 2017年3月 現在、以下の手順も必要となり追記します.
-
-ブート・パーティション に "ssh" というファイルを作成します.
-Windows からは、エクスプローラー で SD カード の ドライブを開いて、"ssh" というファイルを作成します.
-
-作るファイルのもとは何でもよく拡張子を削除して作るだけになります. 今回はビットマップ イメージを選び、最初から入力されていた `新しいビットマップ イメージ.bmp` を 消して `ssh` としました. "拡張子を変更すると、ファイルが使えなくなる可能性があります。" と 警告表示されますが、今回は特に問題ないので [はい] を クリックして進めます.
-![](/images/raspi/raspbian-jessie-lite/11.png)
-
-"ssh" というファイルが置かれました. これで完了、後は起動するだけです.
-![](/images/raspi/raspbian-jessie-lite/12.png)
-
-このあたりについては [最近インストールした Raspbian Jessie Lite で SSH 接続できない？](/2017/03/07/最近インストールしたRaspbian-Jessie-LiteがSSH接続できない？/) の ポストも、もしよろしければご覧ください.
-
-
-## SD カード 作成時 に Wi-Fi 設定をしておく (2017.03.07 追記)
-Raspberry Pi 3 や Raspberry Pi Zero W の OS イメージ を Raspbian で 作る際に、あらかじめ `wpa_supplicant.conf` を 作っておくことで、初回起動時から Wi-Fi へ 接続しておくことができます.
-
-詳しくは、こちら [ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい](/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/) を ご参照ください.
-
-
-## Raspbian Jessie Lite 起動！
-OS を 書き込んだ SD カード を Raspberry Pi へ セットし、電源を接続して起動します.
-HDMI を ディスプレイ や テレビ に 接続することで、起動画面を確認することができます.
-各種デーモンが [OK] で 起動していき、最後に [raspberrypi login: ] が 表示されたら起動成功です.
-![](/images/raspi/raspbian-jessie-lite/10.png)
+このあたりにつきましては、下記の記事も合わせてご参照いただければ幸いです.
+- [Raspbian Jessie Lite の Wi-Fi 設定](/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/)
 
 
 
@@ -124,5 +140,7 @@ Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電�
 
 
 - - - -
-つきにラズパイを起動することができました！！
-まだ初期設定などをしていく必要がありますが、まずは立ち上がったことに感動です. 引き続き設定していって、いろいろと楽しみたいところです.
+いままでイメージをダウンロードしてから、解凍して、SDカードをフォーマット、焼き付けと手間がかかってましたが、Etcher の おかげで簡単に SD カードが作れるようになりました. 助かります.
+今回はインストーラーで導入しましたが、ポータブル版もあるので開発環境セットとしてまとめおくのも手ですね.
+
+公式サイト の Features に "Beautiful Interface - Who said burning SD cards has to be an eyesore." とあるように、カッコいい UI だと思います. さすが IoT 管理プラットフォーム屋さんです.
