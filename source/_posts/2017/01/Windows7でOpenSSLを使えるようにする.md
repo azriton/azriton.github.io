@@ -3,6 +3,8 @@ title: Windows 7 で OpenSSL を 使えるようにする
 date: 2017-01-27
 comments: true
 categories: 開発環境
+tags:
+- Windows
 ---
 
 ![](/images/openssl/openssl.png "OpenSSL")

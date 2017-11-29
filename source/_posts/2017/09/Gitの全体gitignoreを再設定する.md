@@ -8,6 +8,7 @@ tags:
 - GitHub
 - Visual Studio Code
 - Eclipse
+- Windows
 ---
 
 ![](/images/vscode/visual-studio-code.png "Visual Studio Code")
