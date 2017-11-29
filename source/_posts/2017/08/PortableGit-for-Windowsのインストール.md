@@ -101,6 +101,10 @@ c:\Temp> git config --global http.proxy http://[hostname]:[port]
 c:\Temp> git clone https://github.com/azriton/test.git
 ```
 
+** 2017年11月25日 追記 **
+HTTPS を 使う場合、上記のように設定ファイルに設定を行わなくても 環境変数 `HTTP_PROXY` と `HTTPS_PROXY` に プロキシ設定がある場合は、そちらを使ってくれます.
+プロキシを自動構成するタスクを作りましたので、こちら [Windows の プロキシ を 自動設定するタスクを作成](/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/) も 併せて ご参照いただければ幸いです.
+
 
 ### `git://` で クローンする場合
 ホーム・ディレクトリの `.ssh` ディレクトリに以下の内容で `config` ファイルを作成します.
