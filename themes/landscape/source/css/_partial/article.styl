@@ -11,19 +11,22 @@
 .article-date
   @extend $block-caption
   float: left
+  margin-right: 12px
+  &:before
+    content: "\f073"
+    font-family: font-icon
 
 .article-category
+  @extend $block-caption
   float: left
-  line-height: 1em
-  color: #ccc
-  text-shadow: 0 1px #fff
-  margin-left: 8px
+  margin-right: 12px
   &:before
-    content: "\2022"
+    content: "\f00b"
+    font-family: font-icon
 
 .article-category-link
   @extend $block-caption
-  margin: 0 12px 1em
+  margin: 0
 
 .article-header
   padding: article-padding article-padding 0
@@ -173,7 +176,7 @@
 .article-comment-link
   float: right
   &:before
-    content: "\f075"
+    content: "\f086"
     font-family: font-icon
     padding-right: 8px
 
@@ -182,7 +185,7 @@
   float: right
   margin-left: 20px
   &:before
-    content: "\f064"
+    content: "\f1e0"
     font-family: font-icon
     padding-right: 6px
 
@@ -318,7 +321,7 @@ $article-share-link
 $article-link
   color: #999 !important
   &:before
-    font-size: 24px
+    font-size: 20px
     font-family: font-icon
     text-align: center
   &:hover
