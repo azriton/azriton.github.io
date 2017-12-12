@@ -18,12 +18,30 @@ else
     ol
       list-style: decimal
 
+$list-link
+  display: inline-block
+  width: 60px
+
+.category-list-link
+  @extend $list-link
+
+.tag-list-link
+  @extend $list-link
+  width: 110px
+
+.archive-list-link
+  @extend $list-link
+  text-align: right
+
 .category-list-count
 .tag-list-count
 .archive-list-count
   padding-left: 5px
   color: color-grey
   font-size: 0.85em
+  display: inline-block
+  text-align: right
+  width: 24px
   &:before
     content: "("
   &:after
