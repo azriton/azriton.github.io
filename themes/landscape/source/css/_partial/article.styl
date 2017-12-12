@@ -30,6 +30,7 @@
 
 .article-header
   padding: article-padding article-padding 0
+  margin: 0 0 line-height 0
 
 .article-title
   text-decoration: none
@@ -48,19 +49,22 @@
   padding: 0 article-padding
   p, table
     line-height: line-height
-    margin: line-height 0
+    margin: 0 0 line-height 0
   h1, h2, h3, h4, h5, h6
     font-weight: bold
-  h1, h2, h3, h4, h5, h6
+  h1
     line-height: line-height-title
     margin: line-height-title 0
+  h2, h3, h4, h5, h6
+    line-height: line-height-title
+    margin: line-height-title 0 8px 0
   a
     color: color-link
     text-decoration: none
     &:hover
       text-decoration: underline
   ul, ol, dl
-    margin-top: line-height
+    margin-top: (-(line-height))
     margin-bottom: line-height
   img, video
     max-width: 100%
