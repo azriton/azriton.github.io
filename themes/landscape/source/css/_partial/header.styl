@@ -81,6 +81,7 @@ $nav-link
 .nav-icon
   @extend $nav-link
   font-family: font-icon
+  font-weight: normal
   text-align: center
   font-size: font-size
   width: font-size
@@ -100,12 +101,14 @@ $nav-link
   &:before
     content: "\f015"
     font-family: font-icon
+    font-weight: normal
     margin-right: 4px
 
 #main-nav-toggle
   display: none
   &:before
     content: "\f0c9"
+    font-weight: normal
   @media mq-mobile
     display: block
 
@@ -116,10 +119,12 @@ $nav-link
 #nav-rss-link
   &:before
     content: "\f09e"
+    font-weight: normal
 
 #nav-search-btn
   &:before
     content: "\f002"
+    font-weight: normal
 
 #search-form-wrap
   position: absolute
