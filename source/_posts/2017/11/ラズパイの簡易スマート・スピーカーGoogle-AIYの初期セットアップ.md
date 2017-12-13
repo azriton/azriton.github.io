@@ -8,7 +8,7 @@ tags:
 - Google AIY
 ---
 
-![](/images/raspi/zero-and-w.jpg "Raspberry Pi Zero & Zero W")
+![](/images/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
 
 [Google AIY Voice Kit を 組み立てた](/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/) ので、さっそく OS の イメージを焼き、初期設定をしたいと思います.
 

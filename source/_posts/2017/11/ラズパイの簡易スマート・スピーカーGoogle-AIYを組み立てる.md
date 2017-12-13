@@ -8,7 +8,7 @@ tags:
 - Google AIY
 ---
 
-![](/images/raspi/zero-and-w.jpg "Raspberry Pi Zero & Zero W")
+![](/images/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
 
 [The MagPi Magazine 57号](https://www.raspberrypi.org/magpi/issues/57/) の 付録だった Google AIY が [Pimoroni](https://shop.pimoroni.com/products/google-aiy-voice-kit) さん で 先行予約が始まって１ヶ月、遂に届きました！ さっそく組み立てます.
 
