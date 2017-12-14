@@ -1,3 +1,4 @@
+
 ---
 title: ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る
 date: 2017-12-13
@@ -176,7 +177,9 @@ OAuth で 認可を求められます. 先ほど設定した [Voice Recognizer] 
 
 [おうちハック Advent Calendar 2017](https://qiita.com/advent-calendar/2017/ouch-hack) 、いろいろな人のハックがあり、とても勉強になります.
 
-明日 14日目 は [@sudow](https://qiita.com/sudow)さん、「ラズパイとSuicaで玄関を開ける」とのこと。楽しみです！
+明日 14日目 は [@ponkio-o](https://qiita.com/ponkio-o)さん、「ラズパイとSuicaで玄関を開ける」とのこと。楽しみです！
+*2017.12.14 追記*　14日目は @ponkio-o さん のところ、間違えて記載しておりました。訂正します。申し訳ありません。
+
 
 ----
 
