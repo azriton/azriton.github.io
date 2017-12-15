@@ -180,6 +180,15 @@ OAuth で 認可を求められます. 先ほど設定した [Voice Recognizer] 
 明日 14日目 は [@ponkio-o](https://qiita.com/ponkio-o)さん、「ラズパイとSuicaで玄関を開ける」とのこと。楽しみです！
 *2017.12.14 追記*　14日目は @ponkio-o さん のところ、間違えて記載しておりました。訂正します。申し訳ありません。
 
+*2017.12.15 更新*
+前日 12日は、公開がないので、前々日 11日は [@ksasao](https://qiita.com/ksasao) さん、[Windows 10 でおうちハックする](https://qiita.com/ksasao/items/20570be711443b932ee9)
+「おうちハック」といういと、ついラズパイとか考えてしまうのですが、パソコンで慣れ親しんでる Windows 10！しかも **詫びデータ** ！！ そして "あえて Windows - [Windows 10 でおうちハックする](https://qiita.com/ksasao/items/20570be711443b932ee9#windows-10-でおうちハックする)" です. 熱い！
+
+後日 14日は、[@ponkio-o](https://qiita.com/ponkio-o)さん、[ラズパイとSuicaで玄関を開ける](https://qiita.com/ponkio-o/items/de832aeb64e7dbeef7f6)！ スマートロックというんでしょうか、話は聞いたことがありますが、さすが「おうちハック」！自作するの勉強させていただきました！たしかに作れるんですよね！！
+
+みんな、すごいなぁ！！
+
+
 
 ----
 
