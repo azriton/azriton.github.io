@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 2016年 の 有馬記念 を 見て、急に競馬が気になりだしました. とはいえ、ちゃんとやったこともないし、いつやっているのかも知らない、といったレベルなので、次週の開催予定をボットに通知してもらうようにして、下調べぐらいはしてから見れるようにしたいと思います.
 ボットにしゃべってもらうにはデータが必要なので、まずは開催日のデータ探しと取得方法について考えます.
@@ -24,13 +24,13 @@ tags:
 JRA の サイトに [レーシングカレンダー](http://www.jra.go.jp/keiba/calendar/) があり、さまざまな情報が載っています. しかし開催情報を取得できるような Web API は なさそうです. また、そのような情報を提供しているサイトも見当たりませんでした. (なんか、ありそうな気もするんですが...)
 
 レーシングカレンダー の ソースを見ると、[JavaScript で カレンダー生成](http://www.jra.go.jp/keiba/common/calendar/cal.js)を行っていることが分かります. ソースには 2015 と ありますが、2017年も順調に機能しているようです.
-![](/images/slack/keiba/01.png)
+![](/assets/slack/keiba/01.png)
 
 その中に JSON ファイルを取得している部分があります！ この [JSON ファイル](http://www.jra.go.jp/keiba/common/calendar/json/201701.json) を 使う手もありそうです.
-![](/images/slack/keiba/02.png)
+![](/assets/slack/keiba/02.png)
 
 過去の JSON ファイルを探っていくと、[2012年1月](http://www.jra.go.jp/keiba/common/calendar/json/201201.json) が 一番古いようです. カレンダーの描画部分は 2015年にリニューアルしたとして、システム自体は 2012年には稼働していたのでしょうか.
-![](/images/slack/keiba/03.png)
+![](/assets/slack/keiba/03.png)
 
 
 ## JSON の 取得方法

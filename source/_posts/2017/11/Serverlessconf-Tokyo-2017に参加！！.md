@@ -6,7 +6,7 @@ categories: 勉強会
 tags:
 ---
 
-![](/images/study/serverlessconf-tokyo-2017-01.png "Serverlessconf Tokyo 2017")
+![](/assets/study/serverlessconf-tokyo-2017-01.png "Serverlessconf Tokyo 2017")
 
 Serverlessconf Tokyo 2017 に 参加もとい、出席しました. [ブログを書くまでが #ServerlessConf](https://twitter.com/yoshidashingo/status/926703624062775296)、確かにですね. 今回、あまり参加できてなかったので内容の薄い感じがツラいですが、書くまでが勉強会！ 頑張ります！！
 
@@ -37,7 +37,7 @@ Serverlessconf Tokyo 2017 に 参加もとい、出席しました. [ブログ�
 
 会場は [DMM.com Labo](https://dmm-corp.com/company/labo/) さん. 始めて伺いましたが、すごく素晴らしい場所です.
 [http://tokyo.serverlessconf.io/home.html#location](http://tokyo.serverlessconf.io/home.html#location)
-![](/images/study/serverlessconf-tokyo-2017-02.png)
+![](/assets/study/serverlessconf-tokyo-2017-02.jpg)
 
 ウッディーな感じに、全方面に緑が配置された感じの場所で、写真奥のディスプレイ横には階段状のスペースにクッションなどもあります.
 奥の左手にはカウンターのようなスペースがあり、コーヒーとかレンジが使える感じでした.
@@ -102,16 +102,16 @@ mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 休日の呼び出しは控えるマナーが求められる昨今ですが、自衛も必要だ.
 
 スポンサーさん の 出展ブースを回り、いろいろいただきました. ありがとうございます.
-![](/images/study/serverlessconf-tokyo-2017-03.jpg)
+![](/assets/study/serverlessconf-tokyo-2017-03.jpg)
 
 面白かったのは [スカイアーチネットワークス](https://www.skyarch.net/) サバカン 改め クラウド ラムダカレー！ "美味なコード" が とても気になりますｗ
 AWS Lambda に かけているので `Lamb` なのは仕方ないですが、やっぱり `Rum` の方が気になります. すみません.
-![](/images/study/serverlessconf-tokyo-2017-04.jpg)
+![](/assets/study/serverlessconf-tokyo-2017-04.jpg)
 
 マイクロソフトさん の フリスビー？ と [Flic](https://flic.io/) ボタン.
 丸い白いのがボタンで、押すと赤い LED が かすかに光ます.
 スマホ・アプリと連動してなんか動くらしい...
-![](/images/study/serverlessconf-tokyo-2017-05.jpg)
+![](/assets/study/serverlessconf-tokyo-2017-05.jpg)
 
 えっと 一生懸命説明してくださったのですが、私が英語をわからないので... すみません.
 こちらのツイートの カニオ さん に 説明頂いたのに.

@@ -9,7 +9,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspbian Jessie Lite に SSH 公開鍵認証 の 設定を行います.
 

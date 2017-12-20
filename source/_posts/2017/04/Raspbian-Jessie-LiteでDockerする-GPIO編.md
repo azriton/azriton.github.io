@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 [Raspberry で Docker が 動作した](/2017/03/30/Raspbian-Jessie-LiteでDockerする-インストール編/) ので、続いては Docker の コンテナ側から GPIO を 使うプログラムを実行したいと思います.
 
@@ -22,7 +22,7 @@ tags:
 ## Lチカ on Docker！
 GPIO と 言ったら、とりあえず Lチカ(LED チカチカ) ですね.
 前回から参考にさせていただいている記事 [Make use of GPIO -- Get Started with Docker 1.12 on Raspberry Pi](http://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/#makeuseofgpio) に 説明があったので、そちらを使わせていただきたいと思います. そちらの配線図をもとに Raspberry Pi 3 で 以下のようなブレッドボード配線図にしました.
-![](/images/raspi/fritzing/20170402-01.png)
+![](/assets/raspi/fritzing/20170402-01.png)
 
 
 ## Raspbian コンテナ で Lチカ
@@ -70,7 +70,7 @@ root@8e7c54acXXXX:/# python3 app.py
 ```
 
 Docker コンテナ から GPIO へ アクセスできました！
-![](/images/raspi/fritzing/20170402-02.png)
+![](/assets/raspi/fritzing/20170402-02.png)
 
 
 ## 参考にさせて頂いた情報

@@ -7,7 +7,7 @@ tags:
 - Eclipse
 ---
 
-![](/images/eclipse/4.7-oxygen.png "Eclipse Oxygen")
+![](/assets/eclipse/4.7-oxygen.png "Eclipse Oxygen")
 
 今回は、Eclipse 4.7 Oxygen の JavaScript に 関する設定を行っていきます.
 引き続き各種設定については、お好みがあると思います. ご参考になれば.
@@ -20,7 +20,7 @@ tags:
 
 ## 設定
 まずは、いつも通り Eclipse の メニュー から [ウィンドウ] - [設定] を クリックし、設定ウィンドウを表示します.
-![](/images/eclipse/4.7-oxygen-config/001.png)
+![](/assets/eclipse/4.7-oxygen-config/001.png)
 
 
 ### [JavaScript] - [エディター] - [入力]
@@ -29,7 +29,7 @@ tags:
 - 文字列リテラルへの貼り付け時にテキストをエスケープ: チェック
 
 なるべく自動でやってもらった方が楽なので...
-![](/images/eclipse/4.7-oxygen-config/301.png)
+![](/assets/eclipse/4.7-oxygen-config/301.png)
 
 
 ### [JavaScript] - [エディター] - [保管アクション]
@@ -43,24 +43,24 @@ tags:
   - コード編成 - 末尾の空白を除去 - 全ての行
 
 こちらも Java編 同様、処理を自動化して楽になるように設定します.
-![](/images/eclipse/4.7-oxygen-config/302.png)
+![](/assets/eclipse/4.7-oxygen-config/302.png)
 
 
 ### [JavaScript] - [コードスタイル]
 - 新機関数と型のコメントを自動的に追加: チェック
 
 JSDoc の テンプレートが自動で入ってくれるので便利です.
-![](/images/eclipse/4.7-oxygen-config/303.png)
+![](/assets/eclipse/4.7-oxygen-config/303.png)
 
 
 ### [JavaScript] - [コードスタイル] - [フォーマッター]
 [新規] ボタンをクリック
-![](/images/eclipse/4.7-oxygen-config/304.png)
+![](/assets/eclipse/4.7-oxygen-config/304.png)
 
 
 ### [JavaScript] - [コードスタイル] - [フォーマッター] - [新規プロファイル]
 プロファイル名に任意の名称 (ここでは Formatter) を 入力し、[OK] ボタンをクリック
-![](/images/eclipse/4.7-oxygen-config/305.png)
+![](/assets/eclipse/4.7-oxygen-config/305.png)
 
 
 ### [JavaScript] - [コードスタイル] - [フォーマッター] - [Formatter プロファイル]
@@ -68,7 +68,7 @@ JSDoc の テンプレートが自動で入ってくれるので便利です.
 - インデント・サイズ: 2
 
 Java エディター の タブ設定同様で、ここで設定しないとタブが入力されます. 要注意です. またインデント・サイズ は [Google の JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html) の "Each time a new block or block-like construct is opened, the indent increases by two spaces. - [4.2 Block indentation: +2 spaces](https://google.github.io/styleguide/jsguide.html#formatting-block-indentation)" に 習って `2` にしました.
-![](/images/eclipse/4.7-oxygen-config/306.png)
+![](/assets/eclipse/4.7-oxygen-config/306.png)
 
 
 ### [JavaScript] - [バリデーター] - [JSDoc]
@@ -78,7 +78,7 @@ Java エディター の タブ設定同様で、ここで設定しないとタ�
 - 未指定の Jsdoc コメント: 警告
 
 厳しく設定します.
-![](/images/eclipse/4.7-oxygen-config/307.png)
+![](/assets/eclipse/4.7-oxygen-config/307.png)
 
 
 ### [JavaScript] - [バリデーター] - [エラー/警告]
@@ -87,7 +87,7 @@ Java エディター の タブ設定同様で、ここで設定しないとタ�
   - 外部化されていないストリング: 無視
 
 厳しく設定します. この手のものは習慣なので、厳しく設定したとしても習慣化されれば気にもならなくなるので、むしろ設定しておいた方が楽ですね.
-![](/images/eclipse/4.7-oxygen-config/308.png)
+![](/assets/eclipse/4.7-oxygen-config/308.png)
 
 
 ### [JSON] - [JSON ファイル] - [エディター]
@@ -96,7 +96,7 @@ Java エディター の タブ設定同様で、ここで設定しないとタ�
   - インデント・サイズ: 2
 
 JSON は データの表現なので行の幅を縛るより、ありのままで表示してほしいので 行の幅 を `999` に しました. またインデント・サイズは JavaScript の コードに合わせて `2` に しています.
-![](/images/eclipse/4.7-oxygen-config/309.png)
+![](/assets/eclipse/4.7-oxygen-config/309.png)
 
 
 ### [JSON] - [JSON ファイル] - [検証]
@@ -104,7 +104,7 @@ JSON は データの表現なので行の幅を縛るより、ありのまま�
 - スキーマ検証を有効にする: チェック
 
 チェックはしてもらった方が良いので、有効にします.
-![](/images/eclipse/4.7-oxygen-config/310.png)
+![](/assets/eclipse/4.7-oxygen-config/310.png)
 
 
 

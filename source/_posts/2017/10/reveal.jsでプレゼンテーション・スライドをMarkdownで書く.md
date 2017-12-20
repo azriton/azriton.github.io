@@ -7,7 +7,7 @@ tags:
 - reveal.js
 ---
 
-![](/images/misc/pptman.png "パワポマン")
+![](/assets/misc/pptman.png "パワポマン")
 
 プレゼンテーションや発表などで、お話をする際にはプレゼンテーション・スライドを用意するかと思います. 普段 PowerPoint を使って作るケースが多いのですが、最近はコーディングな仕事をしているので、せっかくだから Markdown で スライドづくりをしてみたいと思います.
 
@@ -20,10 +20,10 @@ tags:
 
 ## reveal.js って？
 論より何とかではないですが、まずは [公式デモ](http://lab.hakim.se/reveal-js/) を ざっくり動かしてみるとよいと思います.  プレゼンテーション・スライド風なページが表示されます. キーボードの [→] ボタンを押下ないし、右下のコントロールから [＞] を クリックするとスライドして次のページが表示されます.
-![](/images/remarkjs/revealjs/01.png)
+![](/assets/remarkjs/revealjs/01.png)
 
 少し進んでいくと右下のコントロールに「ｖ」が 表示され、下へもスライドできます.
-![](/images/remarkjs/revealjs/02.png)
+![](/assets/remarkjs/revealjs/02.png)
 
 なんと、これらを Markdown で 書くことができ、Web で 公開までもできるのが、reveal.js に なります.
 基本的な機能どころか、発表でも十分使える機能があります. 以下に主な機能を抜粋します.
@@ -39,7 +39,7 @@ tags:
 - 発表者ツールがあるので、発表時も安心です
 
 発表時は、[S] キー を 発表者ツールを表示し、スライド側をプロジェクタ等に移動して [F] で フルスクリーン表示します.
-![](/images/remarkjs/revealjs/03.png)
+![](/assets/remarkjs/revealjs/03.png)
 
 
 ## HTML ファイル の 作成
@@ -157,7 +157,7 @@ c:\Develop\repos\slack-bot> browser-sync start --server --files **/*
 
 Browsersync が 起動すると、ブラウザで自動的にページが表示されます.
 スライド・マップを見ると単純な例ですが、ちゃんと上下のスライドも使えています.
-![](/images/remarkjs/revealjs/04.png)
+![](/assets/remarkjs/revealjs/04.png)
 
 
 ## パワポマン！

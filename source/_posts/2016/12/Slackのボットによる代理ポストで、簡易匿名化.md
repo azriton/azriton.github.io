@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 ようやく常時稼働するボットを Slack に 常駐できるようになりました. 今回は Slack で 匿名発言する方法について考えたいと思います.
 
@@ -77,14 +77,14 @@ controller.on('direct_message', (bot, message) => {
 
 ## 匿名で発言！
 DIRECT MESSAGES の ボット名をクリックし、発言したい内容を入力します. (つまりボットに対してダイレクト・メッセージを送ります)
-![](/images/slack/anonymizer/01.png)
+![](/assets/slack/anonymizer/01.png)
 
 ダイレクト・メッセージを送るとボットから返事があり、すぐに匿名発言先のチャンネル (ここでは sandbox) に 発言があるハイライトがされます.
-![](/images/slack/anonymizer/02.png)
+![](/assets/slack/anonymizer/02.png)
 
 チャンネルを開くと、先ほどボットにダイレクト・メッセージした内容を、ボットが発言しています.
 匿名発言ができるようになりました.
-![](/images/slack/anonymizer/03.png)
+![](/assets/slack/anonymizer/03.png)
 
 
 

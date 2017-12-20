@@ -7,7 +7,7 @@ tags:
 - Eclipse
 ---
 
-![](/images/eclipse/4.7-oxygen.png "Eclipse Oxygen")
+![](/assets/eclipse/4.7-oxygen.png "Eclipse Oxygen")
 
 今回は、Eclipse 4.7 Oxygen の Java に 関する設定を行っていきます. 今回はかなり長いです. もうちょっとデフォルト設定と気が合えばよいのですが、ついつい設定したくなってしまう...
 引き続き各種設定については、お好みがあると思います. ご参考になれば.
@@ -21,20 +21,20 @@ tags:
 
 ## 設定
 まずは、いつも通り Eclipse の メニュー から [ウィンドウ] - [設定] を クリックし、設定ウィンドウを表示します.
-![](/images/eclipse/4.7-oxygen-config/001.png)
+![](/assets/eclipse/4.7-oxygen-config/001.png)
 
 
 ### [Java] - [インストール済みの JRE]
 Java SE Development Kit(JDK) の パスになっているかを確認します.
 JRE の場合、Java 標準ライブラリーのソースが参照できないため開発に支障があるので、追加してチェックをつけます.
-![](/images/eclipse/4.7-oxygen-config/201.png)
+![](/assets/eclipse/4.7-oxygen-config/201.png)
 
 
 ### [Java] - [エディター] - [入力]
 - 訂正位置で自動的に挿入 - セミコロン: チェック
 
 なるべく自動でやってもらった方が楽なので...
-![](/images/eclipse/4.7-oxygen-config/202.png)
+![](/assets/eclipse/4.7-oxygen-config/202.png)
 
 
 ### [Java] - [エディター] - [保管アクション]
@@ -53,31 +53,31 @@ JRE の場合、Java 標準ライブラリーのソースが参照できない�
 
 保管アクションは、エディタを保存するたびに実行してくれる処理になります. うまく設定することで作業を自動化させたり、チームでの開発で お作法を整えたりできるのでかなり便利です. 厳しくするなら全部チェックしてもよいぐらいですが、このぐらいがバランスが良いように感じます.
 ソース・コードのフォーマットにチェックがついているチームに入ったことがありますが、ちょっと使いにくかった... (たぶん Ctrl + S を かなりの高頻度で押す私が悪い)
-![](/images/eclipse/4.7-oxygen-config/203.png)
+![](/assets/eclipse/4.7-oxygen-config/203.png)
 
 
 ### [Java] - [コード・スタイル] - [コード・テンプレート]
 - 新規メソッドと型のコメントを自動的に追加: チェック
 
 Javadoc の テンプレートが自動で入ってくれるので便利です. ここのテンプレートもしっかり設定したいのですが、今回は設定項目が多いので別途.
-![](/images/eclipse/4.7-oxygen-config/204.png)
+![](/assets/eclipse/4.7-oxygen-config/204.png)
 
 
 ### [Java] - [コード・スタイル] - [フォーマッター]
 [新規] ボタンをクリック
-![](/images/eclipse/4.7-oxygen-config/205.png)
+![](/assets/eclipse/4.7-oxygen-config/205.png)
 
 
 ### [Java] - [コード・スタイル] - [フォーマッター] - [新規プロファイル]
 プロファイル名に任意の名称 (ここでは Formatter) を 入力し、[OK] ボタンをクリック
-![](/images/eclipse/4.7-oxygen-config/206.png)
+![](/assets/eclipse/4.7-oxygen-config/206.png)
 
 
 ### [Java] - [コード・スタイル] - [フォーマッター] - [Formatter プロファイル]
 - タブ・ポリシー: スペースのみ
 
 実は Java エディター の タブ設定は、ここに隠れているのです... 前回の [タブでスペースを挿入: チェック](/2017/08/03/Eclipse-4.7-Oxygenの設定-一般編/#一般-エディター-テキスト・エディター) は 一般エディターで、Java エディター の 設定ではないので注意が必要です.
-![](/images/eclipse/4.7-oxygen-config/207.png)
+![](/assets/eclipse/4.7-oxygen-config/207.png)
 
 
 ### [Java] - [コンパイラー] - [Javadoc]
@@ -97,7 +97,7 @@ Javadoc の テンプレートが自動で入ってくれるので便利です. 
 
 ひたすら厳しく設定しています. Javadoc は Protected 以上は書くようにし、書くからには厳しくチェックです.
 よく「コードを見ればわかるでしょ」って言われるのですが、それはコードを見る側が言う言葉で、コードを見てもらう側がいう言葉ではないと思っています. 私の周辺だと、この違いがスキルにも大きく表れているように感じます.
-![](/images/eclipse/4.7-oxygen-config/208.png)
+![](/assets/eclipse/4.7-oxygen-config/208.png)
 
 
 ### [Java] - [コンパイラー] - [エラー/警告]
@@ -109,7 +109,7 @@ Javadoc の テンプレートが自動で入ってくれるので便利です. 
   - ボクシングおよびアンボクシング変換: 無視
 
 ここも厳しく設定しています. 最初から厳しくし設定しておけば習慣化しますし、コードレビューの際に不要なチェックや雑音というか不要なノイズが減るので、ちゃんと本質を見てもらいやすくなります.
-![](/images/eclipse/4.7-oxygen-config/209.png)
+![](/assets/eclipse/4.7-oxygen-config/209.png)
 
 
 ### [Java] - [ビルド・パス]
@@ -117,7 +117,7 @@ Javadoc の テンプレートが自動で入ってくれるので便利です. 
 - 出力フォルダー名: target/classes
 
 Maven の パスに合わせました.
-![](/images/eclipse/4.7-oxygen-config/210.png)
+![](/assets/eclipse/4.7-oxygen-config/210.png)
 
 
 ### [Maven]
@@ -125,21 +125,21 @@ Maven の パスに合わせました.
 
 Java 開発をする場合は、Maven/Gradle は 使うケースが多いかと思います. Eclipse の Gradle 設定はあまりないのですが、Maven は 少し設定しておきたいです.
 利用するライブラリーのソースは参照できるようにしておくと便利なのでチェックしておきます. Javadoc は ソースから見れるので Javadoc の ダウンロードは設定してません.
-![](/images/eclipse/4.7-oxygen-config/211.png)
+![](/assets/eclipse/4.7-oxygen-config/211.png)
 
 
 ### [Maven] - [ユーザー・インターフェース]
 - デフォルトの POM エディターで XML ページを開く
 
 GUI エディター より、XML で 見た方が早いので設定しました. GUI エディターは設定するときよりも、Jar の 依存関係を見たりするときに使ってます.
-![](/images/eclipse/4.7-oxygen-config/212.png)
+![](/assets/eclipse/4.7-oxygen-config/212.png)
 
 
 ### [実行/デバッグ] - [コンソール]
 - コンソールのバッファー・サイズ: 200000
 
 少し多めに.
-![](/images/eclipse/4.7-oxygen-config/213.png)
+![](/assets/eclipse/4.7-oxygen-config/213.png)
 
 
 

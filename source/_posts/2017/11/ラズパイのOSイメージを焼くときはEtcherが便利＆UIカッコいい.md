@@ -9,7 +9,7 @@ tags:
 - Google AIY
 ---
 
-![](/images/raspi/etcher/etcher.png "Etcher")
+![](/assets/raspi/etcher/etcher.png "Etcher")
 
 [Google AIY Voice Kit を 組み立てた](/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/) ので、OS の イメージを用意して起動、と行きたいところですが、OS イメージ を マイクロ SD に 焼く方法が気になったので確認と整理します.
 
@@ -47,14 +47,14 @@ Etcher は Raspbian 公式ドキュメント の [INSTALLING OPERATING SYSTEM IM
 ## インストール
 Etcher の ウェブサイト [https://etcher.io/](https://etcher.io/) へ アクセスします.
 すでに OS を 判別してダウンロードボタンを作ってくれていますので、ボタンをクリックしてダウンロードします.
-![](/images/raspi/etcher/01.png)
+![](/assets/raspi/etcher/01.png)
 
 チェックサムは見つからなかったので確認できず. 残念.
 ダウンロードしたファイルをダブルクリックしてインストーラを起動します.
-![](/images/raspi/etcher/02.png)
+![](/assets/raspi/etcher/02.png)
 
 ライセンスの確認が表示されるので、内容を確認し同意できるようだったら [同意する] ボタンをクリックして進めます. 同意できなかったら利用できません. キャンセルしましょう.
-![](/images/raspi/etcher/03.png)
+![](/assets/raspi/etcher/03.png)
 
 特に選択しなくインストールが進み、Etcher が 自動的に起動します.
 
@@ -62,30 +62,30 @@ Etcher の ウェブサイト [https://etcher.io/](https://etcher.io/) へ ア�
 ## イメージを焼く、前に設定をしておく
 さっそく SD カード に Google AIY Voice Kit の イメージを焼きたいところですが、ちょっと設定をしておきます.
 ウィンドウ右上、⚙ 歯車 の アイコンをクリックします.
-![](/images/raspi/etcher/04.png)
+![](/assets/raspi/etcher/04.png)
 
 設定が表示されるので、[Eject on success] の チェックを外します.
 ここにチェックがついていると、イメージを焼いた後に SD カード の マウントを解除してしまうため、Raspbian の OS イメージを焼いた後に `ssh` ファイルを作成するのに、SD カードの入れ直しが必要になってしまうためです.
 チェックを外したらウィドウ右上 [< Back] を クリックして戻ります.
-![](/images/raspi/etcher/05.png)
+![](/assets/raspi/etcher/05.png)
 
 ウィンドウ中段 の 左 [Select image] を クリックし、焼きたい OS イメージを選択します.
 `img` や `iso` だけでなく、`zip`, `bz2`, `dmg`, `dsk`, `etch`, `gz`, `hddimg`, `raw`, `rpi-sdimg`, `sdcard`, `xz` などにも対応しています.
 今回は `aiyprojects-2017-09-11.img.xz` を 選択しました. `xz` を 解凍する必要がないので助かります.
-![](/images/raspi/etcher/04.png)
+![](/assets/raspi/etcher/04.png)
 
 イメージを選択すると、フォーカス が ウィンドウ中段 の 右 [Flash!] に 移ります.
 SD Card が 挿入済みのため、一気に [Flash!] へ 進み、事実上 ２ステップです. 素晴らしい！
 なお、ドライブが違う場合は ウィンドウ中央 の [Change] から変更できます.
-![](/images/raspi/etcher/06.png)
+![](/assets/raspi/etcher/06.png)
 
 用意ができたら [Flash!] を クリックし、焼きます.
 ところで、なんでここは Burn じゃないんだろう...
-![](/images/raspi/etcher/07.png)
+![](/assets/raspi/etcher/07.png)
 
 しばらく待つと焼き終わります.  フォーマット と 検証 も 自動的に行っておいてくれるので簡単です.
 何よりこれ一つで終わりというのがいいですね.
-![](/images/raspi/etcher/08.png)
+![](/assets/raspi/etcher/08.png)
 
 
 ## Raspbian / Google AIY Voice Kit SD image の 初期ファイル配置
@@ -95,7 +95,7 @@ SD カード が 焼き終わったら、必要に応じて エクスプロー�
 SSH で アクセスできるようにするには `ssh` というファイルを置いておく必要があります.
 エクスプローラーの右クリック から [新規作成] を 選択し、適当なファイルを選択して、ファイル名を `ssh` に して作成します. 
 “拡張子を変更すると、ファイルが使えなくなる可能性があります。” と 警告表示されますが、今回は特に問題ないので [はい] を クリックします.
-![](/images/raspi/etcher/09.png)
+![](/assets/raspi/etcher/09.png)
 
 このあたりにつきましては、下記の記事も合わせてご参照いただければ幸いです.
 - [Raspbian Jessie Lite の インストール](/2016/11/19/Raspbian-Jessie-Liteのインストール/)
@@ -105,7 +105,7 @@ SSH で アクセスできるようにするには `ssh` というファイル�
 ### Wi-Fi 設定 の wpa_supplicant.conf ファイル
 Raspberry Pi 3 や Raspberry Pi Zero W を 使う場合は Wi-Fi が 利用できます.
 あらかじめ `wpa_supplicant.conf` ファイルを用意しておくことで、起動時に 所定の場所である `/etc/wpa_supplicant/wpa_supplicant.conf` へ ファイルを移動し Wi-Fi へ 接続しておいてくれます.
-![](/images/raspi/etcher/10.png)
+![](/assets/raspi/etcher/10.png)
 
 ファイルの内容は以下で、 `ssid` と `psk` に 接続する Wi-Fi の 設定を記述します.
 ファイルの改行コードは Windows の `CRLF` ではなく `LF` のため、メモ帳ではなく改行コードが設定できるエディタを使います.

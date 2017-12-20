@@ -7,7 +7,7 @@ tags:
 - Windows
 ---
 
-![](/images/misc/cyber.jpg "Cyber Space")
+![](/assets/misc/cyber.jpg "Cyber Space")
 
 最近、利用するネットワーク環境が変えることが多くなり、プロキシ設定がめんどくさくなってきたのでスクリプトを作ってみました.
 
@@ -108,32 +108,32 @@ WScript.Quit(ret);
 
 ## タスク スケジューラ に 設定
 スタートメニュー で "タスク" で 検索すると、タスク スケジューラ が でてきます.
-![](/images/windows/proxy-config-task/01.png)
+![](/assets/windows/proxy-config-task/01.png)
 
 タスク スケジューラ ウィンドウ 右 の 操作 から、[タスクの作成] を クリックします. ("基本タスクの作成"ではないこと、注意です)
-![](/images/windows/proxy-config-task/02.png)
+![](/assets/windows/proxy-config-task/02.png)
 
 タスクの作成 の [全般]タブ で、タスクの名前を設定します. ここでは Configure Proxy としました.
-![](/images/windows/proxy-config-task/03.png)
+![](/assets/windows/proxy-config-task/03.png)
 
 [条件]タブ を 表示し、[電源] に ついているチェックを外します.
 チェックがついていると外出時などでネットワーク構成が変わっているときなど、肝心な時に動作してくれなくなるので大事です.
-![](/images/windows/proxy-config-task/04.png)
+![](/assets/windows/proxy-config-task/04.png)
 
 [操作]タブ を 表示し、[新規] ボタンをクリックします.
-![](/images/windows/proxy-config-task/05.png)
+![](/assets/windows/proxy-config-task/05.png)
 
 [プログラム/スクリプト] に 先ほど作成した ラッパー・スクリプト `ps-executer-for-task-scheduler.js` を 指定します.
 [引数の追加] に PowerShell 本体 の `configure-proxy.ps1` を ダブルクォートで囲って入力します.
 最後に、[開始] に スクリプトがあるディレクトリを入力します.
 ここでは、`C:\Temp\windows-proxy-config-task` ディレクトリにスクリプトがにあるものとして設定しています.
-![](/images/windows/proxy-config-task/06.png)
+![](/assets/windows/proxy-config-task/06.png)
 
 入力できたら [OK] ボタンをクリックして戻ります.
-![](/images/windows/proxy-config-task/07.png)
+![](/assets/windows/proxy-config-task/07.png)
 
 [トリガー] タブ を 表示し、[新規] ボタンをクリックします. (ここから先は操作が重くなったり、処理に時間がかかったりすることがあります)
-![](/images/windows/proxy-config-task/08.png)
+![](/assets/windows/proxy-config-task/08.png)
 
 [タスクの開始] で `イベント時` を 選択します.
 
@@ -144,23 +144,23 @@ WScript.Quit(ret);
 
 詳細設定で、[遅延時間を指定する] を 念のため `1 秒間` に しておきます.
 ネットワークが切り替わった後に発動するので問題ないはずですが、ちょっとだけ待ってから動かします.
-![](/images/windows/proxy-config-task/09.png)
+![](/assets/windows/proxy-config-task/09.png)
 
 設定したら OK を クリックします.
 
 ※ 上記で設定した イベント ID の `10000` は ネットワークに接続された場合に通知される ID に なります. ネットワーク切断時 は `10001` です.　ソフトウェア で ネットワーク接続を切り替え、切断して元のネットワークに戻った場合にもタスクを実行したい、といったケースがある場合は、再度 [新規] を クリックして ID `10001` で 同じものを登録しておきます.
-![](/images/windows/proxy-config-task/10.png)
+![](/assets/windows/proxy-config-task/10.png)
 
 タスク スケジューラ の ウィンドウに戻ります.
 ウィンドウ 左 から [タスク スケジューラ ライブラリ] を クリックすると、今回登録したタスクが表示されます.
-![](/images/windows/proxy-config-task/11.png)
+![](/assets/windows/proxy-config-task/11.png)
 
 ウィンドウ 中央 下段 から [履歴] タブを選択するとタスクのログが見れます.
 まずは登録されたログが表示されています.
-![](/images/windows/proxy-config-task/12.png)
+![](/assets/windows/proxy-config-task/12.png)
 
 ネットワークを切り替え、ログのテーブル表示部分から 右クリック [最新の情報に更新] を すると、登録したタスクが実行されていることが確認できます.
-![](/images/windows/proxy-config-task/13.png)
+![](/assets/windows/proxy-config-task/13.png)
 
 
 ## リポジトリ

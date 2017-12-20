@@ -7,7 +7,7 @@ tags:
 - Python
 ---
 
-![](/images/python/python3.png "Python 3")
+![](/assets/python/python3.png "Python 3")
 
 Python を 使うことになり、初めてなので インストール・メモ. ちょっとしたメモでも仲間が増えたときに、こんな感じで～って説明できるので残しておくことにしたことはないですね.
 
@@ -24,11 +24,11 @@ Pyhton は 2.x と 3.x があります. 今回はまったく新しく使い始�
 
 ## インストール手順
 Python の トップページ や Downloads の メニュー、Downloads ページ にある [Download Python 3.6.2] は、OS を 自動判定して適切なインストーラーをダウンロードさせてくれるのですが、こちらからだと 32bit 版 が ダウンロードされます. そのため こちらからはダウンロードはせず、Windows 版のダウンロード・ページから 64bit 版 を 選択してダウンロードします.
-![](/images/python/install-3.6/01.png)
+![](/assets/python/install-3.6/01.png)
 
 Windwos 版 の ダウンロード・ページ [Python Releases for Windows | Python.org](https://www.python.org/downloads/windows/) [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/) へ アクセスします.
 こちらから `Windows x86-64 executable installer` を ダウンロードします.
-![](/images/python/install-3.6/02.png)
+![](/assets/python/install-3.6/02.png)
 
 チェックサムの確認は [Python 3.6.2 - 2017-07-17](https://www.python.org/downloads/release/python-362/) リンクから [Python Release Python 3.6.2 | Python.org](https://www.python.org/downloads/release/python-362/) 画面へ行き、画面中段の Files に MD5 Sum が 記載されています. 今回ダウンロードした `Windows x86-64 executable installer` は `4377e7d4e6877c248446f7cd6a1430cf` です.
 確認方法は Windows PowerShell 4.0 以降の `Get-FileHash` コマンドを使います.
@@ -41,26 +41,26 @@ MD5        4377E7D4E6877C248446F7CD6A1430CF
 ```
 
 ダウンロードした `python-3.6.2-amd64.exe` を ダブルクリックして、インストーラーを起動します.
-![](/images/python/install-3.6/03.png)
+![](/assets/python/install-3.6/03.png)
 
 `PATH` は 追加しておいた方が便利なので、[Add Python 3.6 to PATH] に チェックをつけます.
 インストール・オプションを指定したいので [Customize installation] を クリックしてインストールを進めます.
-![](/images/python/install-3.6/04.png)
+![](/assets/python/install-3.6/04.png)
 
 Optional Features では、特に変更せず [Next] ボタンをクリックして進みます.
-![](/images/python/install-3.6/05.png)
+![](/assets/python/install-3.6/05.png)
 
 Advanced Options では、以下を設定し、[Install] ボタンをクリックします.
 - [Install for all users] を チェック
 - [Precompile standard library] を チェック (Install for all users チェックすると自動で付く)
 - [Customize install location] を 必要に応じて設定 (私は C:\Develop 以下にまとめるのが好きなので設定)
-![](/images/python/install-3.6/06.png)
+![](/assets/python/install-3.6/06.png)
 
 
 インストールが完了しました.
 [Disable path length limit] を すると、[Windows の パスの長さ(ドライブ・レター、フォルダ、ファイル名) が 260文字に制限されている](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#maxpath) のを解除できます. Windows 10 で、この MAX_PATH が 解除できるようになったため Python 3.6 で 追加された機能([Issue 27731: Opt-out of MAX_PATH on Windows 10 - Python tracker](https://bugs.python.org/issue27731)) になります.
 パスが長くなるようでしたら設定します. 今回は長くなる想定が無いので選択しませんでした.
-![](/images/python/install-3.6/07.png)
+![](/assets/python/install-3.6/07.png)
 
 
 ## 動作確認

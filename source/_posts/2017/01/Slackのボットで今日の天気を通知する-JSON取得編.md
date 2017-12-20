@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 ボットを使って、Slack に 今日の天気を通知してもらうようにしたいと思います.
 天気関連はいろいろなサービスがあり、それを使うのも手なのですが自分でカスタマイズした細かいところにこだわったツールにしたいと思うので、ボットに教えてもらうことにします.
@@ -29,7 +29,7 @@ tags:
 - 現在の天気 に 加え、3時間ごと 5日間の予報が使える
 - 天気情報の更新 は **2時間以内**
 ※ 情報の更新について、Wikipedia に 10分以内となってますが、10分以内は Pro 以上で、Free は 2時間以内となっている
-![](/images/slack/weather/01.png)
+![](/assets/slack/weather/01.png)
 
 *参考情報*
 天気情報が提供されているサービスについては、こちらのサイトを参考にさせて頂きました. 素晴らしい情報 ありがとうございます！
@@ -39,14 +39,14 @@ tags:
 ## API キー の 取得
 OpenWeatherMap の Sing Up サイト [https://home.openweathermap.org/users/sign_up](https://home.openweathermap.org/users/sign_up) へ アクセスします.
 全ての項目を入力、ToS/PP を 確認し同意したら `I agree ~~~` に チェックして、[Create Account] ボタンをクリックします.
-![](/images/slack/weather/02.png)
+![](/assets/slack/weather/02.png)
 
 利用目的を聞かれるので、法人利用の場合は [Company] も 入力し、[Purpose] を 選択します.
-![](/images/slack/weather/03.png)
+![](/assets/slack/weather/03.png)
 
 無事、API キー が 発行されました.
 Welcome メール は 届きますが URL クリックによる認証などがなく、簡単にサインアップさせてくれるので助かります.
-![](/images/slack/weather/04.png)
+![](/assets/slack/weather/04.png)
 
 
 ## 現在の天気情報を取得する
@@ -177,7 +177,7 @@ OpenWeatherMap の 天気情報および予報について、取得する都市�
 また、公式にも "We recommend to call API by city ID to get unambiguous result for your city. -- [OpenWeatherMap](http://openweathermap.org/current#cityid)" と 謳われているので、都市 ID で 指定したほうがよいのでしょう.
 
 都市 ID は [http://bulk.openweathermap.org/sample/](http://bulk.openweathermap.org/sample/) から取得します.
-![](/images/slack/weather/05.png)
+![](/assets/slack/weather/05.png)
 
 `city.list.json.gz` が 都市情報のデータになります.
 全世界の都市データが入っており、2017年1月現在で 全 209,578 件 で、`"country":"JP"` でも 1,402件です. すごい.

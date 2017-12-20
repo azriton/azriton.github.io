@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 [Crystal Signal Pi が 届いた](/2017/03/04/CrystalSignalPiが届いた！/) ので、さっそく Raspbian を セットアップし、Crystal Signal Pi の ソフトウェアを入れて発光色を変えてみたいと思ったところ、まさかの SSH ログインができないというトラブルがあり、意外とはまったのでメモしておきます.
 
@@ -95,10 +95,10 @@ SSH は デフォルトで起動しないようになっていて、ブート・
 Windows からは、エクスプローラー で SD カード の ドライブを開いて、"ssh" というファイルを作ります.
 
 作るファイルのもとは何でもよく拡張子を削除して作るだけになります. 今回はビットマップ イメージを選び、最初から入力されていた `新しいビットマップ イメージ.bmp` を 消して `ssh` としました. "拡張子を変更すると、ファイルが使えなくなる可能性があります。" と 警告表示されますが、今回は特に問題ないので [はい] を クリックして進めます.
-![](/images/raspi/raspbian-jessie-lite/11.png)
+![](/assets/raspi/raspbian-jessie-lite/11.png)
 
 "ssh" というファイルが置かれました. これで完了、後は起動するだけです.
-![](/images/raspi/raspbian-jessie-lite/12.png)
+![](/assets/raspi/raspbian-jessie-lite/12.png)
 
 
 ## 関連する記事の更新

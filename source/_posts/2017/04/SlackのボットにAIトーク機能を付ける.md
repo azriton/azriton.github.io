@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack の ボット で 自然言語での会話できるようにしてみたいという野望があるものの、個人ではなかなか太刀打ちできません. こんなときは巨人の肩、ですね. というこで、最近公開された リクルートテクノロジーズさん の AI を 使って、Slack の ボットにトーク機能を付けてみたいと思います. はたしてちゃんと会話が成立するボットになるのか、楽しみですね♪
 
@@ -29,24 +29,24 @@ Slack の ボット で 自然言語での会話できるようにしてみた�
 さっそく、A3RT Talk API を 利用するために、API KEY を 発行してもらいます.
 
 [Talk API](https://a3rt.recruit-tech.co.jp/product/talkAPI) の ページへアクセスし、[API KEY 発行] を クリックします.
-![](/images/slack/a3rt-talk/01.png)
+![](/assets/slack/a3rt-talk/01.png)
 
 メール確認の入力ページが表示されるので、まずは [利用規約、プライバシーポリシーに同意する] を クリックします.
-![](/images/slack/a3rt-talk/02.png)
+![](/assets/slack/a3rt-talk/02.png)
 
 画面内にウィンドウが表示され、利用規約 と プライバシーポリシー が 表示されます. 確認して、同期できたら [同意する] ボタン を クリックします. 同意できない場合は利用できないので、その場合は利用をあきらめましょう...
-![](/images/slack/a3rt-talk/03.png)
+![](/assets/slack/a3rt-talk/03.png)
 
 利用規約 と プライバシーポリシー に 同意すると、ウィンドウが閉じるので、利用者申請をするメールアドレスを入力し、[送信] ボタンをクリックします.
-![](/images/slack/a3rt-talk/04.png)
+![](/assets/slack/a3rt-talk/04.png)
 
 ステップ２へ進み、確認メールが送信されたとの画面が表示されます.
 ここで、先ほど入力したアドレスにメールが届くのを待ちます.
-![](/images/slack/a3rt-talk/05.png)
+![](/assets/slack/a3rt-talk/05.png)
 
 メールに書かれている URL へ アクセスすると、メールアドレスの確認完了の画面が表示されます. 続いて同じメールアドレスに API KEY が 送られてきます.
 API KEY を 受け取ったら、申請完了になります.
-![](/images/slack/a3rt-talk/06.png)
+![](/assets/slack/a3rt-talk/06.png)
 
 
 ## Slack の ボット に 設置
@@ -114,7 +114,7 @@ node index.js
 
 
 ## トーク、トーク♪
-![](/images/slack/a3rt-talk/07.png)
+![](/assets/slack/a3rt-talk/07.png)
 Slack の 入力に対してちゃんと応答してくれました！ 会話がかみ合っているような、そうでもないようなのは気にしないでおきましょう.
 
 

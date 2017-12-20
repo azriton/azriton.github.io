@@ -8,7 +8,7 @@ tags:
 - GitHub
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 [Hexo の フィード出力を設定](/2016/11/07/Hexoのフィードとサイトマップを設定/)した際に、設定項目で気になったものがありました. "hub - URL of the PubSubHubbub hubs (Leave it empty if you don't use it) -- [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)" です.
 
@@ -28,7 +28,7 @@ PubSubHubbub は、分散型 の パブリッシュ(発行)/サブスクライ�
 
 ざっくり言うと、情報の提供者と利用者の間にハブを置くことで、それぞれが分離した作業ができるようにし、またプッシュ型にすることで情報の利用者が提供者のサーバへ定期的なポーリングせず不要な負荷を下げることができるようになります.
 利用例として[気象庁の電文公開](http://xml.kishou.go.jp/open_trial/guidance.html)があります.
-![](/images/hexo/pubsubhubbub/01.png)
+![](/assets/hexo/pubsubhubbub/01.png)
 
 今回は、この仕組みを使い [Google PubSubHubbub Hub](http://pubsubhubbub.appspot.com/) へ ブログの更新情報をプッシュし、Google の クローラー へ ブログの更新に関する情報を購読してもらいます. これによって Google の クローラー が 定期的にブログの更新を確認しに来てくれていたのを、こちらからクローラーへ来てもらうことができるようになります.
 
@@ -48,7 +48,7 @@ feed:
 ```
 
 `hexo generate` で サイトを再生成してローカルサーバ [http://localhost:4000/atom.xml](http://localhost:4000/atom.xml) でフィードを確認してみると、`<link href="http://pubsubhubbub.appspot.com" rel="hub"/>` が 増えているのが分かります.
-![](/images/hexo/pubsubhubbub/02.png)
+![](/assets/hexo/pubsubhubbub/02.png)
 
 
 ## GitHub の Webhook で PubSubHubbub 通知設定
@@ -56,7 +56,7 @@ hexo-generator-feed の 設定はフィードの出力設定で、PubSubHubbub �
 GitHub Pages で ウェブサイトを公開しているので、今回は GitHub の Webhook を 使って更新時にハブへ通知するようにしたいと思います.
 
 GitHub リポジトリ の Setting ページ から、Webhooks を 表示し、右側の [Add webhook] ボタンをクリックします.
-![](/images/hexo/pubsubhubbub/03.png)
+![](/assets/hexo/pubsubhubbub/03.png)
 
 以下の情報を入力し、[Add webhook] ボタンをクリックします.
 
@@ -71,14 +71,14 @@ GitHub リポジトリ の Setting ページ から、Webhooks を 表示し、�
 心配な場合は [https://pubsubhubbub.appspot.com/publish](https://pubsubhubbub.appspot.com/publish) で 正しいか検証することができます.
 
 また [Which events...] は `Page build` だけにし、GitHub Pages の ページがビルドされた時だけ通知するようにします. Push だと、ドラフトの記事を GitHub に 上げた際にも通知されてしまい、不要な通知がハブへ行ってしまいます.
-![](/images/hexo/pubsubhubbub/04.png)
+![](/assets/hexo/pubsubhubbub/04.png)
 
 Webhook が 追加されました. タイミングによっては通知のテストが行われておらずチェックがついてません. URL 部分をクリックし設定から通知テストを確認するかリロードして確認します.
-![](/images/hexo/pubsubhubbub/05.png)
+![](/assets/hexo/pubsubhubbub/05.png)
 
 通知テストの結果は Wehbook の 設定画面の一番下にあり、Response が `204` に なっていれば成功です.
 実動作の確認としては CircleCI から再ビルドするか、`hexo deploy` で サイトを更新します. 正しくデプロイできると、この画面 の Recent Deliveries が増えます.
-![](/images/hexo/pubsubhubbub/06.png)
+![](/assets/hexo/pubsubhubbub/06.png)
 
 
 

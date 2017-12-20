@@ -7,7 +7,7 @@ tags:
 - GitHub
 ---
 
-![](/images/github/github.png "GitHub")
+![](/assets/github/github.png "GitHub")
 
 GitHub の Private Repository に 置いてあるソース を clone させて使いたいケースがあります. そんな場合はデプロイキーを使うことで Read-only な clone を 許せます.
 
@@ -55,14 +55,14 @@ The key's randomart image is:
 ## GitHub の リポジトリ に Deploy Key を 追加
 Deploy Key を 登録するリポジトリの設定 `https://github.com/[username]/[repository]/settings/keys` に アクセスします. ウェブからは [Settings] - [Deploy keys] を たどります.
 画面から [Add deploy key] ボタンをクリックします.
-![](/images/github/deploy/01.png)
+![](/assets/github/deploy/01.png)
 
 Deploy Key 追加画面が表示されるので、[Title] に この鍵のタイトルを付けます. [Key] に `id_ed25519.pub` の 内容(※ `id_ed25519`**(.pub なし) ではない**ことに注意)を貼り付けます.
 今回は Read-only の Deploy Key にするため、[Allow write access] は チェックせず、[Add key] を クリックします.
-![](/images/github/deploy/02.png)
+![](/assets/github/deploy/02.png)
 
 GitHub に Deploy Key が 追加されました. `Read-only` が ついているところがポイントになります.
-![](/images/github/deploy/03.png)
+![](/assets/github/deploy/03.png)
 
 
 ## Deploy Key の 利用

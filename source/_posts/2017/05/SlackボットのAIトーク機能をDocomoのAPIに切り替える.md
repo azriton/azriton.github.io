@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack の ボット を リクルートテクノロジーズさん の API を 使って[自然言語での会話できるよう](/2017/04/20/SlackのボットにAIトーク機能を付ける/)にしてみました. AI が 流行っている 2017年昨今、様々なサービスがあるのでいろいろ試してみたいと思います. 今回は NTTドコモさん の [AIトーク の API](https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=dialogue&p_name=api_usage_scenario) を 試してみました.
 
@@ -31,33 +31,33 @@ Slack の ボット を リクルートテクノロジーズさん の API を �
 API の 利用にあたり、まずは docomo Developer support に ユーザ登録する必要があります.
 
 [ログイン](https://dev.smt.docomo.ne.jp/?p=login) の ページへアクセスし、SNSアカウントでログイン / 新規登録 を します. 今回は [メールアドレスで新規登録] 選択しました.
-![](/images/slack/docomo/01.png)
+![](/assets/slack/docomo/01.png)
 
 メールアドレスの入力ページが表示されるので、[メールアドレス] と [確認用] に それぞれ 入力します.
 [所属されている法人・組織に関する情報を登録する] は、今回は個人利用なのでチェックを外しました. 登録すると利用制限が緩和されるようです. 最初からチェックが入っており、会社名などが必須で表示されているので焦りますが、チェックを外すことで会社名などの項目は消えます.
 最後に [文字認証] の 画像に表示されている文字列を入力し、利用規約を確認し、同意できたら [同意して確認画面へ] ボタンをクリックします.
-![](/images/slack/docomo/02.png)
+![](/assets/slack/docomo/02.png)
 
 確認画面が表示されるので、メールアドレスに間違えがないか確認し [仮登録する] ボタンをクリックします.
-![](/images/slack/docomo/03.png)
+![](/assets/slack/docomo/03.png)
 
 メール送付のステップに進み、確認メールが送信されたとの画面が表示されます.
 ここで、先ほど入力したアドレスにメールが届くのを待ちます.
-![](/images/slack/docomo/04.png)
+![](/assets/slack/docomo/04.png)
 
 メールに書かれている URL へ アクセスすると、パスワード入力の画面が表示されます. 注意事項に従ったパスワードを決め入力し [パスワードを設定する] ボタンをクリックします.
-![](/images/slack/docomo/05.png)
+![](/assets/slack/docomo/05.png)
 
 パスワードが設定できると、新規アカウント登録完了の画面が表示します. 続いて API key を 取得するので、[ログインする] ボタンをクリックします.
-![](/images/slack/docomo/06.png)
+![](/assets/slack/docomo/06.png)
 
 
 ## 雑談対話 API の 利用申請 と API key の 取得
 アカウント作成の流れから [ログイン画面](https://dev.smt.docomo.ne.jp/?p=login) は 表示されますが、自動ログインや入力はないので、先ほど取得した アカウントのメールアドレスとパスワードでログインします.
-![](/images/slack/docomo/07.png)
+![](/assets/slack/docomo/07.png)
 
 マイページ画面が表示されるので、画面中ほどの API利用申請・管理 から [新規API利用申請へ] ボタンをクリックします.
-![](/images/slack/docomo/08.png)
+![](/assets/slack/docomo/08.png)
 
 アプリケーションの登録画面が表示されるので、情報を入力します.
 審査の話が書かれていますが、今回はすぐに API key が 発行されました.
@@ -66,19 +66,19 @@ API の 利用にあたり、まずは docomo Developer support に ユーザ登
 コールバック URL は、今回は OAuth を 使わないので注釈の通り `https://dummy` と 入力しました. OAuth を 使うと、個人に応じた会話をしてくれるようです.
 提供者名とサポートメールアドレスは OAuth 画面で使われるようで、今回は OAuth は 使わないのですが必須なので入力します.
 入力後 [API 機能選択へ] ボタンをクリックします.
-![](/images/slack/docomo/09.png)
+![](/assets/slack/docomo/09.png)
 
 API 機能選択画面が表示されます. 今回は [雑談対話] のみを選択し [利用する API の 利用規約に同意して、次へ] ボタンをクリックします. 同意すべき利用規約が画面内にないのですが、アカウント作成時に同意した [ご利用規約](https://dev.smt.docomo.ne.jp/?p=policy) で よいのかと思います.
-![](/images/slack/docomo/10.png)
+![](/assets/slack/docomo/10.png)
 
 利用規約に同意できたら、利用申請画面が表示されます. 選択した機能が表示されていることを確認し [利用申請する] ボタンをクリックします.
-![](/images/slack/docomo/11.png)
+![](/assets/slack/docomo/11.png)
 
 利用申請が完了しました！ 続いて API key を 確認するため [登録アプリケーション一覧へ] ボタンをクリックします.
-![](/images/slack/docomo/12.png)
+![](/assets/slack/docomo/12.png)
 
 API利用申請・管理 画面が表示されます. アプリケーション情報 に 先ほど登録したアプリケーション名があり、client id、client secret、API key が 表示されています. 今回は API key のみ使用するので控えておきます.
-![](/images/slack/docomo/13.png)
+![](/assets/slack/docomo/13.png)
 
 
 ## Slack の ボット を 改修
@@ -146,7 +146,7 @@ node index.js
 
 
 ## トーク、トーク♪
-![](/images/slack/docomo/14.png)
+![](/assets/slack/docomo/14.png)
 [前回](/2017/04/20/SlackのボットにAIトーク機能を付ける/#トーク、トーク♪)の流れ同様の会話で始めましたが、いきなりよくわからない応答です. そして好きなんですかね、オフィス街...
 会話が詰まってくると疑問を投げかけてきて話題を変えるような応答もしてきます. これはこれで面白い感じです.
 

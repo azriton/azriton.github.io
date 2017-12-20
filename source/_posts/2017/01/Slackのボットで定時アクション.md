@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack に 設置したボットを一定時間ごとに発言するようにしたいと思います.
 定時アクションができるようになると、天気の情報を毎朝ポストしてもらうなど活用の幅が広がります.
@@ -74,7 +74,7 @@ controller.spawn({
 
 ## 実行！
 通常通り起動し、`cronTime` で 指定した時間を待ちます. 無事、ボットが挨拶をしてくれたでしょうか！？
-![](/images/slack/bot/cron.png)
+![](/assets/slack/bot/cron.png)
 
 
 

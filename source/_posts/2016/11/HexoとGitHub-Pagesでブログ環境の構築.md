@@ -8,7 +8,7 @@ tags:
 - GitHub
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 調べものメモや環境構築の記録などを残しておく場所がほしいと考えて調べていたところ、GitHub Pages と Hexo の 組み合わせ が よさそうなので、早速調べつつ記録を残してみたいと思います.
 
@@ -149,7 +149,7 @@ INFO  Deploy done: git
 ```
 
 デプロイ完了後、`https://[username].github.io` で アクセスするとデフォルトの Hello World 記事が見れます.
-![](/images/hexo/hexo-3.2-hello-world.png "Hexo")
+![](/assets/hexo/hexo-3.2-hello-world.png "Hexo")
 
 
 ## ウェブサイト の ソース を GitHub で 管理

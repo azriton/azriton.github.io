@@ -10,7 +10,7 @@ tags:
 - Visual Studio Code
 ---
 
-![](/images/vscode/visual-studio-code.png "Visual Studio Code")
+![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 [Visual Studio Code の 開発環境を整理](/2017/08/18/Visual-Studio-Codeのインストール/)し始めました. Visual Studio Code は Git を サポートしていますが別途インストールする必要があります. 今回は Git for Windows Portable を 導入します.
 
@@ -27,7 +27,7 @@ tags:
 
 ## インストール手順
 git-for-windows の GitHub 最新のリリース [https://github.com/git-for-windows/git/releases/latest](https://github.com/git-for-windows/git/releases/latest) へ アクセスします. Git の ウェブサイト [https://git-scm.com/](https://git-scm.com/) の ダウンロード・ページへ行ってもよいのですが、自動ダウンロードが動作することと、チェックサムが無いので、ダウンロード・ページが見ている GitHub の リリース・ページからダウンロードしました.
-![](/images/vscode/install-git/01.png)
+![](/assets/vscode/install-git/01.png)
 
 例によって Windows PowerShell の `Get-FileHash` コマンドでチェックサムを確認します.
 先のリリースページに記載されている PortableGit-2.14.0.2-64-bit.7z.exe の チェックサムは `5236c21de3cdf52b538322de0b0444f6cd49a5bae6006ea89f0683598cbda7ac` でした.
@@ -40,10 +40,10 @@ SHA256     5236C21DE3CDF52B538322DE0B0444F6CD49A5BAE6006EA89F0683598CBDA7AC
 ```
 
 ダウンロードした [PortableGit-2.14.0.2-64-bit.7z.exe] を ダブルクリックして、7-Zip の 自己解凍ウィザードを起動します.
-![](/images/vscode/install-git/02.png)
+![](/assets/vscode/install-git/02.png)
 
 解凍先を聞かれるので任意のフォルダを指定します. 今回は `C:\Develop\tool\PortableGit` に しました.
-![](/images/vscode/install-git/03.png)
+![](/assets/vscode/install-git/03.png)
 
 環境変数 PATH を 設定します.  システムのプロパティから追加してもよいですし、以下のコマンドからも実行可能です.
 ```console

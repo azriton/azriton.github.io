@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 OpenWeatherMap の サービスを使って、[天気情報を取得できる](/2017/01/24/Slackのボットで今日の天気を通知する-JSON取得編/)ようになり、[JSON の 内容も確認](/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/) しました.
 いよいよ Slack の ボットに組み込んで、毎朝の天気を通知してもらいましょう.
@@ -118,7 +118,7 @@ OpenWeatherMap の アイコンを表示する部分になります. `<url|text>
 
 
 ## 通知！
-![](/images/slack/weather/06.png)
+![](/assets/slack/weather/06.png)
 天気が通知されました.
 
 

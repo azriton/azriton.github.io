@@ -11,7 +11,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack の ボット を 自然言語で会話させたり、リマインド系の処理をさせたりと色々できるようになりました. もう少し踏み込んで [Slack の API](https://api.slack.com/methods) を 活用した処理をできるようにしたいと思います. そうなると、これまでの Bot トークンでは権限が足りず、処理ができません. まずは準備として Slack の ボット に OAuth で 権限を追加したいと思います.
 
@@ -30,19 +30,19 @@ OAuth で ボットに権限を追加するには、アプリ・ボット(勝手
 アプリ・ボット作成のページ [https://api.slack.com/apps/new](https://api.slack.com/apps/new) へ アクセスします.
 [App Name] に アプリ・ボット の 名前を入力し、[Development Slack Team] で 自分の Slack チーム を 選択します.
 [I plan to submit~] は、作成したボットを Slack App Directory で 公開する場合にチェックをつけますが、今回はなしで [Create App] ボタンをクリックして進めました.
-![](/images/slack/oauth/01.png)
+![](/assets/slack/oauth/01.png)
 
 アプリ・ボットが作成され基本情報の画面が表示されます. [Client ID] と [Client Secret] は 後で使うのでひかえておきます. Client Secret は [Show] ボタンをクリックすると表示されます. 特に大事なので取り扱いに注意します.
-![](/images/slack/oauth/02.png)
+![](/assets/slack/oauth/02.png)
 
 左メニューから [OAuth & Permission] を クリックし、画面中央の [Redirect URL(s)] に `http://localhost:3000/slack/auth/redirect` を 入力し、[Save Changes] を クリックします.
 これは Slack の OAuth から リダイレクト・バックされる際の URL に なります. 通常はアプリを動かしておくのですが、今回は手動でブラウザ内完結するので `localhost` に しました. 詳細は こちら、[Sign in with Slack](https://api.slack.com/docs/sign-in-with-slack) も ご参照ください.
-![](/images/slack/oauth/03.png)
+![](/assets/slack/oauth/03.png)
 
 続いて Slack に ボットのユーザを追加します. 左メニューから [Bot Users] を クリックします.
 [Default username] に Slack の ボット・ユーザー名を入力します. 既存のユーザー名と重複すると、自動的に連番が付与されるので注意してください.
 入力後 [Add Bot User] を クリックします.
-![](/images/slack/oauth/04.png)
+![](/assets/slack/oauth/04.png)
 
 
 ## OAuth で 権限を追加
@@ -58,11 +58,11 @@ Slack OAuth Helper - [https://azriton.github.io/slack-oauth-helper/](https://azr
 `REPLACE_THIS_WITH_YOUR_OAUTH_SCOPE` は、上記で選択した OAuth Scope を カンマつなぎ (e.g. `bot,channels:history,emoji:read,files:read,files:write:user,users:read`)で置き換えます.
 
 そうすると、Slack の OAuth 権限確認画面が表示されます. 与える権限の内容を確認し問題なければ [Authorize] ボタンをクリックして認可します. (複数の Slack チーム に サインインしている場合はチーム選択が先に表示されるので、アプリ・ボットを使うチームを選択します.)
-![](/images/slack/oauth/05.png)
+![](/assets/slack/oauth/05.png)
 
 ブラウザが `localhost` へ リダイレクトされ、ページが表示できないエラーが表示されます. 慌てずに、アドレスバー の URL から `code` の 値をコピーします.
 ※ このリダイレクトされた先は、先にアプリ・ボットを作成した際に [OAuth & Permission] の [Redirect URL(s)] に 入力したものになります. 本来は OAuth で 連携したアプリに戻してプログラムで処理するのですが、今回は手動でやりきります.
-![](/images/slack/oauth/06.png)
+![](/assets/slack/oauth/06.png)
 
 ブラウザで、`https://slack.com/api/oauth.access?client_id=REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID&client_secret=REPLACE_THIS_WITH_YOUR_APP_CLIENT_SECRET&code=REPLACE_THIS_WITH_COPYED_CODE` へ アクセスします.
 置き換えは以下となります.
@@ -72,7 +72,7 @@ Slack OAuth Helper - [https://azriton.github.io/slack-oauth-helper/](https://azr
 
 正しく入力できるとトークンが含まれた JSON が 返ります. `access_token` と `bot_access_token` を、それぞれひかえておきます.
 `access_token` は Slack の API を 呼び出す際に使うトークンで、`bot_access_token` は ボットを起動する際に使用するトークン(これまで使ってきたトークンと同じ位置づけ) です.
-![](/images/slack/oauth/07.png)
+![](/assets/slack/oauth/07.png)
 
 
 ## とりあえず、ボット を 起動

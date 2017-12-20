@@ -7,7 +7,7 @@ tags:
   - Hexo
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 WordPress などでよく見る「関連記事」の リンク、設置してみたいです. Hexo は 静的サイト・ジェネレーターなので、あらかじめサイトが作られていて訪問いただいた際にデータを蓄積して、それを活用するような仕組みは作れません. JavaScript で 制御できる範囲までです. と、あきらめていたら素晴らしいプラグインを作ってくださっている方がいらっしゃりました！ ということで、さっそく設置してみます.
 
@@ -75,7 +75,7 @@ hexo-related-popular-posts は 関連記事 と 人気記事 の 両方が扱え
 
 ## いざ確認！
 `hexo generate` して ローカルサーバで動作確認すると、`<head>` に Google Analytics のためのコードが追加されています.
-![](/images/hexo/hexo-related-popular-posts.png)
+![](/assets/hexo/hexo-related-popular-posts.png)
 
 
 

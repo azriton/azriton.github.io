@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspberry Pi の [SD 延命化対策](/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/)もでき、だいぶ設定ができました. 最後に細かい設定をしておきたいと思います.
 

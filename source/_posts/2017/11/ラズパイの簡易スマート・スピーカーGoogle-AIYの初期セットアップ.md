@@ -8,7 +8,7 @@ tags:
 - Google AIY
 ---
 
-![](/images/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
+![](/assets/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
 
 [Google AIY Voice Kit を 組み立てた](/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/) ので、さっそく OS の イメージを焼き、初期設定をしたいと思います.
 
@@ -43,17 +43,17 @@ Google AIY プロジェクト の [Voice Kit の ウェブサイト](https://aiy
 `.xz` 形式は Windows の 標準装備では解凍できませんが、こちら [ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい](/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/) で 書きました [Etcher](https://etcher.io/) は 解凍する必要なく直接 SD カード へ 書き込んでくれます. 便利だ！
 
 ということで、Etcher を 起動し、上記ファイルを指定して、Flash します.
-![](/images/raspi/etcher/06.png)
+![](/assets/raspi/etcher/06.png)
 
 
 ## SSH の 有効化 と Wi-Fi の 接続設定
 SD カード を 取り出す前に、SSH と Wi-Fi の 設定をしておきます.
 
 エクスプローラー で SD カード の ドライブを表示し `ssh` ファイルを作成します. 空のファイルで大丈夫です.
-![](/images/raspi/etcher/09.png)
+![](/assets/raspi/etcher/09.png)
 
 同じく SD カードのドライブに `wpa_supplicant.conf` ファイルを作成します.
-![](/images/raspi/etcher/10.png)
+![](/assets/raspi/etcher/10.png)
 
 `wpa_supplicant.conf` ファイルの内容は以下で、 ssid と psk に 接続する Wi-Fi の 設定を記述します.
 ファイルの改行コードは Windows の CRLF ではなく LF のため、メモ帳ではなく改行コードが設定できるエディタを使います.

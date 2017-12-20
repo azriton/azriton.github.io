@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspberry の ベース環境が構築でき、いよいよ自作のアプリや検証などを始めたいところですが、アプリ等の動作環境に当たっては [Docker](https://www.docker.com/) を 使いたいと思います. まずは、その Docker が 動作する環境の構築と動作確認をします.
 

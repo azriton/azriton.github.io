@@ -7,7 +7,7 @@ tags:
   - Hexo
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 ブログ環境の構築で Hexo を 使ってきましたが、いよいよ「ところで、Hexo って 何て読むんだろ？」という疑問が止まらなくなってきました. また公式サイトなどを見ても読み方は言及されていないように思われます. (どっかに書いてあって気づいてないだけ？)
 
@@ -51,7 +51,7 @@ YOMIKATA - ちょっと読み方決めようぜ さん
 
 ## 最後に、Google 先生 は？
 ニューラルネットワークの力を手に入れた Google 翻訳 では どうなるか. [教えて Google 先生！](https://translate.google.co.jp/?ion=1&espv=2&um=1&ie=UTF-8&hl=ja&client=tw-ob#en/ja/Hexo%0Ahexo%0A%0AWhat%20is%20Hexo.%0AWhat%20is%20hexo.)
-![](/images/hexo/hexo-google-translate.png "2016年11月現在の結果")
+![](/assets/hexo/hexo-google-translate.png "2016年11月現在の結果")
 
 せんせぃ... orz
 

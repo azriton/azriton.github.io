@@ -8,7 +8,7 @@ tags:
 - Visual Studio Code
 ---
 
-![](/images/vscode/visual-studio-code.png "Visual Studio Code")
+![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 [Visual Studio Code が インストールでき](/2017/08/18/Visual-Studio-Codeのインストール/)、[Git も 使える](/2017/08/23/Visual-Studio-CodeでGitを使う/)ようになりました. まだ使いこんでいないので、よい設定や便利な拡張機能が見いだせていないですが、とりあえず必要最低限の最初の設定をしておきます.
 Eclipse での設定と同様、各種設定については、お好みがあると思います. ご参考になれば、といったところでしょうか.
@@ -20,11 +20,11 @@ Eclipse での設定と同様、各種設定については、お好みがある
 
 ## ユーザー設定の表示
 Visual Studio Code を 起動します.
-![](/images/vscode/config/01.png)
+![](/assets/vscode/config/01.png)
 
 `Ctrl + ,` で ユーザー設定 の settings.json を 表示します.
 Visual Studio Code は GUI の 設定を持っておらず、JSON ファイルを編集して設定します. とはいえ、各設定に説明がついていこと、エディターによる支援もあるので、難しいことなく設定できます.
-![](/images/vscode/config/02.png)
+![](/assets/vscode/config/02.png)
 
 
 ## 設定変更の方法概要
@@ -40,30 +40,30 @@ Visual Studio Code の 再起動が必要な場合は、ダイアログが表示
 開発環境にとってフォントは大事、今回も Eclipse でも使っている M+とIPAの合成フォント さん の [Migu 1M](http://mix-mplus-ipa.osdn.jp/migu/) を 使わせていただきます.. 素晴らしいフォントをありがとうございます！！
 
 分割されているユーザー設定の左側、既存の設定 から [エディター] を 開きます.
-![](/images/vscode/config/03.png)
+![](/assets/vscode/config/03.png)
 
 `"editor.fontFamily": "Consolas, 'Courier New', monospace",` の 行に マウスをのせると [鉛筆アイコン] が 表示されます.
-![](/images/vscode/config/04.png)
+![](/assets/vscode/config/04.png)
 
 [鉛筆アイコン] を クリックします.
 今回はテキスト入力の設定項目のため [設定にコピー] が 表示されるので、クリックします.
-![](/images/vscode/config/05.png)
+![](/assets/vscode/config/05.png)
 
 右側にコピーされ、設定値 ここでは `"Consolas, 'Courier New', monospace"` に フォーカスがあたります.
-![](/images/vscode/config/06.png)
+![](/assets/vscode/config/06.png)
 
 右側にcopyされた設定を `"'Migu 1M'"` にし、 `Ctrl + S` で 保存します. エディターに表示されているフォントが即時に変更されます.
-![](/images/vscode/config/07.png)
+![](/assets/vscode/config/07.png)
 
 
 ## 空白文字の表示方法を変更
 続いて選択肢のある設定変更の例として、空白文字の表示方法を変更します.
 左側から `"editor.renderWhitespace": "none",` を 探す or 設定の検索 をし、 [鉛筆アイコン] を クリックします.
-![](/images/vscode/config/08.png)
+![](/assets/vscode/config/08.png)
 
 設定値の選択肢が表示されるので選択します. 今回は `"boundary"` を 選択しました.
 右側にコピーされ、値が `"boundary"` に なっています.
-![](/images/vscode/config/09.png)
+![](/assets/vscode/config/09.png)
 
 
 ## 今回設定した項目

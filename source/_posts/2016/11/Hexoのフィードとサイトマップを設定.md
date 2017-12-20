@@ -7,7 +7,7 @@ tags:
   - Hexo
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 Hexo の トップ画面の右上にはフィードのアイコンとリングが配置されています. インストール直後では、機能しておらずクリックすると ステータスコード "404 Not Found" で "Cannot GET /atom.xml" の 文字列が画面に表示されてしまいます.
 
@@ -42,7 +42,7 @@ feed:
 ```
 
 設定後 `hexo generate` すると、無事にフィードが生成されていることが確認できます. 確認できたらデプロイします.
-![](/images/hexo/hexo-feed.png)
+![](/assets/hexo/hexo-feed.png)
 
 
 ## サイトマップの出力
@@ -66,7 +66,7 @@ sitemap:
 ```
 
 設定後 `hexo generate` すると、無事にフィードが生成されていることが確認できます. 確認できたらデプロイします.
-![](/images/hexo/hexo-sitemap.png)
+![](/assets/hexo/hexo-sitemap.png)
 
 
 

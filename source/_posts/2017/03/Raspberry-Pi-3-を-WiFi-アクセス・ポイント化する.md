@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspberry Pi 3 には、有線 LAN と 無線 LAN の 両方が搭載されています. これの両方を活用して 有線 LAN を 既存ネットワークへ接続し、無線 LAN を アクセスポイント化してみたいと思います.
 今回は 有線 LAN を 接続する側 の 既存ネットワーク(光ルーターとか)で DHCP などを提供しているものとして、ブリッジ接続の形にしたいと思います.

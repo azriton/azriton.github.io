@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 OpenWeatherMap の サービスを使って、[天気情報を取得できる](/2017/01/24/Slackのボットで今日の天気を通知する-JSON取得編/)ようになりました.
 今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました.

@@ -8,7 +8,7 @@ tags:
 - GitHub
 ---
 
-![](/images/circleci/circleci.png "CircleCI")
+![](/assets/circleci/circleci.png "CircleCI")
 
 前回 [CircleCI で Hexo の 自動ビルド と デプロイ設定](/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/) で GitHub の `source` ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.
 これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている `master` ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします. (止めないと記事を公開するたびに、ビルドエラーの通知が来てしまう...)
@@ -21,7 +21,7 @@ tags:
 ## エラー の 原因
 CircleCI の ビルド画面 や、エラー通知のメールを見るとわかりますが [NO TESTS] と なっています. 前回の記事の通り、CircleCI は テストがないとエラーとして扱うためです.
 では このエラーはどこから来たのか、これは [master] と 書かれているように、`master` ブランチをビルドして、テストがないためにエラーとなったものになります.
-![](/images/circleci/hexo-master-error.png)
+![](/assets/circleci/hexo-master-error.png)
 
 はて、以下に抜粋した通り `circle.yml` で ビルドするのは `source` ブランチに限っているはずです. なぜ `master` ブランチでビルドが走ってしまったのでしょうか？
 ```yaml

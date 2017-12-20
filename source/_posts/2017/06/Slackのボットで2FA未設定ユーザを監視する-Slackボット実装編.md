@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack の Free Plan でも、[API から 2FA の 設定状況が見れる](/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/)ことが分かりました. それを使ってボットが 2FA の 設定状況を監視しレポートするようにしたいと思います.
 
@@ -112,10 +112,10 @@ API から取得した ユーザー一覧を `for-of` で 回しながら `admin
 
 ## 通知！
 まずは管理者向けにチャンネルへポストされた方になります. 今回は実験用なので `#sandbox` に 晒されてます.
-![](/images/slack/users-api/03.png)
+![](/assets/slack/users-api/03.png)
 
 続いて DM を 受けている側になります. ちゃんと相談先のチーム管理者へのメンションも出ています. 安心ですね.
-![](/images/slack/users-api/04.png)
+![](/assets/slack/users-api/04.png)
 
 
 

@@ -8,7 +8,7 @@ tags:
 - Node.js
 ---
 
-![](/images/typescript/typescript.png "TypeScript")
+![](/assets/typescript/typescript.png "TypeScript")
 
 [TSLint について調べた](/2017/09/16/TypeScriptのtslint.jsonを調べる/) ので、実際の設定を考えます.
 
@@ -217,7 +217,7 @@ ERROR: C:/Develop/workspace/hello-typescript/src/hello.ts[4, 9]: Missing blank l
 
 Visual Studio Code では、以下のようにチェック結果がエディタに範囲されています.
 `Documentation` の チェックが反映されていないようですね...
-![](/images/vscode/typescript/13.png)
+![](/assets/vscode/typescript/13.png)
 
 
 

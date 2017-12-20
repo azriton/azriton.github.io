@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 [ラズパイ で Lチカ on Docker が できました](/2017/04/02/Raspbian-Jessie-LiteでDockerする-GPIO編/) が、よく考えたら コンテナ の OS は Raspbian でなくてもよかったのでは？ ということで、Alpine Linux の コンテナから Lチカ してみたいと思います.
 
@@ -72,7 +72,7 @@ GPIO.cleanup()
 ```
 
 Docker コンテナ から GPIO へ アクセスできました！(画像は前回のを拝借ですが、ちゃんと動きました.)
-![](/images/raspi/fritzing/20170402-02.png)
+![](/assets/raspi/fritzing/20170402-02.png)
 
 
 

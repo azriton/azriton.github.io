@@ -9,7 +9,7 @@ tags:
 - Disqus
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 [Twitter の アカウントを開設した](/2017/02/16/Twitterのアカウント作成/) ので、いよいよコメント欄 Disqus の 設置！と、行きたいところですが、ちょっと寄り道. Hexo の デフォルト・テーマ Landscape に Twitter の 設定項目があるので設定したいと思います.
 
@@ -55,10 +55,10 @@ Twitter の アイコンが増えて、リンクしてくれたりするのか�
 
 ## Twitter Cards !
 とりあえず生成されたサイトのソースを確認します. すると `head` に Twitter 関連のメタ情報が出力されていました.
-![](/images/hexo/hexo-twitter.png)
+![](/assets/hexo/hexo-twitter.png)
 
 この出力内容は [Twitter Cards](https://dev.twitter.com/cards/) に 関するもので、Twitter に サイトのリンクをツイートされた際に、以下のようにサイトの画像サムネイルやタイトル、先頭分のサマリが表示されます.
-![](/images/twitter/twitter-cards.png)
+![](/assets/twitter/twitter-cards.png)
 
 
 

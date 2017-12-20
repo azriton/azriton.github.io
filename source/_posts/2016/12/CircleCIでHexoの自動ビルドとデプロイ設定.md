@@ -10,7 +10,7 @@ tags:
 - CircleCI
 ---
 
-![](/images/circleci/circleci.png "CircleCI")
+![](/assets/circleci/circleci.png "CircleCI")
 
 [CircleCI の アカウント作成](/2016/12/05/CircleCIのアカウント作成/) が できたので、ブログ生成に使っている Hexo の 自動ビルドとデプロイができるようします.
 
@@ -61,31 +61,31 @@ deployment:
 ## CircleCI に リポジトリを追加
 CircleCI の [プロジェクト追加](https://circleci.com/add-projects) ページ へ 行きます.
 自分の GitHub アカウントが表示されているのでクリックし、右側のプロジェクト一覧から GitHub Pages の `[username].github.io` プロジェクト 右 の [Build project] ボタンをクリックします.
-![](/images/circleci/add/01.png)
+![](/assets/circleci/add/01.png)
 
 自動的にビルドが始まり、ビルド画面へ遷移します. しばらく待っているとビルドが失敗し、レッド の [FAILED] 表示がされます.
 これは Hexo の デプロイ で GitHub へのアクセス権がなかったために起こるものなので、SSH キー を 追加します. このあたりの設定は [GitHub security and SSH keys - CircleCI](https://circleci.com/docs/github-security-ssh-keys) に 説明があります.
 画面の上部中央にある [Project Settings] を クリックします.
-![](/images/circleci/add/02.png)
+![](/assets/circleci/add/02.png)
 
 プロジェクト設定画面が表示されるので、左側のメニューを下へスクロールし [Checkout SSH Keys] を クリックします. 右側に設定内容が出てくるので、[Authorize with GitHub] ボタンをクリックします.
-![](/images/circleci/add/03.png)
+![](/assets/circleci/add/03.png)
 
 GitHub の 画面が表示され、CircleCI へ Public SSH keys の 権限を許可するかを確認されます. 許可しないと始まらないのですが、問題ある場合は ここで止めて CircleCI の 自動デプロイをあきらめます.
-![](/images/circleci/add/04.png)
+![](/assets/circleci/add/04.png)
 
 上記画面で [Authorize application] ボタンをクリックすると CircleCI の 画面に戻ります.
 右側の設定から [Create and add [username] user key] ボタンをクリックし、SSH キー を GitHub へ 追加します.
-![](/images/circleci/add/05.png)
+![](/assets/circleci/add/05.png)
 
 ボタンをクリックすると設定画面に [[username] user key] が 追加されているのを確認し、画面上部 の [View [username].github.io] リンクをクリックします.
-![](/images/circleci/add/06.png)
+![](/assets/circleci/add/06.png)
 
 前回のビルドが失敗している履歴が表示されるので、[rebuild] を クリックします.
-![](/images/circleci/add/07.png)
+![](/assets/circleci/add/07.png)
 
 自動的にビルドが始まり、ビルド画面へ遷移します. しばらく待っていると今度はビルドが成功し、グリーン の [FIXED] が 表示されます.
-![](/images/circleci/add/08.png)
+![](/assets/circleci/add/08.png)
 
 
 

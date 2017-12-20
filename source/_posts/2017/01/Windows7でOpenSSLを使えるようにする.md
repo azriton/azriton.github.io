@@ -7,7 +7,7 @@ tags:
 - Windows
 ---
 
-![](/images/openssl/openssl.png "OpenSSL")
+![](/assets/openssl/openssl.png "OpenSSL")
 
 ちょっと OpenSSL が 必要なことってありませんか？(いや、そうそう無いか...)
 普段使用している環境は Windows で、OpenSSL を 簡単に使うことができません. ちょうど OpenSSL が 必要な困った事案が発生、また環境構築にはまったので記録を残しておきたいと思います.
@@ -32,7 +32,7 @@ OpenSSL は バイナリを配布していません. 自分でビルドしない
 - Windows Headers and Libraries
 - Visual C++ Compilers
 - Microsoft Visual C++ 2010 (Redistributable)
-![](/images/openssl/01.png)
+![](/assets/openssl/01.png)
 
 
 
@@ -60,7 +60,7 @@ OpenSSL の ソース を ダウンロードします. [OpenSSL の ウェブサ
 今回は `C:\Develop\tool\openssl-1.0.2j` に 解凍したものとします.
 
 続いて `Windows SDK 7.1 Command Prompt` を 起動します. (通常 の コマンド プロンプト ではないことに注意)
-![](/images/openssl/02.png)
+![](/assets/openssl/02.png)
 
 ```shell-session
 c:\Develop\tool\openssl-1.0.2j> set PATH=%PATH%;c:\Develop\sdk\strawberry-perl-5.24.0.1-64bit-portable\perl\bin
@@ -100,18 +100,18 @@ c:\Temp> openssl req -x509 -new -key test.key -out test.pem
 ### Visual C++ Compilers が 選択できない
 .NET 4 (4.x ではなく **4**) が 必要になります. しかも、新しいバージョンが入っているとインストールできないというトラップがありました... 新しいバージョンが入っている場合はアンインストールして、古いバージョンから順番に入れなおす必要があります.
 .NET の バージョンについては、こちら [Tech TIPS：.NET Frameworkのバージョンを整理する - ＠IT](http://www.atmarkit.co.jp/ait/articles/1211/16/news093.html) が 詳しいです.
-![](/images/openssl/03.png)
-![](/images/openssl/04.png)
+![](/assets/openssl/03.png)
+![](/assets/openssl/04.png)
 
 
 ### インストーラは正常終了しているのに、インストールされていない
 何が起こったのかよくわからない事象で、見事にどはまりしました orz
 インストーラは正常終了したように見えているのに、肝心のプログラムが入っていない状況が起こりました. 1 GB の インストールにしては、やたら早く終わったなぁというのが気になったぐらいです.
-![](/images/openssl/05.png)
+![](/assets/openssl/05.png)
 
 どうやら、こちら [Windows SDK for Windows 7.1 をインストールするとエラーが発生する - Windows - Project Group](http://www.projectgroup.info/tips/Others/comm_0004.html) の 現象だったようです. "A problem occurred..." なんて表示されなかったようにも思いますが、色が付いているわけでもないので...
 上記サイトの情報をもとに、Microsoft Visual C++ 2010 x64/x86 Redistributable を 確認したところ、見事に x64 の方が入っていました. アンインストールしてから再度 SDK を 入れたところ、無事にインストールができました. こちらのサイトの情報がなかったら完全にアウトだったかもしれません. 助かりました. 有益な情報ありがとうございます！
-![](/images/openssl/06.png)
+![](/assets/openssl/06.png)
 
 
 

@@ -9,7 +9,7 @@ tags:
 - Node.js
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Botkit で Slack の ボットを作成した際に、ボットがいつの間にか止まっているということがあり、[ワークアラウンドのコードで対処](/2016/12/23/Slackのボットを自動停止させない/)していました.
 2017年3月現在 の 最新 v0.5.1 に したところ、自動停止しないようになったようです.
@@ -57,14 +57,14 @@ start: Fri Mar 03 2017 13:15:21 GMT+0000 (UTC)
 
 これらに関連しているであろう Pull Request #505 を 確認したいと思います.
 確認したところ... いきなり出てきた THRASHLIFE に 圧倒、なかなか凄いプルリクです.
-![](/images/slack/bot/botkit-pr505.png)
+![](/assets/slack/bot/botkit-pr505.png)
 
 それはさておき、肝心の内容ですが、どうもコネクションを維持するための Ping/Pong の 処理が正しく行えていないことについて改善のプルリクに思われます. ただプルリクの書き出で "A LOT of work that was maxing out CPU" と CPU 負荷をかけたケースであることや、最後 jonchurch さん の コメントで "weird edge case" と あるので、今回のように無通信が続いたことによる自動切断とは関連があるとは思えないのですが "the node process wasn't processing the pong response" が どうしても気になります.
 
 v0.4.2 を 使っていた時も、ほぼ暇なボットで会話の通信も少なかったので CPU 負荷はかかってなかったとは思うので、説明からすると関係はなさそうではあるのですが、他のコード変更が影響しているとは思えないですし. なんだろう...
 
 diff を 確認したいと思います.
-![](/images/slack/bot/botkit-pr505-diff.png)
+![](/assets/slack/bot/botkit-pr505-diff.png)
 
 `pingIntervalId = setInterval((...), 5000)` が ` pingTimeoutId = setTimeout((...), 5000);` に 変わったところが大きい違いでしょうか. `setInterval` による繰り返しから、`setTimeout` の 遅延処理にして処理内で `setTimeout` を 再呼び出しに変わっています. プルリクでも "replace the use of an interval with a timeout" と言っているので、そう変更したのでしょう.
 

@@ -8,7 +8,7 @@ tags:
 - Node.js
 ---
 
-![](/images/typescript/typescript.png "TypeScript")
+![](/assets/typescript/typescript.png "TypeScript")
 
 [TypeScript で Hello World](/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/) が できたところで、TypeScript について深堀したいと思います. なにせ、初めて使うものですから... まず `tsconfig.json` に 何を設定しておいた方がいいのか、考えたいと思います.
 今回の検討の前提として、TypeScript の コードはサーバーサイドで使うことを想定しています. ブラウザ内で動作する JavaScript は いったん考慮外としています. また既存のしがらみは無く、新しく作るものを想定しています.

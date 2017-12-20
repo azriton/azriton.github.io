@@ -12,7 +12,7 @@ tags:
 <link rel="stylesheet" href="/assets/ribbon.css" />
 <div class="ribbon"><span><a class="title" href="https://qiita.com/advent-calendar/2017/ouch-hack">おうちハック Advent Calendar 2017</a> 13日目</span></div>
 
-![](/images/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
+![](/assets/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
 
 この記事は「[おうちハック Advent Calendar 2017](https://qiita.com/advent-calendar/2017/ouch-hack)」 13日目になります.
 せっかくの Advent Calendar なので、何かネタをと思って考えてたのですが、うまく作れなかった... ので、Google AIY の キットを使っての話にしたいと思います.
@@ -27,7 +27,7 @@ tags:
 
 ## 最初は何を作りたかったのか
 本題に入る前に、そもそも何を作ろうと思い、作れなかったのかについて少々. 作りたかったものはこれ、 [Google AIY](https://aiyprojects.withgoogle.com/) の [Voice Kit](https://aiyprojects.withgoogle.com/voice) を ラズパイ・ゼロ で実現！です.
-![](/images/raspi/google-aiy/voice-recognizer/01.jpg)
+![](/assets/raspi/google-aiy/voice-recognizer/01.jpg)
 
 Voice Kit については、予約購入できたので [作って](/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/) いました. (なかなか作業時間が取れず、ついに１ヶ月もかかってますが...)
 
@@ -66,64 +66,64 @@ https://howchoo.com/g/otewzwmwnzb/amazon-echo-furby-using-raspberry-pi-furlexa
 ## GCP への サインアップ と プロジェクトの作成
 GCP の Cloud Console [https://console.cloud.google.com/](https://console.cloud.google.com/) へ アクセスします.
 画面上部 [プロジェクトを選択] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/02.png)
+![](/assets/raspi/google-aiy/voice-recognizer/02.png)
 
 プロジェクトの選択ダイアログが表示されるので、ダイアログ右上 [＋] ボタンをクリックします.
-![](/images/raspi/google-aiy/voice-recognizer/03.png)
+![](/assets/raspi/google-aiy/voice-recognizer/03.png)
 
 新しいプロジェクト作成画面が表示されるのでプロジェクト名を入力し、[作成] を クリックします.
 今回は voice-recognizer としました.
-![](/images/raspi/google-aiy/voice-recognizer/04.png)
+![](/assets/raspi/google-aiy/voice-recognizer/04.png)
 
 最初の画面に戻るので、画面上部 [プロジェクトを選択] を クリックしてプロジェクトの一覧を表示します.
 作成したプロジェクトの名前をクリックします.
-![](/images/raspi/google-aiy/voice-recognizer/05.png)
+![](/assets/raspi/google-aiy/voice-recognizer/05.png)
 
 
 ## Google Assistant API の 有効化
 左メニュー の [API と サービス] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/06.png)
+![](/assets/raspi/google-aiy/voice-recognizer/06.png)
 
 画面中央上部 の [API と サービスの有効化] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/07.png)
+![](/assets/raspi/google-aiy/voice-recognizer/07.png)
 
 API ライブラリが 表示されるので [API と サービスを検索] に `assistant` を 入力します.
-![](/images/raspi/google-aiy/voice-recognizer/08.png)
+![](/assets/raspi/google-aiy/voice-recognizer/08.png)
 
 Google Assistant API が 表示されるので、クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/09.png)
+![](/assets/raspi/google-aiy/voice-recognizer/09.png)
 
 Google Assistant API の 詳細 が 表示されるので、[有効にする] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/10.png)
+![](/assets/raspi/google-aiy/voice-recognizer/10.png)
 
 
 ## OAuth 2.0 の 設定
 Google Assistant API の 画面で "認証情報が必要" と 警告されている通り、認証設定が必要となります.
 左メニュー から [認証情報] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/11.png)
+![](/assets/raspi/google-aiy/voice-recognizer/11.png)
 
 画面上側の [OAuth 同意画面] を 選択します.
 これを設定しないと認証情報の作成時に警告され進めないので、あらかじめ作成しておきます.
-![](/images/raspi/google-aiy/voice-recognizer/12.png)
+![](/assets/raspi/google-aiy/voice-recognizer/12.png)
 
 最小限 [ユーザーに表示するサービス名] を 入力し、[保存] ボタンをクリックします.
-![](/images/raspi/google-aiy/voice-recognizer/13.png)
+![](/assets/raspi/google-aiy/voice-recognizer/13.png)
 
 認証情報の画面に戻るので、画面中央 [認証情報の作成] を クリックし、[OAuth クライアント ID] を 選択します.
-![](/images/raspi/google-aiy/voice-recognizer/14.png)
+![](/assets/raspi/google-aiy/voice-recognizer/14.png)
 
 クライアント ID の 作成画面が表示されるので、以下の情報を設定し、[作成] を クリックします.
 - アプリケーションの種類: その他
 - 名前: 任意の文字列 (今回は voice-recognizer と しました、クライアントだからホスト名のがよかったかな)
-![](/images/raspi/google-aiy/voice-recognizer/15.png)
+![](/assets/raspi/google-aiy/voice-recognizer/15.png)
 
 OAuth クライアント の 情報が表示されます. 
 この情報はファイルとしてダウンロードするので [OK] を クリックして進めます.
-![](/images/raspi/google-aiy/voice-recognizer/16.png)
+![](/assets/raspi/google-aiy/voice-recognizer/16.png)
 
 認証情報の一覧に先ほど作成した ID が あるので、右側の 下矢印 を クリックしてダウンロードします.
 このファイルは後程使うのと、サービスにアクセスるための重要情報になるので大切に管理します.
-![](/images/raspi/google-aiy/voice-recognizer/17.png)
+![](/assets/raspi/google-aiy/voice-recognizer/17.png)
 
 
 ## Gooogle My Activity の 設定
@@ -131,7 +131,7 @@ OAuth クライアント の 情報が表示されます.
 - ウェブとアプリのアクティビティ (Web and app activity)
 - 端末情報 (Device information)
 - 音声アクティビティ (Voice and audio activity)
-![](/images/raspi/google-aiy/voice-recognizer/18.png)
+![](/assets/raspi/google-aiy/voice-recognizer/18.png)
 
 
 ## Voice Kit の 設定
@@ -155,16 +155,16 @@ Say "OK, Google" then speak, or press Ctrl+C to quit...
 ```
 
 実行するとブラウザが立ち上がり、Google 認証画面が表示されます.
-![](/images/raspi/google-aiy/voice-recognizer/19.png)
+![](/assets/raspi/google-aiy/voice-recognizer/19.png)
 
 先ほど設定した Google アカウントでサインインします.
-![](/images/raspi/google-aiy/voice-recognizer/20.png)
+![](/assets/raspi/google-aiy/voice-recognizer/20.png)
 
 OAuth で 認可を求められます. 先ほど設定した [Voice Recognizer] の 名前が表示され、Google アシスタントの利用許可が求められています. [許可] を クリックします.
-![](/images/raspi/google-aiy/voice-recognizer/21.png)
+![](/assets/raspi/google-aiy/voice-recognizer/21.png)
 
 認証フロー環境のめっせーが出るのでブラウザを閉じます.
-![](/images/raspi/google-aiy/voice-recognizer/22.png)
+![](/assets/raspi/google-aiy/voice-recognizer/22.png)
 
 
 あとは、「おーけー ぐーぐる」して話しかけて楽しみましょう！

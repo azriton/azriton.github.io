@@ -11,7 +11,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/hanakin/premium-friday.png "Premium Friday")
+![](/assets/slack/hanakin/premium-friday.png "Premium Friday")
 
 2017年2月24日 金曜日、それは "プレミアムフライデー" なる施策の開始日である. うん、ウチは関係ないらしいのだけど！ とうことで、関係ないボット を Slack に 乗せてみた.
 
@@ -116,7 +116,7 @@ bot.say({ /* プレミアムフライデーの発言 */ }, (err, response) => {
 ## 実験！
 `cronTime` を 調整して、いざ実験. ちゃんと表示されました.
 とりあえず実験用にはネタ元のたツイートから画像を拝借させて頂きましたが、後は画像を自前のネタに変えて適当なとこにアップしてボットを設置するだけですね. 関係ない人々の月末の週末が楽しみです♪
-![](/images/slack/hanakin/01.png)
+![](/assets/slack/hanakin/01.png)
 
 
 

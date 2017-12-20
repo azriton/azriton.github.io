@@ -9,7 +9,7 @@ tags:
 - Disqus
 ---
 
-![](/images/twitter/twitter.png "Twitter")
+![](/assets/twitter/twitter.png "Twitter")
 
 以前 WordPress を 使っていたことがあり、それに比べて [Hexo と GitHub は 簡単にブログを設置](/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/) できるなぁと、WordPress 界隈が騒がしい今日この頃、ふと WordPress 時代を思い出しました.
 
@@ -24,7 +24,7 @@ tags:
 ## Hexo の コメント欄
 いろいろと調べてみると Hexo 2.x のころにはコメント欄があったようで、3.x になってからテーマとの兼ね合いからなくなったのだとかなんとか.
 現在は [Disqus](https://disqus.com/) というサービスを使うと設置できるようなので、さっそく設置に取り掛かろうと思ったところ、SNS の 認証連携は Facebook, Twitter, Google+ で、GitHub は 対応していませんでした.
-![](/images/hexo/disqus/signup/01.png)
+![](/assets/hexo/disqus/signup/01.png)
 
 メールで直接サインアップするよりも、SNS に まとめておきたいので、今回は Twitter の アカウントを作成し、そのアカウントから Disqus へ サインアップしたいと思います.
 
@@ -34,31 +34,31 @@ Twitter の Signup ページ [https://twitter.com/signup](https://twitter.com/si
 
 呼び名、メールアドレス、パスワード を 入力し、[アカウント作成] ボタンをクリックします.
 ここの "呼び名" は、Twitter での表示名で、既に使われている名前とも重複可能です. また後程変更することもできます. ネット上でのハンドルや、いつものニックネームで大丈夫です.
-![](/images/twitter/signup/01.png)
+![](/assets/twitter/signup/01.png)
 
 電話番号の入力を求められますが、特に必要なければ [スキップ] を クリックします. 今回はスキップしました.
-![](/images/twitter/signup/02.png)
+![](/assets/twitter/signup/02.png)
 
 ユーザー名、アカウント名を入力します. こちらは Twitter 内 で 一意となる文字列が求められます. "2006年7月にオブビアウス社（現Twitter社）が開始したウェブサービス -- [Wikipedia](https://ja.wikipedia.org/wiki/Twitter)" と 約10年の歴史に、[Twitter, Inc.について | About](https://about.twitter.com/ja/company) の 2017年2月現在 で 約 3億 月間アクティブユーザー とのことで、なかなか思うアカウント名は取れません... (画面はブログ用に加工してます)
-![](/images/twitter/signup/03.png)
+![](/assets/twitter/signup/03.png)
 
 無事、アカウントが取れると Welcome 画面が表示されます. [さぁ、はじめよう] を クリックし進めます.
-![](/images/twitter/signup/04.png)
+![](/assets/twitter/signup/04.png)
 
 興味あることからフォローするアカウントなどが勧められたりするようですが、今回は何もせずに [続ける] しました. 明確に取りたい情報があれば設定しておいてもよいかもしれません.
-![](/images/twitter/signup/05.png)
+![](/assets/twitter/signup/05.png)
 
 アドレス帳のアップロードを求められますが、今回は [利用しない] で 先へ進めました. いろいろなサービスがある中で、何と、どこまでを、リアルとくっつけるのかは悩ましいところです.
-![](/images/twitter/signup/06.png)
+![](/assets/twitter/signup/06.png)
 
 フォローするアカウントの選択として、いくつかのアカウントをサジェストしてくれます. 日本語で日本からサインアップしているのですが 2017年の話題の人としてプレジデントを勧めてくれたのでしょうか... 画面に表示された "場所に基づくおすすめ " 感 が あまりないのですが.
-![](/images/twitter/signup/07.png)
+![](/assets/twitter/signup/07.png)
 
 ブラウザのポップアップ通知について聞かれます. 必要な方を選択します. 使ったことは無いのですが、専用クライアントなしでブラウザだけで通知できるとは技術の進歩は素晴らしいですね.
-![](/images/twitter/signup/08.png)
+![](/assets/twitter/signup/08.png)
 
 ようやく、Twitter を 利用できるようになりました. "さぁ、はじめよう" って、言ってたのに長かった.
-![](/images/twitter/signup/09.png)
+![](/assets/twitter/signup/09.png)
 
 
 

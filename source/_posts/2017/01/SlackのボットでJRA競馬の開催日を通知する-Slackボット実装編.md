@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 前回、[JRA の サイト から 開催日 iCalendar を 取得](/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/)し、ついに Slack の ボットへ組み込む準備ができました！ ボットへ組み込み、開催日を教えてもらいましょう.
 
@@ -87,7 +87,7 @@ Slack ボット の 基本的な作りは [Slack の ボット で 定時アク�
 
 
 ## 通知！
-![](/images/slack/keiba/06.png)
+![](/assets/slack/keiba/06.png)
 今年最初の GI レースは 2月19日(日曜日) フェブラリーステークス ＠東京競馬場 が 通知されました！
 ちょっと先なので、実験用に `cronTime` の 指定をいじりました. `T1000+0900` を `1000` でなく動作検証をする時間にし、
 `subtract(10, 'days')` を 2月19日 から 動作検証する日まで引いてあげます.

@@ -9,7 +9,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/crystal-signal-pi/crystal-signal-pi.jpg "Crystal Signal Pi")
+![](/assets/raspi/crystal-signal-pi/crystal-signal-pi.jpg "Crystal Signal Pi")
 
 Raspberry Pi の 基盤には ACT と PWR の LED があります. 普段から Crystal Signal Pi の 四角柱を光らせていますが、壁際においているため PWR の 赤 LED が 反射し色が混ざるのと、夜間消灯中にも壁に反射する赤色が気になるので、基盤 の LED を 消灯したいと思います.
 
@@ -23,10 +23,10 @@ Raspberry Pi の 基盤には ACT と PWR の LED があります. 普段から 
 まずは、現在の状況.
 
 日中 の Crystal Signal Pi 点灯中でも、白い壁に反射する 赤 LED が ちょっと気になります...
-![](/images/raspi/crystal-signal-pi/led/01.jpg)
+![](/assets/raspi/crystal-signal-pi/led/01.jpg)
 
 夜間消灯中に輝く PWR の 赤 LED. 白い壁に反射して赤に染まっています. これだけの光量だと離れていても、棚の一角が かなり赤く光ります.
-![](/images/raspi/crystal-signal-pi/led/02.jpg)
+![](/assets/raspi/crystal-signal-pi/led/02.jpg)
 
 
 ## コマンドラインから 一時的 に 基盤 の LED を 消灯する
@@ -68,7 +68,7 @@ pi@raspberrypi:~ $ echo 0 | sudo tee /sys/class/leds/led1/brightness
 ```
 
 こちらは現在の状態を変更するものなので、設定したとおりに LED が すぐに消灯します. これで光が混ざらなくなって気にならないし、夜間消灯も完全に消えてくれます.
-![](/images/raspi/crystal-signal-pi/led/03.jpg)
+![](/assets/raspi/crystal-signal-pi/led/03.jpg)
 
 なお `brightness` の 数値で明るさの変化は見られませんでした. `0` `1` で ON/OFF ぐらいのもののようです. 初期値 と `max_brightness` の 値が `255` なので変化できそうなのに...
 

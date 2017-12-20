@@ -8,7 +8,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspberry Pi を サーバのように連続稼働させておくとなると、SD カードの寿命が気になってきます. ちょっと心配なので SD カードへの書き込みを減らして、少しでも延命させたいと思います.
 

@@ -8,7 +8,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 前回 [Slack の ボット に OAuth で 権限を付与する方法](/2017/06/01/SlackのボットにOAuthで権限を追加する/) について書いたものの、ブラウザで頑張るのは結構めんどくさいよなぁと. なのでツールを作ってみました. まだ細かいところまで作り切れてないですが、少し使う分にはいけそうなので、ちょっと脱線してトークン活用の前にツールをご紹介.
 
@@ -33,19 +33,19 @@ HTML5 で 追加された `<template>` タグ や SessionStorage, Selectors API 
 ここではアプリ・ボットは登録されているものとして、Redirect URL の 変更から始めたいと思います.
 
 Slack の Apps [https://api.slack.com/apps](https://api.slack.com/apps) へ アクセスし、利用するボットを選択します.
-![](/images/slack/oauth-helper/01.png)
+![](/assets/slack/oauth-helper/01.png)
 
 ボットの詳細画面が表示されるので、左メニューから [OAuth & Permissions] を クリックします.
-![](/images/slack/oauth-helper/02.png)
+![](/assets/slack/oauth-helper/02.png)
 
 画面中ほどの [Redirect URLs] にある、URL の 右にある [ペンのアイコン] を クリックします.
-![](/images/slack/oauth-helper/03.png)
+![](/assets/slack/oauth-helper/03.png)
 
 URL が 編集できるようになるので、`https://azriton.github.io/slack-oauth-helper/` を 入力し、[Save] ボタンをクリックします. 最後の `/` を 忘れないようにご注意ください.
-![](/images/slack/oauth-helper/04.png)
+![](/assets/slack/oauth-helper/04.png)
 
 編集が完了します. 下にある [Save URLs] ボタンをクリックします. (こっちの Save も しないと確定されないのでご注意. よく忘れてトラブりました...)
-![](/images/slack/oauth-helper/05.png)
+![](/assets/slack/oauth-helper/05.png)
 
 
 ### Slack OAuth Helper の 利用
@@ -53,14 +53,14 @@ URL が 編集できるようになるので、`https://azriton.github.io/slack-
 [Client ID] に アプリ・ボット の Client ID を 入力します.
 [OAuth Scopes] で 必要な権限にチェックを入れていきます. ここでは [前回と同じスコープ](/2017/06/01/SlackのボットにOAuthで権限を追加する/#OAuth-で-権限を追加) に チェックしました.
 権限選択後、[認可リクエスト] ボタンをクリックします.
-![](/images/slack/oauth-helper/06.png)
+![](/assets/slack/oauth-helper/06.png)
 
 Slack の Slack の OAuth 権限確認画面 が 表示されます. 権限の詳細を確認し、問題なければ [Authorize] ボタンをクリックします/
-![](/images/slack/oauth-helper/07.png)
+![](/assets/slack/oauth-helper/07.png)
 
 Slack OAuth Helper に 戻ります. トークン発行済みの場合は権限が更新されているので完了となります.
 未発行の場合は、[トークン発行 URL] に 表示されている URL を コピーします. テキストフィールド右 の ファイル・アイコン を クリックすると、クリップボードへコピーされます. ブラウザのアドレスバーへペーストし `REPLACE_THIS_WITH_YOUR_APP_CLIENT_SECRET` を アプリ・ボット の Client Secret に 置き換えてからアクセスします.
-![](/images/slack/oauth-helper/08.png)
+![](/assets/slack/oauth-helper/08.png)
 
 ※ トークン発行については、あえてフォームを作りませんでした. HTML 単独で動作しているので Client Secret を 抜くことはないのですが、この類のデータは不要なら入力欄は作りたくないという考えからになります. ここだけは手間が残りますが、**大事なものは知らない場所に入力しない** ってことでご容赦ください.
 

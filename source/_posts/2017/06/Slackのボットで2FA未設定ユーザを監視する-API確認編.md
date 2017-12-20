@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack には Free Plan でも 2FA の 機能が用意されています. アカウントの安全性から 2FA は 設定しておくべきですが、2FA の 必須化は 有料 の Standard Plan からになります. 目の届く範囲での利用でしたら、声がけしていくことで全員に設定してもらうことはできそうですが、ある程度の規模になると難しくなってきます. そんな時こそ、有料プラン！ と 行きたいところですが、この手の話は往々にして時間がかかるもの. その間 ボットに 2FA の 状態を監視、レポートしてもらいたいと思います.
 
@@ -25,10 +25,10 @@ Slack には Free Plan でも 2FA の 機能が用意されています. アカ�
 管理者権限のユーザで [https://my.slack.com/admin](https://my.slack.com/admin) へ アクセスすると、チーム・メンバーの一覧 と 2FA の 設定状況を確認することができます.
 下図の例では [Team Admin] は 2FA が 設定されているため、2FA アイコンがついています. 一方で [You] は  アイコンがついていないので、2FA が 設定されていません. 2FA を 設定するよう指導が必要です！って、自分ですが...
 なお、2FA の 設定方法は こちら [2要素認証を設定する – Slack](https://get.slack.help/hc/ja/articles/204509068-2%E8%A6%81%E7%B4%A0%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B) に ヘルプがあります.
-![](/images/slack/users-api/01.png)
+![](/assets/slack/users-api/01.png)
 
 毎度ウェブから確認するのは手間なので、2FA を 必須化したいところです. Slack には 2FA 必須化オプションが 有料 の Standard Plan から用意されているので、こちらを使うことで 2FA の 設定を強制することができます. 価格情報は [https://my.slack.com/pricing](https://my.slack.com/pricing) から参照でき、2017年6月現在 "850円/月/アクティブ・ユーザー" です.
-![](/images/slack/users-api/02.png)
+![](/assets/slack/users-api/02.png)
 
 お金の話になると途端に進捗が悪くなる、なんてことは よくある話でして、何とかボットでうまく警告したいところで、ボットでチェックする方法を考えていきます.
 

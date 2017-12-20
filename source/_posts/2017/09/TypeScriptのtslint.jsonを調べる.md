@@ -8,7 +8,7 @@ tags:
 - Node.js
 ---
 
-![](/images/typescript/typescript.png "TypeScript")
+![](/assets/typescript/typescript.png "TypeScript")
 
 [TypeScript の tsconfig.json が とりあえずできました.](/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/) 次は静的解析ツールの TSLint を 設定する tslint.json の 設定内容について検討します.
 

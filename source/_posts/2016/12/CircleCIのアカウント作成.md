@@ -8,7 +8,7 @@ tags:
 - GitHub
 ---
 
-![](/images/circleci/circleci.png "CircleCI")
+![](/assets/circleci/circleci.png "CircleCI")
 
 継続的インテグレーション(CI: Continuous Integration) の プラットフォームである [CircleCI](https://circleci.com/) を 使って、GitHub に ある 様々リポジトリをビルドできるようにしたいと思います.
 うまく流れるようになると GitHub の 特定のブランチにマージされると、ソースコードのビルと、テスト、パッケージング、デプロイ までの一連の作業が自動的に行われるようになります！
@@ -26,18 +26,18 @@ tags:
 ## アカウントの作成
 CircleCI の Signup ページ [https://circleci.com/signup](https://circleci.com/signup) へ アクセスします.
 GitHub と Bitbucket の どちらで認証するか聞かれます. 今回は GitHub を 選択しました.
-![](/images/circleci/signup/01.png)
+![](/assets/circleci/signup/01.png)
 
 GitHub の サイトへリダイレクトされますので、GitHub へ サインインします.
-![](/images/circleci/signup/02.png)
+![](/assets/circleci/signup/02.png)
 
 CircleCI へ 渡す権限の確認画面が表示されます.
 ここで許可しないと次へ進めないのもありますが、CircleCI で Private Repository の ビルドなども行うので妥当な権限と思いますので [Authorize application] を クリックして許可します.
 問題がある場合は [Authorize application] を クリックせず、CircleCI の 利用は断念します.
-![](/images/circleci/signup/03.png)
+![](/assets/circleci/signup/03.png)
 
 CircleCI へ 戻されます. 無事ログインできました.
-![](/images/circleci/signup/04.png)
+![](/assets/circleci/signup/04.png)
 
 
 

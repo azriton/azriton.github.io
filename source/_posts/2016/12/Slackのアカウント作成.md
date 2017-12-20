@@ -7,7 +7,7 @@ tags:
 - Slack
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 これまでのコミュニケーション・ツールはメールが中心でしたが、これからはチャットの時代と言われており、その起爆剤となったのが Slack とも言われています.
 Slack を 使って様々なサービスを連携してコミュニケーション基盤を構築したいと思います.
@@ -30,36 +30,36 @@ IT 関連企業を中心に流行っているチャット・ツールです.
 Slack の ウェブサイト [https://slack.com](https://slack.com) へ アクセスします.
 画面中央 の [Email address] へ サインアップするアカウントのメールアドレスを入力し、[Create New Team] ボタンをクリックします.
 ここから入力することは後から変更可能なので思い切ってどんどん進めましょう.
-![](/images/slack/signup/01.png)
+![](/assets/slack/signup/01.png)
 
 コンファメーション・コードの確認画面が表示されます.
 先に入力したメールアドレスへコンファメーション・コードが届いているので入力します.
-![](/images/slack/signup/02.png)
+![](/assets/slack/signup/02.png)
 
 ユーザ名とアカウントの姓名の入力画面が表示されます. Slack の 利用用途によりニックネームにしておくか本名かなどのルールがあるかと思います. 用途に合わせて入力します.
-![](/images/slack/signup/03.png)
+![](/assets/slack/signup/03.png)
 
 パスワードの入力画面が表示されます.
 珍しく一発勝負のパスワード入力欄です. 間違えてしまったらメールによる再設定ができるので、二回入力させる必要がないのかもしれませんね. とは言え、一発勝負となると途中で間違えてないか、意味もなくドキドキします.
-![](/images/slack/signup/04.png)
+![](/assets/slack/signup/04.png)
 
 Slack チーム の 用途 と 規模 を 聞かれます. いくつかのチームを作ったことがあり、パターンも異なったのですが、ここでの選択が何かに影響している様子はないのでアンケートでしょうか. 選ばないと進めないので選択します.
-![](/images/slack/signup/05.png)
+![](/assets/slack/signup/05.png)
 
 グループ名を入力します. Slack では、基本的にチームで呼ばれていますが、なぜかここだけはグループなので気になりますが、チーム名を入力します.
-![](/images/slack/signup/06.png)
+![](/assets/slack/signup/06.png)
 
 チームのドメイン名の入力画面が表示されます. `team.slack.com` の スタイルで `slack.com` の サブドメインになるため、世界で一意になる必要があります. つまり早い者勝ちです. このサブドメインすら後から変更可能です. 自由だ！
-![](/images/slack/signup/07.png)
+![](/assets/slack/signup/07.png)
 
 サブドメインまで設定できると、最後に利用規約の確認があるので内容を確認し、同意する場合は [I Agree] ボタンをクリックして進めます.
-![](/images/slack/signup/08.png)
+![](/assets/slack/signup/08.png)
 
 メンバーの招待画面が表示されます. 後で招待もできるので [Skip For Now] ボタンをクリックします.
-![](/images/slack/signup/09.png)
+![](/assets/slack/signup/09.png)
 
 無事 Slack アカウント と チーム が できました！
-![](/images/slack/signup/10.png)
+![](/assets/slack/signup/10.png)
 
 
 

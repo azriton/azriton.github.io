@@ -8,7 +8,7 @@ tags:
 - Google AIY
 ---
 
-![](/images/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
+![](/assets/raspi/google-aiy/google-aiy.jpg "Google AIY Voice Kit")
 
 [The MagPi Magazine 57号](https://www.raspberrypi.org/magpi/issues/57/) の 付録だった Google AIY が [Pimoroni](https://shop.pimoroni.com/products/google-aiy-voice-kit) さん で 先行予約が始まって１ヶ月、遂に届きました！ さっそく組み立てます.
 
@@ -34,52 +34,52 @@ HAT の 形になっているので簡単に取り外し可能ですが、箱の
 ## パッケージ と 付属物
 まずはパッケージですが、思ったよりも大きいです. A4 より 一回り大きい感じで、A3 ぐらいでしょうか.
 "Made by you with Google" が いいですね.
-![](/images/raspi/google-aiy/assembly/01.jpg)
+![](/assets/raspi/google-aiy/assembly/01.jpg)
 
 パッケージ背面です. 大きさの比較のために Raspberry Pi 3 を おきました. かなり大きいパッケージです.
-![](/images/raspi/google-aiy/assembly/02.jpg)
+![](/assets/raspi/google-aiy/assembly/02.jpg)
 
 付属物です. Raspberry Pi 3 は 入っていないので自前で用意が必要です.
 説明書 と、AIY Voice HAT、スピーカー、ボタン、マイク、配線類、本体ケースの段ボール が 入っています.
-![](/images/raspi/google-aiy/assembly/03.jpg)
+![](/assets/raspi/google-aiy/assembly/03.jpg)
 
 説明書は英語なのですが、写真が豊富なので写真を参考にしながら作れそうです.
 MagPi Magazine 57号 とは内容も、付属物も異なるのでデジタル版を確認する場合は [MagPi Magazine 57号 PDF](https://www.raspberrypi.org/magpi-issues/MagPi57.pdf) ではなく、こちらの [Project サイト](https://aiyprojects.withgoogle.com/voice) を 参照します.
-![](/images/raspi/google-aiy/assembly/04.jpg)
+![](/assets/raspi/google-aiy/assembly/04.jpg)
 
 
 ## Google AIY Voice Kit を 組み立てる
 ラズパイ の GPIO ピン と 反対側 の 電源 や HDMI などがある側にスペーサーを付け、AIY Voice HAT を 装着します.
 スペーサーが若干堅かったのでラズパイを折りそうで若干不安でした.
-![](/images/raspi/google-aiy/assembly/05.jpg)
+![](/assets/raspi/google-aiy/assembly/05.jpg)
 
 続いてスピーカーのケーブルを AIY Voice HAT の 青色のコネクタに接続します.
 赤いケーブルがプラス(+) と 基盤にプリントされている側、黒いケーブルがマイナス(-) です. ぐっと差し込み、青いコネクタ上部にあるネジをしめます. ケーブルを引っ張っても抜けないぐらにしめます.
-![](/images/raspi/google-aiy/assembly/06.jpg)
+![](/assets/raspi/google-aiy/assembly/06.jpg)
 
 マイクのボードとボタンにつなげるコネクタを白のコネクタに接続します.
 ピン数が４と５のコネクタなので迷わずにつなげることができます.
-![](/images/raspi/google-aiy/assembly/07.jpg)
+![](/assets/raspi/google-aiy/assembly/07.jpg)
 
 外箱 と 内部の仕切り の 段ボールを組み立てます.
 ちょっと形が分かりにくいですが、こんな感じに収まります. ラズパイ３とスピーカーがちょうど収まります.
 この辺は[説明書の写真](https://aiyprojects.withgoogle.com/voice#assembly-guide-3-1--build-the-box) を よく見ながら作ります. 折り目や順番が書かれていたりしますが、内部の仕切りが難しかったです. 少し先に進んで [Put it all together](https://aiyprojects.withgoogle.com/voice#assembly-guide-4-put-it-all-together) か、下記写真のような組み込み後を確認しながら作りました.
 
 箱詰めの際には マイクロ SD カードを抜いておきます. 差していると若干のはみだしがあり すんなり入らない感じでしたが、SD カードを外したら、わりとスムーズに入ってくれました.
-![](/images/raspi/google-aiy/assembly/08.jpg)
+![](/assets/raspi/google-aiy/assembly/08.jpg)
 
 ボタンを取り付けます. この後の敗戦で上下左右の確認があるので要注意desu. ボタン中央の灰色の部分に「宝」という漢字に王冠マークがあるのですが、その向きが分かるように取り付けます. (スマホだと「宝」が映らなかった、残念)
 ボタンは青でしたが、パッケージや説明書では色が違うので箱によって違うのかな？
-![](/images/raspi/google-aiy/assembly/09.jpg)
+![](/assets/raspi/google-aiy/assembly/09.jpg)
 
 BUTTON というプリント と「宝」の漢字 が そろって読めるようにボタンを取り付けて、左上が白、右上が黒、左下が青、右下が赤 で ケーブルを接続します.
 段ボールを折りそうだったので、いったん外して箱の外でケーブルをつなげました.
 
 マイクのボードを両面テープでボタンの下に貼り付けて内部は完成です. ここでは両面テープがなかったので、箱の中に入れておきましたが、箱の天面の穴(写真だとボタン下の左右) に 基盤のマイク部分を揃えるように貼ります.
-![](/images/raspi/google-aiy/assembly/10.jpg)
+![](/assets/raspi/google-aiy/assembly/10.jpg)
 
 最後に蓋を閉じて、完成！
-![](/images/raspi/google-aiy/assembly/11.jpg)
+![](/assets/raspi/google-aiy/assembly/11.jpg)
 
 
 ## 必要なもの

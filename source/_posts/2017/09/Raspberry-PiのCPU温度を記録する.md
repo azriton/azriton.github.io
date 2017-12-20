@@ -9,7 +9,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/crystal-signal-pi/crystal-signal-pi.jpg "Crystal Signal Pi")
+![](/assets/raspi/crystal-signal-pi/crystal-signal-pi.jpg "Crystal Signal Pi")
 
 [OSMC](https://osmc.tv/) として使っている Raspberry Pi Zero が よくフリーズするようになり、ケースをさわってみると暖かいことから熱対策をすることにしました. そのための [ヒートシンク付きケースを C4 Labs さん から購入](/2017/09/26/C4-LabsでRaspberry-Pi-Zeroのヒートシンク付きケースを購入/) しました.
 そのままヒートシンクを付けたいところ、ちょっと待って簡易的ではありますが Raspberry Pi の 温度を取得して変化を見てみたいと思います.

@@ -9,7 +9,7 @@ tags:
 - Twitter
 ---
 
-![](/images/hexo/hexo-3.2.png "Hexo")
+![](/assets/hexo/hexo-3.2.png "Hexo")
 
 Hexo の デフォルト・テーマ Landscape に [Twitter の 設定を追加](/2017/02/25/HexoにTwitterのアカウントを設定/)した話では、ソーシャル・アイコンが追加されると早とちりをしてしまいました. 改めて思うと、ソーシャル・アイコンは、やはり どこかに配置しておきたいなぁと思うので、設置してみます.
 
@@ -29,7 +29,7 @@ Hexo の デフォルト・テーマ Landscape に [Twitter の 設定を追加]
 Font Awesome は 各種アイコンをフォントとして用意してくれています. フォントなので大きさを変えても崩れませんし、色を変更することもできます. 単色の色設定にはなってしまいますがシンプルなテイストでまとめるとも考えられますし、とても使いやすいツールです.
 
 ライセンスは、[こちら](http://fontawesome.io/license/) で 2017年3月現在 の Version 4.7.0 では、フォント は [SIL OFL 1.1](http://scripts.sil.org/OFL)、CSS などのコードは [MIT](http://opensource.org/licenses/mit-license.html) と、今回のようなブログに設定するにはフリーで使わせていただけます. ただし企業や組織のブランド系のアイコンについては、注意書きがあるので確認およびそれに従った運用が必要です. [Font Awesome の ライセンス](http://fontawesome.io/license/) を ご確認ください.
-![](/images/hexo/fontawesome/01.png)
+![](/assets/hexo/fontawesome/01.png)
 
 Hexo Landscape は `/themes/landscape/source/css/fonts` に Font Awesome の フォントが入っています. そのため新たに追加しなくても使えるのが嬉しいところです.
 
@@ -45,7 +45,7 @@ Hexo Landscape は `/themes/landscape/source/css/fonts` に Font Awesome の フ
 ```
 
 続いて、Font Awesome の アイコン ですが、こちらは [Icons](http://fontawesome.io/icons/) ページ から利用したいアイコンをクリックし、表示されたコードをコピペすることで簡単に利用することができます. たとえば Font Awesome の アイコン は `<i class="fa fa-font-awesome" aria-hidden="true"></i>` です.
-![](/images/hexo/fontawesome/02.png)
+![](/assets/hexo/fontawesome/02.png)
 
 とりあえず GitHub と Twitter を 配置するとして、以下のようなコードを置きました.
 必要なソーシャルアイコンのタグを調べて配置して終了！
@@ -61,7 +61,7 @@ Hexo Landscape は `/themes/landscape/source/css/fonts` に Font Awesome の フ
 
 いざ表示！と、行きたかったのですが、残念ながら表示されませんでした...
 コードは追加されており、配置されている場所こそ気にはなるもののレンダリングもされているようです. しかし、`<i>` の スタイルシート が `user agent stylesheet` で `font-style: italic;` に なっています.
-![](/images/hexo/fontawesome/03.png)
+![](/assets/hexo/fontawesome/03.png)
 
 なんと、Hexo Landscape には Font Awesome の フォント は 入っているものの、CSS が 入っていない... 読み込んでいないではなく、物理的にファイルもない のでした. そのため、Font Awesome の タグ ではアイコンが入ってくれないという事象が発生したものになります.
 
@@ -69,7 +69,7 @@ Hexo Landscape は `/themes/landscape/source/css/fonts` に Font Awesome の フ
 ## Unicode 指定 による CSS で 設置
 タグ による指定できないので、フォントから直接 Unicode で 指定する方法を取りたいと思います.
 Unicode による指定は、CSS で `font-family` に Font Awesome の フォントを指定し、`content` に Unicode で 使用する文字を指定します. Unicode は [Icons](http://fontawesome.io/icons/) ページ に コードが書かれているので、そちらを指定します. たとえば Font Awesome の アイコン は `f2b4` なのでエスケープを入れて `content: "\f2b4";` と なります.
-![](/images/hexo/fontawesome/04.png)
+![](/assets/hexo/fontawesome/04.png)
 
 CSS の クラス定義は、ちょうどソーシャルへシェアするためのアイコンのクラス定義があるので、それに習って作成したいと思います.
 ファイルは `/themes/landscape/source/css/_partial/article.styl` で、`$article-share-link` と `.article-share-twitter` などがソーシャル・シェアのアイコンになります. こちらをまねて `$article-link` と `.article-link-twitter`、`.article-link-github` を 作成しました.
@@ -109,7 +109,7 @@ $article-link
 
 
 ## いざ、表示！
-![](/images/hexo/fontawesome/05.png)
+![](/assets/hexo/fontawesome/05.png)
 
 
 - - - -

@@ -8,7 +8,7 @@ tags:
 - Crystal Signal Pi
 ---
 
-![](/images/raspi/crystal-signal-pi/crystal-signal-pi.png "Crystal Signal Pi")
+![](/assets/raspi/crystal-signal-pi/crystal-signal-pi.png "Crystal Signal Pi")
 
 Raspberry Pi に 光り輝く四角柱 を 立てた Crystal Signal Pi、ようやくミドルウェアを導入しました. ミドルウェア を Docker の コンテナとして導入しましたので、φ(..)メモメモ.
 
@@ -91,8 +91,8 @@ pi@raspberrypi:~ $ docker run -d -p 80:80 --net host --name crystal-signal-pi re
 Crystal Signal Pi の 管理コンソールへブラウザでアクセスできるように `-p 80:80` で 80番ポートを公開します.
 `--net host` で コンテナからホスト側のネットワークスタックへアクセスできるようにします. これはホスト側に導入した `pigpiod.service` へ アクセスするためです.
 
-![](/images/raspi/crystal-signal-pi/run/01.png)
-![](/images/raspi/crystal-signal-pi/run/02.jpg)
+![](/assets/raspi/crystal-signal-pi/run/01.png)
+![](/assets/raspi/crystal-signal-pi/run/02.jpg)
 
 
 

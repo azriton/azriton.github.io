@@ -8,7 +8,7 @@ tags:
 - Python
 ---
 
-![](/images/vscode/visual-studio-code.png "Visual Studio Code")
+![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 ようやく [Visual Studio Code の 準備](/2017/08/26/Visual-Studio-Code最初の設定変更/)ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！
 
@@ -25,16 +25,16 @@ Python サポート の 拡張機能は [かなりの数](https://marketplace.vi
 
 Visual Studio Code を 起動し「ようこそ」画面から、[カスタマイズする] - [ツールと言語] - [Python] を クリックします.
 ※ 「ようこそ」 が 表示されない場合は、メニュー の [ヘルプ] - [ようこそ] を 選択します
-![](/images/vscode/python/01.png)
+![](/assets/vscode/python/01.png)
 
 「Python に追加サポートをインストールしたあと、ウィンドウが再読み込みされます.」 が 表示されるので [OK] を クリックします.
-![](/images/vscode/python/02.png)
+![](/assets/vscode/python/02.png)
 
 Visual Studio Code が 再起動し、「ようこそ」の Python の 色が変わり Python サポートがインストールされました.
-![](/images/vscode/python/03.png)
+![](/assets/vscode/python/03.png)
 
 また、`Ctrl + Shift + X` で 拡張機能を表示するとインストール済みに Python が 追加されていることからも確認できます.
-![](/images/vscode/python/04.png)
+![](/assets/vscode/python/04.png)
 
 
 ## プロジェクト・フォルダー の 作成 と 展開
@@ -45,7 +45,7 @@ Visual Studio Code が 再起動し、「ようこそ」の Python の 色が変
 PS C:\Users\username> mkdir C:\Develop\workspace\hello-python3
 PS C:\Users\username> code C:\Develop\workspace\hello-python3\
 ```
-![](/images/vscode/python/05.png)
+![](/assets/vscode/python/05.png)
 
 
 ## Python の 仮想環境 を 作成
@@ -58,17 +58,17 @@ PS C:\Develop\workspace\hello-python3> python -m venv venv
 Visual Studio Code で 仮想環境を使うように設定します.
 `Ctrl + Shift + P` で コマンドパレット、`interp` と 入力して、[Python: Select Workspace Interpreter] を 選択します.
 続いて利用可能な `python.exe` の 候補が出るので、 `venv - python.exe` を 選択します.
-![](/images/vscode/python/06.png)
-![](/images/vscode/python/07.png)
+![](/assets/vscode/python/06.png)
+![](/assets/vscode/python/07.png)
 
 続いて新しいファイルを作成します. `Ctrl + N` でもよいのですが、Visual Studio Code っぽく `Ctrl + Shift + P` で コマンドパレット、`new file` を 入力して、Visual Studio Code の エクスプローラーに直接ファイルを追加します. ファイル名は `hello.py` としました.
-![](/images/vscode/python/08.png)
+![](/assets/vscode/python/08.png)
 
 ファイル名を確定すると「Linter pylint is not installed」の エラーが表示されます. [Install pylint] を クリックしてインストールします.
-![](/images/vscode/python/09.png)
+![](/assets/vscode/python/09.png)
 
 新しい統合ターミナルが起動し Pylint が インストールされます. 先ほど仮想環境を選択しているので実行する `python.exe` が `venv` の ものになっています. インストールできたら、統合ターミナルは不要なので `Ctrl + @` で 閉じておきます.
-![](/images/vscode/python/10.png)
+![](/assets/vscode/python/10.png)
 
 
 ## Python コーディング
@@ -87,47 +87,47 @@ if __name__ == '__main__':
 
 では早速. `d` と タイプすると入力補完が即時立ち上がりました！ (間違えて消えてしまったら `Ctrl + Space` )
 いくつかの候補があり迷いますが、コード・スニペット の `def` を 選択します.
-![](/images/vscode/python/11.png)
+![](/assets/vscode/python/11.png)
 
 ファンクション定義のスニペットが展開されました. `funcname` に フォーカスが当たっているので、ファンクション名 `hello` を 入力し、 `Tab` キーを押下します.
-![](/images/vscode/python/12.png)
+![](/assets/vscode/python/12.png)
 
 `parameter_list` へ フォーカスが移るので、今回のパラメーター `name` を 入力し、 `Tab` キーを押下します.
-![](/images/vscode/python/13.png)
+![](/assets/vscode/python/13.png)
 
 ファンクションのボディに展開されていた `pass` へ フォーカスが当たるので、 `print`文 を 入力します.
-![](/images/vscode/python/14.png)
+![](/assets/vscode/python/14.png)
 
 `print` は `print` の 文字列の入力補完が効きますが括弧はつかないようです. また、 `name` は パラメーター定義があるのを見てくれて入力補完のリストが表示されます.
-![](/images/vscode/python/15.png)
+![](/assets/vscode/python/15.png)
 
 `print` 文のパラメーター `'Hello ' + name` まで入力し、 `Ctrl + Enter` すると行の途中(今回は閉じ括弧のが残っている状態)でも、残りを改行せずにカーソルだけ次行へ改行してくれます. `Ctrl + S` で ファイルを保存します.
 `def` に 警告が表示されています. 「[pylint] C0111:Missing module docstring」と「[pylint] C0111:Missing function docstring」ですね...
 マウス・カーソルを警告が出ている波線にのせるほか、 `Ctrl + Shift + M` で 問題ビューを表示できます.
-![](/images/vscode/python/16.png)
+![](/assets/vscode/python/16.png)
 
 とりあえず先に進んで、 `main()` を 実装します.
 `main()` は、そのあとの `if __name__ == '__main__':` と ペアになります. そのため `if` 文の入力補完を期待して `if` から入力し、 `if(main)` の 入力補完を選択します.
-![](/images/vscode/python/17.png)
+![](/assets/vscode/python/17.png)
 
 期待通りの `main()` と `if __name__ == '__main__':` を 補完してくれました！ `pass` に フォーカスが当たっているので `hello('Python3！')` を 入力します.
-![](/images/vscode/python/18.png)
+![](/assets/vscode/python/18.png)
 
 実装できたので `Ctrl + S` で 保存します. 警告 を すべて無くしてから完成ですが、今回は Visual Studio Code で Python を 実行することが目的で、コードは残さないので、このまま進めます.
-![](/images/vscode/python/19.png)
+![](/assets/vscode/python/19.png)
 
 
 ## Python プログラム の 実行
 まずは Python 拡張機能 の [Python: Run Python File in Terminal] から実行してみます. `Ctrl + Shift + P` で コマンドパレットを表示、 `Python run` と 入力して絞り込みます.
-![](/images/vscode/python/20.png)
+![](/assets/vscode/python/20.png)
 
 [Python: Run Python File in Terminal] を 選択し、実行します.
-![](/images/vscode/python/21.png)
+![](/assets/vscode/python/21.png)
 
 
 ## その他 - venv 仮想環境 の python.exe の パス
 `venv` の 仮想環境 `python.exe` の パスは `.vscode\settings.json` の `"python.pythonPath"` に フル・パスで記述されています. `.vscode\settings.json` を Git などへコミットし共有する場合は、絶対パスか`"${workspaceRoot}/venv/scripts/python.exe"` のように、プロジェクトのディレクトリをさす `${workspaceRoot}` に 置き換えておきます. 詳細は こちら [Relative Paths to Python Interpreter - Python Path and Version · DonJayamanne/pythonVSCode Wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#relative-paths-to-python-interpreter)
-![](/images/vscode/python/98.png).
+![](/assets/vscode/python/98.png).
 
 
 ## その他 - 統合ターミナルから venv 仮想環境 の 実行
@@ -137,7 +137,7 @@ PS C:\Develop\workspace\hello-python3> Set-ExecutionPolicy RemoteSigned -Scope P
 PS C:\Develop\workspace\hello-python3> .\venv\Scripts\Activate.ps1
 (venv) PS C:\Develop\workspace\hello-python3>
 ```
-![](/images/vscode/python/99.png)
+![](/assets/vscode/python/99.png)
 
 
 <a href="//af.moshimo.com/af/c/click?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0453/000000019703.jpg" width="300" height="250" style="border:none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703" width="1" height="1" style="border:none;">

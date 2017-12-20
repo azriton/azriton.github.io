@@ -9,7 +9,7 @@ tags:
 - Node.js
 ---
 
-![](/images/vscode/visual-studio-code.png "Visual Studio Code")
+![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 [TypeScript の インストールと設定](/2017/08/26/Visual-Studio-Code最初の設定変更/)ができました！ さっそく Visual Studio Code から TypeScript で Hello World を！
 Visual Studio Code の [公式ドキュメント](https://code.visualstudio.com/docs/languages/typescript) が 詳しいので、ドキュメントに則って進めたいと思います.
@@ -27,16 +27,16 @@ Visual Studio Code は 標準で TypeScript に 手厚いサポート "VS Code p
 
 Visual Studio Code を 起動し「ようこそ」画面から、[カスタマイズする] - [ツールと言語] - [TypeScript] を クリックします.
 ※ 「ようこそ」 が 表示されない場合は、メニュー の [ヘルプ] - [ようこそ] を 選択します
-![](/images/vscode/typescript/01.png)
+![](/assets/vscode/typescript/01.png)
 
 「TypeScript に追加サポートをインストールしたあと、ウィンドウが再読み込みされます.」 が 表示されるので [OK] を クリックします.
-![](/images/vscode/typescript/02.png)
+![](/assets/vscode/typescript/02.png)
 
 Visual Studio Code が 再起動し、「ようこそ」の TypeScript の 色が変わり TypeScript サポートがインストールされました.
-![](/images/vscode/typescript/03.png)
+![](/assets/vscode/typescript/03.png)
 
 また、`Ctrl + Shift + X` で 拡張機能を表示するとインストール済みに TypeScript が 追加されていることからも確認できます.
-![](/images/vscode/typescript/04.png)
+![](/assets/vscode/typescript/04.png)
 
 
 ## プロジェクト・フォルダー の 作成 と 展開
@@ -45,7 +45,7 @@ Visual Studio Code が 再起動し、「ようこそ」の TypeScript の 色�
 PS C:\Users\username> mkdir C:\Develop\workspace\hello-typescript
 PS C:\Users\username> code C:\Develop\workspace\hello-typescript\
 ```
-![](/images/vscode/typescript/05.png)
+![](/assets/vscode/typescript/05.png)
 
 
 ## tsconfig.json と tslint.json の 作成
@@ -61,14 +61,14 @@ PS C:\Users\username> code C:\Develop\workspace\hello-typescript\
     }
 }
 ```
-![](/images/vscode/typescript/06.png)
+![](/assets/vscode/typescript/06.png)
 
 
 `Ctrl + Shift + P` で `tslint` 絞り込み、[TSLint: Create a "tslint.json" file] を 選択します.
-![](/images/vscode/typescript/07.png)
+![](/assets/vscode/typescript/07.png)
 
 `tslint.json` ファイルが追加されます. このファイルがないと TSLint の 拡張機能が動作しないので要注意です. 今回は TSLint の 設定をデフォルトのままとしました.
-![](/images/vscode/typescript/08.png)
+![](/assets/vscode/typescript/08.png)
 
 
 ## TypeScript コーディング
@@ -84,22 +84,22 @@ class Startup {
 
 Startup.main();
 ```
-![](/images/vscode/typescript/09.png)
+![](/assets/vscode/typescript/09.png)
 
 
 ## ビルド ＆ 実行
 `Ctrl + Shift + B` で ビルドを実行します. ビルド・タスクを聞かれるので `tsc: ビルド - tsconfig.json` を 選択します.
-![](/images/vscode/typescript/10.png)
+![](/assets/vscode/typescript/10.png)
 
 `tsc` によって トランスパイルされ、 `hello.js` と `hello.js.map` が 生成されます.
-![](/images/vscode/typescript/11.png)
+![](/assets/vscode/typescript/11.png)
 
 `Ctrl + Shift + @` で 新しい統合ターミナルを開き、 `node` を 実行します.
 ```console
 PS C:\Develop\workspace\hello-typescript> node .\hello.js
 Hello TypeScript！
 ```
-![](/images/vscode/typescript/12.png)
+![](/assets/vscode/typescript/12.png)
 
 
 

@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 Slack を [CircleCI に 連携した](/2016/12/14/CircleCIの通知をSlackへ送る/) ように、Slack は さまざまなサービスと連携できます. またボットを設置して会話への応答やアクションを実行することも可能です. 最近は Slack の ような チャット・ツールからインフラのオペレーションを実行する ChatOps というキーワードも登場しています.
 今回は Slack に 簡単なボットを設置したいと思います.
@@ -25,17 +25,17 @@ Slack を [CircleCI に 連携した](/2016/12/14/CircleCIの通知をSlackへ�
 まずは Slack に Bots の カスタム連携 を 追加します.
 Slack へ ログインし、ボットの追加画面 [https://my.slack.com/services/new/bot](https://my.slack.com/services/new/bot) へ アクセスします.
 ボットの名前を入力し、[Add bot integration] ボタンをクリックします. 今回は `bot` と しました. (ちゃんと名前を付けてあげよう... orz)
-![](/images/slack/bot/01.png)
+![](/assets/slack/bot/01.png)
 
 ボットが作成されました. 各種設定が行える画面が表示されるので、通知名やアイコンなどを必要に応じて変更します. せっかくのボットなので、ちゃんと名前とアイコンを付けてかわいがりましょう. 変更した際には画面下の [Save Integration] を クリックします.
 最後に、API Token を コピーしておきます.
-![](/images/slack/bot/02.png)
+![](/assets/slack/bot/02.png)
 
 Slack の チャット画面に戻り、ボットが参加するチャンネルを表示し、`/invite @[BOT_NAME]` と コマンドを実行します. 今回は `sandbox` チャンネル で　`/invite @bot` と しました.
-![](/images/slack/bot/03.png)
+![](/assets/slack/bot/03.png)
 
 無事、ボットがチャンネルに参加しました.
-![](/images/slack/bot/04.png)
+![](/assets/slack/bot/04.png)
 
 
 ## Botkit で ボットのプログラムを作成
@@ -111,10 +111,10 @@ notice: RTM websocket opened
 ## Hello ボット！
 ボットのプログラムが起動すると、DIRECT MESSAGES の ボットのユーザ名(ここでは bot) の 左のアイコンに色がつき ● になります. 色がない ○ の 場合は接続できていないのでプログラムのログなどを確認し接続できるようにします.
 接続できたら `@bot hello` と、メンション で `hello` を ボットに送ります.
-![](/images/slack/bot/05.png)
+![](/assets/slack/bot/05.png)
 
 ボット が `Helllo yourself.` と 返してくれました！
-![](/images/slack/bot/06.png)
+![](/assets/slack/bot/06.png)
 
 先ほどのプログラムの以下の部分が会話の処理になります.
 ```javascript

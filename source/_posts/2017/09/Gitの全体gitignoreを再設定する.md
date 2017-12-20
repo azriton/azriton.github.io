@@ -11,7 +11,7 @@ tags:
 - Windows
 ---
 
-![](/images/vscode/visual-studio-code.png "Visual Studio Code")
+![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 Visual Studio Code で 使うために [PortableGit を インストール](/2017/08/21/PortableGit-for-Windowsのインストール/)しました. その際に 全体 gitignore を 設定したのですが、よくよく調べると、もっとよい設定方法がったので再設定します.
 
@@ -149,13 +149,13 @@ PS C:\Temp> curl -Uri https://raw.githubusercontent.com/github/gitignore/master/
 複数ファイルを結合して使う場合に、コマンドを複数発行すればよいのですが ちょっと面倒だなぁという時は [gitignore.io](https://www.gitignore.io/) というサービスが自動で作ってくれます. なんと [名だたる企業が使っている](https://github.com/joeblau/gitignore.io#companies) ようです(が、企業ロゴが１枚画像で企業へのリンク無しなんだよなぁ...)
 
 Web から使う場合は、 [https://www.gitignore.io/](https://www.gitignore.io/) へ アクセスします.
-![](/images/vscode/install-git/04.png)
+![](/assets/vscode/install-git/04.png)
 
 画面中央のテキストボックスに gitignore したいテンプレート名前を入れていき、[Create] ボタンをクリックします.
-![](/images/vscode/install-git/05.png)
+![](/assets/vscode/install-git/05.png)
 
 自動生成された gitignore の 内容が出力されるので、コピー＆ペーストします.
-![](/images/vscode/install-git/06.png)
+![](/assets/vscode/install-git/06.png)
 
 
 また、自動生成された gitginore 画面 の URL を 使うことでコマンドラインからも取得できます. キーワードをカンマでつなぐのですが、URL Encode するので `%2C` で つなぎます.

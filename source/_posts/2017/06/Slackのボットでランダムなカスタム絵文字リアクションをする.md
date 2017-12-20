@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-![](/images/slack/slack.png "Slack")
+![](/assets/slack/slack.png "Slack")
 
 [Slack の ボット に OAuth で 権限を与えられた](/2017/06/01/SlackのボットにOAuthで権限を追加する/)ので、その権限を使って Slack API を 実行するボットを作成してみます.
 今回は `emoji:read` の 権限を使い、チームに追加されているカスタム絵文字をランダムで選択してリアクションするボットにしたいと思います.
@@ -58,7 +58,7 @@ Slack の リアクション は API 呼び出しになります. `bot.api` 以�
 
 [カスタム絵文字](https://my.slack.com/customize/emoji)でも、設定したカスタム絵文字の名前を `:` 無しで指定することで利用できます.
 
-![](/images/slack/emoji-api/01.png)
+![](/assets/slack/emoji-api/01.png)
 
 
 ## 利用できる カスタム絵文字 の 一覧 を 取得する
@@ -156,7 +156,7 @@ null
 
 `emoji.list` を キャッシュしておいたり、`emoji.list` を ハードコーディングしておくこともできますが、命名ルール(今回は `bot_aloha_` で 始まる) に応じて動くようにしておくことで、命名ルールに則ってカスタム絵文字を追加するだけで拡張できるので、毎回 `emoji.list` を 呼び出すようにしました.
 
-![](/images/slack/emoji-api/02.png)
+![](/assets/slack/emoji-api/02.png)
 
 
 ## プログラム最終系

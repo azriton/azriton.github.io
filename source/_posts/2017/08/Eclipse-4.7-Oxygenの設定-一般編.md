@@ -7,7 +7,7 @@ tags:
 - Eclipse
 ---
 
-![](/images/eclipse/4.7-oxygen.png "Eclipse Oxygen")
+![](/assets/eclipse/4.7-oxygen.png "Eclipse Oxygen")
 
 今回から、Eclipse 4.7 Oxygen の 設定を行っていきます. そのまま使い始めてもよいのですが、ちゃんと設定してあげると より手になじむのでしっかり設定していきたいところです.
 各種設定については、お好みがあると思います. ご参考になれば、といったところでしょうか.
@@ -20,14 +20,14 @@ tags:
 
 ## 設定
 まずは、Eclipse の メニュー から [ウィンドウ] - [設定] を クリックし、設定ウィンドウを表示します.
-![](/images/eclipse/4.7-oxygen-config/001.png)
+![](/assets/eclipse/4.7-oxygen-config/001.png)
 
 
 ### [一般] - [エディター]
 - インプレース・システム・エディターの許可: チェックを外す
 
 好みがわかれるところかと思いますが、Eclipse 内で Office ソフトが表示されたりするのは見ずらいと思うので外しています. (もちろん IDE なのだから統合すべしという観点もあるかと思います)
-![](/images/eclipse/4.7-oxygen-config/101.png)
+![](/assets/eclipse/4.7-oxygen-config/101.png)
 
 
 ### [一般] - [エディター] - [テキスト・エディター]
@@ -39,7 +39,7 @@ tags:
 タブも好みがわかれるところかと思います. 私はスペース派なので設定しています.
 また印刷マージンをいくつにするかも意見が割れるところですね. 最近は広く表示できるので `80` に こだわらなくてもよいかと思いますが、一方でいくつが適切なのかは、正直わからないです... なお [Google の Java Style Guide](https://google.github.io/styleguide/javaguide.html) は "Java code has a column limit of 100 characters. - [4.4 Column limit: 100](https://google.github.io/styleguide/javaguide.html#s4.4-column-limit)" と `100`文字ですね... `100` だと、ちょっと足りない気がしているので `120` に しています. 水平解像度 1920 で Eclipse 内でエディターを 2枚並べられる感じです.
 好みというより コーディング規約で しょっ引かれるところだと思うので、ルールに合わせましょう.
-![](/images/eclipse/4.7-oxygen-config/102.png)
+![](/assets/eclipse/4.7-oxygen-config/102.png)
 
 
 ### [一般] - [エディター] - [テキスト・エディター] - [空白文字を表示] - [可視性の構成]
@@ -49,21 +49,21 @@ tags:
 - 改行: チェックを外す
 
 エディター内に表示する空白文字のパターンを選択します. OK なものは非表示、NG なものを表示にしました. 表示されていたら対処が必要との観点になるのでわかりやすいかと.
-![](/images/eclipse/4.7-oxygen-config/103.png)
+![](/assets/eclipse/4.7-oxygen-config/103.png)
 
 
 ### [一般] - [エディター] - [テキスト・エディター] - [スペル]
 - スペル・チェックを使用可能にする: チェックを外す
 
 英語、苦手なんでチェックしたいところ. ですが、あまり有効に働いた思い出が無いので外しています.
-![](/images/eclipse/4.7-oxygen-config/104.png)
+![](/assets/eclipse/4.7-oxygen-config/104.png)
 
 
 ### [一般] - [エディター] - [構造化テキスト・エディター] - [タスク・タグ]
 - タスク・タグの検索を使用可能にする: チェック
 
 有効にしておくと `TODO` や `FIXME` `XXX` などを タスク・ビュー表示してくれます. 暫定実装した際などはタグをつけておくと、後で改修がしやすいので便利です. 一方で多用されすぎでリストがあふれるなどの悲しいことも...
-![](/images/eclipse/4.7-oxygen-config/105.png)
+![](/assets/eclipse/4.7-oxygen-config/105.png)
 
 
 ### [一般] - [ワークスペース]
@@ -71,7 +71,7 @@ tags:
 - 新規テキスト・ファイルの行区切り文字: Unix
 
 Windows を 使ってはいますが、ソースコードの観点からは `UTF-8` の `LF` が よいと思います. Git の 変換もいらないし.
-![](/images/eclipse/4.7-oxygen-config/106.png)
+![](/assets/eclipse/4.7-oxygen-config/106.png)
 
 
 ### [一般] - [外観] - [色とフォント]
@@ -79,7 +79,7 @@ Windows を 使ってはいますが、ソースコードの観点からは `UTF
 
 開発環境にとってフォントは大事です. 専用のフォントも作られているくらいなので自分に合ったフォントを見つけて設定したいですね.
 私は M+とIPAの合成フォント さん の [Migu 1M](http://mix-mplus-ipa.osdn.jp/migu/) を 使わせていただいてます. 素晴らしいフォントをありがとうございます！！
-![](/images/eclipse/4.7-oxygen-config/107.png)
+![](/assets/eclipse/4.7-oxygen-config/107.png)
 
 
 

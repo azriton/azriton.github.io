@@ -8,7 +8,7 @@ tags:
 - Node.js
 ---
 
-![](/images/typescript/typescript.png "TypeScript")
+![](/assets/typescript/typescript.png "TypeScript")
 
 [TypeScript の tsconfig.json について検討](/2017/09/07/TypeScriptのtsconfig.jsonを考える/) を 続けています. 今回はコンパイル・オプションについて考えます.
 

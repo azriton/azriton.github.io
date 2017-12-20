@@ -9,7 +9,7 @@ tags:
 - Raspbian
 ---
 
-![](/images/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
+![](/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png "Raspbian Jessie Lite")
 
 Raspbian Jessie Lite に Wi-Fi の 設定を行います. Raspberry Pi へは SSH で 接続しているものとします. 今回は Raspberry Pi Zero ではなく、Wi-Fi が ついている Raspberry Pi 3 で 設定していきます.
 
