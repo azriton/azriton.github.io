@@ -13,6 +13,7 @@ tags:
 ![](/assets/vscode/visual-studio-code.png "Visual Studio Code")
 
 [Visual Studio Code の 開発環境を整理](/2017/08/18/Visual-Studio-Codeのインストール/)し始めました. Visual Studio Code は Git を サポートしていますが別途インストールする必要があります. 今回は Git for Windows Portable を 導入します.
+*2017.12.18 追記*　[PortableGit-for-Windowsのインストール](/2017/08/21/PortableGit-for-Windowsのインストール/) の方法の場合、Visual Studio Code で `git.exe` が 見つからないという警告が出るケースがありました. 詳しくは こちら [Visual-Studio-Codeでgitが見つからないと言われた場合の対処](/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/) を 参照ください.
 
 **作業環境**
 - Windows 10 64bit
