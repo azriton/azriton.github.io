@@ -1,6 +1,7 @@
 ---
 title: C4 Labs で Raspberry Pi Zero の ヒートシンク付きケース を 購入
 date: 2017-09-26
+updated: 2017-09-26
 comments: true
 categories: 電子工作
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Node.js 8 64bit & TypeScript の インストール
 date: 2017-09-01
+updated: 2017-09-01
 comments: true
 categories: 開発環境
 tags:

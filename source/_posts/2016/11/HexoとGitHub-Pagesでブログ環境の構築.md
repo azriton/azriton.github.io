@@ -1,6 +1,7 @@
 ---
 title: Hexo と GitHub Pages で ブログ環境の構築
 date: 2016-11-01
+updated: 2016-11-01
 comments: true
 categories: ブログ
 tags:

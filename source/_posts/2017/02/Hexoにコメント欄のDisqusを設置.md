@@ -1,6 +1,7 @@
 ---
 title: Hexo に コメント欄 の Disqus を 設置
 date: 2017-02-26
+updated: 2017-02-26
 comments: true
 categories: ブログ
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Raspberry Pi の CPU 温度 を 記録する
 date: 2017-09-29
+updated: 2017-09-29
 comments: true
 categories: 電子工作
 tags:

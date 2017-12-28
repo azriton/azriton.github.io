@@ -1,6 +1,7 @@
 ---
 title: Hexo の 新規投稿パス を カスタマイズ
 date: 2017-02-13
+updated: 2017-02-13
 comments: true
 categories: ブログ
 tags:

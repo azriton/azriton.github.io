@@ -1,6 +1,7 @@
 ---
 title: Eclipse 4.7 Oxygen リリース！ ＆ インストール
 date: 2017-07-28
+updated: 2017-07-28
 comments: true
 categories: 開発環境
 tags:

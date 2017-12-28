@@ -1,6 +1,7 @@
 ---
 title: Eclipse 4.7 Oxygen の 設定 - 一般編
 date: 2017-08-03
+updated: 2017-08-03
 comments: true
 categories: 開発環境
 tags:

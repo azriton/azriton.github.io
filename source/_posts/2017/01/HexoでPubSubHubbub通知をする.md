@@ -1,6 +1,7 @@
 ---
 title: Hexo で PubSubHubbub 通知をする
 date: 2017-01-06
+updated: 2017-01-06
 comments: true
 categories: ブログ
 tags:

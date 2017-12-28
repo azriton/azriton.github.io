@@ -1,6 +1,7 @@
 ---
 title: Botkit が 自動切断されなくなった、みたい
 date: 2017-03-10
+updated: 2017-03-10
 comments: true
 categories: ボット
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット に AIトーク機能を付ける
 date: 2017-04-20
+updated: 2017-04-20
 comments: true
 categories: ボット
 tags:

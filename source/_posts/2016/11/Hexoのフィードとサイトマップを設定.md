@@ -1,6 +1,7 @@
 ---
 title: Hexo の フィード と サイトマップ を 設定
 date: 2016-11-07
+updated: 2016-11-07
 comments: true
 categories: ブログ
 tags:

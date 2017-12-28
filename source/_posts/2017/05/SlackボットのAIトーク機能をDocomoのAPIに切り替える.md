@@ -1,6 +1,7 @@
 ---
 title: Slack ボット の AIトーク機能 を Docomo の API に 切り替える
 date: 2017-05-24
+updated: 2017-05-24
 comments: true
 categories: ボット
 tags:

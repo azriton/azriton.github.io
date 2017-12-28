@@ -1,6 +1,7 @@
 ---
 title: Crystal Signal Pi が 届いた！
 date: 2017-03-04
+updated: 2017-03-04
 comments: true
 categories: 電子工作
 tags:

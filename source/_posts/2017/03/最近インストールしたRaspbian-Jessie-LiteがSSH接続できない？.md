@@ -1,6 +1,7 @@
 ---
 title: 最近インストールした Raspbian Jessie Lite が SSH 接続できない？
 date: 2017-03-07
+updated: 2017-03-07
 comments: true
 categories: 電子工作
 tags:

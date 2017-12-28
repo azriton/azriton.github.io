@@ -1,6 +1,7 @@
 ---
 title: Slack に ボット を 設置する
 date: 2016-12-17
+updated: 
 comments: true
 categories: ボット
 tags:

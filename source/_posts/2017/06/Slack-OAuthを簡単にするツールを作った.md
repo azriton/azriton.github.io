@@ -1,6 +1,7 @@
 ---
 title: Slack OAuth を 簡単にするツールを作った
 date: 2017-06-07
+updated: 2017-06-07
 comments: true
 categories: ボット
 tags:

@@ -1,6 +1,7 @@
 ---
 title: CircleCI で Hexo の 自動ビルド と デプロイ設定
 date: 2016-12-08
+updated: 
 comments: true
 categories: ブログ
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編
 date: 2017-06-19
+updated: 2017-06-19
 comments: true
 categories: ボット
 tags:

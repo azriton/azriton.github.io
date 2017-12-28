@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite その他 設定
 date: 2017-03-19
+updated: 2017-03-19
 comments: true
 categories: 電子工作
 tags:

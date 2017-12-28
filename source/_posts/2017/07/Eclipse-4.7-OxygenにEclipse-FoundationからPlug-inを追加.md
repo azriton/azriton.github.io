@@ -1,6 +1,7 @@
 ---
 title: Eclipse 4.7 Oxygen に Eclipse Foundation から Plug-in を 追加
 date: 2017-07-31
+updated: 2017-07-31
 comments: true
 categories: 開発環境
 tags:

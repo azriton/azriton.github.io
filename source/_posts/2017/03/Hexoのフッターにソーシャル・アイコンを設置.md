@@ -1,6 +1,7 @@
 ---
 title: Hexo の フッター に ソーシャル・アイコン を 設置
 date: 2017-03-01
+updated: 2017-03-01
 comments: true
 categories: ブログ
 tags:

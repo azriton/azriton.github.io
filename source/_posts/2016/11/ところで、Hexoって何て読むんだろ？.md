@@ -1,6 +1,8 @@
+
 ---
 title: ところで、Hexo って 何て読むんだろ？
 date: 2016-11-10
+updated: 2016-11-10
 comments: true
 categories: 雑記
 tags:

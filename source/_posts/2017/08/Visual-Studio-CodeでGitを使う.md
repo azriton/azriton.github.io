@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code で Git を 使う
 date: 2017-08-23
+updated: 2017-08-23
 comments: true
 categories: 開発環境
 tags:

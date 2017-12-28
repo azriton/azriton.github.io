@@ -1,6 +1,7 @@
 ---
 title: Raspberry Pi Zero の 購入
 date: 2016-11-13
+updated: 2016-11-13
 comments: true
 categories: 電子工作
 tags:

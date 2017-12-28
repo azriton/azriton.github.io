@@ -1,6 +1,7 @@
 ---
 title: Git の 全体 gitignore を 再設定する
 date: 2017-09-13
+updated: 2017-09-13
 comments: true
 categories: 開発環境
 tags:

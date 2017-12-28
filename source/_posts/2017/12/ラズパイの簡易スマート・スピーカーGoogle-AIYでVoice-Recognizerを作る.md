@@ -1,7 +1,7 @@
-
 ---
 title: ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る
 date: 2017-12-13
+updated: 2017-12-13
 comments: true
 categories: 電子工作
 tags:

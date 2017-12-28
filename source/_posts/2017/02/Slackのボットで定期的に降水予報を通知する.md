@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で 定期的に降水予報を通知する
 date: 2017-02-10
+updated: 2017-02-10
 comments: true
 categories: ボット
 tags:

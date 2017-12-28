@@ -1,6 +1,7 @@
 ---
 title: Twitter の アカウント作成
 date: 2017-02-16
+updated: 2017-02-16
 comments: true
 categories: ブログ
 tags:

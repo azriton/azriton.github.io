@@ -1,6 +1,7 @@
 ---
 title: TypeScript の tsconfig.json を 考える
 date: 2017-09-07
+updated: 2017-09-07
 comments: true
 categories: 開発環境
 tags:

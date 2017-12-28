@@ -1,6 +1,7 @@
 ---
 title: CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない
 date: 2016-12-09
+updated: 
 comments: true
 categories: ブログ
 tags:

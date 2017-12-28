@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で 今日の天気を通知する - 降水予報 実装編
 date: 2017-02-04
+updated: 2017-02-04
 comments: true
 categories: ボット
 tags:

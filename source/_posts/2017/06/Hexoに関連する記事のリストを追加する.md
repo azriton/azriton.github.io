@@ -1,6 +1,7 @@
 ---
 title: Hexo に 関連する記事のリストを追加する
 date: 2017-06-16
+updated: 2017-06-16
 comments: true
 categories: ブログ
 tags:

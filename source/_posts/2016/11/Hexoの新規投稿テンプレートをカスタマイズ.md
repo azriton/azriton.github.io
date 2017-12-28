@@ -1,6 +1,7 @@
 ---
 title: Hexo の 新規投稿テンプレート を カスタマイズ
 date: 2016-11-04
+updated: 2016-11-04
 comments: true
 categories: ブログ
 tags:

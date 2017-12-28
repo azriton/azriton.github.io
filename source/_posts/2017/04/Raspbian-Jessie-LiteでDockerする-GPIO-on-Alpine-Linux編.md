@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編
 date: 2017-04-05
+updated: 2017-04-05
 comments: true
 categories: 電子工作
 tags:

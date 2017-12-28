@@ -1,6 +1,7 @@
 ---
 title: Hexo に 404 Not Found ページ を 追加する
 date: 2017-10-11
+updated: 2017-10-11
 comments: true
 categories: ブログ
 tags:

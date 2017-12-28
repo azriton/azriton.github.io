@@ -1,6 +1,7 @@
 ---
 title: Serverlessconf Tokyo 2017 に 参加！！
 date: 2017-11-03
+updated: 2017-11-03
 comments: true
 categories: 勉強会
 tags:

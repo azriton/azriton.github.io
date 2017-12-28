@@ -1,6 +1,7 @@
 ---
 title: C4 Labs で 買った ブレッドボード付きケース で Lチカする
 date: 2017-10-22
+updated: 2017-10-22
 comments: true
 categories: 電子工作
 tags:

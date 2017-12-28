@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で ランダムなカスタム絵文字リアクション を する
 date: 2017-06-13
+updated: 2017-06-13
 comments: true
 categories: ボット
 tags:

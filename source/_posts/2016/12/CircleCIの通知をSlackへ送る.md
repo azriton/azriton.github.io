@@ -1,6 +1,7 @@
 ---
 title: CircleCI の 通知 を Slack へ 送る
 date: 2016-12-14
+updated: 
 comments: true
 categories: ブログ
 tags:

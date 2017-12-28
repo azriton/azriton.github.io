@@ -1,6 +1,7 @@
 ---
 title: Hexo の 投稿記事 URL を 変更する
 date: 2017-01-09
+updated: 2017-01-09
 comments: true
 categories: ブログ
 tags:

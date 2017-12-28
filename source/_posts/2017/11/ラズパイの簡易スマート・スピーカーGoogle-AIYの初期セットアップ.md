@@ -1,6 +1,7 @@
 ---
 title: ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ
 date: 2017-11-15
+updated: 2017-11-15
 comments: true
 categories: 電子工作
 tags:

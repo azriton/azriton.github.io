@@ -1,6 +1,7 @@
 ---
 title: TypeScript の tslint.json を 考える
 date: 2017-09-19
+updated: 2017-09-19
 comments: true
 categories: 開発環境
 tags:

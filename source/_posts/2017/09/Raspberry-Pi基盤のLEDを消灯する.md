@@ -1,6 +1,7 @@
 ---
 title: Raspberry Pi 基盤 の LED を 消灯する
 date: 2017-09-20
+updated: 2017-09-20
 comments: true
 categories: 電子工作
 tags:

@@ -1,6 +1,7 @@
 ---
 title: reveal.js で プレゼンテーション・スライド を Markdown で 書く
 date: 2017-10-14
+updated: 2017-10-14
 comments: true
 categories: プレゼン
 tags:

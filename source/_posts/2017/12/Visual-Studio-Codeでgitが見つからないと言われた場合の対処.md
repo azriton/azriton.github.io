@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code で git.exe が 見つからないと言われた場合の対処
 date: 2017-12-18
+updated: 2017-12-18
 comments: true
 categories: 開発環境
 tags:

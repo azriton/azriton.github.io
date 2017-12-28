@@ -1,6 +1,7 @@
 ---
 title: GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する
 date: 2017-03-13
+updated: 2017-03-13
 categories: 開発環境
 tags:
 - Git

@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で 今日の天気を通知する - JSON 取得編
 date: 2017-01-24
+updated: 2017-01-24
 comments: true
 categories: ボット
 tags:

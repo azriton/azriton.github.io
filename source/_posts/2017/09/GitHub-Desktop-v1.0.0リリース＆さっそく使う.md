@@ -1,6 +1,7 @@
 ---
 title: GitHub Desktop v1.0.0 リリース ＆ さっそく使う
 date: 2017-09-23
+updated: 2017-09-23
 comments: true
 categories: 開発環境
 tags:

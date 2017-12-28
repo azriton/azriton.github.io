@@ -1,6 +1,7 @@
 ---
 title: Python 3.6 64bit の インストール
 date: 2017-07-25
+updated: 2017-07-25
 comments: true
 categories: 開発環境
 tags:

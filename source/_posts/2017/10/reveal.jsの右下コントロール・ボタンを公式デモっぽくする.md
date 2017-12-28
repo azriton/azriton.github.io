@@ -1,6 +1,7 @@
 ---
 title: reveal.js の 右下コントロール・ボタン を 公式デモっぽくする
 date: 2017-10-17
+updated: 2017-10-17
 comments: true
 categories: プレゼン
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Slack の ボットによる代理ポストで、簡易匿名化
 date: 2016-12-26
+updated: 
 comments: true
 categories: ボット
 tags:

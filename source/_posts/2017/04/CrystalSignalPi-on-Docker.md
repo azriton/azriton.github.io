@@ -1,6 +1,7 @@
 ---
 title: Crystal Signal Pi on Docker
 date: 2017-04-14
+updated: 2017-04-14
 comments: true
 categories: 電子工作
 tags:

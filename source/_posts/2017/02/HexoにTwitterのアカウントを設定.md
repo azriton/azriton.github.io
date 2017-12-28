@@ -1,6 +1,7 @@
 ---
 title: Hexo に Twitter の アカウント を 設定
 date: 2017-02-25
+updated: 2017-02-25
 comments: true
 categories: ブログ
 tags:

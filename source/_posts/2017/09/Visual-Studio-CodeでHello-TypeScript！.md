@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code で Hello TypeScript！
 date: 2017-09-04
+updated: 2017-09-04
 comments: true
 categories: 開発環境
 tags:

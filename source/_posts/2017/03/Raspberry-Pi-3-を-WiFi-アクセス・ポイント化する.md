@@ -1,6 +1,7 @@
 ---
 title: Raspberry Pi 3 を WiFi アクセス・ポイント化する
 date: 2017-03-22
+updated: 2017-03-22
 comments: true
 categories: 電子工作
 tags:

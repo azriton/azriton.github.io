@@ -1,6 +1,7 @@
 ---
 title: Google Analytics に Search Console の 分析を追加する
 date: 2017-04-17
+updated: 2017-04-17
 comments: true
 categories: ブログ
 tags:

@@ -1,6 +1,7 @@
 ---
 title: ラズパイ の 簡易スマート・スピーカー Google AIY を 組み立てる
 date: 2017-11-09
+updated: 2017-11-09
 comments: true
 categories: 電子工作
 tags:

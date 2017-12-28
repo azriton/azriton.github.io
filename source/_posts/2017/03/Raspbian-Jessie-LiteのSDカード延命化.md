@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite の SDカード 延命化
 date: 2017-03-16
+updated: 2017-03-16
 comments: true
 categories: 電子工作
 tags:

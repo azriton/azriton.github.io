@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code で Hello Python3！
 date: 2017-08-29
+updated: 2017-08-29
 comments: true
 categories: 開発環境
 tags:

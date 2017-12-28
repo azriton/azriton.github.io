@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編
 date: 2017-01-21
+updated: 2017-01-21
 comments: true
 categories: ボット
 tags:

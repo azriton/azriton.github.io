@@ -1,6 +1,7 @@
 ---
 title: ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい
 date: 2017-11-12
+updated: 2017-11-12
 comments: true
 categories: 電子工作
 tags:

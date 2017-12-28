@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で 定時アクション
 date: 2017-01-12
+updated: 2017-01-12
 comments: true
 categories: ボット
 tags:

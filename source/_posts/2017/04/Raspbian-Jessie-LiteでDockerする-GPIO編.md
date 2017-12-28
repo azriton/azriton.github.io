@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite で Docker する - GPIO 編
 date: 2017-04-02
+updated: 2017-04-02
 comments: true
 categories: 電子工作
 tags:

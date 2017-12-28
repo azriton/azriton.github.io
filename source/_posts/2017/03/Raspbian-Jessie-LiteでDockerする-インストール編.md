@@ -1,6 +1,7 @@
 ---
 title: Raspbian Jessie Lite で Docker する - インストール編
 date: 2017-03-30
+updated: 2017-03-30
 comments: true
 categories: 電子工作
 tags:

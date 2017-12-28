@@ -1,6 +1,7 @@
 ---
 title: Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編
 date: 2017-01-18
+updated: 2017-01-18
 comments: true
 categories: ボット
 tags:
