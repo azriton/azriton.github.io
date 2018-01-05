@@ -76,7 +76,7 @@ hexo-related-popular-posts は 関連記事 と 人気記事 の 両方が扱え
 
 ## いざ確認！
 `hexo generate` して ローカルサーバで動作確認すると、`<head>` に Google Analytics のためのコードが追加されています.
-![](/assets/hexo/hexo-related-popular-posts.png)
+![](/assets/hexo/related-popular-posts/hexo-related-popular-posts.png)
 
 
 
