@@ -7,7 +7,6 @@ categories: 開発環境
 tags:
 - Node.js
 - TypeScript
-- Hexo
 ---
 
 ![](/assets/nodejs/nodejs.png "Node.js")
