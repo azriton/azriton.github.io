@@ -57,40 +57,46 @@
 .widget.profile img
   border-radius: 6px
   display: block
+  margin-left: auto
+  margin-right: auto
   height: auto
   width: auto
   max-height: 100%
   max-width: 100%
   margin-bottom: 12px
 
-.widget.profile strong
+.widget.profile .outline
+  margin-bottom: 12px
+
+.widget.profile .outline strong
   color: color-default
   font-size: 24px
 
-.widget.profile code
+.widget.profile .outline code
   font-family: font-mono
 
+.widget.profile .links .separator
+  margin: 0 4px
+
 $widget-profile-link
-  color: #999 !important
+  margin: 0 4px
   &:before
-    font-size: 20px
+    font-size: 18px
     font-family: font-icon
     font-weight: normal
-    text-align: center
   &:hover
-    color: #fff !important
     text-decoration: none !important
 
 .widget-profile-link-twitter
   @extend $widget-profile-link
   &:before
     content: "\f099"
-  &:hover
-    color: #55acee !important
+    color: #55acee
+    font-size: 24px
 
 .widget-profile-link-github
   @extend $widget-profile-link
   &:before
     content: "\f09b"
-  &:hover
-    color: #333 !important
+    color: #333
+    font-size: 24px
