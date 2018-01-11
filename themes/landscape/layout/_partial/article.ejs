@@ -42,9 +42,9 @@
 <% if (post.relation || post.relation === undefined){ %>
   <nav id="related-posts" class="article-inner" style="font-size: smaller">
     <div class="article-entry">
-      <h2>関連記事</h2>
+      <h2>関連投稿</h2>
       <%-
-        popular_posts({ PPMixingRate: 0.0 })
+        popular_posts({ PPMixingRate: 0.0 }, post)
       %>
     </div>
   </nav>
