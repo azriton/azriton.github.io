@@ -86,7 +86,7 @@ deploy:
 # Plugins
 
 ## Disqus (https://disqus.com/)
-disqus_shortname: azriton
+disqus_shortname:
 
 ## hexo-generator-feed (https://github.com/hexojs/hexo-generator-feed)
 feed:
