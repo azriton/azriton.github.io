@@ -43,9 +43,7 @@
   <nav id="related-posts" class="article-inner" style="font-size: smaller">
     <div class="article-entry">
       <h2>関連投稿</h2>
-      <%-
-        popular_posts({ PPMixingRate: 0.0 }, post)
-      %>
+      <%- popular_posts({ PPMixingRate: 0.0 }, post) %>
     </div>
   </nav>
 <% } %>
