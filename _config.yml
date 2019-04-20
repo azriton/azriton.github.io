@@ -100,13 +100,14 @@ sitemap:
   path: sitemap.xml
 
 ## hexo-html-minifier (https://github.com/hexojs/hexo-html-minifier)
-html_minifier:
+#html_minifier:
+  exclude: /themes/landscape/layout/_partial/head.ejs
   collapseBooleanAttributes: true
   collapseInlineTagWhitespace: true
   collapseWhitespace: true
   decodeEntities: true
   minifyCSS: true
-  minifyJS: true
+#  minifyJS: true
   removeComments: true
   removeEmptyAttributes: true
   removeEmptyElements: false  # Note: When this setting is enabled, the header image will not be displayed
