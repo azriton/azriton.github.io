@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Visual Studio Code で Git を 使う | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Git for Windows Portable を インストールし Git が 使えるようになったので、さっそく Visual Studio Code から使ってみます.2017.12.18 追記　PortableGit-for-Windowsのインストール の方法の場合、Visual Studio Code で git.exe が 見つからないという警告が出るケースがありました. 詳しくは">
+<meta name="keywords" content="GitHub,Git,Visual Studio Code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Visual Studio Code で Git を 使う">
+<meta property="og:url" content="https://azriton.github.io/2017/08/23/Visual-Studio-CodeでGitを使う/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Git for Windows Portable を インストールし Git が 使えるようになったので、さっそく Visual Studio Code から使ってみます.2017.12.18 追記　PortableGit-for-Windowsのインストール の方法の場合、Visual Studio Code で git.exe が 見つからないという警告が出るケースがありました. 詳しくは">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/visual-studio-code.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/01.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/02.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/04.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/05.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/07.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/08.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/09.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/10.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/11.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/12.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/13.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/14.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/15.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/16.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/git/17.png">
+<meta property="og:updated_time" content="2017-08-22T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Visual Studio Code で Git を 使う">
+<meta name="twitter:description" content="Git for Windows Portable を インストールし Git が 使えるようになったので、さっそく Visual Studio Code から使ってみます.2017.12.18 追記　PortableGit-for-Windowsのインストール の方法の場合、Visual Studio Code で git.exe が 見つからないという警告が出るケースがありました. 詳しくは">
+<meta name="twitter:image" content="https://azriton.github.io/assets/vscode/visual-studio-code.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Visual-Studio-CodeでGitを使う" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" class="article-date">
+  <time datetime="2017-08-22T15:00:00.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Visual Studio Code で Git を 使う
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p><a href="/2017/08/21/PortableGit-for-Windowsのインストール/">Git for Windows Portable</a> を インストールし Git が 使えるようになったので、さっそく Visual Studio Code から使ってみます.<br><em>2017.12.18 追記</em>　<a href="/2017/08/21/PortableGit-for-Windowsのインストール/">PortableGit-for-Windowsのインストール</a> の方法の場合、Visual Studio Code で <code>git.exe</code> が 見つからないという警告が出るケースがありました. 詳しくは こちら <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual-Studio-Codeでgitが見つからないと言われた場合の対処</a> を 参照ください.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Git for Windows Portable 64bit</li>
+<li>Visual Studio Code</li>
+<li>Git Hub</li>
+</ul>
+<h2 id="Visual-Studio-Code-を-使って-GitHub-からの-クローン"><a href="#Visual-Studio-Code-を-使って-GitHub-からの-クローン" class="headerlink" title="Visual Studio Code を 使って GitHub からの クローン"></a>Visual Studio Code を 使って GitHub からの クローン</h2><p>Visual Studio Code を 起動します.<br>※ GitHub の アカウント設定と公開鍵の登録などの設定ができている前提とします.<br><img src="/assets/vscode/git/01.png" alt></p>
+<p>統合ターミナル を <code>Ctrl + @</code> で 表示します.<br><img src="/assets/vscode/git/02.png" alt></p>
+<p>統合ターミナルで以下を実行しクローンします.<br>※ 下記 <code>azriton/test</code> は クローンするリポジトリに置き換えます<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">PS C:\Users\username&gt; cd C:\Temp\</span><br><span class="line">PS C:\Temp&gt; git clone git@github.com:azriton/test.git</span><br><span class="line">Cloning into 'test'...</span><br><span class="line">The authenticity of host 'github.com (192.30.255.113)' can't be established.</span><br><span class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added 'github.com,192.30.255.113' (RSA) to the list of known hosts.</span><br><span class="line">remote: Counting objects: 3, done.</span><br><span class="line">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Receiving objects: 100% (3/3), done.</span><br><span class="line">PS C:\Temp&gt;</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/03.png" alt></p>
+<p>Git の 設定で <code>user.useConfigOnly true</code> している場合は、ここでユーザ名とメールアドレスを設定します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">PS C:\Temp&gt; cd test</span><br><span class="line">PS C:\Temp\test&gt; git config --local user.email "you@example.com"</span><br><span class="line">PS C:\Temp\test&gt; git config --local user.name "Your Name"</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/04.png" alt></p>
+<p>Visual Studio Code で プロジェクトのように扱うため、 <code>code</code> コマンドにクローンしたリポジトリのディレクトリを渡してフォルダを開きます. (前回リポジトリのディレクトリに入っているので、ここでは <code>.</code> カレント・ディレクトリを渡しています)<br>(GUI から開く場合は <code>Ctrl + K</code> <code>Ctrl + O</code>)<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">PS C:\Temp\test&gt; code .</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/05.png" alt></p>
+<p>クローンしたディレクトリが開いた状態の新しいウィンドウが表示されます.<br><img src="/assets/vscode/git/06.png" alt></p>
+<h2 id="Visual-Studio-Code-から-変更-を-プッシュ"><a href="#Visual-Studio-Code-から-変更-を-プッシュ" class="headerlink" title="Visual Studio Code から 変更 を プッシュ"></a>Visual Studio Code から 変更 を プッシュ</h2><p><code>README.md</code> を ダブルクリックしてエディタに表示しします.<br><img src="/assets/vscode/git/07.png" alt></p>
+<p>改行コードがあっていないので <code>Ctrl + Shift + P</code> で コマンドパレットを表示し <code>line s</code> と 入力すると絞り込みされるので、[改行コードの変更] を 選択し、続い改行コードの選択が表示されるので [LF] を 選択します.<br><img src="/assets/vscode/git/08.png" alt><br><img src="/assets/vscode/git/09.png" alt></p>
+<p>ステータス・バー の 改行コード が <code>LF</code> に なっていることを確認し <code>README.md</code> を 編集<br>、保存すると ソース管理アイコンに変更されたファイル数がつきます.<br><img src="/assets/vscode/git/10.png" alt></p>
+<p>ソース管理画面 を <code>Ctrl + Shift + G</code> で 表示します.<br><img src="/assets/vscode/git/11.png" alt></p>
+<p>すべての変更をステージしたいので、 <code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>stage</code> と 入力すると絞り込みされるので、[Git: すべての変更のステージング] を 選択します.<br>※ 個別に指定する場合は、各ファイルにマウス・フォーカスを与えると [＋] アイコンが出るのでクリックして追加します.<br><img src="/assets/vscode/git/12.png" alt><br><img src="/assets/vscode/git/13.png" alt></p>
+<p>[Message (press Ctrl+Enter to commit)] の テキスト・ボックスにフォーカスが外れてしまったので、再度 <code>Ctrl + Shift + G</code> で フォーカスを与え、コミットメッセージを入力し <code>Ctrl + Enter</code> します. これで変更がコミットされます.<br><img src="/assets/vscode/git/14.png" alt><br><img src="/assets/vscode/git/15.png" alt></p>
+<p>ステータス・バー に 発信 [0↓ 1↑] が 出ているのでコミット済み、プッシュ前の変更があることが分かります.<br><code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>push</code> と 入力すると絞り込みされるので、[Git: プッシュ] を 選択します.<br><img src="/assets/vscode/git/16.png" alt></p>
+<p>ステータス・バー が [0↓ 0↑] なので 無事、変更をプッシュすることができました！ (ちょっと、わかりにくいかもｗ)<br><img src="/assets/vscode/git/17.png" alt></p>
+<hr>
+<p>統合コンソールがあるので、もしかしたら Git コマンドを直接使った方が便利かもしれないですね.<br>とはいえ、Git の 準備もできました. いよいよ Visual Studio Code で コーディングが始められます. たのみー！</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/23/Visual-Studio-CodeでGitを使う/" data-id="ckq2rxva3001u44r2rq2kfxcr" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Visual Studio Code 最初の設定変更
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/21/PortableGit-for-Windowsのインストール/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">PortableGit for Windows 64bit の インストール</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/13/Gitの全体gitignoreを再設定する/" title="Git の 全体 gitignore を 再設定する" rel="bookmark">Git の 全体 gitignore を 再設定する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/13/GitHubのPrivate-Repositoryからデプロイキーを使ってRead-only-cloneを許可する/" title="GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する" rel="bookmark">GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/23/GitHub-Desktop-v1.0.0リリース＆さっそく使う/" title="GitHub Desktop v1.0.0 リリース ＆ さっそく使う" rel="bookmark">GitHub Desktop v1.0.0 リリース ＆ さっそく使う</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

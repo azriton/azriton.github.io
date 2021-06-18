@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Slack ボット の AIトーク機能 を Docomo の API に 切り替える | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Slack の ボット を リクルートテクノロジーズさん の API を 使って自然言語での会話できるようにしてみました. AI が 流行っている 2017年昨今、様々なサービスがあるのでいろいろ試してみたいと思います. 今回は NTTドコモさん の AIトーク の API を 試してみました. 作業環境  Slack docomo Developer support 雑談対話 API Node">
+<meta name="keywords" content="Slack,Botkit,Node.js,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slack ボット の AIトーク機能 を Docomo の API に 切り替える">
+<meta property="og:url" content="https://azriton.github.io/2017/05/24/SlackボットのAIトーク機能をDocomoのAPIに切り替える/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Slack の ボット を リクルートテクノロジーズさん の API を 使って自然言語での会話できるようにしてみました. AI が 流行っている 2017年昨今、様々なサービスがあるのでいろいろ試してみたいと思います. 今回は NTTドコモさん の AIトーク の API を 試してみました. 作業環境  Slack docomo Developer support 雑談対話 API Node">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/01.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/02.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/04.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/05.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/07.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/08.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/09.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/10.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/11.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/12.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/13.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/docomo/14.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:updated_time" content="2017-05-23T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slack ボット の AIトーク機能 を Docomo の API に 切り替える">
+<meta name="twitter:description" content="Slack の ボット を リクルートテクノロジーズさん の API を 使って自然言語での会話できるようにしてみました. AI が 流行っている 2017年昨今、様々なサービスがあるのでいろいろ試してみたいと思います. 今回は NTTドコモさん の AIトーク の API を 試してみました. 作業環境  Slack docomo Developer support 雑談対話 API Node">
+<meta name="twitter:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SlackボットのAIトーク機能をDocomoのAPIに切り替える" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/24/SlackボットのAIトーク機能をDocomoのAPIに切り替える/" class="article-date">
+  <time datetime="2017-05-23T15:00:00.000Z" itemprop="datePublished">2017-05-24</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Slack ボット の AIトーク機能 を Docomo の API に 切り替える
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>Slack の ボット を リクルートテクノロジーズさん の API を 使って<a href="/2017/04/20/SlackのボットにAIトーク機能を付ける/">自然言語での会話できるよう</a>にしてみました. AI が 流行っている 2017年昨今、様々なサービスがあるのでいろいろ試してみたいと思います. 今回は NTTドコモさん の <a href="https://dev.smt.docomo.ne.jp/?p=docs.api.page&amp;api_name=dialogue&amp;p_name=api_usage_scenario" target="_blank" rel="noopener">AIトーク の API</a> を 試してみました.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>docomo Developer support 雑談対話 API</li>
+<li>Node.js 6.10.2 LTS</li>
+<li>Botkit 0.5.2</li>
+</ul>
+<h2 id="docomo-Developer-support-とは-？"><a href="#docomo-Developer-support-とは-？" class="headerlink" title="docomo Developer support とは ？"></a>docomo Developer support とは ？</h2><p><a href="https://dev.smt.docomo.ne.jp" target="_blank" rel="noopener">NTTドコモさん が 公開されている AI の API</a> で、 “ドコモやパートナー企業が持つ様々なアセットを「API」として汎用化して提供 – docomo Developer support” してくれるものだそうです. 会話を意識した API では 音声認識や音声合成による読み上げなどの API があり、また 画像認識 や 面白いところでは、山座同定 - 画像に写っている山の名前を取得、仮想フェンス、交通情報 などなど、様々な API が 用意されています. NTTドコモさん の スマートフォン・アプリで使われている機能＋αで提供されているような感じでしょうか.</p>
+<p>今回は その中の 雑談対話 API “自然な会話をします。 – <a href="https://dev.smt.docomo.ne.jp/?p=docs.api.index&amp;ref=toppage_service_secton" target="_blank" rel="noopener">API/ツール</a>“ を 使わせていただきました. ウェブサイト で おすすめ されている <a href="https://repl-ai.jp/" target="_blank" rel="noopener">Repl-AI</a> の 方が高機能なイメージがありましたが、シナリオベースで動かすような感じで、チャット上での雑多な会話に応答するには 雑談対話 API が よさそうでした.</p>
+<h2 id="docomo-Developer-support-に-ユーザ登録"><a href="#docomo-Developer-support-に-ユーザ登録" class="headerlink" title="docomo Developer support に ユーザ登録"></a>docomo Developer support に ユーザ登録</h2><p>API の 利用にあたり、まずは docomo Developer support に ユーザ登録する必要があります.</p>
+<p><a href="https://dev.smt.docomo.ne.jp/?p=login" target="_blank" rel="noopener">ログイン</a> の ページへアクセスし、SNSアカウントでログイン / 新規登録 を します. 今回は [メールアドレスで新規登録] 選択しました.<br><img src="/assets/slack/docomo/01.png" alt></p>
+<p>メールアドレスの入力ページが表示されるので、[メールアドレス] と [確認用] に それぞれ 入力します.<br>[所属されている法人・組織に関する情報を登録する] は、今回は個人利用なのでチェックを外しました. 登録すると利用制限が緩和されるようです. 最初からチェックが入っており、会社名などが必須で表示されているので焦りますが、チェックを外すことで会社名などの項目は消えます.<br>最後に [文字認証] の 画像に表示されている文字列を入力し、利用規約を確認し、同意できたら [同意して確認画面へ] ボタンをクリックします.<br><img src="/assets/slack/docomo/02.png" alt></p>
+<p>確認画面が表示されるので、メールアドレスに間違えがないか確認し [仮登録する] ボタンをクリックします.<br><img src="/assets/slack/docomo/03.png" alt></p>
+<p>メール送付のステップに進み、確認メールが送信されたとの画面が表示されます.<br>ここで、先ほど入力したアドレスにメールが届くのを待ちます.<br><img src="/assets/slack/docomo/04.png" alt></p>
+<p>メールに書かれている URL へ アクセスすると、パスワード入力の画面が表示されます. 注意事項に従ったパスワードを決め入力し [パスワードを設定する] ボタンをクリックします.<br><img src="/assets/slack/docomo/05.png" alt></p>
+<p>パスワードが設定できると、新規アカウント登録完了の画面が表示します. 続いて API key を 取得するので、[ログインする] ボタンをクリックします.<br><img src="/assets/slack/docomo/06.png" alt></p>
+<h2 id="雑談対話-API-の-利用申請-と-API-key-の-取得"><a href="#雑談対話-API-の-利用申請-と-API-key-の-取得" class="headerlink" title="雑談対話 API の 利用申請 と API key の 取得"></a>雑談対話 API の 利用申請 と API key の 取得</h2><p>アカウント作成の流れから <a href="https://dev.smt.docomo.ne.jp/?p=login" target="_blank" rel="noopener">ログイン画面</a> は 表示されますが、自動ログインや入力はないので、先ほど取得した アカウントのメールアドレスとパスワードでログインします.<br><img src="/assets/slack/docomo/07.png" alt></p>
+<p>マイページ画面が表示されるので、画面中ほどの API利用申請・管理 から [新規API利用申請へ] ボタンをクリックします.<br><img src="/assets/slack/docomo/08.png" alt></p>
+<p>アプリケーションの登録画面が表示されるので、情報を入力します.<br>審査の話が書かれていますが、今回はすぐに API key が 発行されました.<br>開発用の仮登録なので審査はなく、本登録時に審査があるのでしょうかね. 審査の説明があってちょっとドキドキしましたが…</p>
+<p>コールバック URL は、今回は OAuth を 使わないので注釈の通り <code>https://dummy</code> と 入力しました. OAuth を 使うと、個人に応じた会話をしてくれるようです.<br>提供者名とサポートメールアドレスは OAuth 画面で使われるようで、今回は OAuth は 使わないのですが必須なので入力します.<br>入力後 [API 機能選択へ] ボタンをクリックします.<br><img src="/assets/slack/docomo/09.png" alt></p>
+<p>API 機能選択画面が表示されます. 今回は [雑談対話] のみを選択し [利用する API の 利用規約に同意して、次へ] ボタンをクリックします. 同意すべき利用規約が画面内にないのですが、アカウント作成時に同意した <a href="https://dev.smt.docomo.ne.jp/?p=policy" target="_blank" rel="noopener">ご利用規約</a> で よいのかと思います.<br><img src="/assets/slack/docomo/10.png" alt></p>
+<p>利用規約に同意できたら、利用申請画面が表示されます. 選択した機能が表示されていることを確認し [利用申請する] ボタンをクリックします.<br><img src="/assets/slack/docomo/11.png" alt></p>
+<p>利用申請が完了しました！ 続いて API key を 確認するため [登録アプリケーション一覧へ] ボタンをクリックします.<br><img src="/assets/slack/docomo/12.png" alt></p>
+<p>API利用申請・管理 画面が表示されます. アプリケーション情報 に 先ほど登録したアプリケーション名があり、client id、client secret、API key が 表示されています. 今回は API key のみ使用するので控えておきます.<br><img src="/assets/slack/docomo/13.png" alt></p>
+<h2 id="Slack-の-ボット-を-改修"><a href="#Slack-の-ボット-を-改修" class="headerlink" title="Slack の ボット を 改修"></a>Slack の ボット を 改修</h2><p><a href="/2017/04/20/SlackのボットにAIトーク機能を付ける/#Slack-の-ボット-に-設置">前回のトーク機能</a>を以下のように変更します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre><td class="code"><pre><span class="line">const Botkit = require(&apos;botkit&apos;);</span><br><span class="line">const request = require(&apos;request&apos;);</span><br><span class="line"></span><br><span class="line">const controller = Botkit.slackbot();</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token: process.env.token</span><br><span class="line">&#125;).startRTM();</span><br><span class="line"></span><br><span class="line">var contexts = &#123;&#125;;</span><br><span class="line">controller.on(&apos;ambient&apos;, (bot, message) =&gt; &#123;</span><br><span class="line">    request.post(&#123;</span><br><span class="line">        url: `https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=$&#123;process.env.docomo_apikey&#125;`,</span><br><span class="line">        json: &#123;</span><br><span class="line">            utt: message.text,</span><br><span class="line">            context: contexts[message.user],</span><br><span class="line">            t: 20</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, (err, response, body) =&gt; &#123;</span><br><span class="line">        if (body &amp;&amp; body.utt) &#123;</span><br><span class="line">            contexts[message.user] = body.context;</span><br><span class="line">            bot.reply(message, body.utt);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            bot.reply(message, `エラーたよ:fearful: [$&#123;body&#125;]`);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p><code>ambient</code> の イベントを受けるのは変わらず、<code>request</code> 先が変わります.<br><code>url</code> の API URL が 変わり、URL に 続いて <code>?APIKEY=${process.env.docomo_apikey}</code> で API key を 渡します. リクエスト・パラメータに入れたかったのですが、どうしてもうまく動かなかった orz<br>リクエスト・パラメータ は <code>json</code> で 以下のデータを送ります.</p>
+<ul>
+<li><code>utt</code> は、API へ 渡す会話の文字列です. この入力に対して応答を考えて返してくれます. Slack の 入力なので <code>message.text</code> を 渡します.</li>
+<li><code>context</code> は、会話の継続を識別する ID とのことで API からのレスポンスに含まれる <code>context</code> を 再度渡すことで会話の継続ができるようです. Slack では 複数のユーザーが会話してくるので、ユーザーごとに <code>context</code> を とっておき渡すようにしました. (こうすると会話の横入りができないので、全員で共通でもよかったかも)</li>
+<li><code>t</code> は、キャラクター指定になります. <code>20</code> で 関西弁キャラ、<code>30</code> で 赤ちゃんキャラ、指定なし で デフォルトキャラ だそうです. 会話の雰囲気を変えてみたかったので関西弁にしてみました.<br>他にも会話しているユーザー の ニックネーム や 血液型、星座 などなど 多数のパラメーターが設定できます. 詳細は <a href="https://dev.smt.docomo.ne.jp/?p=docs.api.page&amp;api_name=dialogue&amp;p_name=api_1#tag01" target="_blank" rel="noopener">機能別リファレンス</a> を ご確認ください.</li>
+</ul>
+<p>レスポンスの本体は <code>body</code> に 入ってきます. <code>body.utt</code> が レスポンスの会話なので、<code>bot.reply()</code> に 流します. また <code>body.context</code> に 会話のコンテキストが入っているので、<code>request</code> で 使用した <code>var contexts</code> に Slack の ユーザである <code>message.user</code> を キーに保持しておきます.<br>この形だとボットを再起動するなどして変数がクリアされると消えてしまいますが、永続化するほどの情報ではないので変数保持としました.</p>
+<h2 id="いざ、起動！"><a href="#いざ、起動！" class="headerlink" title="いざ、起動！"></a>いざ、起動！</h2><p><a href="/2017/04/20/SlackのボットにAIトーク機能を付ける/#いざ、起動！">前回</a>同様 Slack トークン と API Key を 環境変数から受け取るので環境変数を設定して起動します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">token=REPLACE_THIS_WITH_YOUR_TOKEN docomo_apikey=REPLACE_THIS_WITH_YOUR_APIKEY node index.js</span><br><span class="line">Initializing Botkit v0.5.2</span><br><span class="line">info: ** No persistent storage method specified! Data may be lost when process shuts down.</span><br><span class="line">info: ** Setting up custom handlers for processing Slack messages</span><br><span class="line">info: ** API CALL: https://slack.com/api/rtm.start</span><br><span class="line">notice: ** BOT ID: bot ...attempting to connect to RTM!</span><br><span class="line">notice: RTM websocket opened</span><br></pre></table></figure></p>
+<p>※ Windows コマンドプロンプト の 場合は、下記のように <code>set</code> で 明示的に環境変数を設定してから実行します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">set token=REPLACE_THIS_WITH_YOUR_TOKEN</span><br><span class="line">set docomo_apikey=REPLACE_THIS_WITH_YOUR_APIKEY</span><br><span class="line">node index.js</span><br></pre></table></figure></p>
+<h2 id="トーク、トーク♪"><a href="#トーク、トーク♪" class="headerlink" title="トーク、トーク♪"></a>トーク、トーク♪</h2><p><img src="/assets/slack/docomo/14.png" alt><br><a href="/2017/04/20/SlackのボットにAIトーク機能を付ける/#トーク、トーク♪">前回</a>の流れ同様の会話で始めましたが、いきなりよくわからない応答です. そして好きなんですかね、オフィス街…<br>会話が詰まってくると疑問を投げかけてきて話題を変えるような応答もしてきます. これはこれで面白い感じです.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>ボットのフレームワーク に AI の サービス と、組み合わせるだけで簡単に会話ボットが作ることでき、また AI も Web API なので、切り替えも簡単にできました. フレームワークうやサービスを提供してくれてるおかげですね. ありがたいです.</p>
+<p>個人的には、リクルートテクノロジーズさん の API に 比べて、NTTドコモさん の API のが、より自然な会話応答をしているようにも感じました. 途中で話を変えてきたり、ニュースをブチ込んできたりと色々と楽しいです. 例のヒツジさん あたりで培われている技術なんですかね.</p>
+<p>サービスごとの特色があって面白いです. 次はどこの AI と 会話してみようかなぁ.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/05/24/SlackボットのAIトーク機能をDocomoのAPIに切り替える/" data-id="ckq2rxvdp00ax44r2t6uv91if" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/06/01/SlackのボットにOAuthで権限を追加する/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack の ボット に OAuth で 権限を追加する
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/20/SlackのボットにAIトーク機能を付ける/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Slack の ボット に AIトーク機能を付ける</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

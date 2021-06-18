@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>TypeScript の tslint.json を 調べる | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="TypeScript の tsconfig.json が とりあえずできました. 次は静的解析ツールの TSLint を 設定する tslint.json の 設定内容について検討します. 作業環境  Windows 10 64bit Node.js 8.4.0 64bit TypeScript 2.4 TSLint 5.6.0  TSLint とは？TSLint は プログラムを動作させずに解">
+<meta name="keywords" content="Node.js,TypeScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript の tslint.json を 調べる">
+<meta property="og:url" content="https://azriton.github.io/2017/09/16/TypeScriptのtslint.jsonを調べる/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="TypeScript の tsconfig.json が とりあえずできました. 次は静的解析ツールの TSLint を 設定する tslint.json の 設定内容について検討します. 作業環境  Windows 10 64bit Node.js 8.4.0 64bit TypeScript 2.4 TSLint 5.6.0  TSLint とは？TSLint は プログラムを動作させずに解">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/typescript/typescript.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51bLLkWaH4L._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51UE0ypcmKL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:updated_time" content="2017-09-15T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript の tslint.json を 調べる">
+<meta name="twitter:description" content="TypeScript の tsconfig.json が とりあえずできました. 次は静的解析ツールの TSLint を 設定する tslint.json の 設定内容について検討します. 作業環境  Windows 10 64bit Node.js 8.4.0 64bit TypeScript 2.4 TSLint 5.6.0  TSLint とは？TSLint は プログラムを動作させずに解">
+<meta name="twitter:image" content="https://azriton.github.io/assets/typescript/typescript.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TypeScriptのtslint.jsonを調べる" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/16/TypeScriptのtslint.jsonを調べる/" class="article-date">
+  <time datetime="2017-09-15T15:00:00.000Z" itemprop="datePublished">2017-09-16</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      TypeScript の tslint.json を 調べる
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/typescript/typescript.png" alt title="TypeScript"></p>
+<p><a href="/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/">TypeScript の tsconfig.json が とりあえずできました.</a> 次は静的解析ツールの TSLint を 設定する tslint.json の 設定内容について検討します.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Node.js 8.4.0 64bit</li>
+<li>TypeScript 2.4</li>
+<li>TSLint 5.6.0</li>
+</ul>
+<h2 id="TSLint-とは？"><a href="#TSLint-とは？" class="headerlink" title="TSLint とは？"></a>TSLint とは？</h2><p><a href="https://palantir.github.io/tslint/" target="_blank" rel="noopener">TSLint</a> は プログラムを動作させずに解析し問題になりそうなコードや規約違反などをチェックする TypeScript 向けの静的解析ツールです. JavaScript では <a href="https://eslint.org/" target="_blank" rel="noopener">ESLint</a>、Java では <a href="https://spotbugs.github.io/" target="_blank" rel="noopener">SpotBugs</a>(FindBugs) ＆ <a href="http://checkstyle.sourceforge.net/" target="_blank" rel="noopener">Checkstyle</a> などが同種のツールにあたります.</p>
+<h2 id="設定項目の確認"><a href="#設定項目の確認" class="headerlink" title="設定項目の確認"></a>設定項目の確認</h2><p><a href="https://palantir.github.io/tslint/rules/" target="_blank" rel="noopener">TSLint core rules</a> を 確認し、ざっと理解のためのメモを作りました.<br>英語ができないのと、TypeScript/TSLint に 詳しくない状態で書いているので、間違えや勘違いがあるかもしれないでご注意ください…<br>英文のままになっているところは、よくわからなかった and/or 日本語で表現できなかった ので、とりあえず そのまま転記しました. いつの日かアップデートできるように頑張りたい.</p>
+<h3 id="TypeScript-specific"><a href="#TypeScript-specific" class="headerlink" title="TypeScript-specific"></a><a href="https://palantir.github.io/tslint/rules/#typescript-specific" target="_blank" rel="noopener">TypeScript-specific</a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">ルール
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left">adjacent-overload-signatures
+<td style="text-align:left">関数のオーバーロードは連続して記述し、可読性を向上させる
+
+<tr>
+<td style="text-align:left">ban-types
+<td style="text-align:left">特定の型を使用禁止にする
+
+<tr>
+<td style="text-align:left">member-access
+<td style="text-align:left">クラス・メンバーの可視性宣言を強制させる
+
+<tr>
+<td style="text-align:left">member-ordering
+<td style="text-align:left">クラス・メンバーの順序付けを強制し、可読性を向上させる
+
+<tr>
+<td style="text-align:left">no-any
+<td style="text-align:left"><code>any</code> の 型宣言を使用禁止にする
+
+<tr>
+<td style="text-align:left">no-empty-interface
+<td style="text-align:left">空のインターフェースを禁止する
+
+<tr>
+<td style="text-align:left">no-import-side-effect
+<td style="text-align:left">副作用を伴う <code>import</code> を 禁止する
+
+<tr>
+<td style="text-align:left">no-inferrable-types
+<td style="text-align:left"><code>number</code> <code>string</code> <code>boolean</code> の 初期化済みの型宣言を禁止し冗長なコードを排除させる
+
+<tr>
+<td style="text-align:left">no-internal-module
+<td style="text-align:left">内部 <code>module</code> を 禁止し、新しい <code>namespace</code> キーワードの利用を使用させる
+
+<tr>
+<td style="text-align:left">no-magic-numbers
+<td style="text-align:left">マジックナンバーを禁止する (ただしデフォルトでは <code>-1</code> <code>0</code> <code>1</code> は 許可)
+
+<tr>
+<td style="text-align:left">no-namespace
+<td style="text-align:left">内部 <code>module</code> と<code>namespace</code> を 禁止し、 ES6-style の <code>import/export</code> を使用させる
+
+<tr>
+<td style="text-align:left">no-non-null-assertion
+<td style="text-align:left">non-null アサーションを禁止し、strict null checking mode を 活用させる
+
+<tr>
+<td style="text-align:left">no-reference
+<td style="text-align:left"><code>/// &lt;reference path=&gt;</code> を 禁止し、ES6-style の <code>import/export</code> を使用させる
+
+<tr>
+<td style="text-align:left">no-unnecessary-type-assertion
+<td style="text-align:left">型アサーションが、式の型を変更しない場合に警告する
+
+<tr>
+<td style="text-align:left">no-var-requires
+<td style="text-align:left"><code>import</code> 以外の <code>require</code> を 禁止し、ES6-style の <code>import/export</code> を使用させる
+
+<tr>
+<td style="text-align:left">only-arrow-functions
+<td style="text-align:left">Arrow-style 以外の <code>function</code> 関数式を禁止し、予期しない <code>this</code> アクセスを防止する
+
+<tr>
+<td style="text-align:left">prefer-for-of
+<td style="text-align:left">配列のインデックスにアクセスしないループの場合は、 <code>for-of</code> を 使用させる
+
+<tr>
+<td style="text-align:left">promise-function-async
+<td style="text-align:left"><code>Promise</code> を 返す関数またはメソッドは <code>async</code> の マークを必須とする
+
+<tr>
+<td style="text-align:left">typedef
+<td style="text-align:left">型定義を必須とする
+
+<tr>
+<td style="text-align:left">typedef-whitespace
+<td style="text-align:left">型指定子(コロン) の 前後のスペース有無をチェックします
+
+<tr>
+<td style="text-align:left">unified-signatures
+<td style="text-align:left"><code>union</code> または <code>optional/rest</code> で１つに統合できるオーバーロードを警告する
+
+
+</table>
+<h3 id="Functionality"><a href="#Functionality" class="headerlink" title="Functionality"></a><a href="https://palantir.github.io/tslint/rules/#functionality" target="_blank" rel="noopener">Functionality</a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">ルール
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left">await-promise
+<td style="text-align:left"><code>Promise</code> ではない <code>awaited</code> な 値を警告する
+
+<tr>
+<td style="text-align:left">ban
+<td style="text-align:left">特定の関数やグローバル・メソッドを禁止する
+
+<tr>
+<td style="text-align:left">curly
+<td style="text-align:left"><code>if/for/do/while</code> で 中括弧を必須とする
+
+<tr>
+<td style="text-align:left">forin
+<td style="text-align:left"><code>for-in</code> の <code>if</code> フィルターを必須とし、継承プロパティへの偶発アクセスを防止する
+
+<tr>
+<td style="text-align:left">import-blacklist
+<td style="text-align:left">直接 <code>import</code> <code>require</code> せず、サブモジュール・ロードにして不要なロードを避ける
+
+<tr>
+<td style="text-align:left">label-position
+<td style="text-align:left">ラベルの使用を <code>do/for/while/switch</code> に限定し、コードの構造化を強化する
+
+<tr>
+<td style="text-align:left">no-arg
+<td style="text-align:left"><code>arguments.callee</code> を 禁止し、パフォーマンスの最適化を行えるようにする
+
+<tr>
+<td style="text-align:left">no-bitwise
+<td style="text-align:left">ビット演算子を禁止し、保守性を向上させる
+
+<tr>
+<td style="text-align:left">no-conditional-assignment
+<td style="text-align:left"><code>do-while/for/if/while</code> での条件文における代入を禁止する
+
+<tr>
+<td style="text-align:left">no-console
+<td style="text-align:left">指定するコンソール・メソッド (e.g. <code>log</code> <code>error</code>) の 仕様を禁止する
+
+<tr>
+<td style="text-align:left">no-construct
+<td style="text-align:left"><code>String</code> <code>Number</code> <code>Boolean</code> の コンストラクタ利用を禁止し、関数を利用させる
+
+<tr>
+<td style="text-align:left">no-debugger
+<td style="text-align:left"><code>debugger</code> ステートメントを禁止する
+
+<tr>
+<td style="text-align:left">no-duplicate-super
+<td style="text-align:left">コンストラクタでの <code>super()</code> 二重呼び出しを警告する
+
+<tr>
+<td style="text-align:left">no-duplicate-variable
+<td style="text-align:left">同一スコープでの <code>var</code> 重複宣言を禁止する
+
+<tr>
+<td style="text-align:left">no-empty
+<td style="text-align:left">空ブロックを禁止する
+
+<tr>
+<td style="text-align:left">no-eval
+<td style="text-align:left"><code>eval</code> を 禁止し、危険なコードを防止させる
+
+<tr>
+<td style="text-align:left">no-floating-promises
+<td style="text-align:left">関数から返された <code>Promise</code> の ハンドルを厳格にさせる
+
+<tr>
+<td style="text-align:left">no-for-in-array
+<td style="text-align:left">配列の <code>for-in</code> ループを禁止し <code>for-of</code> を 利用させる
+
+<tr>
+<td style="text-align:left">no-inferred-empty-object-type
+<td style="text-align:left">関数とコンストラクタの呼出し側で、 <code>{}</code> (空オブジェクト型)による型推論を禁止する
+
+<tr>
+<td style="text-align:left">no-invalid-template-strings
+<td style="text-align:left">テンプレート文字列以外 の <code>${</code> を 警告する
+
+<tr>
+<td style="text-align:left">no-invalid-this
+<td style="text-align:left">クラス外での <code>this</code> キーワードの使用を禁止する
+
+<tr>
+<td style="text-align:left">no-misused-new
+<td style="text-align:left"><em>Warns on apparent attempts to define constructors for interfaces or <code>new</code> for classes.</em>
+
+<tr>
+<td style="text-align:left">no-null-keyword
+<td style="text-align:left"><code>null</code> の 使用を禁止し、 <code>undefined</code> に 統一させる
+
+<tr>
+<td style="text-align:left">no-object-literal-type-assertion
+<td style="text-align:left">インターフェースや
+
+<tr>
+<td style="text-align:left">no-shadowed-variable
+<td style="text-align:left">変数のシャドーイングを禁止する
+
+<tr>
+<td style="text-align:left">no-sparse-arrays
+<td style="text-align:left">配列リテラルの欠落要素(重複カンマ)を禁止しする
+
+<tr>
+<td style="text-align:left">no-string-literal
+<td style="text-align:left">不要な文字列リテラルのプロパティアクセスを禁止し <code>obj.property</code> 書式を使用させる
+
+<tr>
+<td style="text-align:left">no-string-throw
+<td style="text-align:left">プレーン・テキストの <code>throw</code> を 禁止し、 <code>Error</code> の スローを使用させる
+
+<tr>
+<td style="text-align:left">no-submodule-imports
+<td style="text-align:left">サブモジュールのインポートを禁止し、最上位パッケージのエクスポートを使用させる
+
+<tr>
+<td style="text-align:left">no-switch-case-fall-through
+<td style="text-align:left"><code>switch</code> の ケース・フォールスルーをきん資する
+
+<tr>
+<td style="text-align:left">no-this-assignment
+<td style="text-align:left">不要な <code>this</code> 参照を禁止し、Arrow-style ラムダを使用させる
+
+<tr>
+<td style="text-align:left">no-unbound-method
+<td style="text-align:left">メソッドがメソッド呼び出しの外で使用されることを警告する
+
+<tr>
+<td style="text-align:left">no-unsafe-any
+<td style="text-align:left">動的な方法の <code>any</code> 型 利用を警告する
+
+<tr>
+<td style="text-align:left">no-unsafe-finally
+<td style="text-align:left"><code>finally</code> ブロックでの <code>return</code> <code>continue</code> <code>break</code> <code>throws</code> の 使用を禁止する
+
+<tr>
+<td style="text-align:left">no-unused-expression
+<td style="text-align:left">未使用の式ステートメントを禁止する
+
+<tr>
+<td style="text-align:left">no-unused-variable
+<td style="text-align:left">未使用 の インポート、変数、関数、プライベート・クラスのメンバー を 禁止する
+
+<tr>
+<td style="text-align:left">no-use-before-declare
+<td style="text-align:left">変数の宣言前利用を禁止する
+
+<tr>
+<td style="text-align:left">no-var-keyword
+<td style="text-align:left"><code>var</code> を 禁止し、 <code>let</code> と <code>const</code> を 使用させる
+
+<tr>
+<td style="text-align:left">no-void-expression
+<td style="text-align:left"><em>Requires expressions of type <code>void</code> to appear in statement position.</em>
+
+<tr>
+<td style="text-align:left">prefer-conditional-expression
+<td style="text-align:left"><em>Recommends to use a conditional expression instead of assigning to the same thing in each branch of an if statement.</em>
+
+<tr>
+<td style="text-align:left">prefer-object-spread
+<td style="text-align:left"><em>Enforces the use of the ES2015 object spread operator over <code>Object.assign()</code> where appropriate.</em>
+
+<tr>
+<td style="text-align:left">radix
+<td style="text-align:left"><code>parseInt</code> を 使う場合に、 <code>radix</code> パラメータの指定を必須とする
+
+<tr>
+<td style="text-align:left">restrict-plus-operands
+<td style="text-align:left">変数の加算は双方の型が同じ(<code>number</code> + <code>string</code> は禁止) であることを強制する
+
+<tr>
+<td style="text-align:left">strict-boolean-expressions
+<td style="text-align:left">ブール式で許可する型を制限する (デフォルトは <code>boolean</code> のみ)
+
+<tr>
+<td style="text-align:left">strict-type-predicates
+<td style="text-align:left">常に <code>true</code> もしくは <code>false</code> となる型述語を警告する
+
+<tr>
+<td style="text-align:left">switch-default
+<td style="text-align:left"><code>switch</code> 文は、 <code>default</code> ケース の 実装を必須とする
+
+<tr>
+<td style="text-align:left">triple-equals
+<td style="text-align:left"><code>==</code> と <code>!=</code> を 禁止し、 <code>===</code> と <code>!==</code> を 使用させる
+
+<tr>
+<td style="text-align:left">typeof-compare
+<td style="text-align:left"><em>Makes sure result of <code>typeof</code> is compared to correct string values.</em>
+
+<tr>
+<td style="text-align:left">use-default-type-parameter
+<td style="text-align:left">明示的に指定された型引数が、その型パラメータのデフォルトである場合に警告する
+
+<tr>
+<td style="text-align:left">use-isnan
+<td style="text-align:left"><code>NaN</code> 定数の比較を禁止し、 <code>isNaN()</code> 関数を使用させる
+
+
+</table>
+<h3 id="Maintainability"><a href="#Maintainability" class="headerlink" title="Maintainability"></a><a href="https://palantir.github.io/tslint/rules/#maintainability" target="_blank" rel="noopener">Maintainability</a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">ルール
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left">cyclomatic-complexity
+<td style="text-align:left">サイクロマティック複雑度の分析と閾値を適用する
+
+<tr>
+<td style="text-align:left">deprecation
+<td style="text-align:left">デプリケート API の 使用を警告する
+
+<tr>
+<td style="text-align:left">eofline
+<td style="text-align:left">ファイルが改行で終わるようにする
+
+<tr>
+<td style="text-align:left">indent
+<td style="text-align:left">指定するインデントルールを適用する
+
+<tr>
+<td style="text-align:left">linebreak-style
+<td style="text-align:left">指定する改行コードを適用する
+
+<tr>
+<td style="text-align:left">max-classes-per-file
+<td style="text-align:left">ファイル内のクラス数を制限する
+
+<tr>
+<td style="text-align:left">max-file-line-count
+<td style="text-align:left">ファイルの行数を制限する
+
+<tr>
+<td style="text-align:left">max-line-length
+<td style="text-align:left">１行の文字数を制限する
+
+<tr>
+<td style="text-align:left">no-default-export
+<td style="text-align:left">ES6-style の デフォルト・エクスポートを禁止し、名前付きエクスポートを使用させる
+
+<tr>
+<td style="text-align:left">no-duplicate-imports
+<td style="text-align:left">同じモジュールからの複数インポートを禁止する
+
+<tr>
+<td style="text-align:left">no-mergeable-namespace
+<td style="text-align:left">同じファイル内のマージ可能な <code>namespace</code> を 禁止する
+
+<tr>
+<td style="text-align:left">no-require-imports
+<td style="text-align:left"><code>require()</code> を 禁止し、新しい ES6-style <code>import/export</code> を 使用させる
+
+<tr>
+<td style="text-align:left">object-literal-sort-keys
+<td style="text-align:left">オブジェクト・リテラルのキーは、アルファベット順に記述させる
+
+<tr>
+<td style="text-align:left">prefer-const
+<td style="text-align:left">変数への割り当てが１回に限られる場合、 <code>const</code> を 使用させる
+
+<tr>
+<td style="text-align:left">trailing-comma
+<td style="text-align:left">配列とオブジェクトのリテラルで最後にカンマを付けるかのルールを強制する
+
+
+</table>
+<h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a><a href="https://palantir.github.io/tslint/rules/#style" target="_blank" rel="noopener">Style</a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">ルール
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left">align
+<td style="text-align:left">指定する要素 (e.g. 引数) を 垂直方向を揃えて整列して記述させる
+
+<tr>
+<td style="text-align:left">array-type
+<td style="text-align:left">配列宣言を <code>T[]</code> もしくは <code>Array</code> の いずれかに統一させる
+
+<tr>
+<td style="text-align:left">arrow-parens
+<td style="text-align:left">Arrow-style 関数 の パラメーターで括弧を必須とする
+
+<tr>
+<td style="text-align:left">arrow-return-shorthand
+<td style="text-align:left"><code>() =&gt; { return x; }</code> を <code>() =&gt; x</code> と させる
+
+<tr>
+<td style="text-align:left">binary-expression-operand-order
+<td style="text-align:left"><em>In a binary expression, a literal should always be on the right-hand side if possible. For example, prefer ‘x + 1’ over ‘1 + x’.</em>
+
+<tr>
+<td style="text-align:left">callable-types
+<td style="text-align:left">コールシグネチャのみのインターフェース名やリテラル型は関数型を使用させる
+
+<tr>
+<td style="text-align:left">class-name
+<td style="text-align:left">クラスとインターフェース名はパスカルケース(アッパーキャメルケース)にさせる
+
+<tr>
+<td style="text-align:left">comment-format
+<td style="text-align:left">１行コメントの書式設定ルールを強制する
+
+<tr>
+<td style="text-align:left">completed-docs
+<td style="text-align:left"><em>Enforces documentation for important items be filled out.</em>
+
+<tr>
+<td style="text-align:left">encoding
+<td style="text-align:left">UTF-8 エンコーディングを強制する
+
+<tr>
+<td style="text-align:left">file-header
+<td style="text-align:left">すべてのファイルに対して指定する正規表現にマッチするヘッダーコメントを強制する
+
+<tr>
+<td style="text-align:left">import-spacing
+<td style="text-align:left"><code>import</code> の キーワード間にスペースを入れることを強制する
+
+<tr>
+<td style="text-align:left">interface-name
+<td style="text-align:left">×
+<td>インターフェース名は <code>I</code> で 始まることを強制する
+
+<tr>
+<td style="text-align:left">interface-over-type-literal
+<td style="text-align:left">型リテラル( <code>type T = {...}</code> ) ではなく インターフェース名を使用させる
+
+<tr>
+<td style="text-align:left">jsdoc-format
+<td style="text-align:left">JSDoc の 基本形式ルールを強制する
+
+<tr>
+<td style="text-align:left">match-default-export-name
+<td style="text-align:left">デフォルト・インポートには、インポートする宣言と同じ名前の使用を必須とする
+
+<tr>
+<td style="text-align:left">newline-before-return
+<td style="text-align:left">ブロック内に <code>return</code> 以外の行がある場合、 <code>return</code> の 前に空行を必須とする
+
+<tr>
+<td style="text-align:left">new-parens
+<td style="text-align:left"><code>new</code> キーワードを使用してコンストラクタを呼び出す場合、括弧を必須とする
+
+<tr>
+<td style="text-align:left">no-angle-bracket-type-assertion
+<td style="text-align:left">型アサーションに <code>&lt;Type&gt;</code> の 代わりに <code>as Type</code> を 使用させる
+
+<tr>
+<td style="text-align:left">no-boolean-literal-compare
+<td style="text-align:left"><code>x === true</code> のような、ブール・リテラルとの比較を警告する
+
+<tr>
+<td style="text-align:left">no-consecutive-blank-lines
+<td style="text-align:left">１もしくは複数の空行を禁止する (デフォルトで １つの空行を許可する)
+
+<tr>
+<td style="text-align:left">no-irregular-whitespace
+<td style="text-align:left">文字列やコメントの外側にある不規則な空白を禁止する
+
+<tr>
+<td style="text-align:left">no-parameter-properties
+<td style="text-align:left">クラス・コンストラクタでのパラメーター・プロパティを禁止する
+
+<tr>
+<td style="text-align:left">no-reference-import
+<td style="text-align:left"><code>&lt;reference types=&quot;foo&quot; /&gt;</code> の 使用を禁止する
+
+<tr>
+<td style="text-align:left">no-trailing-whitespace
+<td style="text-align:left">行末尾の空白を禁止する
+
+<tr>
+<td style="text-align:left">no-unnecessary-callback-wrapper
+<td style="text-align:left"><em>Replaces <code>x =&gt; f(x)</code> with just <code>f</code>. To catch more cases, enable <code>only-arrow-functions</code> and <code>arrow-return-shorthand</code> too.</em>
+
+<tr>
+<td style="text-align:left">no-unnecessary-initializer
+<td style="text-align:left"><code>var</code> <code>let</code> <code>destructuring initializer</code> の <code>undefined</code> 初期化を禁止する
+
+<tr>
+<td style="text-align:left">no-unnecessary-qualifier
+<td style="text-align:left"><em>Warns when a namespace qualifier (<code>A.x</code>) is unnecessary.</em>
+
+<tr>
+<td style="text-align:left">number-literal-format
+<td style="text-align:left">小数点以下のリテラルは <code>0.</code> で 始まり、末尾が <code>0</code> で 終わらないこと強制する
+
+<tr>
+<td style="text-align:left">object-literal-key-quotes
+<td style="text-align:left"><code>Enforces consistent object literal property quote style.</code>
+
+<tr>
+<td style="text-align:left">object-literal-shorthand
+<td style="text-align:left">可能であれば ES6-style オブジェクト・リテラル の ショートハンドを強制する
+
+<tr>
+<td style="text-align:left">one-line
+<td style="text-align:left">特定の予約語 (e.g. <code>try</code> の <code>}</code> と <code>catch</code>) を同一行にさせるかのルールを強制する
+
+<tr>
+<td style="text-align:left">one-variable-per-declaration
+<td style="text-align:left">複数の変数を同時定義することを禁止する
+
+<tr>
+<td style="text-align:left">ordered-imports
+<td style="text-align:left"><code>import</code> を アルファベット順に記述することを強制する
+
+<tr>
+<td style="text-align:left">prefer-function-over-method
+<td style="text-align:left"><em>Warns for class methods that do not use ‘this’.</em>
+
+<tr>
+<td style="text-align:left">prefer-method-signature
+<td style="text-align:left">インターフェースと型の定義を <code>foo: () =&gt; void</code> でなく <code>foo(): void</code> を 使用させる
+
+<tr>
+<td style="text-align:left">prefer-switch
+<td style="text-align:left"><em>Prefer a <code>switch</code> statement to an <code>if</code> statement with simple <code>===</code> comparisons.</em>
+
+<tr>
+<td style="text-align:left">prefer-template
+<td style="text-align:left">文字列の連結ではなく、テンプレート式を使用させる
+
+<tr>
+<td style="text-align:left">quotemark
+<td style="text-align:left">文字列リテラルを、一重引用符 または 二重引用符 の 指定する方に強制する
+
+<tr>
+<td style="text-align:left">return-undefined
+<td style="text-align:left">Void 関数 では <code>return;</code> を、値を返す関数では <code>return undefined;</code> を 使用させる
+
+<tr>
+<td style="text-align:left">semicolon
+<td style="text-align:left">すべてのステートメントの最後に一貫したセミコロンの使用を強制する
+
+<tr>
+<td style="text-align:left">space-before-function-paren
+<td style="text-align:left">関数の括弧前に入れるスペースのルールを強制する
+
+<tr>
+<td style="text-align:left">space-within-parens
+<td style="text-align:left">括弧内のスペースのルールを強制する
+
+<tr>
+<td style="text-align:left">switch-final-break
+<td style="text-align:left"><code>switch</code> の 最終節 が <code>break</code> で 終わるかのルールを強制する
+
+<tr>
+<td style="text-align:left">type-literal-delimiter
+<td style="text-align:left"><em>Checks that type literal members are separated by semicolons. Enforces a trailing semicolon for multiline type literals.</em>
+
+<tr>
+<td style="text-align:left">variable-name
+<td style="text-align:left">変数名のルールを強制する
+
+<tr>
+<td style="text-align:left">whitespace
+<td style="text-align:left">空白スタイルのルールを強制する
+
+
+</table>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51bLLkWaH4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">TypeScript実践マスター</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">古賀慎一 日経BP社 2017-12-12    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F15269698%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-82-229897-5%2520%257C%25204-822-29897-5%2520%257C%25204-8222-9897-5%2520%257C%25204-82229-897-5%2520%257C%25204-822298-97-5%2520%257C%25204-8222989-7-5" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51UE0ypcmKL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank">速習TypeScript: altJSのデファクトスタンダートを素早く学ぶ！ 速習シリーズ[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">山田祥寛 WINGSプロジェクト 2017-06-21    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>TypeScript の コーディング量が足りていないので、どのようなコードを指しているのか想像がつかないものもかなりありました.<br>あと <code>cyclomatic-complexity</code> が あるのがいいですね.<br>先に設定を悩むより、圧倒的なコーディング量を背景に、よろしくないコードを防ぐことをした方がよかったかもと思いつつ、理解が深まったのでよしとしましょう. 次は、設定を考えたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/09/16/TypeScriptのtslint.jsonを調べる/" data-id="ckq2rxvdu00bc44r2bof177oe" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/09/19/TypeScriptのtslint.jsonを考える/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          TypeScript の tslint.json を 考える
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/13/Gitの全体gitignoreを再設定する/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Git の 全体 gitignore を 再設定する</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" title="Node.js 8 64bit & TypeScript の インストール" rel="bookmark">Node.js 8 64bit & TypeScript の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/" title="TypeScript の tsconfig.json を 考える - コンパイル・オプション編" rel="bookmark">TypeScript の tsconfig.json を 考える - コンパイル・オプション編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/07/TypeScriptのtsconfig.jsonを考える/" title="TypeScript の tsconfig.json を 考える" rel="bookmark">TypeScript の tsconfig.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/19/TypeScriptのtslint.jsonを考える/" title="TypeScript の tslint.json を 考える" rel="bookmark">TypeScript の tslint.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/" title="Visual Studio Code で Hello TypeScript！" rel="bookmark">Visual Studio Code で Hello TypeScript！</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

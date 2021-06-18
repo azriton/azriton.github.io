@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Slack の ボット に OAuth で 権限を追加する | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Slack の ボット を 自然言語で会話させたり、リマインド系の処理をさせたりと色々できるようになりました. もう少し踏み込んで Slack の API を 活用した処理をできるようにしたいと思います. そうなると、これまでの Bot トークンでは権限が足りず、処理ができません. まずは準備として Slack の ボット に OAuth で 権限を追加したいと思います. 作業環境  Windo">
+<meta name="keywords" content="Slack,Botkit,Node.js,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slack の ボット に OAuth で 権限を追加する">
+<meta property="og:url" content="https://azriton.github.io/2017/06/01/SlackのボットにOAuthで権限を追加する/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Slack の ボット を 自然言語で会話させたり、リマインド系の処理をさせたりと色々できるようになりました. もう少し踏み込んで Slack の API を 活用した処理をできるようにしたいと思います. そうなると、これまでの Bot トークンでは権限が足りず、処理ができません. まずは準備として Slack の ボット に OAuth で 権限を追加したいと思います. 作業環境  Windo">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/01.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/02.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/04.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/05.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/oauth/07.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:updated_time" content="2017-06-06T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slack の ボット に OAuth で 権限を追加する">
+<meta name="twitter:description" content="Slack の ボット を 自然言語で会話させたり、リマインド系の処理をさせたりと色々できるようになりました. もう少し踏み込んで Slack の API を 活用した処理をできるようにしたいと思います. そうなると、これまでの Bot トークンでは権限が足りず、処理ができません. まずは準備として Slack の ボット に OAuth で 権限を追加したいと思います. 作業環境  Windo">
+<meta name="twitter:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SlackのボットにOAuthで権限を追加する" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/01/SlackのボットにOAuthで権限を追加する/" class="article-date">
+  <time datetime="2017-05-31T15:00:00.000Z" itemprop="datePublished">2017-06-01</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Slack の ボット に OAuth で 権限を追加する
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>Slack の ボット を 自然言語で会話させたり、リマインド系の処理をさせたりと色々できるようになりました. もう少し踏み込んで <a href="https://api.slack.com/methods" target="_blank" rel="noopener">Slack の API</a> を 活用した処理をできるようにしたいと思います. そうなると、これまでの Bot トークンでは権限が足りず、処理ができません. まずは準備として Slack の ボット に OAuth で 権限を追加したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10</li>
+<li>Slack</li>
+<li>A3RT Talk API</li>
+<li>Node.js 6.10.2 LTS</li>
+<li>Botkit 0.5.4</li>
+</ul>
+<h2 id="アプリ・ボット-の-作成"><a href="#アプリ・ボット-の-作成" class="headerlink" title="アプリ・ボット の 作成"></a>アプリ・ボット の 作成</h2><p>OAuth で ボットに権限を追加するには、アプリ・ボット(勝手に命名！ <code>App</code> じゃ わかりにくいので.) を 作って、そちらで動作させる必要があります. これまでのボットは残念ながらサヨナラに (T_T とはいえ、Slack でのアカウントだけなので、作ってきたプログラムは そのままに動作させられます.</p>
+<p>アプリ・ボット作成のページ <a href="https://api.slack.com/apps/new" target="_blank" rel="noopener">https://api.slack.com/apps/new</a> へ アクセスします.<br>[App Name] に アプリ・ボット の 名前を入力し、[Development Slack Team] で 自分の Slack チーム を 選択します.<br>[I plan to submit~] は、作成したボットを Slack App Directory で 公開する場合にチェックをつけますが、今回はなしで [Create App] ボタンをクリックして進めました.<br><img src="/assets/slack/oauth/01.png" alt></p>
+<p>アプリ・ボットが作成され基本情報の画面が表示されます. [Client ID] と [Client Secret] は 後で使うのでひかえておきます. Client Secret は [Show] ボタンをクリックすると表示されます. 特に大事なので取り扱いに注意します.<br><img src="/assets/slack/oauth/02.png" alt></p>
+<p>左メニューから [OAuth &amp; Permission] を クリックし、画面中央の [Redirect URL(s)] に <code>http://localhost:3000/slack/auth/redirect</code> を 入力し、[Save Changes] を クリックします.<br>これは Slack の OAuth から リダイレクト・バックされる際の URL に なります. 通常はアプリを動かしておくのですが、今回は手動でブラウザ内完結するので <code>localhost</code> に しました. 詳細は こちら、<a href="https://api.slack.com/docs/sign-in-with-slack" target="_blank" rel="noopener">Sign in with Slack</a> も ご参照ください.<br><img src="/assets/slack/oauth/03.png" alt></p>
+<p>続いて Slack に ボットのユーザを追加します. 左メニューから [Bot Users] を クリックします.<br>[Default username] に Slack の ボット・ユーザー名を入力します. 既存のユーザー名と重複すると、自動的に連番が付与されるので注意してください.<br>入力後 [Add Bot User] を クリックします.<br><img src="/assets/slack/oauth/04.png" alt></p>
+<h2 id="OAuth-で-権限を追加"><a href="#OAuth-で-権限を追加" class="headerlink" title="OAuth で 権限を追加"></a>OAuth で 権限を追加</h2><p>Slack の <a href="https://api.slack.com/docs/oauth-scopes" target="_blank" rel="noopener">OAuth Scopes</a> の ページから、必要な権限をピックアップします. 今回は、今後使っていきたい想定で <code>bot</code>, <code>channels:history</code> ,<code>emoji:read</code>, <code>files:read</code>, <code>files:write:user</code>, <code>users:read</code> の権限を取得することにしました.<br>※ 本来は必要になり次第、以下の手順で追加していくべきですが、一連の流れで作っていくのでまとめて取得しました. あまりとりすぎるとボットができる範囲が大きくなりすぎるので、何かあった際の影響も大きくなるため権限の設定は注意が必要です.</p>
+<p><strong>2017年6月7日 追記</strong><br>以下の手順を簡易化するためのツールを作りました. よろしかったら、こちらもご利用ください.<br>Slack OAuth Helper - <a href="https://azriton.github.io/slack-oauth-helper/">https://azriton.github.io/slack-oauth-helper/</a></p>
+<p>必要な権限のスコープが決まったのでブラウザで <code>https://slack.com/oauth/authorize?client_id=REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID&amp;scope=REPLACE_THIS_WITH_YOUR_OAUTH_SCOPE</code> へ アクセスします.<br><code>REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID</code> は、先ほどアプリ・ボットを作成した際にひかえた [Client ID] を、<br><code>REPLACE_THIS_WITH_YOUR_OAUTH_SCOPE</code> は、上記で選択した OAuth Scope を カンマつなぎ (e.g. <code>bot,channels:history,emoji:read,files:read,files:write:user,users:read</code>)で置き換えます.</p>
+<p>そうすると、Slack の OAuth 権限確認画面が表示されます. 与える権限の内容を確認し問題なければ [Authorize] ボタンをクリックして認可します. (複数の Slack チーム に サインインしている場合はチーム選択が先に表示されるので、アプリ・ボットを使うチームを選択します.)<br><img src="/assets/slack/oauth/05.png" alt></p>
+<p>ブラウザが <code>localhost</code> へ リダイレクトされ、ページが表示できないエラーが表示されます. 慌てずに、アドレスバー の URL から <code>code</code> の 値をコピーします.<br>※ このリダイレクトされた先は、先にアプリ・ボットを作成した際に [OAuth &amp; Permission] の [Redirect URL(s)] に 入力したものになります. 本来は OAuth で 連携したアプリに戻してプログラムで処理するのですが、今回は手動でやりきります.<br><img src="/assets/slack/oauth/06.png" alt></p>
+<p>ブラウザで、<code>https://slack.com/api/oauth.access?client_id=REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID&amp;client_secret=REPLACE_THIS_WITH_YOUR_APP_CLIENT_SECRET&amp;code=REPLACE_THIS_WITH_COPYED_CODE</code> へ アクセスします.<br>置き換えは以下となります.</p>
+<ul>
+<li><code>REPLACE_THIS_WITH_YOUR_APP_CLIENT_ID</code> は、先にアプリ・ボットを作成した際にひかえた [Client ID]</li>
+<li><code>REPLACE_THIS_WITH_YOUR_APP_CLIENT_SECRET</code> は、先にアプリ・ボットを作成した際にひかえた [Client Secret]</li>
+<li><code>REPLACE_THIS_WITH_COPYED_CODE</code> は、上記ブラウザのリダイレクトで戻されたアドレスバーの URL <code>code</code> の 値</li>
+</ul>
+<p>正しく入力できるとトークンが含まれた JSON が 返ります. <code>access_token</code> と <code>bot_access_token</code> を、それぞれひかえておきます.<br><code>access_token</code> は Slack の API を 呼び出す際に使うトークンで、<code>bot_access_token</code> は ボットを起動する際に使用するトークン(これまで使ってきたトークンと同じ位置づけ) です.<br><img src="/assets/slack/oauth/07.png" alt></p>
+<h2 id="とりあえず、ボット-を-起動"><a href="#とりあえず、ボット-を-起動" class="headerlink" title="とりあえず、ボット を 起動"></a>とりあえず、ボット を 起動</h2><p>今回は OAuth の 権限を持ったボットの作成で準備段階なので、基本動作 の Botkit readme.md <a href="https://github.com/howdyai/botkit/blob/master/docs/readme.md#basic-usage" target="_blank" rel="noopener">#Basic Usage</a> の まま <code>index.js</code> を 作ります.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">const</span> Botkit = <span class="built_in">require</span>(<span class="string">'botkit'</span>);</span><br><span class="line"><span class="keyword">const</span> controller = Botkit.slackbot();</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token : process.env.bot_access_token</span><br><span class="line">&#125;).startRTM();</span><br><span class="line"></span><br><span class="line">controller.hears(<span class="string">'hello'</span>, [ <span class="string">'direct_message'</span>, <span class="string">'direct_mention'</span>, <span class="string">'mention'</span> ], (bot, message) =&gt; &#123;</span><br><span class="line">    bot.reply(message, <span class="string">'Hello yourself.'</span>);</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p>ボットのプログラムができたら起動します.<br><code>[API_TOKEN]</code> は Slack からコピーした、ボットの API Token に なります.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line">c:\Develop\repos\slack-bot&gt; set access_token=[ACCESS_TOKEN]</span><br><span class="line">c:\Develop\repos\slack-bot&gt; set bot_access_token=[BOT_ACCESS_TOKEN]</span><br><span class="line">c:\Develop\repos\slack-bot&gt; npm install --save botkit</span><br><span class="line">c:\Develop\repos\slack-bot&gt; node index.js</span><br><span class="line">Initializing Botkit v0.5.4</span><br><span class="line">info: ** No persistent storage method specified! Data may be lost when process shuts down.</span><br><span class="line">info: ** Setting up custom handlers for processing Slack messages</span><br><span class="line">info: ** API CALL: https://slack.com/api/rtm.connect</span><br><span class="line">notice: ** BOT ID: dev-anonymous-poet ...attempting to connect to RTM!</span><br><span class="line">notice: RTM websocket opened</span><br></pre></table></figure></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>OAuth の 権限を使ったボットの作成は、ちょっと長くなりそうなので今回は権限の取得まで…<br>もうちょっと やりたかったけど仕方ない. ボットが色々な権限を持つことで Slack 内でのちょっとしたお手伝いができるようになるので便利になりそうですね.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/06/01/SlackのボットにOAuthで権限を追加する/" data-id="ckq2rxvbu005844r2n3cp4u7q" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/06/07/Slack-OAuthを簡単にするツールを作った/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack OAuth を 簡単にするツールを作った
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/24/SlackボットのAIトーク機能をDocomoのAPIに切り替える/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Slack ボット の AIトーク機能 を Docomo の API に 切り替える</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

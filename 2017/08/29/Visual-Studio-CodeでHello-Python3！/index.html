@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Visual Studio Code で Hello Python3！ | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="ようやく Visual Studio Code の 準備ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！ 作業環境  Windows 10 64bit Python 3.6 64bit Visual Studio Code  Python サポート の 拡張機能を追加Visual Studio Code で Python">
+<meta name="keywords" content="Visual Studio Code,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Visual Studio Code で Hello Python3！">
+<meta property="og:url" content="https://azriton.github.io/2017/08/29/Visual-Studio-CodeでHello-Python3！/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="ようやく Visual Studio Code の 準備ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！ 作業環境  Windows 10 64bit Python 3.6 64bit Visual Studio Code  Python サポート の 拡張機能を追加Visual Studio Code で Python">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/visual-studio-code.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/01.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/02.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/04.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/05.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/07.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/08.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/09.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/10.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/11.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/12.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/13.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/14.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/15.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/16.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/17.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/18.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/19.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/20.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/21.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/98.png">
+<meta property="og:image" content="https://azriton.github.io/assets/vscode/python/99.png">
+<meta property="og:image" content="https://image.moshimo.com/af-img/0453/000000019703.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51MK3rXBRRL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:updated_time" content="2017-08-28T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Visual Studio Code で Hello Python3！">
+<meta name="twitter:description" content="ようやく Visual Studio Code の 準備ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！ 作業環境  Windows 10 64bit Python 3.6 64bit Visual Studio Code  Python サポート の 拡張機能を追加Visual Studio Code で Python">
+<meta name="twitter:image" content="https://azriton.github.io/assets/vscode/visual-studio-code.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Visual-Studio-CodeでHello-Python3！" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/29/Visual-Studio-CodeでHello-Python3！/" class="article-date">
+  <time datetime="2017-08-28T15:00:00.000Z" itemprop="datePublished">2017-08-29</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Visual Studio Code で Hello Python3！
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p>ようやく <a href="/2017/08/26/Visual-Studio-Code最初の設定変更/">Visual Studio Code の 準備</a>ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Python 3.6 64bit</li>
+<li>Visual Studio Code</li>
+</ul>
+<h2 id="Python-サポート-の-拡張機能を追加"><a href="#Python-サポート-の-拡張機能を追加" class="headerlink" title="Python サポート の 拡張機能を追加"></a>Python サポート の 拡張機能を追加</h2><p>Visual Studio Code で Python の コード補完や、Lint、デバッグ を 行うには、Pyhton サポート の 拡張機能を追加します.<br>Python サポート の 拡張機能は <a href="https://marketplace.visualstudio.com/search?term=tag%3Apython&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance" target="_blank" rel="noopener">かなりの数</a> 登録されています. その中から、今回は <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python" target="_blank" rel="noopener">Don Jayamanne さん の 拡張機能</a> を 使わせていただくことにしました.<br>レーティングが高く、インストール数も多く、また <a href="https://code.visualstudio.com/docs/languages/python" target="_blank" rel="noopener">Visual Studio Code の 公式ドキュメントで紹介</a>されていること、「ようこそ」画面で推薦されていることなどからの選定となります. Thank you for the great extension!, Don Jayamanne-san!!</p>
+<p>Visual Studio Code を 起動し「ようこそ」画面から、[カスタマイズする] - [ツールと言語] - [Python] を クリックします.<br>※ 「ようこそ」 が 表示されない場合は、メニュー の [ヘルプ] - [ようこそ] を 選択します<br><img src="/assets/vscode/python/01.png" alt></p>
+<p>「Python に追加サポートをインストールしたあと、ウィンドウが再読み込みされます.」 が 表示されるので [OK] を クリックします.<br><img src="/assets/vscode/python/02.png" alt></p>
+<p>Visual Studio Code が 再起動し、「ようこそ」の Python の 色が変わり Python サポートがインストールされました.<br><img src="/assets/vscode/python/03.png" alt></p>
+<p>また、<code>Ctrl + Shift + X</code> で 拡張機能を表示するとインストール済みに Python が 追加されていることからも確認できます.<br><img src="/assets/vscode/python/04.png" alt></p>
+<h2 id="プロジェクト・フォルダー-の-作成-と-展開"><a href="#プロジェクト・フォルダー-の-作成-と-展開" class="headerlink" title="プロジェクト・フォルダー の 作成 と 展開"></a>プロジェクト・フォルダー の 作成 と 展開</h2><p>さっそくプロジェクト用のフォルダーを作成し開きます. <code>Ctrl + K</code> <code>Ctrl + O</code> から フォルダー選択ダイアログを表示してもよいのですが、今回はフォルダーを作成する必要があるので “Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them. - Basic Editing in Visual Studio Code - <a href="https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts" target="_blank" rel="noopener">Keyboard shortcuts</a>“ にならい、統合コンソールから開くことにします.</p>
+<p><code>Ctrl + @</code> で 統合コンソールを表示. 下記コマンドを実行しフォルダーの作成 と Visual Studio Code で フォルダーを開きます. 今回は <code>C:\Develop\workspace\hello-python3</code> に フォルダーを作成しました.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">PS C:\Users\username&gt; mkdir C:\Develop\workspace\hello-python3</span><br><span class="line">PS C:\Users\username&gt; code C:\Develop\workspace\hello-python3\</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/python/05.png" alt></p>
+<h2 id="Python-の-仮想環境-を-作成"><a href="#Python-の-仮想環境-を-作成" class="headerlink" title="Python の 仮想環境 を 作成"></a>Python の 仮想環境 を 作成</h2><p>Hello World なので、仮想環境を作成するほどでは無いのですが、Visual Studio Code の 設定確認もかねて.<br><code>Ctrl + @</code> で 統合コンソールを表示し、 <code>venv</code> を 実行します. フォルダーを開いているので、カレント・フォルダーが自動的にプロジェクト用のフォルダになっています.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">PS C:\Develop\workspace\hello-python3&gt; python -m venv venv</span><br></pre></table></figure></p>
+<p>Visual Studio Code で 仮想環境を使うように設定します.<br><code>Ctrl + Shift + P</code> で コマンドパレット、<code>interp</code> と 入力して、[Python: Select Workspace Interpreter] を 選択します.<br>続いて利用可能な <code>python.exe</code> の 候補が出るので、 <code>venv - python.exe</code> を 選択します.<br><img src="/assets/vscode/python/06.png" alt><br><img src="/assets/vscode/python/07.png" alt></p>
+<p>続いて新しいファイルを作成します. <code>Ctrl + N</code> でもよいのですが、Visual Studio Code っぽく <code>Ctrl + Shift + P</code> で コマンドパレット、<code>new file</code> を 入力して、Visual Studio Code の エクスプローラーに直接ファイルを追加します. ファイル名は <code>hello.py</code> としました.<br><img src="/assets/vscode/python/08.png" alt></p>
+<p>ファイル名を確定すると「Linter pylint is not installed」の エラーが表示されます. [Install pylint] を クリックしてインストールします.<br><img src="/assets/vscode/python/09.png" alt></p>
+<p>新しい統合ターミナルが起動し Pylint が インストールされます. 先ほど仮想環境を選択しているので実行する <code>python.exe</code> が <code>venv</code> の ものになっています. インストールできたら、統合ターミナルは不要なので <code>Ctrl + @</code> で 閉じておきます.<br><img src="/assets/vscode/python/10.png" alt></p>
+<h2 id="Python-コーディング"><a href="#Python-コーディング" class="headerlink" title="Python コーディング"></a>Python コーディング</h2><p>単純な Hello World ならぬ Hello Python3！ なので <code>print(&#39;Hello Python3！&#39;)</code> 以上、なのですが Visual Studio Code を 使うからには入力補完を使うようなコードにしたいところです. ちょっと回りくどいですが <code>main()</code> から <code>hello()</code> を 呼ぶような構造にしました.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(<span class="string">'Hello '</span> + name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    hello(<span class="string">'Python3！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></table></figure>
+<p>では早速. <code>d</code> と タイプすると入力補完が即時立ち上がりました！ (間違えて消えてしまったら <code>Ctrl + Space</code> )<br>いくつかの候補があり迷いますが、コード・スニペット の <code>def</code> を 選択します.<br><img src="/assets/vscode/python/11.png" alt></p>
+<p>ファンクション定義のスニペットが展開されました. <code>funcname</code> に フォーカスが当たっているので、ファンクション名 <code>hello</code> を 入力し、 <code>Tab</code> キーを押下します.<br><img src="/assets/vscode/python/12.png" alt></p>
+<p><code>parameter_list</code> へ フォーカスが移るので、今回のパラメーター <code>name</code> を 入力し、 <code>Tab</code> キーを押下します.<br><img src="/assets/vscode/python/13.png" alt></p>
+<p>ファンクションのボディに展開されていた <code>pass</code> へ フォーカスが当たるので、 <code>print</code>文 を 入力します.<br><img src="/assets/vscode/python/14.png" alt></p>
+<p><code>print</code> は <code>print</code> の 文字列の入力補完が効きますが括弧はつかないようです. また、 <code>name</code> は パラメーター定義があるのを見てくれて入力補完のリストが表示されます.<br><img src="/assets/vscode/python/15.png" alt></p>
+<p><code>print</code> 文のパラメーター <code>&#39;Hello &#39; + name</code> まで入力し、 <code>Ctrl + Enter</code> すると行の途中(今回は閉じ括弧のが残っている状態)でも、残りを改行せずにカーソルだけ次行へ改行してくれます. <code>Ctrl + S</code> で ファイルを保存します.<br><code>def</code> に 警告が表示されています. 「[pylint] C0111:Missing module docstring」と「[pylint] C0111:Missing function docstring」ですね…<br>マウス・カーソルを警告が出ている波線にのせるほか、 <code>Ctrl + Shift + M</code> で 問題ビューを表示できます.<br><img src="/assets/vscode/python/16.png" alt></p>
+<p>とりあえず先に進んで、 <code>main()</code> を 実装します.<br><code>main()</code> は、そのあとの <code>if __name__ == &#39;__main__&#39;:</code> と ペアになります. そのため <code>if</code> 文の入力補完を期待して <code>if</code> から入力し、 <code>if(main)</code> の 入力補完を選択します.<br><img src="/assets/vscode/python/17.png" alt></p>
+<p>期待通りの <code>main()</code> と <code>if __name__ == &#39;__main__&#39;:</code> を 補完してくれました！ <code>pass</code> に フォーカスが当たっているので <code>hello(&#39;Python3！&#39;)</code> を 入力します.<br><img src="/assets/vscode/python/18.png" alt></p>
+<p>実装できたので <code>Ctrl + S</code> で 保存します. 警告 を すべて無くしてから完成ですが、今回は Visual Studio Code で Python を 実行することが目的で、コードは残さないので、このまま進めます.<br><img src="/assets/vscode/python/19.png" alt></p>
+<h2 id="Python-プログラム-の-実行"><a href="#Python-プログラム-の-実行" class="headerlink" title="Python プログラム の 実行"></a>Python プログラム の 実行</h2><p>まずは Python 拡張機能 の [Python: Run Python File in Terminal] から実行してみます. <code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>Python run</code> と 入力して絞り込みます.<br><img src="/assets/vscode/python/20.png" alt></p>
+<p>[Python: Run Python File in Terminal] を 選択し、実行します.<br><img src="/assets/vscode/python/21.png" alt></p>
+<h2 id="その他-venv-仮想環境-の-python-exe-の-パス"><a href="#その他-venv-仮想環境-の-python-exe-の-パス" class="headerlink" title="その他 - venv 仮想環境 の python.exe の パス"></a>その他 - venv 仮想環境 の python.exe の パス</h2><p><code>venv</code> の 仮想環境 <code>python.exe</code> の パスは <code>.vscode\settings.json</code> の <code>&quot;python.pythonPath&quot;</code> に フル・パスで記述されています. <code>.vscode\settings.json</code> を Git などへコミットし共有する場合は、絶対パスか<code>&quot;${workspaceRoot}/venv/scripts/python.exe&quot;</code> のように、プロジェクトのディレクトリをさす <code>${workspaceRoot}</code> に 置き換えておきます. 詳細は こちら <a href="https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#relative-paths-to-python-interpreter" target="_blank" rel="noopener">Relative Paths to Python Interpreter - Python Path and Version · DonJayamanne/pythonVSCode Wiki</a><br><img src="/assets/vscode/python/98.png" alt>.</p>
+<h2 id="その他-統合ターミナルから-venv-仮想環境-の-実行"><a href="#その他-統合ターミナルから-venv-仮想環境-の-実行" class="headerlink" title="その他 - 統合ターミナルから venv 仮想環境 の 実行"></a>その他 - 統合ターミナルから venv 仮想環境 の 実行</h2><p><code>Ctrl + @</code> で 統合ターミナルを起動し、そこから Python および 関連コマンド(e.g. pip)を実行する場合、 venv を 有効化する必要があります. この場合は [Python: Select Workspace Interpreter] が 効いていないので注意が必要です.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">PS C:\Develop\workspace\hello-python3&gt; Set-ExecutionPolicy RemoteSigned -Scope Process</span><br><span class="line">PS C:\Develop\workspace\hello-python3&gt; .\venv\Scripts\Activate.ps1</span><br><span class="line">(venv) PS C:\Develop\workspace\hello-python3&gt;</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/python/99.png" alt></p>
+<p><a href="//af.moshimo.com/af/c/click?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0453/000000019703.jpg" width="300" height="250" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703" width="1" height="1" style="border:none"></p>
+<hr>
+<p>主にクロール系の処理になるので、こちらで勉強しています.<br>最初の言語として勉強するための本には向いていませんが、Python の 言語使用の話もあるので他の言語を知ってる場合には、これ１冊でも十分ではないでしょうか.<br>またクローラーを作るという観点では、Python の 基本機能だけではなく Shell や Python の 外部ライブラリを使ったりと、バリエーションを持たせて解説があるので とても分かりやすいほか、法律に関する話などもあるのが素晴らしいです！</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51MK3rXBRRL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P" target="_blank">Pythonクローリング＆スクレイピング ―データ収集・解析のための実践開発ガイド―[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">加藤 耕太 技術評論社 2016-12-16    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774183679%2F" target="_blank">Amazon[書籍版]で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>Visual Studio Code で Hello World が できました！<br>これで Python プログラミングが始められます. 何を作ろうかなぁ～</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/29/Visual-Studio-CodeでHello-Python3！/" data-id="ckq2rxvc4006344r2tra13kmx" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Node.js 8 64bit &amp; TypeScript の インストール
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Visual Studio Code 最初の設定変更</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" title="Visual Studio Code 最初の設定変更" rel="bookmark">Visual Studio Code 最初の設定変更</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/18/Visual-Studio-Codeのインストール/" title="Visual Studio Code の インストール" rel="bookmark">Visual Studio Code の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" title="Visual Studio Code で Git を 使う" rel="bookmark">Visual Studio Code で Git を 使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/" title="Visual Studio Code で git.exe が 見つからないと言われた場合の対処" rel="bookmark">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

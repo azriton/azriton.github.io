@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="験なきものを思はずは">
+<meta property="og:url" content="https://azriton.github.io/page/10/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="験なきものを思はずは">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Raspbian-Jessie-Liteのインストール" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/19/Raspbian-Jessie-Liteのインストール/" class="article-date">
+  <time datetime="2016-11-18T15:00:00.000Z" itemprop="datePublished">2016-11-19</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/19/Raspbian-Jessie-Liteのインストール/">Raspbian Jessie Lite の インストール</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png" alt title="Raspbian Jessie Lite"></p>
+<p>Raspberry Pi に 公式の OS である Raspbian の 最小構成 Lite を インストールしたいと思います.<br>NOOBS(New Out Of the Box Software) という OS の インストーラーが用意されており、これを使うことで簡単に Raspberry Pi へ OS を インストールすることができますが、ディスク容量を圧迫する、USB の キーボード と マウス が 必須であることから、OS イメージ を 直接 SD カードへ書き込む方法を取ることにします.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Raspbian Jessie Lite</li>
+</ul>
+<h2 id="SD-カード-の-準備"><a href="#SD-カード-の-準備" class="headerlink" title="SD カード の 準備"></a>SD カード の 準備</h2><p><em>2017.03.07 追記</em><br><em><a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a> の 記事を追加しました. こちらの手順の方が簡単なので、よろしければ こちらも ご参照ください.</em></p>
+<p>使用する Raspberry Pi の モデル に 合わせた SD カード を 用意します.<br>今回 は Raspberry Pi Zero を 使いますので、microSD カード と PC で 使うための SD Adapter を 用意しました.</p>
+<p>続いて、SD カード を フォーマットします.<br>OS の ツールではうまくいかないケースがあるので、SD カード フォーマッター を ダウンロードして使いました.<br>ダウンロードは、こちらから → <a href="https://www.sdcard.org/jp/downloads" target="_blank" rel="noopener">https://www.sdcard.org/jp/downloads</a></p>
+<p>SD カード フォーマッター を 起動し、[オプション設定] を クリックします.<br><img src="/assets/raspi/raspbian-jessie-lite/01.png" alt></p>
+<p>論理サイズ調整 を [ON] に 設定し、[OK] を クリックします.<br>通常は OFF で 問題ないとのことですが、OS 付属のツールでフォーマットしたりすると論理サイズが異なったりと問題が出るケースがあるらしいです. その場合は ON に することで解決できるとのことですが、後でトラブルがあった際に問題の切り分けをするのもめんどくさいので ON に しました.<br>論理サイズ調整については、SD カード フォーマッター の <a href="https://www.sdcard.org/jp/downloads/formatter_4/SDFormatter_4jp.pdf" target="_blank" rel="noopener">マニュアルの記載</a> や <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=91&amp;t=83372&amp;p=651745#p677748" target="_blank" rel="noopener">Raspberry Pi フォーラム の ポスト</a> などに情報があります.<br><img src="/assets/raspi/raspbian-jessie-lite/02.png" alt></p>
+<p>元のウィンドウに戻るので、[Drive] と [Volume Label] が 正しいかを確認し、フォーマットを実行してよければ [フォーマット] を クリックします.<br>クイックフォーマットと、フォーマット中に関する注意事項のダイアログが表示されます. 内容を確認し問題なければ、それぞれ [OK] を クリックして作業を進めます.<br><img src="/assets/raspi/raspbian-jessie-lite/03.png" alt></p>
+<p>フォーマットが終わったらダイアログが出るので、SD カード を 取り出し、[OK] を クリックし、また元のウィンドウ の SD カード フォーマッター も [終了] を クリックして閉じます.<br><img src="/assets/raspi/raspbian-jessie-lite/04.png" alt></p>
+<h2 id="OS-イメージ-の-書き込み"><a href="#OS-イメージ-の-書き込み" class="headerlink" title="OS イメージ の 書き込み"></a>OS イメージ の 書き込み</h2><p>Raspbian の サイト <a href="https://www.raspberrypi.org/downloads/raspbian" target="_blank" rel="noopener">https://www.raspberrypi.org/downloads/raspbian</a> から Raspbian Jessie Lite を ダウンロードします.<br>ここでは、[C:\Develop\images] に ダウンロードしたものとします.<br><img src="/assets/raspi/raspbian-jessie-lite/05.png" alt></p>
+<p>ダウンロードしたファイルが正しいかハッシュ値を確認します.<br>Windows PowerShell 4.0 以降は、Get-FileHash が あるので、それを使います.<br>Raspbian の ウェブサイトに記載されているハッシュ値と同じなので正しくダウンロードできたようです.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">c:\&gt; powershell Get-FileHash -Algorithm SHA1 &quot;C:\Develop\images\2016-09-23-raspbian-jessie-lite.images&quot;</span><br><span class="line"></span><br><span class="line">Algorithm  Hash</span><br><span class="line">---------  ----</span><br><span class="line">SHA1       3A34E7B05E1E6E9042294B29065144748625BEA8</span><br></pre></table></figure></p>
+<p>続いて、OS イメージ を SD カード に 書き込みます.<br>今回は <a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md" target="_blank" rel="noopener">公式ドキュメント</a> で あげられていた [Win32 Disk Imager] を 使います.<br>ダウンロードは、こちらから → <a href="https://sourceforge.net/projects/win32diskimager/" target="_blank" rel="noopener">https://sourceforge.net/projects/win32diskimager/</a></p>
+<p>Image File に ダウンロードして ZIP を 解凍した images ファイルを指定し、[Write] を クリックします.<br>ここでは、[C:\Develop\images] に 解凍したものとします.<br><img src="/assets/raspi/raspbian-jessie-lite/06.png" alt></p>
+<p>SD カード と ドライブを確認し、問題なければ [Yes] を クリックします.<br><img src="/assets/raspi/raspbian-jessie-lite/07.png" alt></p>
+<p>書き込みが完了したら、Complete の ダイアログが出るので、[OK] を クリックし、元のウィンドウ の Win32 Disk Imager から [Exit] を クリックして閉じます.<br><img src="/assets/raspi/raspbian-jessie-lite/08.png" alt><br><img src="/assets/raspi/raspbian-jessie-lite/09.png" alt></p>
+<h2 id="SSH-有効化-の-ファイル作成-2017-03-07-追記"><a href="#SSH-有効化-の-ファイル作成-2017-03-07-追記" class="headerlink" title="SSH 有効化 の ファイル作成 (2017.03.07 追記)"></a>SSH 有効化 の ファイル作成 (2017.03.07 追記)</h2><p>本ポストを書いていた 2016.11.19 現在 <a href="https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-11-29" target="_blank" rel="noopener"><code>2016-11-25-raspbian-jessie-lite.zip</code></a> の OS イメージ を 使用していましたが、次のリリース <code>2016-11-25-raspbian-jessie-lite.zip</code> からは SSH が デフォルトで無効になりました. そのため 2017年3月 現在、以下の手順も必要となり追記します.</p>
+<p>ブート・パーティション に “ssh” というファイルを作成します.<br>Windows からは、エクスプローラー で SD カード の ドライブを開いて、”ssh” というファイルを作成します.</p>
+<p>作るファイルのもとは何でもよく拡張子を削除して作るだけになります. 今回はビットマップ イメージを選び、最初から入力されていた <code>新しいビットマップ イメージ.bmp</code> を 消して <code>ssh</code> としました. “拡張子を変更すると、ファイルが使えなくなる可能性があります。” と 警告表示されますが、今回は特に問題ないので [はい] を クリックして進めます.<br><img src="/assets/raspi/raspbian-jessie-lite/11.png" alt></p>
+<p>“ssh” というファイルが置かれました. これで完了、後は起動するだけです.<br><img src="/assets/raspi/raspbian-jessie-lite/12.png" alt></p>
+<p>このあたりについては <a href="/2017/03/07/最近インストールしたRaspbian-Jessie-LiteがSSH接続できない？/">最近インストールした Raspbian Jessie Lite で SSH 接続できない？</a> の ポストも、もしよろしければご覧ください.</p>
+<h2 id="SD-カード-作成時-に-Wi-Fi-設定をしておく-2017-03-07-追記"><a href="#SD-カード-作成時-に-Wi-Fi-設定をしておく-2017-03-07-追記" class="headerlink" title="SD カード 作成時 に Wi-Fi 設定をしておく (2017.03.07 追記)"></a>SD カード 作成時 に Wi-Fi 設定をしておく (2017.03.07 追記)</h2><p>Raspberry Pi 3 や Raspberry Pi Zero W の OS イメージ を Raspbian で 作る際に、あらかじめ <code>wpa_supplicant.conf</code> を 作っておくことで、初回起動時から Wi-Fi へ 接続しておくことができます.</p>
+<p>詳しくは、こちら <a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a> を ご参照ください.</p>
+<h2 id="Raspbian-Jessie-Lite-起動！"><a href="#Raspbian-Jessie-Lite-起動！" class="headerlink" title="Raspbian Jessie Lite 起動！"></a>Raspbian Jessie Lite 起動！</h2><p>OS を 書き込んだ SD カード を Raspberry Pi へ セットし、電源を接続して起動します.<br>HDMI を ディスプレイ や テレビ に 接続することで、起動画面を確認することができます.<br>各種デーモンが [OK] で 起動していき、最後に [raspberrypi login: ] が 表示されたら起動成功です.<br><img src="/assets/raspi/raspbian-jessie-lite/10.png" alt></p>
+<hr>
+<h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイを始めるには 全部入りの Raspberry Pi 3 が 手ごろではないでしょうか. <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB018K9NNJW%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero - ラズベリー・パイ ゼロ</a> や <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFAIKMI%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero W - ラズベリー・パイ ゼロ W</a> は 国内では入手しずらいため値上がりしてしてますし、GPIO ピン も 自分で付ける必要があったりと色々と手がかかります. その分楽しいというのもありますが.<br>届くまで時間がかかってもよい場合は こちら <a href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a> で 記事にしました <a href="https://pimoroni.com/" target="_blank" rel="noopener">Pimoroni</a> さん から購入する手もあります.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>つきにラズパイを起動することができました！！<br>まだ初期設定などをしていく必要がありますが、まずは立ち上がったことに感動です. 引き続き設定していって、いろいろと楽しみたいところです.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/19/Raspbian-Jessie-Liteのインストール/" data-id="ckq2rxvd0009s44r2ddkwnwao" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspbian/">Raspbian</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/04/05/Raspbian-Jessie-LiteでDockerする-GPIO-on-Alpine-Linux編/" title="Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編" rel="bookmark">Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" title="Raspbian Jessie Lite の SSH/公開鍵認証 設定" rel="bookmark">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/" title="Raspbian Jessie Lite の 初期設定" rel="bookmark">Raspbian Jessie Lite の 初期設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/" title="Raspbian Jessie Lite の SDカード 延命化" rel="bookmark">Raspbian Jessie Lite の SDカード 延命化</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/22/Raspberry-Pi-3-を-WiFi-アクセス・ポイント化する/" title="Raspberry Pi 3 を WiFi アクセス・ポイント化する" rel="bookmark">Raspberry Pi 3 を WiFi アクセス・ポイント化する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Raspberry-Pi-Zeroの購入" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/13/Raspberry-Pi-Zeroの購入/" class="article-date">
+  <time datetime="2016-11-12T15:00:00.000Z" itemprop="datePublished">2016-11-13</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/zero-v1.3.jpg" alt title="Raspberry Pi Zero"></p>
+<p><a href="https://www.raspberrypi.org/" target="_blank" rel="noopener">The Raspberry Pi Foundation</a> より、”The $5 computer” と、謳われる $5 で 買えるミニマムな <a href="https://www.raspberrypi.org/products/pi-zero" target="_blank" rel="noopener">Zero</a> が 登場したとのことで、さっそく試してみたいと思い、Amazon.co.jp で 探してみたところ なんと 4,000円近い金額からとなっています…(2016年11月現在)<br>何とか妥当な金額で買えないかを探してみます.</p>
+<hr>
+<h2 id="公式の販売店を確認する"><a href="#公式の販売店を確認する" class="headerlink" title="公式の販売店を確認する"></a>公式の販売店を確認する</h2><p>どのサイトも１人１つまでの制限があるようで、まとめ買いができません. 少し前までは品薄で手に入らなかったようなので、これでもだいぶ改善されたのでしょう. とはいえ、普通に $5 の ふれこみ通りで買うことができそうです.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">販売店
+<th style="text-align:center">価格
+<th style="text-align:left">　備考
+
+
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://shop.pimoroni.com/products/raspberry-pi-zero" target="_blank" rel="noopener">Pimoroni</a>
+<td style="text-align:center">£4.00
+<td style="text-align:left">　１人１つの制限あり、日本への送料 £5.50～.
+
+<tr>
+<td style="text-align:center"><a href="http://thepihut.com/products/raspberry-pi-zero" target="_blank" rel="noopener">The Pi Hut</a>
+<td style="text-align:center">£4.00
+<td style="text-align:left">　１人１つの制限あり、日本への輸出できず.
+
+<tr>
+<td style="text-align:center"><a href="https://www.adafruit.com/products/2885" target="_blank" rel="noopener">Adafruit</a>
+<td style="text-align:center">$5.00
+<td style="text-align:left">　１人１つの制限あり、日本への送料 $30～.
+
+<tr>
+<td style="text-align:center"><a href="http://www.canakit.com/raspberry-pi-zero.html" target="_blank" rel="noopener">CanaKit</a>
+<td style="text-align:center">$5.00
+<td style="text-align:left">　１人１つの制限あり、日本への送料 $16.95～
+
+<tr>
+<td style="text-align:center"><a href="http://www.microcenter.com/product/457746/Zero_Development_Board" target="_blank" rel="noopener">Micro Center</a>
+<td style="text-align:center">?
+<td style="text-align:left">　買い方が分からず…
+
+
+</table>
+<h2 id="いざ購入！"><a href="#いざ購入！" class="headerlink" title="いざ購入！"></a>いざ購入！</h2><p>さっそく £4 の Pimoroni にて購入してみます.</p>
+<p>Pimoroni の Raspberry Pi Zero の ページ <a href="https://shop.pimoroni.com/products/raspberry-pi-zero" target="_blank" rel="noopener">https://shop.pimoroni.com/products/raspberry-pi-zero</a> へ アクセスします.<br>“Max 1 Pi Zero Per Customer!” と あるように、１人１つしか購入できません. この画面上では何個でもカートに追加できますが、チェックアウト時にエラーになります. ちなみに１回に１個ずつであれば何回でも買えます. 送料が毎回かかってしまいますが…<br>在庫切れの場合は [In stock] の 部分が [Out of stock] となり購入できませんが、クリック後にメールアドレスを入力することで入荷時に通知がもらえます.</p>
+<p>購入するセットを選び [Add to basket] を クリックします.<br>Raspberry Pi Zero は ミニ HDMI のため変換ケーブルをセットで買ったり、ケースとのセットや、電源、ブレッドボードなどの各種セットを選ぶことができます. 今回 は [Pi Zero only] を 選びました.<br><img src="/assets/raspi/pimoroni/01.png" alt></p>
+<p>その後、右上 の [Checkout] を クリックします.<br><img src="/assets/raspi/pimoroni/02.png" alt></p>
+<p>カート画面に進み、購入内容が正しいかを確認し、ページ右下 の [Checkout now] を クリックします.<br><img src="/assets/raspi/pimoroni/03.png" alt></p>
+<p>ここで、関連製品のお勧めを紹介されます. ケース単体で追加するなどがある場合は、ここでも追加できます.<br>追加等が終わったら画面を下の方までスクロールし、[Take me the checkout!] を クリックします. ボタンんがグレーで一瞬、押せない or 違うボタン に 思えますが、普通にクリックできます.<br>※ £4 の Camera Cable は カメラっぽい画像がありますが、ケーブルなので注意が必要です. カメラ本体 は £27.50 で こちら → <a href="https://shop.pimoroni.com/products/raspberry-pi-camera-module-v2-1-with-mount" target="_blank" rel="noopener">Raspberry Pi Camera v2.1 with mount</a><br><img src="/assets/raspi/pimoroni/04.png" alt></p>
+<p>支払方法の選択 と 送付先の入力画面 に 進みます.<br>今回は PayPal を 使うので、[PayPal] を クリックします.<br>PayPal は 持っていると海外での買い物用などに便利なことが多いので、この際作っておくのも手です. ここで PayPal か Amazon を 選択しないで進んだ場合は最後に支払情報を選択します. クレジットカード(VISA, Master, Maestro)、Bitcoin が 選べます.<br>※ Amazon は EU の サイトにつながり、日本 の Amazon.co.jp の アカウントでは使用できませんでした.<br><img src="/assets/raspi/pimoroni/05.png" alt></p>
+<p>PayPal の 認証画面へリダイレクトされるので、メールアドレス と パスワードを入力しログインします.<br><img src="/assets/raspi/pimoroni/06.png" alt></p>
+<p>支払方法の確認画面が表示されます.<br>£4 が £3.33 に なっているのは、日本への輸出には 付加価値税(VAT) が かからないため、その分値引きされているからです.<br>内容を確認し、[同意して続行] を クリックします. ここで続行しても支払は確定しません. PayPal を 使うということの確認になります.<br>※ 配送先の住所はサンプル用に東京駅を借りてます.<br><img src="/assets/raspi/pimoroni/07.png" alt></p>
+<p>Pimoroni の 支払確認画面に戻ります.<br>PayPal から渡された情報が入力されますが、念のため半角のアルファベットのローマ字住所に直した方が良いでしょう. 画像は東京駅から借りた情報をサンプルにしています. また [Company] と [Apt, suite, etc.] 以外はすべて必須入力です.<br>入力後 [Continue to payment method] を クリックします.<br><img src="/assets/raspi/pimoroni/08.png" alt></p>
+<p>配送方法の選択画面が表示されます.<br>通常の郵便なら [International Standard] を 選択します. 今回はこちらを選びました.<br>[Royal Mail Tracked &amp; Signed] は 輸送状況を確認できます.<br>[UPS Sever] は １日、さすが早いですね！<br>選択したら [Continue to payment method] を クリックします. 支払方法をあらかじめ選択している場合は、ここで完了となります.<br><img src="/assets/raspi/pimoroni/09.png" alt></p>
+<p>注文の確定画面が表示され、送付先情報で入力したメールアドレスにメールが届きます. これで無事に注文が完了し、後は届くのを待つのみです.<br>Google Maps で 届け先が表示されるなど、ちょっと洒落てますね.<br>※ サンプル用で某駅を指してます.<br><img src="/assets/raspi/pimoroni/10.png" alt></p>
+<h2 id="到着♪"><a href="#到着♪" class="headerlink" title="到着♪"></a>到着♪</h2><p>International Standard で 注文すると、５～７日で届きます. 以下のようなパッケージで届きました.<br>今回 は ７日フルでかかりました. しかも、その後に追加注文したものが５日で同時に到着…<br>パッケージ右側のモザイク部分が住所ですがシールが貼ってあるのは、うっかり日本語で住所入力したら、日本語が出力できなかったのか、Japan と 番地の数値だけが元の台紙に印刷されており、上からシールで日本語の住所が貼られていました. 日本語でも届きましたが、ちゃんと半角のアルファベットのローマ字で住所を入力したほうがよいですね.<br><img src="/assets/raspi/pimoroni/11.jpg" alt></p>
+<p>外装の中はこんな感じのグレーの透明な袋に入っています.<br><img src="/assets/raspi/pimoroni/12.jpg" alt></p>
+<hr>
+<h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイを始めるには 全部入りの Raspberry Pi 3 が 手ごろではないでしょうか. <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB018K9NNJW%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero - ラズベリー・パイ ゼロ</a> や <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFAIKMI%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero W - ラズベリー・パイ ゼロ W</a> は 国内では入手しずらいため値上がりしてしてますし、GPIO ピン も 自分で付ける必要があったりと色々と手がかかります. その分楽しいというのもありますが.<br>届くまで時間がかかってもよい場合は この記事にしました <a href="https://pimoroni.com/" target="_blank" rel="noopener">Pimoroni</a> さん から購入する手もあります.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>英語のサイトで、海外からの輸入となるので少しドキドキしますが、特に難しいことはなく簡単に購入することができました.</p>
+<p>Raspberry Pi Zero に 限らず、ケースも安く買えますし、HAT/pHAT などの Raspberry Pi の 上につける拡張ボード的なものも手に入ります. よほど急ぎでない限り Pimoroni で 買おうかなと思います.</p>
+<p>microSD カード や SD Adapter と 並べてみると、よりはっきりしますが Raspberry Pi Zero は 小さいですね. これから色々なもの作りにチャレンジしてみたいと思います.<br><img src="/assets/raspi/zero-v1.3.jpg" alt title="Raspberry Pi Zero"></p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/13/Raspberry-Pi-Zeroの購入/" data-id="ckq2rxvd0009t44r2s05dhxov" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/04/14/CrystalSignalPi-on-Docker/" title="Crystal Signal Pi on Docker" rel="bookmark">Crystal Signal Pi on Docker</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" title="Raspbian Jessie Lite の SSH/公開鍵認証 設定" rel="bookmark">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/29/Raspberry-PiのCPU温度を記録する/" title="Raspberry Pi の CPU 温度 を 記録する" rel="bookmark">Raspberry Pi の CPU 温度 を 記録する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/19/Raspbian-Jessie-Liteのインストール/" title="Raspbian Jessie Lite の インストール" rel="bookmark">Raspbian Jessie Lite の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/" title="Raspbian Jessie Lite の 初期設定" rel="bookmark">Raspbian Jessie Lite の 初期設定</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-ところで、Hexoって何て読むんだろ？" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/10/ところで、Hexoって何て読むんだろ？/" class="article-date">
+  <time datetime="2016-11-09T15:00:00.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/雑記/">雑記</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/10/ところで、Hexoって何て読むんだろ？/">ところで、Hexo って 何て読むんだろ？</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>ブログ環境の構築で Hexo を 使ってきましたが、いよいよ「ところで、Hexo って 何て読むんだろ？」という疑問が止まらなくなってきました. また公式サイトなどを見ても読み方は言及されていないように思われます. (どっかに書いてあって気づいてないだけ？)</p>
+<h2 id="とりあえず-辞書系で-“hexo”-を-調べる"><a href="#とりあえず-辞書系で-“hexo”-を-調べる" class="headerlink" title="とりあえず 辞書系で “hexo” を 調べる"></a>とりあえず 辞書系で “hexo” を 調べる</h2><p>オンラインで使える英語辞書、英英辞書などを調べてみました. そもそも英単語して hexo が ないため、前方一致で別単語として出てきました. 英英辞典では入力ミスとして別単語の一覧が出ることに…<br>とはいえ、検索結果から見ると「ヘキソ」になるみたい.</p>
+<ul>
+<li><p><a href="http://eow.alc.co.jp/search?q=hexo" target="_blank" rel="noopener">英辞郎 on the WEB</a><br>以下のように何のことかよくわからない品物が沢山出ましたが、基本的に「ヘキソ-」で 始まるものばかりでした. 唯一 “<strong>ヘキサ</strong>ン酸” が 例外でした.</p>
+<ul>
+<li>hexone  《化学》ヘキソン</li>
+<li>hexoprenaline 《薬学》ヘキソプレナリン</li>
+<li>hexoic acid  <strong>ヘキサ</strong>ン酸</li>
+</ul>
+</li>
+<li><p><a href="http://dictionary.goo.ne.jp/srch/en/hexo/m0u/" target="_blank" rel="noopener">goo辞書 英和和英</a><br>こちらも英辞郎同様でしたが、”hexo- [連結詞] hexa-の異形” が 入ってました. “hexa-“ ですと “ヘキサ (Hexa). ギリシャ語で、「6」。 – <a href="https://ja.wikipedia.org/wiki/%E3%83%98%E3%82%AD%E3%82%B5" target="_blank" rel="noopener">Wikipedia</a>“ ですね.</p>
+<ul>
+<li>hexo- [連結詞] hexa-の異形.</li>
+</ul>
+</li>
+</ul>
+<h2 id="ネット-で-Hexo-を-使っている人の声"><a href="#ネット-で-Hexo-を-使っている人の声" class="headerlink" title="ネット で Hexo を 使っている人の声"></a>ネット で Hexo を 使っている人の声</h2><p>やはり皆さん何て読むんだろうという <strong>疑問 が 多く</strong>、「これだ！」と 明言されている方はいらっしゃらないように感じました. いくつか記事を引用させていただきます.</p>
+<p>Hexo の 導入記事を公開されている 株式会社 LIG さん の 記事.</p>
+<blockquote>
+<p>ところで、HEXOの読み方は…何て読むんでしょうね。へくそ？<br>– <a href="https://liginc.co.jp/web/programming/server/104594" target="_blank" rel="noopener">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIG</a></p>
+</blockquote>
+<p>WordPress から Hexo (&amp; 他ツールの調査) 記事を書かれている Uragami さん の 記事.<br>“名前って大事だよね” まさに、その通りです！ 読めない、カッコ悪いでは他の人に紹介もいたしかねる…</p>
+<blockquote>
+<p>まず、その「名前」。正確な発音わかりませんが、”へくそ”って・・・・<br>最後までGravにするかHexoにするか悩みましたが、その悩みの原因はこの名前です。<br>機能的問題あるわけじゃないけど、、、名前って大事だよね。<br>– <a href="http://blog.higty.xyz/post/cms-change/" target="_blank" rel="noopener">WordpressからHexoに乗り換えました - URAGAMI</a></p>
+</blockquote>
+<p>YOMIKATA - ちょっと読み方決めようぜ さん<br>こちら、面白いサービスですね. 日本人的な読み方を ゆるく決めてしまうコンセプトが楽しい. Hexo は 投票数が少ないですが 一応「ヘキソ」ですね.</p>
+<blockquote>
+<p>ヘキソ  6pt  67%<br>ヘクソ  2pt  22%<br>エグゾ  1pt  11%<br>– <a href="http://yomikata.org/word/hexo" target="_blank" rel="noopener">hexo の読み方｜YOMIKATA</a></p>
+</blockquote>
+<h2 id="最後に、Google-先生-は？"><a href="#最後に、Google-先生-は？" class="headerlink" title="最後に、Google 先生 は？"></a>最後に、Google 先生 は？</h2><p>ニューラルネットワークの力を手に入れた Google 翻訳 では どうなるか. <a href="https://translate.google.co.jp/?ion=1&amp;espv=2&amp;um=1&amp;ie=UTF-8&amp;hl=ja&amp;client=tw-ob#en/ja/Hexo%0Ahexo%0A%0AWhat%20is%20Hexo.%0AWhat%20is%20hexo." target="_blank" rel="noopener">教えて Google 先生！</a><br><img src="/assets/hexo/hexo-google-translate.png" alt title="2016年11月現在の結果"></p>
+<p>せんせぃ… orz</p>
+<hr>
+<p>スパッと決まらなかった感がありますが、私は「ヘキソ」で 行きます. もぅ頭の中は「ヘクソ」に固定化されつつありますが「へっクソ」「へっクソ」「クソ」と、リフレインするのはつらいので、がんばろう…</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/10/ところで、Hexoって何て読むんだろ？/" data-id="ckq2rxv9g000844r2dr6dn0ph" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" title="Hexo の 新規投稿パス を カスタマイズ" rel="bookmark">Hexo の 新規投稿パス を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/07/Hexoのフィードとサイトマップを設定/" title="Hexo の フィード と サイトマップ を 設定" rel="bookmark">Hexo の フィード と サイトマップ を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Hexoのフィードとサイトマップを設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/07/Hexoのフィードとサイトマップを設定/" class="article-date">
+  <time datetime="2016-11-06T15:00:00.000Z" itemprop="datePublished">2016-11-07</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/07/Hexoのフィードとサイトマップを設定/">Hexo の フィード と サイトマップ を 設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>Hexo の トップ画面の右上にはフィードのアイコンとリングが配置されています. インストール直後では、機能しておらずクリックすると ステータスコード “404 Not Found” で “Cannot GET /atom.xml” の 文字列が画面に表示されてしまいます.</p>
+<p>カッコ悪いのでフィードが出力されるようにし、合わせてサイトマップも出せるようにしたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="フィードの出力"><a href="#フィードの出力" class="headerlink" title="フィードの出力"></a>フィードの出力</h2><p>Hexo の <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">Plugin リスト</a> から フィード関連 の Plugin を 探すと オフィシャル の <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a> が あります. こちらを設定します.</p>
+<p>Hexo の ソースがあるフォルダで <code>npm install hexo-generator-feed --save</code> を実行します. (下記例の [username] は 自分の GitHub ユーザ名)<br>また、実行前にアップデートも行っておくとよいでしょう.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos\[username].github.io&gt; npm update</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; npm install hexo-generator-feed --save</span><br><span class="line">`-- hexo-generator-feed@1.2.0</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.15: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></table></figure></p>
+<p>続いて HEXO の 設定ファイルである <code>_config.yml</code> に フィード出力の設定を追加します.<br>Atom と RSS2 の どちらかが出力できるようで、今回は Atom を 選択しました. また出力数は <code>limit</code> で 設定できます.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line"><span class="comment">## hexo-generator-feed (https://github.com/hexojs/hexo-generator-feed)</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">atom</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">atom.xml</span></span><br><span class="line"><span class="attr">  limit:</span> <span class="number">20</span></span><br></pre></table></figure></p>
+<p>設定後 <code>hexo generate</code> すると、無事にフィードが生成されていることが確認できます. 確認できたらデプロイします.<br><img src="/assets/hexo/hexo-feed.png" alt></p>
+<h2 id="サイトマップの出力"><a href="#サイトマップの出力" class="headerlink" title="サイトマップの出力"></a>サイトマップの出力</h2><p>同じく Hexo の <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">Plugin リスト</a> から サイトマップ関連 の Plugin を 探すと オフィシャル の <a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener">hexo-generator-sitemap</a> が あります. もうひとつ hexo-generator-seo-friendly-sitemap が ありますが、とりあえずオフィシャルのものを設定します.<br>機会があったら違いなどを調べたいですが、まずは今の環境構築を優先で.</p>
+<p>こちらもフィードと同様に Hexo の ソースがあるフォルダで <code>npm install hexo-generator-sitemap --save</code> を実行します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos\[username].github.io&gt; npm update</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; npm install hexo-generator-sitemap --save</span><br><span class="line">`-- hexo-generator-sitemap@1.1.2</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.15: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></table></figure></p>
+<p><code>_config.yml</code> に サイトマップ出力の設定を追加します.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line"><span class="comment">## hexo-generator-sitemap (https://github.com/hexojs/hexo-generator-sitemap)</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br></pre></table></figure></p>
+<p>設定後 <code>hexo generate</code> すると、無事にフィードが生成されていることが確認できます. 確認できたらデプロイします.<br><img src="/assets/hexo/hexo-sitemap.png" alt></p>
+<hr>
+<p>オフィシャル で Plugin が 用意されており、また Node.js の npm で 簡単に導入することができました.<br><code>hexo-generator-feed</code> で PubSubHubbub による通知もできるようなので、こっちも設定しておきたいでが「それはまた、別の話」にて.<br>→ <a href="/2017/01/06/HexoでPubSubHubbub通知をする/">Hexo で PubSubHubbub 通知をする</a> の 記事を追加しました. (2017年1月6日追記）</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/07/Hexoのフィードとサイトマップを設定/" data-id="ckq2rxv99000444r2sst89mo2" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" title="Hexo の 新規投稿パス を カスタマイズ" rel="bookmark">Hexo の 新規投稿パス を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/04/Hexoの新規投稿テンプレートをカスタマイズ/" title="Hexo の 新規投稿テンプレート を カスタマイズ" rel="bookmark">Hexo の 新規投稿テンプレート を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Hexoの新規投稿テンプレートをカスタマイズ" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/04/Hexoの新規投稿テンプレートをカスタマイズ/" class="article-date">
+  <time datetime="2016-11-03T15:00:00.000Z" itemprop="datePublished">2016-11-04</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/04/Hexoの新規投稿テンプレートをカスタマイズ/">Hexo の 新規投稿テンプレート を カスタマイズ</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>Hexo で 新しい投稿を作成する際のテンプレートをカスタマイズして記事を書きやすくしたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="テンプレート-の-配置場所"><a href="#テンプレート-の-配置場所" class="headerlink" title="テンプレート の 配置場所"></a>テンプレート の 配置場所</h2><p>テンプレートは <code>/scaffolds</code> フォルダ に 配置されています. デフォルトで３つファイルが用意されています.</p>
+<ul>
+<li>draft.md : <code>hexo new draft &quot;記事タイトル&quot;</code> で 作成した場合に使われる、ドラフト投稿用のテンプレート</li>
+<li>page.md : <code>hexo new page &quot;ページ・タイトル&quot;</code> で 作成した場合に使われる、固定ページ用のテンプレート</li>
+<li>post.md : <code>hexo new &quot;記事タイトル&quot;</code> で 作成した場合に使われる、投稿用のテンプレート</li>
+</ul>
+<p>ちゃんとドラフト機能を使っている場合は、<code>draft.md</code> を カスタマイズして使いますが、<code>post.md</code> とは <code>date:</code> の 行が有るか無いかの違いだけになります.</p>
+<p><code>post.md</code> の 初期状態は以下にです.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></table></figure></p>
+<h2 id="テンプレート-の-カスタマイズ"><a href="#テンプレート-の-カスタマイズ" class="headerlink" title="テンプレート の カスタマイズ"></a>テンプレート の カスタマイズ</h2><p>今回は投稿用のテンプレートをカスタマイズするので <code>draft.md</code> を 修正します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line">tags:</span><br><span class="line">- </span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">![](/assets/ &quot;&quot;)</span><br><span class="line"></span><br><span class="line">序文</span><br><span class="line"></span><br><span class="line">**作業環境**</span><br><span class="line">- Windows 7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 章タイトル</span><br><span class="line">コンテンツ</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- - - -</span><br><span class="line">まとめ</span><br></pre></table></figure></p>
+<p>カテゴリを追加しました. カテゴリの階層は深くしたくないので行内に収めるようにし、タグは１つの場合でも複数指定する書き方で統一するようにしました.</p>
+<p>またトップ画像を常に配置するつもりなので、<code>![](/assets/ &quot;&quot;)</code> を 先頭においています.</p>
+<p>ほとんど技術系の記事が占めると思われますので作業環境を明記するようにします.</p>
+<p>後は章のタイトルとコンテンツの繰り返しになるので、アウトラインとして１つだけ入れておき、まとめ が 入るようにしました.</p>
+<p>ファイル上部の <code>---</code> に 囲まれている部分は Front-matter と よばれるもので、詳細 は こちらのドキュメント <a href="https://hexo.io/docs/front-matter.html" target="_blank" rel="noopener">Front-matter | Hexo</a> に なります.</p>
+<hr>
+<p>あまり使わないかもしれませんが、<code>date:</code> の 行の違いなので、<code>draft.md</code> も 合わせて修正しました.</p>
+<p>アウトラインを決めておくだけでも、だいぶ書きやすくなりますし自然と書き方もそろい記事に集中できるようになりそう.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/04/Hexoの新規投稿テンプレートをカスタマイズ/" data-id="ckq2rxv9d000544r2npxlm2gv" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" title="Hexo の 新規投稿パス を カスタマイズ" rel="bookmark">Hexo の 新規投稿パス を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/07/Hexoのフィードとサイトマップを設定/" title="Hexo の フィード と サイトマップ を 設定" rel="bookmark">Hexo の フィード と サイトマップ を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-HexoとGitHub-Pagesでブログ環境の構築" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/" class="article-date">
+  <time datetime="2016-10-31T15:00:00.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">Hexo と GitHub Pages で ブログ環境の構築</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>調べものメモや環境構築の記録などを残しておく場所がほしいと考えて調べていたところ、GitHub Pages と Hexo の 組み合わせ が よさそうなので、早速調べつつ記録を残してみたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Git 2.11.0</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="GitHub-Pages-とは？"><a href="#GitHub-Pages-とは？" class="headerlink" title="GitHub Pages とは？"></a>GitHub Pages とは？</h2><p>GitHub に、独自のウェブサイトをホスティングするための公式の機能です.</p>
+<p>ソースコード管理 の Git ホスティング で 有名な GitHub で、静的なウェブサイトもホスティングできる機能があり、それが GitHub Pages です. <a href="https://pages.github.com" target="_blank" rel="noopener">公式ページ</a> に “Websites for you and your projects.” と あるように、GitHub の アカウント、組織、プロジェクト(=リポジトリ) のためのウェブサイトを簡単に持つことができるようになります.</p>
+<p>GitHub リポジトリ で 直接管理することができるため、ウェブサイトのバージョン管理を行うこともできますし、Issues や Projects も 使えるので 記事作成 の ToDo 管理 や チームでのウェブサイト管理も行えます. もちろん Pull Request も 使えます. 一方で GitHub Pages は、静的なウェブサイトのホスティングの機能であるため、データベースを使ったり、動的な機能を盛り込むことができません.</p>
+<p>今回は調査メモや環境構築の記録なので動的な機能を持たせることは想定しないので、GitHub Pages を 使ってみたいと思います.</p>
+<h2 id="GitHub-Pages-での-ウェブサイト公開方法"><a href="#GitHub-Pages-での-ウェブサイト公開方法" class="headerlink" title="GitHub Pages での ウェブサイト公開方法"></a>GitHub Pages での ウェブサイト公開方法</h2><p>大きく 2つのタイプでウェブサイトを公開できます. </p>
+<ol>
+<li>https:// <strong>name</strong>.github.io 形式 の <strong>ユーザ ウェブサイト・組織(Organization)ウェブサイト</strong></li>
+<li>https:// <strong>name</strong>.github.io/<strong>repository</strong> 形式 の <strong>プロジェクト ウェブサイト</strong></li>
+</ol>
+<p>今回は個人ウェブサイトになるためユーザ ウェブサイトを選択しました.<br>GitHub に <code>[username].github.io</code> の ネーミング・ルールでリポジトリを作成します.<br>※ username 部分は、自分 の GitHub アカウント名</p>
+<h2 id="Hexo-とは？"><a href="#Hexo-とは？" class="headerlink" title="Hexo とは？"></a>Hexo とは？</h2><p>Hexo は Markdown などで書いた記事から、ブログを生成する 静的 ウェブサイト ジェネレータ です. (<a href="https://hexo.io" target="_blank" rel="noopener">公式ページ</a> では “A fast, simple &amp; powerful blog framework” と フレームワーク謳っているけど、ジェネレータの方がなんとなくしっくりする)</p>
+<p>類似のツールとしては Jekyll や Octopress、Pelican などがあります. GitHub Pages では、Jekyll が 公式ツールとなっています.<br>いろいろな 静的 ウェブサイト ジェネレータ が ある中で、以下のサイトを参考にさせて頂き Hexo に することにしました. たくさんあるツールを確認し、まとめてくださってて助かりました. 感謝感謝です.</p>
+<ul>
+<li><a href="https://staticsitegenerators.net" target="_blank" rel="noopener">Static Site Generators</a></li>
+<li><a href="http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo" target="_blank" rel="noopener">ブログをHexoにしてみた | task blog</a></li>
+<li><a href="http://qiita.com/okmttdhr/items/82ecb0332835472e905f" target="_blank" rel="noopener">Github Pagesでブログ構築ができる静的サイトジェネレーター総まとめ - Qiita</a></li>
+</ul>
+<h2 id="Hexo-の-インストール"><a href="#Hexo-の-インストール" class="headerlink" title="Hexo の インストール"></a>Hexo の インストール</h2><p>Hexo は Node.js と Git が 必要です. それぞれ以下からダウンロードしてインストールします.</p>
+<ul>
+<li><a href="https://nodejs.org" target="_blank" rel="noopener">Node.js - https://nodejs.org</a></li>
+<li><a href="https://git-scm.com" target="_blank" rel="noopener">Git - https://git-scm.com</a></li>
+</ul>
+<p>Node.js は 開発用途ではないので LTS(Long Term Support) である v6.9.1 LTS を 入れました.</p>
+<p>Git は インストール後にユーザ設定を行います. <code>user.email</code> と <code>user.name</code> は、それぞれ GitHub に 登録している メールアドレス、ユーザ名 で 良いかと思います.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">c:\&gt; git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">c:\&gt; git config --global user.name &quot;Your Name&quot;</span><br></pre></table></figure></p>
+<p>Node.js と Git が 入ったら、コマンド プロンプト から Hexo の モジュールをインストールします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">c:\&gt; npm install hexo-cli -g</span><br><span class="line">...(省略)</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\hexo-cli\node_modules\chokidar\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.15: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></table></figure></p>
+<h2 id="Hexo-で-ウェブサイト-の-ソース生成"><a href="#Hexo-で-ウェブサイト-の-ソース生成" class="headerlink" title="Hexo で ウェブサイト の ソース生成"></a>Hexo で ウェブサイト の ソース生成</h2><p>Hexo の モジュールがインストールできたら、ウェブサイトのソースを生成します.<br>今回はソースの場所を <code>C:\Develop\repos</code> とします. また、以降の <code>[username]</code> は 自分の GitHub ユーザ名 に 置き換えてください.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">c:\&gt; cd C:\Develop\repos</span><br><span class="line">C:\Develop\repos&gt; hexo init [username].github.io</span><br><span class="line">...(省略)</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.15: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></table></figure></p>
+<p>続いて、ウェブサイトのソースに Hexo と Git の デプロイモジュールを追加します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos&gt; cd [username].github.io</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; npm install</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; npm install hexo-deployer-git --save</span><br><span class="line">`-- hexo-deployer-git@0.2.0</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.15: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></table></figure></p>
+<h2 id="Hexo-に-最小限-の-初期設定"><a href="#Hexo-に-最小限-の-初期設定" class="headerlink" title="Hexo に 最小限 の 初期設定"></a>Hexo に 最小限 の 初期設定</h2><p>Hexo の 初期設定を行います. Hexo は <code>_config.yml</code> で 設定をします.<br>テキストエディタなどで <code>C:\Develop\repos\[username].github.io\_config.yml</code> を 開きます. 日本語の入力を行う場合は UTF-8 で 保存する必要があります.<br>以下に主な設定ヶ所を抜粋します.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">[ブログのタイトル]</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">[ブログのサブタイトル、もし必要あれば]</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">[ブログの説明、もし必要あれば]</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">[著者名]</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Tokyo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">url:</span> <span class="attr">https://[username].github.io</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:[username]/[username].github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></table></figure></p>
+<p><code>language</code> は 日本語に対応しているテーマを使う場合は <code>ja</code> に しますが、デフォルトテーマは対応していないようなので <code>en</code> に しました.</p>
+<h2 id="デフォルトのテーマから利用しない他言語を削除"><a href="#デフォルトのテーマから利用しない他言語を削除" class="headerlink" title="デフォルトのテーマから利用しない他言語を削除"></a>デフォルトのテーマから利用しない他言語を削除</h2><p><code>language: en</code> に しているのですが、たまに異なる言語でブログが生成されるケースがあるので、利用しない他言語を削除します. 特に問題がない場合は削除する必要はありませんが、<code>hexo generate</code> した結果を確認しないでデプロイしたら、ブログ右のタグやカテゴリーが知らない言語になっていたことがあったので、念のため削除することにしました.<br><code>/&lt;ブログ・ソース・ルート&gt;/themes/landscape/languages/default.yml</code> を 残して、他の言語のファイルを削除します.</p>
+<h2 id="ウェブサイト-の-生成-と-GitHub-Pages-へ-デプロイ"><a href="#ウェブサイト-の-生成-と-GitHub-Pages-へ-デプロイ" class="headerlink" title="ウェブサイト の 生成 と GitHub Pages へ デプロイ"></a>ウェブサイト の 生成 と GitHub Pages へ デプロイ</h2><p>設定を行ったら、ウェブサイトの生成を行います.<br>通常は <code>hexo generate</code> だけでよいようですが、記事の削除などを行った場合は <code>hexo clean</code> を しないと消えてくれないことがあるので、ウェブサイト生成をする場合は <code>hexo clean</code> と <code>hexo generate</code> を セットで行うようにしています.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos\[username].github.io&gt; hexo clean</span><br><span class="line">INFO  Deleted database.</span><br><span class="line"></span><br><span class="line">C:\Develop\repos\[username].github.io&gt; hexo generate</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded in 535 ms</span><br><span class="line">...(省略)</span><br><span class="line">INFO  28 files generated in 2.36 s</span><br></pre></table></figure></p>
+<p>ウェブサイト生成できたら GitHub へ デプロイします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos\[username].github.io&gt; hexo deploy</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">...(省略)</span><br><span class="line"> * [new branch]      HEAD -&gt; master</span><br><span class="line">INFO  Deploy done: git</span><br></pre></table></figure></p>
+<p>デプロイ完了後、<code>https://[username].github.io</code> で アクセスするとデフォルトの Hello World 記事が見れます.<br><img src="/assets/hexo/hexo-3.2-hello-world.png" alt title="Hexo"></p>
+<h2 id="ウェブサイト-の-ソース-を-GitHub-で-管理"><a href="#ウェブサイト-の-ソース-を-GitHub-で-管理" class="headerlink" title="ウェブサイト の ソース を GitHub で 管理"></a>ウェブサイト の ソース を GitHub で 管理</h2><p>ここまで作ったウェブサイトのソースを GitHub で 管理できるようにします. 今回は <code>source</code> ブランチで管理することにします.</p>
+<p>以下の手順で、ウェブサイトのソースがあるフォルダに Git の リポジトリを作成し、ウェブサイトのある <code>master</code> とは関連の無い <code>source</code> の ブランチを作成してコミット＆プッシュします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre><td class="code"><pre><span class="line">C:\Develop\repos\[username].github.io&gt; git init</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; git remote add origin git@github.com:[username]/[username].github.io.git</span><br><span class="line"></span><br><span class="line">C:\Develop\repos\[username].github.io&gt; git checkout --orphan source</span><br><span class="line"></span><br><span class="line">C:\Develop\repos\[username].github.io&gt; git add .</span><br><span class="line">C:\Develop\repos\[username].github.io&gt; git commit -am &quot;Initial commit for Hexo source files&quot;</span><br><span class="line"></span><br><span class="line">C:\Develop\repos\[username].github.io&gt; git push origin source</span><br></pre></table></figure></p>
+<hr>
+<p>以上で Hexo と GitHub Pages で ブログ環境が構築できました. 以降は <code>source</code> ブランチで記事のソースを管理し、投稿タイミングで <code>hexo clean</code>、<code>hexo generate -d</code> で <code>master</code> ブランチ = ウェブサイト を 更新していきます.</p>
+<p>基本的に <code>source</code> ブランチしか使わないため GitHub の [Settings] - [Branches] から <code>source</code> ブランチをデフォルトにしておくと便利かもしれません.</p>
+<p>手軽に記事のソース管理ができそうなので使っていくのが楽しみ.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/" data-id="ckq2rxvb1003h44r2qhl8zeli" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/11/Hexoに404-Not-Foundページを追加する/" title="Hexo に 404 Not Found ページ を 追加する" rel="bookmark">Hexo に 404 Not Found ページ を 追加する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; 戻る</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+  </nav></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

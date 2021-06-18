@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - Slack ボット 実装編 | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Slack の Free Plan でも、API から 2FA の 設定状況が見れることが分かりました. それを使ってボットが 2FA の 設定状況を監視しレポートするようにしたいと思います. 作業環境  Slack Node.js 6.11.0 LTS Botkit 0.5.2  通知方法の検討セキュリティに関することなのでキッチリ警告していきたいものの、あまり頻度が高いのも考え物. 加減が難">
+<meta name="keywords" content="Slack,Botkit,Node.js,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slack の ボット で 2FA(Two-Factor Authentication &#x2F; 2要素認証) 未設定ユーザ を 監視する - Slack ボット 実装編">
+<meta property="og:url" content="https://azriton.github.io/2017/06/24/Slackのボットで2FA未設定ユーザを監視する-Slackボット実装編/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Slack の Free Plan でも、API から 2FA の 設定状況が見れることが分かりました. それを使ってボットが 2FA の 設定状況を監視しレポートするようにしたいと思います. 作業環境  Slack Node.js 6.11.0 LTS Botkit 0.5.2  通知方法の検討セキュリティに関することなのでキッチリ警告していきたいものの、あまり頻度が高いのも考え物. 加減が難">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/users-api/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/users-api/04.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:updated_time" content="2017-06-23T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slack の ボット で 2FA(Two-Factor Authentication &#x2F; 2要素認証) 未設定ユーザ を 監視する - Slack ボット 実装編">
+<meta name="twitter:description" content="Slack の Free Plan でも、API から 2FA の 設定状況が見れることが分かりました. それを使ってボットが 2FA の 設定状況を監視しレポートするようにしたいと思います. 作業環境  Slack Node.js 6.11.0 LTS Botkit 0.5.2  通知方法の検討セキュリティに関することなのでキッチリ警告していきたいものの、あまり頻度が高いのも考え物. 加減が難">
+<meta name="twitter:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Slackのボットで2FA未設定ユーザを監視する-Slackボット実装編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/24/Slackのボットで2FA未設定ユーザを監視する-Slackボット実装編/" class="article-date">
+  <time datetime="2017-06-23T15:00:00.000Z" itemprop="datePublished">2017-06-24</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - Slack ボット 実装編
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>Slack の Free Plan でも、<a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/">API から 2FA の 設定状況が見れる</a>ことが分かりました. それを使ってボットが 2FA の 設定状況を監視しレポートするようにしたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Node.js 6.11.0 LTS</li>
+<li>Botkit 0.5.2</li>
+</ul>
+<h2 id="通知方法の検討"><a href="#通知方法の検討" class="headerlink" title="通知方法の検討"></a>通知方法の検討</h2><p>セキュリティに関することなのでキッチリ警告していきたいものの、あまり頻度が高いのも考え物. 加減が難しいところです…<br>今回は、未設定者に DM で 週１回 月曜日 の 14時 に 通知し、Slack の チーム管理者 向けに <code>#sandbox</code> へ 未設定者一覧の支援依頼のメッセージを出力します. (未設定者を公開で晒すのも微妙なので、実際には管理者用チャンネルとかにした方が良いかもしれないですね)</p>
+<h2 id="Slack-ボット-の-実装"><a href="#Slack-ボット-の-実装" class="headerlink" title="Slack ボット の 実装"></a>Slack ボット の 実装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre><td class="code"><pre><span class="line">const Botkit = require(&apos;botkit&apos;);</span><br><span class="line">const cron = require(&apos;cron&apos;);</span><br><span class="line"></span><br><span class="line">const controller = Botkit.slackbot();</span><br><span class="line"></span><br><span class="line">const channel = &apos;#sandbox&apos;;</span><br><span class="line">const url = &apos;https://get.slack.help/hc/ja/articles/204509068-2%E8%A6%81%E7%B4%A0%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B&apos;;</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token: process.env.bot_access_token</span><br><span class="line">&#125;).startRTM((err, bot, payload) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    new cron.CronJob(&#123;  cronTime: &apos;00 00 14 * * 1&apos;,  timeZone: &apos;Asia/Tokyo&apos;,  start: true,  onTick: () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        let admins = [];</span><br><span class="line">        let reports = [];</span><br><span class="line">        bot.api.users.list(&#123;  token: process.env.access_token  &#125;, (err, response) =&gt; &#123;</span><br><span class="line">            for (let member of response.members) &#123;</span><br><span class="line">                if (member.deleted || member.is_bot || member.name == &apos;slackbot&apos;) &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (member.is_admin) &#123;</span><br><span class="line">                    admins.push(member.id)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (!member.has_2fa) &#123;</span><br><span class="line">                    reports.push(member.id)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (reports.length != 0) &#123;</span><br><span class="line">                bot.say(&#123;</span><br><span class="line">                    channel: channel,</span><br><span class="line">                    text: `2FA の 未設定 $&#123;reports.length&#125; 人、み～つけた！ ` +</span><br><span class="line">                          &apos;管理者の人～、設定の仕方を助けてくださいませ. &apos; +</span><br><span class="line">                          `設定の説明は &lt;$&#123;url&#125;|こっち&gt; に あるよ. \n` +</span><br><span class="line">                          `未設定者: $&#123;createMentions(reports)&#125;`</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            for (let report of reports) &#123;</span><br><span class="line">                bot.startPrivateConversation(&#123;  user: report  &#125;, (response, convo) =&gt; &#123;</span><br><span class="line">                    convo.say(&apos;Slack の 2FA(Two Factor Authentication / 二要素認証) 設定をしてくださいな. &apos; +</span><br><span class="line">                              `設定の説明は &lt;$&#123;url&#125;|こっち&gt; に あるよ. \n` +</span><br><span class="line">                              `あとは $&#123;bot.team_info.name&#125; Slack チーム の 管理者 $&#123;createMentions(admins)&#125; に 聞くのもありだね.`</span><br><span class="line">                    );</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;&#125;);</span><br><span class="line"></span><br><span class="line">    function createMentions(userIds) &#123;</span><br><span class="line">        let mentions = [];</span><br><span class="line">        for (let userId of userIds) &#123;</span><br><span class="line">            mentions.push(` &lt;@$&#123;userId&#125;&gt;`);</span><br><span class="line">        &#125;</span><br><span class="line">        return mentions;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></table></figure>
+<p>まずは、<code>cron</code> モジュールを使ったボットにするため <code>controller.spawn().startRTM()</code> 内で処理を実装するボットを作ります. この辺りは <a href="/2017/01/12/Slackのボットで定時アクション/">Slack の ボット で 定時アクション</a> で 作ったものになります.</p>
+<p>続いて定期処理を作るために <code>new cron.CronJob()</code> に <code>cronTime: &#39;00 00 14 * * 1&#39;</code> と 処理、その他オプションを渡します. <code>cronTime</code> は 秒 分 時 日 月 曜日 なので、<code>&#39;00 00 14 * * 1&#39;</code> は 左３つで14時ちょうど、右３つで毎週月曜日となります.</p>
+<p>14行目からメインのコードになります. チーム管理ユーザ と レポート対象ユーザ を 保持するための配列を用意します.<br>続いてユーザー一覧を取得する Slack API を <a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/">前回</a>の通り <code>bot.api.users.list()</code> で <code>token</code> に OAuth で 権限を与えられている方のトークンを渡します.</p>
+<p>API から取得した ユーザー一覧を <code>for-of</code> で 回しながら <code>admins</code> と <code>reports</code> の 配列を作成していきます. 削除済み と ボット と “slackbot” は チェック不要なので <code>continue</code> します. “slackbot” さん は、なぜかボット判定が効かないので名前で判別しています.<br>続いて、<code>is_admin</code> で チーム管理者の判定をします. オーナーも <code>is_admin</code> が <code>true</code> で 管理者に入ります. (もし外すなら <code>is_primary_owner</code> と <code>is_owner</code> で オーナー判定できます)<br>最後に今回の肝である <code>has_2fa</code> で レポート対象ユーザーの判定をします. 通常は無いはずですが、管理者が 2FA 未設定のケースを想定して <code>is_admin</code> と <code>has_2fa</code> は <code>else if</code> ではなく <code>if</code> で 分けてます.</p>
+<p>32行目から、管理者向けの通知になります.<br>レポート対象ユーザー <code>reports</code> が 空でなければ <code>bot.say()</code> で 指定チャンネルへ未設定者のリストを通知します.<br>※ 今回 <code>const channel = &#39;#sandbox&#39;;</code> と チャンネル名指定してますが、正式には  <code>https://slack.com/api/channels.list?token=[API_TOKEN]</code> で 調べた ID を 使うべきです</p>
+<p>42行目から、未設定者に対する DM になります.<br>未設定者の配列 は <code>for-of</code> で 回し、DM を 送る <code>bot.startPrivateConversation()</code> を 呼び出します.<br><code>bot.say()</code> のように、直接メッセージを出せず、Conversation の 形式で送ります. そのため <code>bot.startPrivateConversation()</code> の 第２引数で渡すコールバック関数で受け取る 第２引数 <code>convo</code> に対して <code>say()</code> を 呼び出します.</p>
+<h2 id="通知！"><a href="#通知！" class="headerlink" title="通知！"></a>通知！</h2><p>まずは管理者向けにチャンネルへポストされた方になります. 今回は実験用なので <code>#sandbox</code> に 晒されてます.<br><img src="/assets/slack/users-api/03.png" alt></p>
+<p>続いて DM を 受けている側になります. ちゃんと相談先のチーム管理者へのメンションも出ています. 安心ですね.<br><img src="/assets/slack/users-api/04.png" alt></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>これで、2FA 未設定者を <del>×炙り出して晒す</del> ◎検出して通知 できるようになりました.<br>有料プランのように強制はできないものの、毎週通知されることと、管理者へもフォローするよう通知が行くので、おのずと設定されることに期待したいと思います.</p>
+<p>もし強化するとしたら、全チャンネルから BAN して、チャンネル参加を拒否する鬼ボットにするとかですかね… なんか面白そうだなぁ. 作ってみたくなってきた.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/06/24/Slackのボットで2FA未設定ユーザを監視する-Slackボット実装編/" data-id="ckq2rxvbs005444r2cnw264gz" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/07/25/Python-3.6-64bitのインストール/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Python 3.6 64bit の インストール
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

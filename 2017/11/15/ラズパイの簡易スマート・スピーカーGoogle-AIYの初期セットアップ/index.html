@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Google AIY Voice Kit を 組み立てた ので、さっそく OS の イメージを焼き、初期設定をしたいと思います. なお 前半 の “OS イメージ の 用意” と “SSH の 有効化 と Wi-Fi の 接続設定”、”スピーカー と マイク の 確認” 以外は、Google AIY Voice Kit とは、直接の関係はありません. ラズパイの基本的な設定をまとめたものになりま">
+<meta name="keywords" content="Raspberry Pi,Google AIY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ">
+<meta property="og:url" content="https://azriton.github.io/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Google AIY Voice Kit を 組み立てた ので、さっそく OS の イメージを焼き、初期設定をしたいと思います. なお 前半 の “OS イメージ の 用意” と “SSH の 有効化 と Wi-Fi の 接続設定”、”スピーカー と マイク の 確認” 以外は、Google AIY Voice Kit とは、直接の関係はありません. ラズパイの基本的な設定をまとめたものになりま">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/raspi/google-aiy/google-aiy.jpg">
+<meta property="og:image" content="https://aiyprojects.withgoogle.com/static/images/aiy-projects-voice/users/log-1.jpg">
+<meta property="og:image" content="https://azriton.github.io/assets/raspi/etcher/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/raspi/etcher/09.png">
+<meta property="og:image" content="https://azriton.github.io/assets/raspi/etcher/10.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/512vdu5RFFL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51n8VDAfiyL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/411Ax0K6zqL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616">
+<meta property="og:updated_time" content="2017-11-14T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ">
+<meta name="twitter:description" content="Google AIY Voice Kit を 組み立てた ので、さっそく OS の イメージを焼き、初期設定をしたいと思います. なお 前半 の “OS イメージ の 用意” と “SSH の 有効化 と Wi-Fi の 接続設定”、”スピーカー と マイク の 確認” 以外は、Google AIY Voice Kit とは、直接の関係はありません. ラズパイの基本的な設定をまとめたものになりま">
+<meta name="twitter:image" content="https://azriton.github.io/assets/raspi/google-aiy/google-aiy.jpg">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/" class="article-date">
+  <time datetime="2017-11-14T15:00:00.000Z" itemprop="datePublished">2017-11-15</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/google-aiy/google-aiy.jpg" alt title="Google AIY Voice Kit"></p>
+<p><a href="/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/">Google AIY Voice Kit を 組み立てた</a> ので、さっそく OS の イメージを焼き、初期設定をしたいと思います.</p>
+<p>なお 前半 の “OS イメージ の 用意” と “SSH の 有効化 と Wi-Fi の 接続設定”、”スピーカー と マイク の 確認” 以外は、Google AIY Voice Kit とは、直接の関係はありません. ラズパイの基本的な設定をまとめたものになります.</p>
+<p>今回は ディスプレイ や キーボード、マウス などが無い環境なので、SSH で セットアップしていきます.<br><a href="https://aiyprojects.withgoogle.com/voice/#users-guide" target="_blank" rel="noopener">ドキュメントによると</a> カッコいいデスクトップが立ち上がるようですが見れないです. 残念.<br><img src="https://aiyprojects.withgoogle.com/static/images/aiy-projects-voice/users/log-1.jpg" alt></p>
+<p>ディスプレイなしなので CUI モードにすれば ラズパイ Zero W で も いけるかと思って１台組んでみたのですが、箱の切り欠きと配置が合わないのでケーブル類をちゃんと選ばないと収まらないのと、SD カード は 箱を開けないと抜き差しできなそうで、結局断念してラズパイ３を持ってかれました…</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Raspberry Pi 3 Model B</li>
+<li>Google AIY Voice Kit</li>
+</ul>
+<h2 id="主な作業内容"><a href="#主な作業内容" class="headerlink" title="主な作業内容"></a>主な作業内容</h2><p>これまで書いてきた記事から必要なものを集めて設定します. 関連する記事は下記になります.</p>
+<ul>
+<li><a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a></li>
+<li><a href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/">Raspbian Jessie Lite の 初期設定</a></li>
+<li><a href="/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/">Raspbian Jessie Lite の Wi-Fi 設定</a></li>
+<li><a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a></li>
+<li><a href="/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/">Raspbian Jessie Lite の SDカード 延命化</a></li>
+<li><a href="/2017/03/19/Raspbian-Jessie-Liteその他設定/">Raspbian Jessie Lite その他 設定</a></li>
+<li><a href="/2017/09/20/Raspberry-Pi基盤のLEDを消灯する/">Raspberry Pi 基盤 の LED を 消灯する</a></li>
+</ul>
+<h2 id="OS-イメージ-の-用意"><a href="#OS-イメージ-の-用意" class="headerlink" title="OS イメージ の 用意"></a>OS イメージ の 用意</h2><p>Google AIY プロジェクト の <a href="https://aiyprojects.withgoogle.com/voice/" target="_blank" rel="noopener">Voice Kit の ウェブサイト</a> の <a href="https://aiyprojects.withgoogle.com/voice/#assembly-guide-1-get-the-voice-kit-sd-image" target="_blank" rel="noopener">Get the Voice Kit SD Image</a> から OS イメージをダウンロードします. ダウンロードしたファイルは <code>aiyprojects-2017-09-11.img.xz</code> でした.<br>※ 同梱の説明書には Get the Voice Kit SD Image への 短縮 URL <a href="https://magpi.cc/2x7JQfS" target="_blank" rel="noopener">https://magpi.cc/2x7JQfS</a> が 記載されてました</p>
+<p><code>.xz</code> 形式は Windows の 標準装備では解凍できませんが、こちら <a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a> で 書きました <a href="https://etcher.io/" target="_blank" rel="noopener">Etcher</a> は 解凍する必要なく直接 SD カード へ 書き込んでくれます. 便利だ！</p>
+<p>ということで、Etcher を 起動し、上記ファイルを指定して、Flash します.<br><img src="/assets/raspi/etcher/06.png" alt></p>
+<h2 id="SSH-の-有効化-と-Wi-Fi-の-接続設定"><a href="#SSH-の-有効化-と-Wi-Fi-の-接続設定" class="headerlink" title="SSH の 有効化 と Wi-Fi の 接続設定"></a>SSH の 有効化 と Wi-Fi の 接続設定</h2><p>SD カード を 取り出す前に、SSH と Wi-Fi の 設定をしておきます.</p>
+<p>エクスプローラー で SD カード の ドライブを表示し <code>ssh</code> ファイルを作成します. 空のファイルで大丈夫です.<br><img src="/assets/raspi/etcher/09.png" alt></p>
+<p>同じく SD カードのドライブに <code>wpa_supplicant.conf</code> ファイルを作成します.<br><img src="/assets/raspi/etcher/10.png" alt></p>
+<p><code>wpa_supplicant.conf</code> ファイルの内容は以下で、 ssid と psk に 接続する Wi-Fi の 設定を記述します.<br>ファイルの改行コードは Windows の CRLF ではなく LF のため、メモ帳ではなく改行コードが設定できるエディタを使います.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=&quot;----Your-WiFi-SSID----&quot;</span><br><span class="line">        psk=&quot;----PLAIN-PASSPHRASE----&quot;</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>※ ここでは <code>psk</code> が 平文となっていますが、起動後に接続して <code>wpa_passphrase [SSID] [PASSPHRASE]</code> コマンドを実行した結果の暗号化された psk に 置き換えておくとよいです.<br>またラズパイを よくセットアップする場合は 暗号化された psk で 作ったファイルをコピーしておいて、OS イメージを作った際にコピーできるようにしておくと便利です.</p>
+<h2 id="起動！"><a href="#起動！" class="headerlink" title="起動！"></a>起動！</h2><p>Google AIY Voice Kit の Raspberry Pi 3 に SD カードを差し、電源を投入します.</p>
+<h2 id="SSH-で-接続"><a href="#SSH-で-接続" class="headerlink" title="SSH で 接続"></a>SSH で 接続</h2><p>上記の Wi-Fi 設定ができていたら Wi-Fi 経由で SSH が つながるはずです. つながらなかったら 有線 LAN を つなぐか、ディスプレイ＆キーボード…</p>
+<p>Windows 10 は mDNS が 入っていて ホスト名.local で 接続を受け付けることはできるが、接続にはいけないらしい. なんでやねん！ってところですが、仕方がないので <a href="http://www.apple.com/jp/itunes/download" target="_blank" rel="noopener">iTunes</a> か <a href="https://support.apple.com/kb/DL999" target="_blank" rel="noopener">Bonjour Print Services</a> を インストールするか、頑張って IP アドレスから探しましょう.</p>
+<p>SSH クライアント は Microsoft さん が 開発している <a href="https://github.com/PowerShell/Win32-OpenSSH/releases" target="_blank" rel="noopener">Win32-OpenSSH</a> を 使いました.</p>
+<p>接続すると、ホスト鍵の確認があるので <code>yes</code> を 入力します.<br>続いてパスワードを聞かれるので、初期パスワード の <code>raspberry</code> を 入力します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">c:\&gt; ssh pi@raspberrypi.local</span><br><span class="line">The authenticity of host 'raspberrypi.local (fd91::3f13:2b1:fa24:XXXX)' can't be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:HDYEUoWS6x4RsD63mQgqbEdFsvnKyPBhT4forJCXXXX.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added 'raspberrypi.local,fd91::3f13:2b1:fa24:XXXX' (ECDSA) to the list of known hosts.</span><br><span class="line">pi@raspberrypi.local's password: [raspberry]</span><br></pre></table></figure></p>
+<p>ログインできるとデフォルト・パスワードを変更するように警告が表示されます.<br>こちらは後に <a href="/2017/11/15/%E3%83%A9%E3%82%BA%E3%83%91%E3%82%A4%E3%81%AE%E7%B0%A1%E6%98%93%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%BB%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BCGoogle-AIY%E3%81%AE%E5%88%9D%E6%9C%9F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97/#SSH-と-公開鍵認証-の-設定">公開鍵認証に変えておく</a> と よいでしょう.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line">Build info: Tue Sep 12 00:36:20 UTC 2017 @ 3955cac</span><br><span class="line">Last login: Mon Mar 19 14:40:39 2018 from 10.1.0.105</span><br><span class="line"></span><br><span class="line">SSH is enabled and the default password for the 'pi' user has not been changed.</span><br><span class="line">This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.</span><br></pre></table></figure></p>
+<p>OS の バージョンなどを確認すると、Raspbian 8、Debian Jessie ベース であることが分かります.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ cat /etc/issue</span><br><span class="line">Raspbian GNU/Linux 8 \n \l</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ uname -a</span><br><span class="line">Linux raspberrypi 4.9.35-v7+ #1014 SMP Fri Jun 30 14:47:43 BST 2017 armv7l GNU/Linux</span><br></pre></table></figure></p>
+<h2 id="スピーカー-と-マイク-の-確認"><a href="#スピーカー-と-マイク-の-確認" class="headerlink" title="スピーカー と マイク の 確認"></a>スピーカー と マイク の 確認</h2><p>説明書 P.38, 39 の STEP 09 Check speaker と STEP 10  check microphone では、デスクトップに配置されたアプリケーションを使って確認をしています.<br>※ オンライン・ドキュメントでは <a href="https://aiyprojects.withgoogle.com/voice#assembly-guide-6-verify-it-works" target="_blank" rel="noopener"> Verify it works</a></p>
+<p>今回は SSH で 接続しているのでダブルクリックで実行できませんが、ホームディレクトリ の <code>Desktop</code> ディレクトリにあるアプリのファイルを確認すると Python スクリプトを実行していることがわかります. SSH から Python スクリプトを実行することで、同じことが確認できます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ ls -l /home/pi/Desktop/</span><br><span class="line">合計 16</span><br><span class="line">-rw-r--r-- 1 pi pi 214  9月 12 09:36 check_audio.desktop</span><br><span class="line">-rw-r--r-- 1 pi pi 194  9月 12 09:36 check_cloud.desktop</span><br><span class="line">-rw-r--r-- 1 pi pi 179  9月 12 09:36 check_wifi.desktop</span><br><span class="line">-rw-r--r-- 1 pi pi 217  9月 12 05:50 dev_terminal.desktop</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ cat /home/pi/Desktop/check_audio.desktop </span><br><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Type=Application</span><br><span class="line">Name=Check audio</span><br><span class="line">Comment=Check that the voiceHAT audio input and output are both working.</span><br><span class="line">Exec=/home/pi/AIY-voice-kit-python/checkpoints/check_audio.py</span><br><span class="line">Terminal=true</span><br></pre></table></figure></p>
+<p><code>check_audio.py</code> スクリプトを実行します.<br>実行パーミッションも立っていますし、スクリプト・ファイルの先頭行に <code>#!/usr/bin/env python3</code> とあり Python で 実行できるようになっています. (そういえば この先頭行、 <a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%90%E3%83%B3_%28Unix%29" target="_blank" rel="noopener">シバン</a> って いうんですね)<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ /home/pi/AIY-voice-kit-python/checkpoints/check_audio.py</span><br></pre></table></figure></p>
+<p>実行すると、正しくスピーカー が 接続できていると スピーカー から “Front, Center” と 音声が流れます.<br>正しく聞こえたら、 <code>y</code> を 入力して次へ進めます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">Playing a test sound...</span><br><span class="line">Did you hear the test sound? (y/n) y</span><br></pre></table></figure></p>
+<p>続いて、 <code>When you&#39;re ready, press enter and say &#39;Testing, 1 2 3&#39;...</code> と 表示されるので、Enter キーを押してから “てすてぃんぐ わん、つー、すりー” って 話しかけます. いや、なんでも大丈夫ですが…<br>マイクを正しく接続できていれば、話しかけ時間３秒ぐらいで、すぐにスピーカーから話した内容が再生されます.<br>正しく聞こえたら、 <code>y</code> を 入力して次へ進めます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">When you're ready, press enter and say 'Testing, 1 2 3'...</span><br><span class="line">Recording...</span><br><span class="line">Playing back recorded audio...</span><br><span class="line">Did you hear your own voice? (y/n) y</span><br></pre></table></figure></p>
+<p>２回とも <code>y</code> でしたら、たぶん正しく動いているでしょうってことで、 Enter キー を 押下して終了します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">The audio seems to be working.</span><br><span class="line">Press Enter to close...</span><br></pre></table></figure></p>
+<p>ということで、初期セットアップ 完了です！</p>
+<hr>
+<p>以下、Google AIY Voice Kit に直接は関係ないのですが、設定のまとめとして載せておきます. (主に自分用)</p>
+<h2 id="ホスト名-と-ロケール＆タイムゾーン-を-設定"><a href="#ホスト名-と-ロケール＆タイムゾーン-を-設定" class="headerlink" title="ホスト名 と ロケール＆タイムゾーン を 設定"></a>ホスト名 と ロケール＆タイムゾーン を 設定</h2><p>デフォルトのホスト名 <code>raspberrypi</code> は 他のラズパイを起動した際に被ると困るので必要に応じて変更しておきます. またロケールとタイムゾーンも併せておきます.<br>設定は <code>sudo raspi-config</code> コマンドを実行します.</p>
+<p>ホスト名</p>
+<ul>
+<li><code>2 Hostname</code> を 選択</li>
+<li>設定したいホスト名を入力し、 <code>&lt;Ok&gt;</code> を 選択</li>
+</ul>
+<p>ロケール</p>
+<ul>
+<li><code>4 Localisation Options</code> を 選択</li>
+<li><code>I1 Change Locale</code> を 選択</li>
+<li><code>[*] en_GB.UTF-8 UTF-8</code> で スペースを押して <code>*</code> を 外す</li>
+<li><code>[ ] ja_JP.UTF-8 UTF-8</code> で スペースを押して <code>*</code> を 付ける</li>
+<li><code>&lt;Ok&gt;</code> を 選択</li>
+<li>Default locale for the system environment: と 聞かれるので、<code>ja_JP.UTF-8</code> を 選択し <code>&lt;Ok&gt;</code></li>
+</ul>
+<p>タイムゾーン</p>
+<ul>
+<li><code>4 Localisation Options</code> を 選択</li>
+<li><code>I2 Change Timezone</code> を 選択</li>
+<li><code>Asia</code> → <code>Tokyo</code> と 選択</li>
+</ul>
+<p>Wi-Fi の 国コード</p>
+<ul>
+<li><code>4 Localisation Options</code> を 選択</li>
+<li><code>I4 Change Wi-Fi Country</code> を 選択</li>
+<li><code>&lt;Select&gt;</code> を 選択</li>
+<li><code>JP Japan</code> を 選択</li>
+<li><code>&lt;Ok&gt;</code> を 選択</li>
+</ul>
+<p>最後に <code>Finish</code> を 選択し、再起動します.</p>
+<h2 id="パッケージ-の-アップデート"><a href="#パッケージ-の-アップデート" class="headerlink" title="パッケージ の アップデート"></a>パッケージ の アップデート</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo apt-get update</span><br><span class="line">pi@raspberrypi:~ $ sudo apt-get dist-upgrade -y</span><br></pre></table></figure>
+<p>※ あまりに遅かったり、接続が悪いようでしたらミラー・サイトを設定します.<br>ミラー・サイトは こちら <a href="https://www.raspbian.org/RaspbianMirrors" target="_blank" rel="noopener">RaspbianMirrors - Raspbian</a> から確認できます. JAIST を 例に以下のように設定します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span> deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi</span><br><span class="line">deb http://ftp.jaist.ac.jp/raspbian/ jessie main contrib non-free rpi</span><br></pre></table></figure></p>
+<h2 id="SSH-と-公開鍵認証-の-設定"><a href="#SSH-と-公開鍵認証-の-設定" class="headerlink" title="SSH と 公開鍵認証 の 設定"></a>SSH と 公開鍵認証 の 設定</h2><p>ざっと抜粋になります. 詳しくは <a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a> を ご参照ください.</p>
+<p>まずは Windows 側でキー・ペアを生成します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre><td class="code"><pre><span class="line">c:\&gt; ssh-keygen -t ed25519 -C ""</span><br><span class="line">Generating public/private ed25519 key pair.</span><br><span class="line">Enter file in which to save the key (C:\Users\[username]/.ssh/id_ed25519):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in C:\Users\[username]/.ssh/id_ed25519.</span><br><span class="line">Your public key has been saved in C:\Users\[username]/.ssh/id_ed25519.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:T69X1O58qiKv7Sp/aPJTI+PpzUdOZDO+EcD5ldc8ON8</span><br><span class="line">The key's randomart image is:</span><br><span class="line">+--[ED25519 256]--+</span><br><span class="line">|         . .  .o.|</span><br><span class="line">|          +  oo.+|</span><br><span class="line">|           o .ooo|</span><br><span class="line">|            B ..E|</span><br><span class="line">|        S .+ = . |</span><br><span class="line">|        ooo.= . .|</span><br><span class="line">|       . *.=.+ o |</span><br><span class="line">|      o B+o.=   +|</span><br><span class="line">|       B*OB+...XX|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></table></figure></p>
+<p>続いて公開鍵を Raspberry Pi へ 送ります.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">c:\&gt; scp %USERPROFILE%\.ssh\id_ed25519.pub pi@raspberrypi.local:~</span><br><span class="line">pi@raspberrypi.local's password: [PASSWORD]</span><br><span class="line">id_ed25519.pub                     100%   83     0.1KB/s   00:00</span><br></pre></table></figure></p>
+<p>Raspberry Pi 側で、ホーム・ディレクトリに所定のディレクトリとファイル配置をします.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ mkdir ~/.ssh</span><br><span class="line">pi@raspberrypi:~ $ chmod 700 ~/.ssh</span><br><span class="line">pi@raspberrypi:~ $ cat ~/id_ed25519.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">pi@raspberrypi:~ $ chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">pi@raspberrypi:~ $ rm -f ~/id_ed25519.pub</span><br></pre></table></figure></p>
+<p>SSH サーバ で 公開鍵認証だけの設定にし、パスワード認証を禁止します.<br><code>sudo systemctl reload ssh</code> した時の SSH 接続は残しておき、新しい SSH 接続で公開鍵認証が通ることを確認しておきます. 失敗すると作り直し or ディスプレイ/キーボードが必要 になるため注意が必要です.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/ssh/sshd_config</span><br><span class="line"><span class="meta">#</span> Authentication:</span><br><span class="line">PermitRootLogin no</span><br><span class="line">RSAAuthentication no</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Change to no to disable tunnelled clear text passwords</span><br><span class="line">PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo systemctl reload ssh</span><br></pre></table></figure></p>
+<p>最後に pi ユーザ の パスワードを削除します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo passwd -d pi</span><br></pre></table></figure></p>
+<h2 id="Wi-Fi-パワーマネジメント-の-設定"><a href="#Wi-Fi-パワーマネジメント-の-設定" class="headerlink" title="Wi-Fi パワーマネジメント の 設定"></a>Wi-Fi パワーマネジメント の 設定</h2><p>Wi-Fi の パワーマネージメントによってネットワークアクセスが不安定になったり、遅延が生じるケースがあります. その場合は <code>/etc/network/interfaces</code> の <code>iface wlan0</code> に <code>wireless-power off</code> を 追加しておきます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/network/interfaces</span><br><span class="line">allow-hotplug wlan0</span><br><span class="line">iface wlan0 inet manual</span><br><span class="line">    wireless-power off</span><br><span class="line">    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></table></figure></p>
+<p>※ IP アドレスの固定化については、こちら <a href="/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/#固定 IP アドレス を 設定する">固定 IP アドレス を 設定する</a> を ご参照ください.</p>
+<h2 id="SDカード-の-延命化"><a href="#SDカード-の-延命化" class="headerlink" title="SDカード の 延命化"></a>SDカード の 延命化</h2><p>あまり気にすることないとの情報もありますが、手間がかけられるようでしたらやっておいてもいいかもしれません.<br>やることがいろいろあるので、ここでは まとめた手順で記載します. 詳細は こちら <a href="/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/">Raspbian Jessie Lite の SDカード 延命化</a> を ご参照いただければ幸いです.</p>
+<p>Swap 領域を削除し、テンポラリ領域 を RAM へ 配置します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo apt-get purge -y --auto-remove dphys-swapfile</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo nano /etc/fstab</span><br><span class="line">tmpfs           /tmp            tmpfs   defaults,size=32m,noatime,mode=1777  0       0</span><br><span class="line">tmpfs           /var/tmp        tmpfs   defaults,size=16m,noatime,mode=1777  0       0</span><br><span class="line">tmpfs           /var/log        tmpfs   defaults,size=32m,noatime,mode=0755  0       0</span><br></pre></table></figure></p>
+<p>起動時に <code>/var/log</code> の ディレクトリ構成を復元するようにスクリプトを配置します.<br><code>/etc/rc.local</code> の <code>exit 0</code> の 前に 下記を追記します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/rc.local</span><br><span class="line">mkdir -p /var/log/apt</span><br><span class="line">mkdir -p /var/log/fsck</span><br><span class="line">mkdir -p /var/log/ntpstats</span><br><span class="line">mkdir -p /var/log/samba</span><br><span class="line">chmod 750 /var/log/samba</span><br><span class="line">chown ntp:ntp /var/log/ntpstats</span><br><span class="line">chown root:adm /var/log/samba</span><br></pre></table></figure></p>
+<p>rsyslog の ログ出力を抑制します. 以下の部分をコメントアウトします.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/rsyslog.conf</span><br><span class="line"><span class="meta">#</span>daemon.*                       -/var/log/daemon.log</span><br><span class="line"><span class="meta">#</span>kern.*                         -/var/log/kern.log</span><br><span class="line"><span class="meta">#</span>lpr.*                          -/var/log/lpr.log</span><br><span class="line"><span class="meta">#</span>mail.*                         -/var/log/mail.log</span><br><span class="line"><span class="meta">#</span>user.*                         -/var/log/user.log</span><br><span class="line"><span class="meta">#</span>mail.info                      -/var/log/mail.info</span><br><span class="line"><span class="meta">#</span>mail.warn                      -/var/log/mail.warn</span><br><span class="line"><span class="meta">#</span>mail.err                       /var/log/mail.err</span><br><span class="line"><span class="meta">#</span>news.crit                      /var/log/news/news.crit</span><br><span class="line"><span class="meta">#</span>news.err                       /var/log/news/news.err</span><br><span class="line"><span class="meta">#</span>news.notice                    -/var/log/news/news.notice</span><br><span class="line"><span class="meta">#</span>*.=debug;\</span><br><span class="line"><span class="meta">#</span>       auth,authpriv.none;\</span><br><span class="line"><span class="meta">#</span>       news.none;mail.none     -/var/log/debug</span><br></pre></table></figure></p>
+<p>RAM へ 配置したディレクトリを削除し、再起動します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo rm -fr /tmp</span><br><span class="line">pi@raspberrypi:~ $ sudo rm -fr /var/tmp</span><br><span class="line">pi@raspberrypi:~ $ sudo rm -fr /var/swap</span><br><span class="line">pi@raspberrypi:~ $ sudo reboot</span><br></pre></table></figure></p>
+<p>ext4 ファイルシステム の ジャーナル を 無効化します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo umount /dev/mmcblk0p2</span><br><span class="line">pi@raspberrypi:~ $ sudo tune2fs -O ^has_journal /dev/mmcblk0p2</span><br><span class="line">tune2fs 1.43.3 (04-Sep-2016)</span><br><span class="line">The has_journal feature may only be cleared when the filesystem is</span><br><span class="line">unmounted or mounted read-only.</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo reboot</span><br></pre></table></figure></p>
+<h2 id="NTP-に-日本のサーバを設定"><a href="#NTP-に-日本のサーバを設定" class="headerlink" title="NTP に 日本のサーバを設定"></a>NTP に 日本のサーバを設定</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/ntp.conf</span><br><span class="line"><span class="meta">#</span>server 0.debian.pool.ntp.org iburst</span><br><span class="line"><span class="meta">#</span>server 1.debian.pool.ntp.org iburst</span><br><span class="line"><span class="meta">#</span>server 2.debian.pool.ntp.org iburst</span><br><span class="line"><span class="meta">#</span>server 3.debian.pool.ntp.org iburst</span><br><span class="line">server 0.jp.pool.ntp.org iburst</span><br><span class="line">server 1.jp.pool.ntp.org iburst</span><br><span class="line">server 2.jp.pool.ntp.org iburst</span><br><span class="line">server 3.jp.pool.ntp.org iburst</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo systemctl restart ntp</span><br></pre></table></figure>
+<h2 id="CPU-の-動作クロック設定"><a href="#CPU-の-動作クロック設定" class="headerlink" title="CPU の 動作クロック設定"></a>CPU の 動作クロック設定</h2><p>通常は問題ないですが、常にハイ・パフォーマンスで動作させたり、省エネで動かす場合に設定します.<br>下記は常にハイ・パフォーマンスの例です. 詳しくは こちら <a href="/2017/03/19/Raspbian-Jessie-Liteその他設定/#CPU の 動作クロック設定">CPU の 動作クロック設定</a> を ご参照ください.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo apt-get install cpufrequtils -y --no-install-recommends</span><br><span class="line">pi@raspberrypi ~ $ sudo cpufreq-set -g performance</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo cp /usr/share/doc/cpufrequtils/examples/cpufrequtils.sample /etc/default/cpufrequtils</span><br><span class="line">pi@raspberrypi:~ $ sudo nano /etc/default/cpufrequtils</span><br><span class="line">ENABLE="true"</span><br><span class="line">GOVERNOR="performance"</span><br><span class="line">MAX_SPEED=1200000</span><br><span class="line">MIN_SPEED=600000</span><br></pre></table></figure></p>
+<p>※ <code>MAX_SPEED</code> と <code>MIN_SPEED</code> は <code>cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies</code> から出てきた数字を設定します. 上記は Raspberry Pi 3 の ものになります.</p>
+<h2 id="bashrc-の-設定"><a href="#bashrc-の-設定" class="headerlink" title=".bashrc の 設定"></a>.bashrc の 設定</h2><p>ここは完全にお好みなので、ご参考までに. (最小限の設定ですが)<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ nano ~/.bashrc</span><br><span class="line">alias ls='ls --color=auto'</span><br><span class="line">alias ll='ls --color=auto --format=verbose'</span><br><span class="line">alias la='ls --color=auto --format=verbose --all'</span><br><span class="line">alias cp='cp --interactive'</span><br><span class="line">alias mv='mv --interactive'</span><br><span class="line">alias rm='rm --interactive'</span><br><span class="line">alias free='free -h'</span><br><span class="line">alias grep='grep --color=auto'</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ source ~/.bashrc</span><br></pre></table></figure></p>
+<h2 id="基盤-の-LED-を-消灯する"><a href="#基盤-の-LED-を-消灯する" class="headerlink" title="基盤 の LED を 消灯する"></a>基盤 の LED を 消灯する</h2><p>基板上の ACT 緑 と PWR 赤 の LED が 気になる場合は消すことができます. 消してしまうと通電しているのかわからないという欠点もありますが、夜に赤く光らないので目に優しいかもしれません. <code>led0</code> PWR で、<code>led1</code> が ACT です.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ echo 0 | sudo tee /sys/class/leds/led0/brightness</span><br><span class="line">pi@raspberrypi:~ $ echo 0 | sudo tee /sys/class/leds/led1/brightness</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ echo "dtparam=act_led_trigger=none,act_led_activelow=on" | sudo tee -a /boot/config.txt</span><br><span class="line">pi@raspberrypi:~ $ echo "dtparam=pwr_led_trigger=none,pwr_led_activelow=on" | sudo tee -a /boot/config.txt</span><br></pre></table></figure></p>
+<h2 id="最後にリブートしておく"><a href="#最後にリブートしておく" class="headerlink" title="最後にリブートしておく"></a>最後にリブートしておく</h2><p>必要はないと思いますが、いろいろ設定したのでリブートしておきます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo reboot</span><br></pre></table></figure></p>
+<h2 id="Google-AIY-Voice-Kit-に-必要なもの"><a href="#Google-AIY-Voice-Kit-に-必要なもの" class="headerlink" title="Google AIY Voice Kit に 必要なもの"></a>Google AIY Voice Kit に 必要なもの</h2><h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイがないと始められないので必要になります. 箱の中に入れてしまうので、ほぼ占有されます. </p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="ドライバーセット"><a href="#ドライバーセット" class="headerlink" title="ドライバーセット"></a>ドライバーセット</h3><p>スピーカー配線のコネクタをしめるのに使います. 細いドライバーであればなんでも大丈夫です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0016VCJLU%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/512vdu5RFFL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0016VCJLU%2Fref%3Dnosim" target="_blank">ベッセル(VESSEL) ドライバーセット ファミドラ8 TD-800</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> ベッセル     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3D%25E3%2583%2589%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2590%25E3%2583%25BC%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%2589%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2590%25E3%2583%25BC%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="両面テープ"><a href="#両面テープ" class="headerlink" title="両面テープ"></a>両面テープ</h3><p>マイクを箱の天板に貼り付けるのに使います. 持っていそうで意外となかったりも. (今回は無かった…)</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB000IGZZ4M%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51n8VDAfiyL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB000IGZZ4M%2Fref%3Dnosim" target="_blank">ニチバン 両面テープ ナイスタック 一般タイプ 15mm×20m NW-15</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> ニチバン     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3D%25E3%2583%258B%25E3%2583%2581%25E3%2583%2590%25E3%2583%25B3%2520%25E4%25B8%25A1%25E9%259D%25A2%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2597%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%258B%25E3%2583%2581%25E3%2583%2590%25E3%2583%25B3%2520%25E4%25B8%25A1%25E9%259D%25A2%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2597%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Google-AIY"><a href="#Google-AIY" class="headerlink" title="Google  AIY"></a>Google  AIY</h3><p>Google  AIY Voice Kit そのもの. 一応載せておきますが 出始めなので Amazon.co.jp さん だと、高いですね. <a href="https://raspberry-pi.ksyic.com/news/page/nwp.id/65" target="_blank" rel="noopener">KSY</a> さん 待ちでしょうか. <a href="https://shop.pimoroni.com/products/google-aiy-voice-kit" target="_blank" rel="noopener">Pimoroni</a> さん は 2017年11月現在 入荷待ちで ￡20.83 + 送料 ￡5.50 ＝ 約4,000円です.<br>Pimoroni さん での お買い物方法は、こちら「<a href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a>」も ご参照いただければ幸いです.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0779BJY1N%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/411Ax0K6zqL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0779BJY1N%2Fref%3Dnosim" target="_blank">Google AIY Voice Kit - 日本語補足説明書付き</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Google     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DGoogle%2520AIY%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGoogle%2520AIY%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>セットアップ系はコツコツ積み重ねてきたので記事が分散してしまったので、どこかで整理したいなぁ.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/" data-id="ckq2rxvei00dd44r2t0e667y9" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-AIY/">Google AIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Windows の プロキシ を 自動設定するタスクを作成
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/" title="ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る" rel="bookmark">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/" title="ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい" rel="bookmark">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/11/09/ラズパイの簡易スマート・スピーカーGoogle-AIYを組み立てる/" title="ラズパイ の 簡易スマート・スピーカー Google AIY を 組み立てる" rel="bookmark">ラズパイ の 簡易スマート・スピーカー Google AIY を 組み立てる</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/19/Raspbian-Jessie-Liteのインストール/" title="Raspbian Jessie Lite の インストール" rel="bookmark">Raspbian Jessie Lite の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/13/Raspberry-Pi-Zeroの購入/" title="Raspberry Pi Zero の 購入" rel="bookmark">Raspberry Pi Zero の 購入</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

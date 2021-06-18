@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>Slack の ボット で 今日の天気を通知する - JSON 確認編 | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="OpenWeatherMap の サービスを使って、天気情報を取得できるようになりました.今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました. 作業環境  Node.js 6.9.1 LTS  現在の天気情報 JSON1234567891011121314151617181920212223242526">
+<meta name="keywords" content="Slack,Botkit,Node.js,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slack の ボット で 今日の天気を通知する - JSON 確認編">
+<meta property="og:url" content="https://azriton.github.io/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="OpenWeatherMap の サービスを使って、天気情報を取得できるようになりました.今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました. 作業環境  Node.js 6.9.1 LTS  現在の天気情報 JSON1234567891011121314151617181920212223242526">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:updated_time" content="2017-01-28T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slack の ボット で 今日の天気を通知する - JSON 確認編">
+<meta name="twitter:description" content="OpenWeatherMap の サービスを使って、天気情報を取得できるようになりました.今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました. 作業環境  Node.js 6.9.1 LTS  現在の天気情報 JSON1234567891011121314151617181920212223242526">
+<meta name="twitter:image" content="https://azriton.github.io/assets/slack/slack.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Slackのボットで今日の天気を通知する-JSON確認編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/" class="article-date">
+  <time datetime="2017-01-28T15:00:00.000Z" itemprop="datePublished">2017-01-29</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Slack の ボット で 今日の天気を通知する - JSON 確認編
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>OpenWeatherMap の サービスを使って、<a href="/2017/01/24/Slackのボットで今日の天気を通知する-JSON取得編/">天気情報を取得できる</a>ようになりました.<br>今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Node.js 6.9.1 LTS</li>
+</ul>
+<h2 id="現在の天気情報-JSON"><a href="#現在の天気情報-JSON" class="headerlink" title="現在の天気情報 JSON"></a>現在の天気情報 JSON</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre><td class="code"><pre><span class="line">&#123; coord: &#123; lon: 141.35, lat: 43.06 &#125;,</span><br><span class="line">  weather:</span><br><span class="line">   [ &#123; id: 501,</span><br><span class="line">       main: 'Rain',</span><br><span class="line">       description: 'moderate rain',</span><br><span class="line">       icon: '10d' &#125; ],</span><br><span class="line">  base: 'stations',</span><br><span class="line">  main:</span><br><span class="line">   &#123; temp: 4.01,</span><br><span class="line">     pressure: 994.64,</span><br><span class="line">     humidity: 97,</span><br><span class="line">     temp_min: 4.01,</span><br><span class="line">     temp_max: 4.01,</span><br><span class="line">     sea_level: 1008.09,</span><br><span class="line">     grnd_level: 994.64 &#125;,</span><br><span class="line">  wind: &#123; speed: 9.56, deg: 194.002 &#125;,</span><br><span class="line">  rain: &#123; 3h: 4.905 &#125;,</span><br><span class="line">  clouds: &#123; all: 88 &#125;,</span><br><span class="line">  dt: 1485498017,</span><br><span class="line">  sys:</span><br><span class="line">   &#123; message: 0.0083,</span><br><span class="line">     country: 'JP',</span><br><span class="line">     sunrise: 1485467687,</span><br><span class="line">     sunset: 1485502824 &#125;,</span><br><span class="line">  id: 2128295,</span><br><span class="line">  name: 'Sapporo-shi',</span><br><span class="line">  cod: 200 &#125;</span><br></pre></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ノード
+<th style="text-align:left">参考値
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left"><code>coord</code>
+<td style="text-align:left"><code>{ lon: 141.35, lat: 43.06 }</code>
+<td style="text-align:left">都市の緯度経度
+
+<tr>
+<td style="text-align:left"><code>weather.id</code>
+<td style="text-align:left"><code>501</code>
+<td style="text-align:left">天気状態 の ID*
+
+<tr>
+<td style="text-align:left"><code>weather.main</code>
+<td style="text-align:left"><code>Rain</code>
+<td style="text-align:left">天気状態 の グループ名*
+
+<tr>
+<td style="text-align:left"><code>weather.description</code>
+<td style="text-align:left"><code>moderate rain</code>
+<td style="text-align:left">天気状態*
+
+<tr>
+<td style="text-align:left"><code>weather.icon</code>
+<td style="text-align:left"><code>10d</code>
+<td style="text-align:left">天気アイコン ID*
+
+<tr>
+<td style="text-align:left"><code>main.temp</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">気温
+
+<tr>
+<td style="text-align:left"><code>main.pressure</code>
+<td style="text-align:left"><code>994.64</code>
+<td style="text-align:left">気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>main.humidity</code>
+<td style="text-align:left"><code>97</code>
+<td style="text-align:left">湿度、単位は %
+
+<tr>
+<td style="text-align:left"><code>main.temp_min</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">現時点での最低気温
+
+<tr>
+<td style="text-align:left"><code>main.temp_max</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">現時点での最高気温
+
+<tr>
+<td style="text-align:left"><code>main.sea_level</code>
+<td style="text-align:left"><code>1008.09</code>
+<td style="text-align:left">海上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>main.grnd_level</code>
+<td style="text-align:left"><code>994.64</code>
+<td style="text-align:left">地上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>wind.speed</code>
+<td style="text-align:left"><code>9.56</code>
+<td style="text-align:left">風速、単位は メートル/秒
+
+<tr>
+<td style="text-align:left"><code>wind.deg</code>
+<td style="text-align:left"><code>194.002</code>
+<td style="text-align:left">風向、北 0 の 時計回り
+
+<tr>
+<td style="text-align:left"><code>clouds</code>
+<td style="text-align:left"><code>{ all: 88 }</code>
+<td style="text-align:left">曇り度合、単位は %
+
+<tr>
+<td style="text-align:left"><code>rain.3h</code>
+<td style="text-align:left"><code>4.905</code>
+<td style="text-align:left">過去3時間の降雨量
+
+<tr>
+<td style="text-align:left"><code>snow.3h</code>
+<td style="text-align:left">
+<td style="text-align:left">過去3時間の降雪量
+
+<tr>
+<td style="text-align:left"><code>dt</code>
+<td style="text-align:left"><code>1485498017</code>
+<td style="text-align:left">データ計算時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>sys.country</code>
+<td style="text-align:left"><code>JP</code>
+<td style="text-align:left">国コード
+
+<tr>
+<td style="text-align:left"><code>sys.sunrise</code>
+<td style="text-align:left"><code>1485467687</code>
+<td style="text-align:left">日の出時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>sys.sunset</code>
+<td style="text-align:left"><code>1485502824</code>
+<td style="text-align:left">日の入り時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>id</code>
+<td style="text-align:left"><code>2128295</code>
+<td style="text-align:left">都市 ID
+
+<tr>
+<td style="text-align:left"><code>name</code>
+<td style="text-align:left"><code>Sapporo-shi</code>
+<td style="text-align:left">都市名
+
+
+</table>
+<ul>
+<li><a href="http://openweathermap.org/weather-conditions" target="_blank" rel="noopener">Weather condition codes</a> に 対応表がある<br>※ API ドキュメントに <code>Internal parameter</code> とあるものは除く</li>
+</ul>
+<h2 id="3時間ごと-5日間-の-天気予報-JSON"><a href="#3時間ごと-5日間-の-天気予報-JSON" class="headerlink" title="3時間ごと 5日間 の 天気予報 JSON"></a>3時間ごと 5日間 の 天気予報 JSON</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre><td class="code"><pre><span class="line">&#123; city:</span><br><span class="line">   &#123; id: 2128295,</span><br><span class="line">     name: 'Sapporo-shi',</span><br><span class="line">     coord: &#123; lon: 141.346939, lat: 43.064171 &#125;,</span><br><span class="line">     country: 'JP',</span><br><span class="line">     population: 0,</span><br><span class="line">     sys: &#123; population: 0 &#125; &#125;,</span><br><span class="line">  cod: '200',</span><br><span class="line">  message: 0.1264,</span><br><span class="line">  cnt: 38,</span><br><span class="line">  list:</span><br><span class="line">   [ &#123; dt: 1485507600,</span><br><span class="line">       main:</span><br><span class="line">        &#123; temp: 0.15,</span><br><span class="line">          temp_min: 0.15,</span><br><span class="line">          temp_max: 0.15,</span><br><span class="line">          pressure: 1000.35,</span><br><span class="line">          sea_level: 1013.94,</span><br><span class="line">          grnd_level: 1000.35,</span><br><span class="line">          humidity: 91,</span><br><span class="line">          temp_kf: 0 &#125;,</span><br><span class="line">       weather:</span><br><span class="line">        [ &#123; id: 500,</span><br><span class="line">            main: 'Rain',</span><br><span class="line">            description: 'light rain',</span><br><span class="line">            icon: '10n' &#125; ],</span><br><span class="line">       clouds: &#123; all: 56 &#125;,</span><br><span class="line">       rain: &#123; 3h: 0.2975&#125;,</span><br><span class="line">       snow: &#123; 3h: 0.1575&#125;,</span><br><span class="line">       wind: &#123; speed: 8.3, deg: 258.503 &#125;,</span><br><span class="line">       sys: &#123; pod: 'n' &#125;,</span><br><span class="line">       dt_txt: '2017-01-27 09:00:00' &#125;,</span><br><span class="line">     &#123; ... (3時間ごとの繰り返し) &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ノード
+<th style="text-align:left">参考値
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left"><code>city.id</code>
+<td style="text-align:left"><code>2128295</code>
+<td style="text-align:left">都市 ID
+
+<tr>
+<td style="text-align:left"><code>city.name</code>
+<td style="text-align:left"><code>Sapporo-shi</code>
+<td style="text-align:left">都市名
+
+<tr>
+<td style="text-align:left"><code>city.coord</code>
+<td style="text-align:left"><code>{ lon: 141.346939, lat: 43.064171 }</code>
+<td style="text-align:left">都市の緯度経度
+
+<tr>
+<td style="text-align:left"><code>city.country</code>
+<td style="text-align:left"><code>JP</code>
+<td style="text-align:left">国コード
+
+<tr>
+<td style="text-align:left"><code>cnt</code>
+<td style="text-align:left"><code>38</code>
+<td style="text-align:left">レコード件数
+
+<tr>
+<td style="text-align:left"><code>list.dt</code>
+<td style="text-align:left"><code>1485507600</code>
+<td style="text-align:left">データ計算時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>list.main.temp</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">気温
+
+<tr>
+<td style="text-align:left"><code>list.main.temp_min</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">計算時の最低気温
+
+<tr>
+<td style="text-align:left"><code>list.main.temp_max</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">計算時の最高気温
+
+<tr>
+<td style="text-align:left"><code>list.main.pressure</code>
+<td style="text-align:left"><code>1000.35</code>
+<td style="text-align:left">気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.sea_level</code>
+<td style="text-align:left"><code>1013.94</code>
+<td style="text-align:left">海上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.grnd_level</code>
+<td style="text-align:left"><code>1000.35</code>
+<td style="text-align:left">地上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.humidity</code>
+<td style="text-align:left"><code>91</code>
+<td style="text-align:left">湿度、単位は %
+
+<tr>
+<td style="text-align:left"><code>list.weather.id</code>
+<td style="text-align:left"><code>500</code>
+<td style="text-align:left">天気状態 の ID*
+
+<tr>
+<td style="text-align:left"><code>list.weather.main</code>
+<td style="text-align:left"><code>Rain</code>
+<td style="text-align:left">天気状態 の グループ名*
+
+<tr>
+<td style="text-align:left"><code>list.weather.description</code>
+<td style="text-align:left"><code>light rain</code>
+<td style="text-align:left">天気状態*
+
+<tr>
+<td style="text-align:left"><code>list.weather.icon</code>
+<td style="text-align:left"><code>10n</code>
+<td style="text-align:left">天気アイコン ID*
+
+<tr>
+<td style="text-align:left"><code>list.clouds.all</code>
+<td style="text-align:left"><code>56</code>
+<td style="text-align:left">曇り度合、単位は %
+
+<tr>
+<td style="text-align:left"><code>list.wind.speed</code>
+<td style="text-align:left"><code>8.3</code>
+<td style="text-align:left">風速、単位は メートル/秒
+
+<tr>
+<td style="text-align:left"><code>list.wind.deg</code>
+<td style="text-align:left"><code>258.503</code>
+<td style="text-align:left">風向、北 0 の 時計回り
+
+<tr>
+<td style="text-align:left"><code>list.rain.3h</code>
+<td style="text-align:left"><code>0.2975</code>
+<td style="text-align:left">過去3時間の降雨量
+
+<tr>
+<td style="text-align:left"><code>list.snow.3h</code>
+<td style="text-align:left"><code>0.1575</code>
+<td style="text-align:left">過去3時間の降雪量
+
+<tr>
+<td style="text-align:left"><code>list.dt_txt</code>
+<td style="text-align:left"><code>2017-01-27 09:00:00</code>
+<td style="text-align:left">データ計算時間、UTC
+
+
+</table>
+<ul>
+<li><a href="http://openweathermap.org/weather-conditions" target="_blank" rel="noopener">Weather condition codes</a> に 対応表がある<br>※ API ドキュメントに <code>Internal parameter</code> とあるものは除く</li>
+</ul>
+<h2 id="データの利用について検討"><a href="#データの利用について検討" class="headerlink" title="データの利用について検討"></a>データの利用について検討</h2><p>現在の天気と予報では JSON の パラメータ名が異なるものの、おおよそで同じような内容になっています.</p>
+<p>天気を表す部分では <code>weather.main</code> が 中心で、グループ名(<code>main</code>) もしくは 天気状態(<code>description</code>) や アイコンを使って天気を表す感じでしょうか.<br>アイコンは <a href="http://openweathermap.org/img/w/10d.png" target="_blank" rel="noopener">http://openweathermap.org/img/w/10d.png</a> の 最後の部分 <code>10d</code> に JSON で 取得した値を入れることで取得できます. 昼夜で <code>10d</code>、<code>10n</code> のようにアイコンが変わるようです.</p>
+<p>気温などは <code>main</code> に 入っています. ここは単位を付けるだけで簡単に使えそうです. <code>temp_min</code> と <code>temp_max</code> は 大きい都市で気温差が出るようなケースに値が変わるようです.</p>
+<p>風、特に風向きについては北を 0° として<a href="https://ja.wikipedia.org/wiki/%E9%A2%A8%E5%90%91" target="_blank" rel="noopener">表現するよう</a>です. 現在の天気の JSON では <code>wind: { speed: 9.56, deg: 194.002 }</code> と なっていたので、南南西の風 9.5 メートル/秒 ですね.</p>
+<p>降雨量 と 降雪量 は <code>rain.3h</code> と <code>snow.3h</code> に 過去3時間のデータが入ります. 降っていない場合は JSON に パラメータがないか、<code>3h</code> の パラメータがない状態となります. プログラム言語によって工夫が必要かもしれません. API ドキュメントには単位が乗ってませんでしたがミリメートルと思われます. 雨と雪の両方のデータが入っているケースがあり、その場合はどんな状況なのか、ちょっと気になります.</p>
+<p>現在の天気のデータ計算時間は <code>dt</code> に 入っており、Unix,UTC と なっているのですが、Unix <strong>秒</strong> です. <code>dt</code> や <code>sunrise</code>、<code>sunset</code> を 扱う場合は、プログラム言語の処理系に合わせての対応が必要です.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>必要なものがそろっており、JSON で 簡単にアクセスできるので助かります.<br>あとは、このデータを使わせてもらって、必要な時に必要な情報を流せるボットを作るだけですね！</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/" data-id="ckq2rxvd400a344r2q8sc2k4u" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack の ボット で 今日の天気を通知する - Slack ボット 実装編
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/27/Windows7でOpenSSLを使えるようにする/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Windows 7 で OpenSSL を 使えるようにする</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

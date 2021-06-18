@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>『知識ゼロから学ぶソフトウェアテスト』 あるいは 無残なるノーテスト | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="Java で プログラミングをしている場合に、テストケースの作成に JUnit を ベースにテストしているケースがあるかと思います. “Assert that X is Y.” の 考え方 を 基本に is を not や nullValue などしてテストケースを書いていくよいライブラリと思うのですが… テスト も カバレッジ も ちゃんと やってます！それは昔々の事、とあるアプリケーションに">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『知識ゼロから学ぶソフトウェアテスト』 あるいは 無残なるノーテスト">
+<meta property="og:url" content="https://azriton.github.io/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="Java で プログラミングをしている場合に、テストケースの作成に JUnit を ベースにテストしているケースがあるかと思います. “Assert that X is Y.” の 考え方 を 基本に is を not や nullValue などしてテストケースを書いていくよいライブラリと思うのですが… テスト も カバレッジ も ちゃんと やってます！それは昔々の事、とあるアプリケーションに">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/book/4798130605.jpg">
+<meta property="og:image" content="https://images-fe.ssl-images-amazon.com/images/I/51c061aHw4L._SL160_.jpg">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637">
+<meta property="og:image" content="https://i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456">
+<meta property="og:updated_time" content="2017-10-27T15:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『知識ゼロから学ぶソフトウェアテスト』 あるいは 無残なるノーテスト">
+<meta name="twitter:description" content="Java で プログラミングをしている場合に、テストケースの作成に JUnit を ベースにテストしているケースがあるかと思います. “Assert that X is Y.” の 考え方 を 基本に is を not や nullValue などしてテストケースを書いていくよいライブラリと思うのですが… テスト も カバレッジ も ちゃんと やってます！それは昔々の事、とあるアプリケーションに">
+<meta name="twitter:image" content="https://azriton.github.io/assets/book/4798130605.jpg">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/" class="article-date">
+  <time datetime="2017-02-18T15:00:00.000Z" itemprop="datePublished">2017-02-19</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/書籍/">書籍</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      『知識ゼロから学ぶソフトウェアテスト』 あるいは 無残なるノーテスト
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/book/4798130605.jpg" alt title="知識ゼロから学ぶソフトウェアテスト"></p>
+<p>Java で プログラミングをしている場合に、テストケースの作成に <a href="http://junit.org" target="_blank" rel="noopener">JUnit</a> を ベースにテストしているケースがあるかと思います. “Assert that X is Y.” の 考え方 を 基本に <em>is</em> を <em>not</em> や <em>nullValue</em> などしてテストケースを書いていくよいライブラリと思うのですが…</p>
+<h2 id="テスト-も-カバレッジ-も-ちゃんと-やってます！"><a href="#テスト-も-カバレッジ-も-ちゃんと-やってます！" class="headerlink" title="テスト も カバレッジ も ちゃんと やってます！"></a>テスト も カバレッジ も ちゃんと やってます！</h2><p>それは昔々の事、とあるアプリケーションに携わった人のお話しで機能追加することから物語は始まりました. (いや物語らん話しのがよかた)</p>
+<p>このアプリケーション、しっかりテストケースが作ることになっており、なんと <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%86%E3%82%B9%E3%83%88#.E5.91.BD.E4.BB.A4.E7.B6.B2.E7.BE.85.28statement_coverage.29.EF.BC.88C0.EF.BC.89" target="_blank" rel="noopener">C0 カバレッジ</a> 90% 以上、<a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%86%E3%82%B9%E3%83%88#.E5.88.86.E5.B2.90.E7.B6.B2.E7.BE.85.28branch_coverage.29.EF.BC.88C1.EF.BC.89" target="_blank" rel="noopener">C1</a> も 努力目標ながら高レベルでされているとのことでした. <del>ちゃんとテストするフレンズなんだね！すごーい！(2017年2月現在 流行りのフレーズ)</del></p>
+<p>と、聞いていたのも束の間、コードを触り始めると気になる謎の実装、不思議なテストケース…<br>「テストなってないじゃん？」いや、まぁ、「テストするとは」の定義は何かと自問自答するわけですが、テストケースがあるとか、カバレッジが取れてるとかでなくて、「何を検証したいのか」じゃないのかなぁと、考えたとのことです.<br>僭越ながら同感です. いたずらにカバレッジだけとっても、通過させるためだけの意味のないテストケースの実行コードなんてものがあふれることもあり得ます.</p>
+<h2 id="え？-その-“verify-x-never-y-”…"><a href="#え？-その-“verify-x-never-y-”…" class="headerlink" title="え？ その “verify(x, never()).y()”…"></a>え？ その “verify(x, never()).y()”…</h2><p>さて、そんな中、聞かれたのが “verify(x, never()).y()” というコード. これだけ聞かれてもよくわからないのですが、たぶんモックでメソッドの呼び出し有無を判定したいと思われます.</p>
+<p>そして出てきたのが以下のようなテストケース. (※ ポスト用に命名等を汎化させています)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaoTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        verify(dao, never()).findAll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...(省略)</span></span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>いゃ～！ 見たくなかった、聞きたくなかった…<br>たぶん、Deta Access Object = DAO の テストケースと思われます.<br>きっと、新しいレコード を 追加 = add するのをテストしたかったのでしょう. 知らんけど.<br><code>verify()</code> と <code>never()</code> は モックを簡単にするためのライブラリから、メソッドの実行確認をしているのでしょう.<br>だけど、<code>dao.add()</code> 実行してないじゃん？ あと <code>findAll()</code> しなくね？、どう考えても. (そもそも Dao の 処理を何も実行してないからアレだけど) White Box テストだから知ってるはずだし？</p>
+<p>どうして、そうなったのか. 少し話を聞いたたらしいのですが、「テストって、何をテストをするんですか？」「どうやるんですか？」「できすか？やって見せてください！」…<br>えーっと、逆ギレ？ DAO とかテストめんどくさいの分かるけど、単純 な Getter/Setter だけのテストだってできてないんですが (T_T<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModelTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParam</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Model model = <span class="keyword">new</span> Model();</span><br><span class="line">        model.set(<span class="string">"あああ..."</span>);  <span class="comment">// ※ すごい長い「あ」が続く</span></span><br><span class="line">        assertEquals(<span class="string">"あああ..."</span>, model.get());</span><br><span class="line">        <span class="comment">// ※ この後、同様のパターンで半角英数、記号、全半角の組み合わせ？ などが続く</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>なお、C0 90% は、どっか別のテストケースで実行していたのが、たまたま通過していたものだったとか. 対となるテストケースの実行では無残なカバレッジ率とのこと… はあぁ 全部作り直しかよ～と、ご愁傷様です (￣人￣)<br>ひゃ～ こわい、こわい.</p>
+<h2 id="“assertTrue-true-”-？"><a href="#“assertTrue-true-”-？" class="headerlink" title="“assertTrue(true)” ？"></a>“assertTrue(true)” ？</h2><p>そんな今となっては香ばしい昔話を黄泉がえらせたのが、Titter に 流れてきた衝撃のツイート.</p>
+<p><strong>“assertTrue(true)”</strong>… 何を言っているのかわかりませんでいた. いや TDD とかで、Fake it、ですよね～ やるやる～～www と…</p>
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お隣のプロジェクトで JUnit 使っているというのでテストコードを見せてもらったんだが、大量にあるテストケースのほとんどが assertTrue(true) で終わってて完全に闇</p>&mdash; こはま (@c0hama) <a href="https://twitter.com/c0hama/status/828551368113729537" target="_blank" rel="noopener">2017年2月6日</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Test読んで理解しようと思って開いてみたら，assertTrue(true)が並んでいた時の顔をしています</p>&mdash; みーちゃん (@LazyMii) <a href="https://twitter.com/LazyMii/status/828533608323256320" target="_blank" rel="noopener">2017年2月6日</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>いや、ヤバいです. どういう話しですか？<br>先の昔話も 今も テストの闇は深い… (“JUnit 目視” という、別系統のヤバいのも見た気が)</p>
+<h2 id="『知識ゼロから学ぶソフトウェアテスト』"><a href="#『知識ゼロから学ぶソフトウェアテスト』" class="headerlink" title="『知識ゼロから学ぶソフトウェアテスト』"></a>『知識ゼロから学ぶソフトウェアテスト』</h2><p>テストで悩んだら『知識ゼロから学ぶソフトウェアテスト』を 読んでみるのがよいかと思った次第で、ちょうどアプリケーションのテストの不備に、”assertTrue(true)” という闇の呪文、半額セールが重なったので、勢い投稿を書いてしまいました！</p>
+<p>こちらの書籍は JUnit とかの実装技術ではないのですが、「テストとは」という視点で書かれています. テストに対する考え方を学ぶことができるのではないでしょうか. いきなりテストケースを実装する前に、何を、どうやってテストするのかを知ってから、作るとよいかと思います.</p>
+<p>私は改訂版の前の書籍を読んだことがありますが、テストケースはどう作るべきかの基礎をしっかり学ばせていただきました. 改訂版とのことで、どう変わったのかは改めて読みたいと思いますが、基本的な考え方を知るにはよいと思います.</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51c061aHw4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank">知識ゼロから学ぶソフトウェアテスト 【改訂版】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">高橋 寿一 翔泳社 2013-12-10    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank">Amazonで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB00HQ7S5CA%2F" target="_blank">Kindleで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12597357%2F" target="_blank">楽天ブックスで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div><div class="shoplinkrakukobo" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=https%3A%2F%2Fbooks.rakuten.co.jp%2Frk%2F0771aef89a0737cd97f750b9eebbaa8b%2F" target="_blank">楽天koboで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>      <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-79-813060-6%2520%257C%25204-798-13060-6%2520%257C%25204-7981-3060-6%2520%257C%25204-79813-060-6%2520%257C%25204-798130-60-6%2520%257C%25204-7981306-0-6" target="_blank">7netで検索<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                           </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>「テストって何をするんだろ」には『知識ゼロから学ぶソフトウェアテスト』も よいと思いますので、よかったら ご参考までに.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/" data-id="ckq2rxvbk004h44r202o40heh" class="article-share-link">共有</a>
+        
+        
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2017/02/22/Slackでプレミアムフライデー・ボットしてみる/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack で プレミアムフライデー・ボット してみる
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/16/Twitterのアカウント作成/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Twitter の アカウント作成</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

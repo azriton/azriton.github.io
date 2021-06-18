@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>CircleCI の 通知 を Slack へ 送る | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="CircleCI で ビルドが失敗した際にメールで通知されます. この通知をチャットの Slack へ 流れるようにしたいと思います. 今回は、これまで作成してきた Hexo の 自動ビルドとデプロイが失敗した場合に Slack へ 通知するようにします. 作業環境  CircleCI Slack  Slack 側 の 設定Slack へ ログインし、こちら https://my.slack.c">
+<meta name="keywords" content="CircleCI,Slack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CircleCI の 通知 を Slack へ 送る">
+<meta property="og:url" content="https://azriton.github.io/2016/12/14/CircleCIの通知をSlackへ送る/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="CircleCI で ビルドが失敗した際にメールで通知されます. この通知をチャットの Slack へ 流れるようにしたいと思います. 今回は、これまで作成してきた Hexo の 自動ビルドとデプロイが失敗した場合に Slack へ 通知するようにします. 作業環境  CircleCI Slack  Slack 側 の 設定Slack へ ログインし、こちら https://my.slack.c">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/circleci.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/01.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/02.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/03.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/04.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/05.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/06.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/slack/07.png">
+<meta property="og:updated_time" content="2021-06-18T20:17:45.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CircleCI の 通知 を Slack へ 送る">
+<meta name="twitter:description" content="CircleCI で ビルドが失敗した際にメールで通知されます. この通知をチャットの Slack へ 流れるようにしたいと思います. 今回は、これまで作成してきた Hexo の 自動ビルドとデプロイが失敗した場合に Slack へ 通知するようにします. 作業環境  CircleCI Slack  Slack 側 の 設定Slack へ ログインし、こちら https://my.slack.c">
+<meta name="twitter:image" content="https://azriton.github.io/assets/circleci/circleci.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CircleCIの通知をSlackへ送る" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/14/CircleCIの通知をSlackへ送る/" class="article-date">
+  <time datetime="2016-12-13T15:00:00.000Z" itemprop="datePublished">2016-12-14</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      CircleCI の 通知 を Slack へ 送る
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p>CircleCI で ビルドが失敗した際にメールで通知されます. この通知をチャットの Slack へ 流れるようにしたいと思います. 今回は、これまで作成してきた Hexo の 自動ビルドとデプロイが失敗した場合に Slack へ 通知するようにします.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+<li>Slack</li>
+</ul>
+<h2 id="Slack-側-の-設定"><a href="#Slack-側-の-設定" class="headerlink" title="Slack 側 の 設定"></a>Slack 側 の 設定</h2><p>Slack へ ログインし、こちら <a href="https://my.slack.com/apps/A0F7VRE7N-circleci" target="_blank" rel="noopener">https://my.slack.com/apps/A0F7VRE7N-circleci</a> から [Install] ボタンをクリックして CircleCI の 連携 を 追加します.<br>※ <a href="https://my.slack.com" target="_blank" rel="noopener">https://my.slack.com</a> の <code>my</code> は、それぞれ 自分の Slack へ 行ける 特殊なキーワードなので置き換え不要です. これ便利な機能ですよね！<br><img src="/assets/circleci/slack/01.png" alt></p>
+<p>CircleCI の 通知をポストするチャンネルを選択します. チーム開発などを行っている場合は、開発用のチャンネルへポストするようにします. 今回はブログのビルドとデプロイなので自分のプライベート・チャンネル(DM) へ ポストするようにしました. [Add CircleCI Integration] ボタンをクリックします.<br><img src="/assets/circleci/slack/02.png" alt></p>
+<p>無事、Slack に CircleCI 連携が追加されました. 各種設定が行える画面が表示されるので、通知名やアイコンなどを必要に応じて変更します. 変更した際には画面下の [Save Integration] を クリックします.<br>最後に、Step 2 に ある Webhook URL を コピーしておきます.<br><img src="/assets/circleci/slack/03.png" alt></p>
+<h2 id="CircleCI-側-の-設定"><a href="#CircleCI-側-の-設定" class="headerlink" title="CircleCI 側 の 設定"></a>CircleCI 側 の 設定</h2><p>CircleCI へ ログインし、連携するプロジェクトの設定ボタンをクリックします.<br><img src="/assets/circleci/slack/04.png" alt></p>
+<p>プロジェクトの設定画面の左メニューから [Chat Notifications] を クリックし、右の詳細から [Slack] の [Webhook URL] へ Slack の 設定からコピーした Integration の Webhook URL を 貼り付けます.<br>必要に応じてオプションを選択し、[&amp; Test Hook] ボタンをクリックします.<br>今回はチャンネルの上書きは必要ないので [Override room?] を [OFF] にし、ビルドに失敗したときと復旧したときの通知に限りたいので [Fixed/Failed Only] を [ON] に しました.<br><img src="/assets/circleci/slack/05.png" alt></p>
+<p>Slack へ 通知を送るようになったので、メールの通知を止めます.<br>画面左の全体メニューから 歯車アイコン の [Account Settings] を クリックします.<br>アカウント設定画面の左メニューから [Notifications] を クリックし、右の詳細から [Don’t send me emails] を クリックします.<br><img src="/assets/circleci/slack/06.png" alt></p>
+<h2 id="Slack-に-テストの通知が来てる！"><a href="#Slack-に-テストの通知が来てる！" class="headerlink" title="Slack に テストの通知が来てる！"></a>Slack に テストの通知が来てる！</h2><p><img src="/assets/circleci/slack/07.png" alt></p>
+<hr>
+<p>これで CircleCI からの通知は、ビルドに失敗＆復旧したときだけ Slack の DM へ 流れてくるようになりました.<br>Slack は いろいろな連携ができるので、引き続きいろいろな挑戦をしたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/14/CircleCIの通知をSlackへ送る/" data-id="ckq2rxv9k000e44r2qacoyr1z" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/12/17/Slackにボットを設置する/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack に ボット を 設置する
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/11/Slackのアカウント作成/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Slack の アカウント作成</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/" title="Slack の ボット で 今日の天気を通知する - 降水予報 実装編" rel="bookmark">Slack の ボット で 今日の天気を通知する - 降水予報 実装編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/05/CircleCIのアカウント作成/" title="CircleCI の アカウント作成" rel="bookmark">CircleCI の アカウント作成</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" title="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない" rel="bookmark">CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/17/Slackにボットを設置する/" title="Slack に ボット を 設置する" rel="bookmark">Slack に ボット を 設置する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/11/Slackのアカウント作成/" title="Slack の アカウント作成" rel="bookmark">Slack の アカウント作成</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

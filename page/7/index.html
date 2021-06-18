@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="験なきものを思はずは">
+<meta property="og:url" content="https://azriton.github.io/page/7/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="験なきものを思はずは">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HexoにTwitterのアカウントを設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/25/HexoにTwitterのアカウントを設定/" class="article-date">
+  <time datetime="2017-02-24T15:00:00.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/HexoにTwitterのアカウントを設定/">Hexo に Twitter の アカウント を 設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p><a href="/2017/02/16/Twitterのアカウント作成/">Twitter の アカウントを開設した</a> ので、いよいよコメント欄 Disqus の 設置！と、行きたいところですが、ちょっと寄り道. Hexo の デフォルト・テーマ Landscape に Twitter の 設定項目があるので設定したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Hexo 3.2</li>
+<li>Twitter</li>
+</ul>
+<h2 id="Landscape-の-Twitter-設定項目"><a href="#Landscape-の-Twitter-設定項目" class="headerlink" title="Landscape の Twitter 設定項目"></a>Landscape の Twitter 設定項目</h2><p>デフォルト・テーマ Landscape の 設定ファイルは <code>/themes/landscape/_config.yml</code> に なります. 以下に抜粋したとおり <code>twitter:</code> が あります.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line"><span class="comment"># Miscellaneous</span></span><br><span class="line"><span class="attr">google_analytics:</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.png</span></span><br><span class="line"><span class="attr">twitter:</span></span><br><span class="line"><span class="attr">google_plus:</span></span><br><span class="line"><span class="attr">fb_admins:</span></span><br><span class="line"><span class="attr">fb_app_id:</span></span><br></pre></table></figure></p>
+<h2 id="設定値-と-効果-は？"><a href="#設定値-と-効果-は？" class="headerlink" title="設定値 と 効果 は？"></a>設定値 と 効果 は？</h2><p>Landscape の ドキュメント <a href="https://github.com/hexojs/hexo-theme-landscape#configuration" target="_blank" rel="noopener">Configuration – hexo-theme-landscape</a> によると、”twitter - Twiiter ID” と あっさりしすぎてて、何のことか、また何を入れるかわかりません. 困った…</p>
+<p>情報がないか探してみると、<a href="https://github.com/bryik/hexo-theme-bootstrap-blog#configuration" target="_blank" rel="noopener">Configuration – hexo-theme-bootstrap-blog</a><br> に “twitter_id - Twitter ID of the author (ie. @c_g_martin)” が ありました.</p>
+<p>異なるテーマなので同じで大丈夫かと思いましたが、”The default Landscape Hexo theme was used as the starting point - <a href="https://github.com/bryik/hexo-theme-bootstrap-blog/blob/master/README.md#development" target="_blank" rel="noopener">Development</a>“ と あるので信じて設定したところ、どうやら動作したようです.</p>
+<p>なお、設定値は以下のように、アットマークを付けシングルクォートで囲む必要があります.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line"><span class="comment"># Miscellaneous</span></span><br><span class="line"><span class="attr">google_analytics:</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.png</span></span><br><span class="line"><span class="attr">twitter:</span> <span class="string">'@username'</span></span><br><span class="line"><span class="attr">google_plus:</span></span><br><span class="line"><span class="attr">fb_admins:</span></span><br><span class="line"><span class="attr">fb_app_id:</span></span><br></pre></table></figure></p>
+<p>さっそくローカルで確認したのですが、特に変化はなかったようです… あれ？<br>Twitter の アイコンが増えて、リンクしてくれたりするのかなぁぐらいに思っていたのですが、どうやら違うようです. では、何が設定されたのか…</p>
+<h2 id="Twitter-Cards"><a href="#Twitter-Cards" class="headerlink" title="Twitter Cards !"></a>Twitter Cards !</h2><p>とりあえず生成されたサイトのソースを確認します. すると <code>head</code> に Twitter 関連のメタ情報が出力されていました.<br><img src="/assets/hexo/hexo-twitter.png" alt></p>
+<p>この出力内容は <a href="https://dev.twitter.com/cards/" target="_blank" rel="noopener">Twitter Cards</a> に 関するもので、Twitter に サイトのリンクをツイートされた際に、以下のようにサイトの画像サムネイルやタイトル、先頭分のサマリが表示されます.<br><img src="/assets/twitter/twitter-cards.png" alt></p>
+<hr>
+<p>Twitter Cards の 説明によると、”リッチメディアをツイートに添付してウェブサイトへのトラフィックを促進できます – Twitterカード — Twitter Developers” とのこと.<br>ただの文字列リンクより、サマリが表示されるので設定しておくに越したことはないので、このまま設定しておきたいと思います.</p>
+<p>Twitter や GitHub の アカウントへのリンクを貼る機能と勝手に思っていましたが早とちりでした. しまった…<br>とはいえ、リンクは貼りたいので、どっかでテーマを変えるなり、カスタマイズしないとだなぁ～</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/25/HexoにTwitterのアカウントを設定/" data-id="ckq2rxv9q000u44r2c15g2vx7" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Disqus/">Disqus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Twitter/">Twitter</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/26/Hexoにコメント欄のDisqusを設置/" title="Hexo に コメント欄 の Disqus を 設置" rel="bookmark">Hexo に コメント欄 の Disqus を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/16/Twitterのアカウント作成/" title="Twitter の アカウント作成" rel="bookmark">Twitter の アカウント作成</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" title="Hexo の 新規投稿パス を カスタマイズ" rel="bookmark">Hexo の 新規投稿パス を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackでプレミアムフライデー・ボットしてみる" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/22/Slackでプレミアムフライデー・ボットしてみる/" class="article-date">
+  <time datetime="2017-02-21T15:00:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/Slackでプレミアムフライデー・ボットしてみる/">Slack で プレミアムフライデー・ボット してみる</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/hanakin/premium-friday.png" alt title="Premium Friday"></p>
+<p>2017年2月24日 金曜日、それは “プレミアムフライデー” なる施策の開始日である. うん、ウチは関係ないらしいのだけど！ とうことで、関係ないボット を Slack に 乗せてみた.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit <del>0.4.9</del> 0.5.1</li>
+<li>node-cron 1.2.1</li>
+<li>moment-timezone 0.5.10</li>
+</ul>
+<h2 id="プレミアムフライデーって、なにそれ？おいしいの？"><a href="#プレミアムフライデーって、なにそれ？おいしいの？" class="headerlink" title="プレミアムフライデーって、なにそれ？おいしいの？"></a>プレミアムフライデーって、なにそれ？おいしいの？</h2><p>まずもって関係ないので、よく知りません. 人によっては美味しいものであったり、おもしろい物であるようです.</p>
+<p><a href="http://www.meti.go.jp/press/2016/12/20161212001/20161212001.html" target="_blank" rel="noopener">経済産業省によりますと</a>以下の施策だそうです.</p>
+<blockquote>
+<p>個人が幸せや楽しさを感じられる体験（買物や家族との外食、観光等）や、そのための時間の創出を促すことで、<br>(1) 充実感・満足感を実感できる生活スタイルの変革への機会になる<br>(2) 地域等のコミュニティ機能強化や一体感の醸成につながる<br>(3)（単なる安売りではなく）デフレ的傾向を変えていくきっかけとなる<br>といった効果につなげていく取組です。</p>
+</blockquote>
+<p>なんか漠然として、よくわかりませんが、<a href="https://premium-friday.go.jp/#section_about" target="_blank" rel="noopener">こちらのサイト</a> を サマると以下でしょうか.</p>
+<ul>
+<li>月末の金曜日は早く仕事を終え退社する</li>
+<li>早く退社した時間は、余暇として楽しむ</li>
+<li>ちょっと豊かな月末金曜日を過ごしてハッピーになる</li>
+</ul>
+<p>いいなぁ、ハッピ～. こちらもアバウトな感じでよくわからない.<br>とりあえず聞いたことある話からすると、以下のようです.</p>
+<ul>
+<li>月末の金曜日は 15時までに退社する</li>
+<li>退社後は食事や娯楽などを楽しむ</li>
+<li>消費が活性化され、楽しんだ人 も 景気 も ハッピー になる</li>
+</ul>
+<p>なるほど. いいなぁ、ハッピ～.</p>
+<h2 id="ボットの仕様を考える"><a href="#ボットの仕様を考える" class="headerlink" title="ボットの仕様を考える"></a>ボットの仕様を考える</h2><p>月末の金曜日は 15時に変えることを促す通知をするのが通常仕様とすることになりそうです. 一方で関係ない身としては 15時に帰れと言われても困りますので、何かしらの工夫が必要です.</p>
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">プレミアムフライデー（月末の金曜日は15時に帰宅しよう！　という制度）の事をニュースで見たワイ <a href="https://t.co/BnVO7aesRY" target="_blank" rel="noopener">pic.twitter.com/BnVO7aesRY</a></p>&mdash; ☆←ヒトデ@社畜祭り始めました (@hitodeblog) <a href="https://twitter.com/hitodeblog/status/832432499980537856" target="_blank" rel="noopener">2017年2月17日</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>いただきます！ こちらのネタ！！<br>ということで、まずは <code>username</code> と <code>icon</code> を プレミアムフライデーなアカウントにして 15時退社をアナウンス. 続いて通常ボット・アカウントに戻って上記ネタでリプライする、自作自演ボットにしたいと思います. これなら関係無い感が出てるボットになって、きっと朝から はっぴー な 気分になれ…</p>
+<h2 id="ボット実装"><a href="#ボット実装" class="headerlink" title="ボット実装"></a>ボット実装</h2><p>※ <a href="/2017/03/10/Botkitが自動切断されなくなった、みたい/">自動切断のワークアラウンド・コードを削除</a>する更新をしました (2017年3月10日)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">const</span> Botkit = <span class="built_in">require</span>(<span class="string">'botkit'</span>);</span><br><span class="line"><span class="keyword">const</span> cron = <span class="built_in">require</span>(<span class="string">'cron'</span>);</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">'moment-timezone'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> controller = Botkit.slackbot();</span><br><span class="line">moment.locale(<span class="string">'ja'</span>);</span><br><span class="line">moment.tz.setDefault(<span class="string">'Asia/Tokyo'</span>);</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token: process.env.bot_access_token</span><br><span class="line">&#125;).startRTM(<span class="function">(<span class="params">err, bot, payload</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> cron.CronJob(&#123;  <span class="attr">cronTime</span>: <span class="string">'00 00 11 * * 5'</span>,  <span class="attr">timeZone</span>: <span class="string">'Asia/Tokyo'</span>,  <span class="attr">start</span>: <span class="literal">true</span>,  <span class="attr">onTick</span>: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> now = moment();</span><br><span class="line">        <span class="keyword">if</span> (now.month() != now.clone().add(<span class="number">7</span>, <span class="string">'days'</span>).month()) &#123;</span><br><span class="line">            bot.say(&#123;</span><br><span class="line">                channel: <span class="string">'random'</span>,</span><br><span class="line">                text: <span class="string">'今日、月末の金曜日は午後３時に退社して余暇を楽しもうという '</span> +</span><br><span class="line">                      <span class="string">'&lt;https://premium-friday.go.jp/#section_about|プレミアムフライデー&gt; だよ！ '</span> +</span><br><span class="line">                      <span class="string">'退社時間が早まることで消費が活性化するし、働き方改革にもつながる施策なんだ. '</span> +</span><br><span class="line">                      <span class="string">'さぁ～ みんな３時には帰って、買い物、食事や旅行などして普段よりも豊かな生活を送ろう！！'</span>,</span><br><span class="line">                username: <span class="string">'プレミアムフライデー ボット'</span>,</span><br><span class="line">                icon_url: <span class="string">'http://www.meti.go.jp/press/2016/12/20161212001/20161212001-a.jpg'</span></span><br><span class="line">            &#125;, (err, response) =&gt; &#123;</span><br><span class="line">                bot.say(&#123;</span><br><span class="line">                    channel: <span class="string">'random'</span>,</span><br><span class="line">                    text: <span class="string">`&lt;http://[YOUR_IMG_URL]/image.jpg?<span class="subst">$&#123;moment().unix()&#125;</span>| &gt;`</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;);</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p>Botkit や Moment.js の セットアップ系はいつも通りで、定時処理は毎度の <code>new cron.CronJob()</code> で ジョブを作成します.<br>今回は「月末の金曜日 11時」に 処理をしたいのですが、<code>cronTime</code> だけでの表現が浮かびませんでしたので、まずは「金曜日 11時」に 処理を起動するようにしました.<br>続いて現在日時を取得して、7日後が同じ月か <code>now.month() != now.clone().add(7, &#39;days&#39;).month()</code> で 判定することで月末の金曜日なのかを確認しています.</p>
+<p>月末の金曜日だったら、まずは「プレミアムフライデー ボット」が 広報の通知をするために <code>username</code> と <code>icon_url</code> を 変更してポストします.</p>
+<p>「プレミアムフライデー ボット」が 発言した後に返事を返したいので、以下のように <code>bot.say()</code> の 中で再発言させています. <code>bot.say()</code> を 並べてしまうと、タイミングによっては通常ボットの返事が先に来てしまうことがありえるので、<code>bot.say()</code> の コールバックから発言する処理になります.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">bot.say(&#123; <span class="comment">/* プレミアムフライデーの発言 */</span> &#125;, (err, response) =&gt; &#123;</span><br><span class="line">    bot.say( <span class="comment">/* 通常ボットからの返事 */</span> );</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p>通常ボットからの返事では、<code>&lt;http://[YOUR_IMG_URL]/image.jpg?${moment().unix()}| &gt;</code> と <code>&lt;url| &gt;</code> の 書式で URL を 半角スペースに置き換えてポストする記法を使っています. これによって URL 無しで画像だけポストできます. <code>?${moment().unix()}</code> は、Slack が 同じ URL だと 2回目以降は折りたたんでしまって、最初から画像が見えないので、実行時の Unix timestamp を つけることで URL を 変えて展開できるようにしています.<br>※ 画像は自前で用意して適当なところへ置いておきます.</p>
+<h2 id="実験！"><a href="#実験！" class="headerlink" title="実験！"></a>実験！</h2><p><code>cronTime</code> を 調整して、いざ実験. ちゃんと表示されました.<br>とりあえず実験用にはネタ元のたツイートから画像を拝借させて頂きましたが、後は画像を自前のネタに変えて適当なとこにアップしてボットを設置するだけですね. 関係ない人々の月末の週末が楽しみです♪<br><img src="/assets/slack/hanakin/01.png" alt></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>今週末に迫ってきたプレミアムフライデー. 急に騒がしくなってくる中で関係ない身としては流れに乗れない寂しさから勢いボットを作って乗ってみました. 帰るころにはハッピーな人で溢れかえっているか、後の祭りか…<br>みなさま、よい週末を.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/22/Slackでプレミアムフライデー・ボットしてみる/" data-id="ckq2rxvbg004844r241h7k359" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/" class="article-date">
+  <time datetime="2017-02-18T15:00:00.000Z" itemprop="datePublished">2017-02-19</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/書籍/">書籍</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/">『知識ゼロから学ぶソフトウェアテスト』 あるいは 無残なるノーテスト</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/book/4798130605.jpg" alt title="知識ゼロから学ぶソフトウェアテスト"></p>
+<p>Java で プログラミングをしている場合に、テストケースの作成に <a href="http://junit.org" target="_blank" rel="noopener">JUnit</a> を ベースにテストしているケースがあるかと思います. “Assert that X is Y.” の 考え方 を 基本に <em>is</em> を <em>not</em> や <em>nullValue</em> などしてテストケースを書いていくよいライブラリと思うのですが…</p>
+<h2 id="テスト-も-カバレッジ-も-ちゃんと-やってます！"><a href="#テスト-も-カバレッジ-も-ちゃんと-やってます！" class="headerlink" title="テスト も カバレッジ も ちゃんと やってます！"></a>テスト も カバレッジ も ちゃんと やってます！</h2><p>それは昔々の事、とあるアプリケーションに携わった人のお話しで機能追加することから物語は始まりました. (いや物語らん話しのがよかた)</p>
+<p>このアプリケーション、しっかりテストケースが作ることになっており、なんと <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%86%E3%82%B9%E3%83%88#.E5.91.BD.E4.BB.A4.E7.B6.B2.E7.BE.85.28statement_coverage.29.EF.BC.88C0.EF.BC.89" target="_blank" rel="noopener">C0 カバレッジ</a> 90% 以上、<a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%86%E3%82%B9%E3%83%88#.E5.88.86.E5.B2.90.E7.B6.B2.E7.BE.85.28branch_coverage.29.EF.BC.88C1.EF.BC.89" target="_blank" rel="noopener">C1</a> も 努力目標ながら高レベルでされているとのことでした. <del>ちゃんとテストするフレンズなんだね！すごーい！(2017年2月現在 流行りのフレーズ)</del></p>
+<p>と、聞いていたのも束の間、コードを触り始めると気になる謎の実装、不思議なテストケース…<br>「テストなってないじゃん？」いや、まぁ、「テストするとは」の定義は何かと自問自答するわけですが、テストケースがあるとか、カバレッジが取れてるとかでなくて、「何を検証したいのか」じゃないのかなぁと、考えたとのことです.<br>僭越ながら同感です. いたずらにカバレッジだけとっても、通過させるためだけの意味のないテストケースの実行コードなんてものがあふれることもあり得ます.</p>
+<h2 id="え？-その-“verify-x-never-y-”…"><a href="#え？-その-“verify-x-never-y-”…" class="headerlink" title="え？ その “verify(x, never()).y()”…"></a>え？ その “verify(x, never()).y()”…</h2><p>さて、そんな中、聞かれたのが “verify(x, never()).y()” というコード. これだけ聞かれてもよくわからないのですが、たぶんモックでメソッドの呼び出し有無を判定したいと思われます.</p>
+<p>そして出てきたのが以下のようなテストケース. (※ ポスト用に命名等を汎化させています)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaoTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        verify(dao, never()).findAll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...(省略)</span></span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>いゃ～！ 見たくなかった、聞きたくなかった…<br>たぶん、Deta Access Object = DAO の テストケースと思われます.<br>きっと、新しいレコード を 追加 = add するのをテストしたかったのでしょう. 知らんけど.<br><code>verify()</code> と <code>never()</code> は モックを簡単にするためのライブラリから、メソッドの実行確認をしているのでしょう.<br>だけど、<code>dao.add()</code> 実行してないじゃん？ あと <code>findAll()</code> しなくね？、どう考えても. (そもそも Dao の 処理を何も実行してないからアレだけど) White Box テストだから知ってるはずだし？</p>
+<p>どうして、そうなったのか. 少し話を聞いたたらしいのですが、「テストって、何をテストをするんですか？」「どうやるんですか？」「できすか？やって見せてください！」…<br>えーっと、逆ギレ？ DAO とかテストめんどくさいの分かるけど、単純 な Getter/Setter だけのテストだってできてないんですが (T_T<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModelTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParam</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Model model = <span class="keyword">new</span> Model();</span><br><span class="line">        model.set(<span class="string">"あああ..."</span>);  <span class="comment">// ※ すごい長い「あ」が続く</span></span><br><span class="line">        assertEquals(<span class="string">"あああ..."</span>, model.get());</span><br><span class="line">        <span class="comment">// ※ この後、同様のパターンで半角英数、記号、全半角の組み合わせ？ などが続く</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>なお、C0 90% は、どっか別のテストケースで実行していたのが、たまたま通過していたものだったとか. 対となるテストケースの実行では無残なカバレッジ率とのこと… はあぁ 全部作り直しかよ～と、ご愁傷様です (￣人￣)<br>ひゃ～ こわい、こわい.</p>
+<h2 id="“assertTrue-true-”-？"><a href="#“assertTrue-true-”-？" class="headerlink" title="“assertTrue(true)” ？"></a>“assertTrue(true)” ？</h2><p>そんな今となっては香ばしい昔話を黄泉がえらせたのが、Titter に 流れてきた衝撃のツイート.</p>
+<p><strong>“assertTrue(true)”</strong>… 何を言っているのかわかりませんでいた. いや TDD とかで、Fake it、ですよね～ やるやる～～www と…</p>
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">お隣のプロジェクトで JUnit 使っているというのでテストコードを見せてもらったんだが、大量にあるテストケースのほとんどが assertTrue(true) で終わってて完全に闇</p>&mdash; こはま (@c0hama) <a href="https://twitter.com/c0hama/status/828551368113729537" target="_blank" rel="noopener">2017年2月6日</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Test読んで理解しようと思って開いてみたら，assertTrue(true)が並んでいた時の顔をしています</p>&mdash; みーちゃん (@LazyMii) <a href="https://twitter.com/LazyMii/status/828533608323256320" target="_blank" rel="noopener">2017年2月6日</a></blockquote></p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>いや、ヤバいです. どういう話しですか？<br>先の昔話も 今も テストの闇は深い… (“JUnit 目視” という、別系統のヤバいのも見た気が)</p>
+<h2 id="『知識ゼロから学ぶソフトウェアテスト』"><a href="#『知識ゼロから学ぶソフトウェアテスト』" class="headerlink" title="『知識ゼロから学ぶソフトウェアテスト』"></a>『知識ゼロから学ぶソフトウェアテスト』</h2><p>テストで悩んだら『知識ゼロから学ぶソフトウェアテスト』を 読んでみるのがよいかと思った次第で、ちょうどアプリケーションのテストの不備に、”assertTrue(true)” という闇の呪文、半額セールが重なったので、勢い投稿を書いてしまいました！</p>
+<p>こちらの書籍は JUnit とかの実装技術ではないのですが、「テストとは」という視点で書かれています. テストに対する考え方を学ぶことができるのではないでしょうか. いきなりテストケースを実装する前に、何を、どうやってテストするのかを知ってから、作るとよいかと思います.</p>
+<p>私は改訂版の前の書籍を読んだことがありますが、テストケースはどう作るべきかの基礎をしっかり学ばせていただきました. 改訂版とのことで、どう変わったのかは改めて読みたいと思いますが、基本的な考え方を知るにはよいと思います.</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51c061aHw4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank">知識ゼロから学ぶソフトウェアテスト 【改訂版】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">高橋 寿一 翔泳社 2013-12-10    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798130605" target="_blank">Amazonで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB00HQ7S5CA%2F" target="_blank">Kindleで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12597357%2F" target="_blank">楽天ブックスで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div><div class="shoplinkrakukobo" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=https%3A%2F%2Fbooks.rakuten.co.jp%2Frk%2F0771aef89a0737cd97f750b9eebbaa8b%2F" target="_blank">楽天koboで検索</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>      <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-79-813060-6%2520%257C%25204-798-13060-6%2520%257C%25204-7981-3060-6%2520%257C%25204-79813-060-6%2520%257C%25204-798130-60-6%2520%257C%25204-7981306-0-6" target="_blank">7netで検索<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                           </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>「テストって何をするんだろ」には『知識ゼロから学ぶソフトウェアテスト』も よいと思いますので、よかったら ご参考までに.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/19/『知識ゼロから学ぶソフトウェアテスト』あるいは無残なるノーテスト/" data-id="ckq2rxvbk004h44r202o40heh" class="article-share-link">共有</a>
+        
+        
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Twitterのアカウント作成" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/16/Twitterのアカウント作成/" class="article-date">
+  <time datetime="2017-02-15T15:00:00.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/Twitterのアカウント作成/">Twitter の アカウント作成</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/twitter/twitter.png" alt title="Twitter"></p>
+<p>以前 WordPress を 使っていたことがあり、それに比べて <a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">Hexo と GitHub は 簡単にブログを設置</a> できるなぁと、WordPress 界隈が騒がしい今日この頃、ふと WordPress 時代を思い出しました.</p>
+<p>改めて思い出すことなく、前々から気にはなっていたのですが Hexo にはコメント欄がありません. 静的ジェネレータで生成されたサイトなのでサーバ側の処理がないので当然と言えば当然なのですが、やはり寂しい.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Hexo 3.2</li>
+<li>Twitter</li>
+</ul>
+<h2 id="Hexo-の-コメント欄"><a href="#Hexo-の-コメント欄" class="headerlink" title="Hexo の コメント欄"></a>Hexo の コメント欄</h2><p>いろいろと調べてみると Hexo 2.x のころにはコメント欄があったようで、3.x になってからテーマとの兼ね合いからなくなったのだとかなんとか.<br>現在は <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a> というサービスを使うと設置できるようなので、さっそく設置に取り掛かろうと思ったところ、SNS の 認証連携は Facebook, Twitter, Google+ で、GitHub は 対応していませんでした.<br><img src="/assets/hexo/disqus/signup/01.png" alt></p>
+<p>メールで直接サインアップするよりも、SNS に まとめておきたいので、今回は Twitter の アカウントを作成し、そのアカウントから Disqus へ サインアップしたいと思います.</p>
+<h2 id="Twitter-の-アカウント作成"><a href="#Twitter-の-アカウント作成" class="headerlink" title="Twitter の アカウント作成"></a>Twitter の アカウント作成</h2><p>Twitter の Signup ページ <a href="https://twitter.com/signup" target="_blank" rel="noopener">https://twitter.com/signup</a> へ アクセスします.</p>
+<p>呼び名、メールアドレス、パスワード を 入力し、[アカウント作成] ボタンをクリックします.<br>ここの “呼び名” は、Twitter での表示名で、既に使われている名前とも重複可能です. また後程変更することもできます. ネット上でのハンドルや、いつものニックネームで大丈夫です.<br><img src="/assets/twitter/signup/01.png" alt></p>
+<p>電話番号の入力を求められますが、特に必要なければ [スキップ] を クリックします. 今回はスキップしました.<br><img src="/assets/twitter/signup/02.png" alt></p>
+<p>ユーザー名、アカウント名を入力します. こちらは Twitter 内 で 一意となる文字列が求められます. “2006年7月にオブビアウス社（現Twitter社）が開始したウェブサービス – <a href="https://ja.wikipedia.org/wiki/Twitter" target="_blank" rel="noopener">Wikipedia</a>“ と 約10年の歴史に、<a href="https://about.twitter.com/ja/company" target="_blank" rel="noopener">Twitter, Inc.について | About</a> の 2017年2月現在 で 約 3億 月間アクティブユーザー とのことで、なかなか思うアカウント名は取れません… (画面はブログ用に加工してます)<br><img src="/assets/twitter/signup/03.png" alt></p>
+<p>無事、アカウントが取れると Welcome 画面が表示されます. [さぁ、はじめよう] を クリックし進めます.<br><img src="/assets/twitter/signup/04.png" alt></p>
+<p>興味あることからフォローするアカウントなどが勧められたりするようですが、今回は何もせずに [続ける] しました. 明確に取りたい情報があれば設定しておいてもよいかもしれません.<br><img src="/assets/twitter/signup/05.png" alt></p>
+<p>アドレス帳のアップロードを求められますが、今回は [利用しない] で 先へ進めました. いろいろなサービスがある中で、何と、どこまでを、リアルとくっつけるのかは悩ましいところです.<br><img src="/assets/twitter/signup/06.png" alt></p>
+<p>フォローするアカウントの選択として、いくつかのアカウントをサジェストしてくれます. 日本語で日本からサインアップしているのですが 2017年の話題の人としてプレジデントを勧めてくれたのでしょうか… 画面に表示された “場所に基づくおすすめ “ 感 が あまりないのですが.<br><img src="/assets/twitter/signup/07.png" alt></p>
+<p>ブラウザのポップアップ通知について聞かれます. 必要な方を選択します. 使ったことは無いのですが、専用クライアントなしでブラウザだけで通知できるとは技術の進歩は素晴らしいですね.<br><img src="/assets/twitter/signup/08.png" alt></p>
+<p>ようやく、Twitter を 利用できるようになりました. “さぁ、はじめよう” って、言ってたのに長かった.<br><img src="/assets/twitter/signup/09.png" alt></p>
+<hr>
+<p>ブログのコメント欄 Disqus に向けて、一歩を踏み出すことができました. Twitter 自体も用意したいなぁと思っていたので、ちょうど設置できてよかったです.<br>しばらくは ツイート できないとは思いますが、せっかく設置できましたので <a href="https://twitter.com/azriton" target="_blank" rel="noopener">@azriton</a> も よろしくお願いいたします.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/16/Twitterのアカウント作成/" data-id="ckq2rxv9v001744r2y4xfadec" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Disqus/">Disqus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Twitter/">Twitter</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/25/HexoにTwitterのアカウントを設定/" title="Hexo に Twitter の アカウント を 設定" rel="bookmark">Hexo に Twitter の アカウント を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/26/Hexoにコメント欄のDisqusを設置/" title="Hexo に コメント欄 の Disqus を 設置" rel="bookmark">Hexo に コメント欄 の Disqus を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Hexoの新規投稿パスをカスタマイズ" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" class="article-date">
+  <time datetime="2017-02-12T15:00:00.000Z" itemprop="datePublished">2017-02-13</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/">Hexo の 新規投稿パス を カスタマイズ</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>Hexo では 新しい投稿は <code>hexo new &quot;記事タイトル&quot;</code> コマンドで作成します. その際に新しいファイルは <code>/source/_posts/記事タイトル.md</code> として作成されます. 初めのうちはひとつのフォルダ内でよいのですが、ファイルが増えてくると管理に困ってしまいます.<br>このファイルが作成される場所を管理しやすいように Hexo を 設定したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="新規投稿ファイルの配置場所"><a href="#新規投稿ファイルの配置場所" class="headerlink" title="新規投稿ファイルの配置場所"></a>新規投稿ファイルの配置場所</h2><p>この設定は <code>_config.yml</code> の <code>new_post_name</code> に なります. 以下に初期設定を抜粋したように <code>:title.md</code> と なっているため、<code>/source/_posts</code> に コマンドの引数で与えた <code>記事のタイトル.md</code> というファイルが作られます.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts</span></span><br></pre></table></figure></p>
+<p>ここの設定を変えることで、作成されるファイルをコントロールすることができます. パーマリンクの設定を例にみると <code>permalink: :year/:month/:day/:title/</code> のように <code>:year</code> などの変数を使っています.<br>この例に倣って、以下のように年月フォルダにファイルを置くように設定してみます.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span> <span class="comment"># File name of new posts</span></span><br></pre></table></figure></p>
+<p><code>hexo new &quot;記事のタイトル&quot;</code> を 実行したところ、ねらったとおりに年月フォルダに作られるようになりました.<br>ここで使える変数についてのドキュメントは見当たらなかったのですが、<a href="https://hexo.io/docs/permalinks.html" target="_blank" rel="noopener">Permalinks | Hexo</a> を 参考に試してみました. <code>:i_month</code> や <code>:i_day</code> などは動作しました. <code>:id</code> や <code>:category</code> は <code>undefined</code> というフォルダになります. カテゴリは、この時点では設定がないので当然ですね.</p>
+<h2 id="新しいフォルダへの引っ越し"><a href="#新しいフォルダへの引っ越し" class="headerlink" title="新しいフォルダへの引っ越し"></a>新しいフォルダへの引っ越し</h2><p>これまでのファイルは自分でフォルダを作成する必要があります. フォルダを作成してファイルを移動することで完了です.<br>ここは自動でできないので致し方ありません.</p>
+<h2 id="ところで、"><a href="#ところで、" class="headerlink" title="ところで、"></a>ところで、</h2><p>実は <code>new_post_name</code> の フォルダ部分 は ファイルを作成する際に参照される設定で、サイトの生成には関係していません.<br>そのため、これまでのファイル は そのままに、新しく作るものだけを新しい設定のフォルダで管理することもできますし、全く関係ないフォルダ名で管理することもできます. もちろん、日本語のフォルダ名も利用できます… (あとから気づいた orz)<br>そうなると内部的なカテゴリで分けても良かったのかもと思ったりもします.</p>
+<p>ただ、ファイル名については URL で 使われるので、こちらに細工するこは URL として見えてしまうことを前提にする費用があります.<br>フォルダを内部的な カテゴリ や シリーズ で 整理して、ファイル名に連番を付けてもよいかと思ったのですが URL に 連番が出るのは悩みどころです.</p>
+<hr>
+<p>最初にファイルを生成するときに、一定のルールに従って生成してくれるという機能の紹介でした.<br>ある程度ポストが増えてくるとファイル管理に意外と悩むものなんだなぁと感じます. 規模や特性によるので一概には言えないことなのでしょうが、何か良い方法があったら知りたいところです.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" data-id="ckq2rxv9r000y44r2s6zym66z" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/25/HexoにTwitterのアカウントを設定/" title="Hexo に Twitter の アカウント を 設定" rel="bookmark">Hexo に Twitter の アカウント を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/07/Hexoのフィードとサイトマップを設定/" title="Hexo の フィード と サイトマップ を 設定" rel="bookmark">Hexo の フィード と サイトマップ を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/10/ところで、Hexoって何て読むんだろ？/" title="ところで、Hexo って 何て読むんだろ？" rel="bookmark">ところで、Hexo って 何て読むんだろ？</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" title="Hexo に Google Analytics を 設置する" rel="bookmark">Hexo に Google Analytics を 設置する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのボットで定期的に降水予報を通知する" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" class="article-date">
+  <time datetime="2017-02-09T15:00:00.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/">Slack の ボット で 定期的に降水予報を通知する</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p><a href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/">朝の天気と、その後の降水予報が Slack に 通知</a>できるようになりました.<br>これで傘を持っていくかを判断できるようになりましたが、朝は晴れていて日中晴れの予報でも夕方に天気が崩れることもあります. 何てことだ orz</p>
+<p>既に傘は持ってきていないわけですが、あらかじめ天気が崩れることが分かれば、予定を変更して早く帰るなりの作戦が取れます. (まぁ、作戦を立てたとして実行できるかは別なのですが…)</p>
+<p>今回は、降水予報の実装 を 定期的に実行して、雨もしくは雪が降る予報があった場合に Slack に 通知するようにしたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit 0.4.9</li>
+<li>node-cron 1.2.1</li>
+<li>moment-timezone 0.5.10</li>
+</ul>
+<h2 id="通知方法の検討"><a href="#通知方法の検討" class="headerlink" title="通知方法の検討"></a>通知方法の検討</h2><p>OpenWeatherMap で 取得できる予報は、「3時間ごと 5日間」と「日次で 16日間」の 2つがあります. 無料で使えるのは「3時間ごと 5日間」なので、こちらを使って降水予報を実装したいと思います.<br><img src="/assets/slack/weather/10.png" alt></p>
+<p>取得できるデータには降水確率などの情報は無いですが、天気状況に加えダイレクトに降水量があります. この降水量を使うことにして 9時間以内に降水量がある場合に、降水予報として通知するようにします.</p>
+<h2 id="Slack-ボット-の-実装"><a href="#Slack-ボット-の-実装" class="headerlink" title="Slack ボット の 実装"></a>Slack ボット の 実装</h2><p>定期実行のスケジュールが異なるため、毎朝の天気情報とは異なる cron ジョブを作成します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre><td class="code"><pre><span class="line">new cron.CronJob(&#123;</span><br><span class="line">    cronTime: &apos;00 00 9-21 * * 1-5&apos;,</span><br><span class="line">    onTick: () =&gt; &#123;</span><br><span class="line">        http.get(`http://api.openweathermap.org/data/2.5/forecast?id=$&#123;city&#125;&amp;appid=$&#123;apikey&#125;&amp;units=metric&amp;cnt=3`, (response) =&gt; &#123;</span><br><span class="line">            let body = &apos;&apos;;</span><br><span class="line">            response.setEncoding(&apos;utf8&apos;).on(&apos;data&apos;, (chunk) =&gt; &#123;  body += chunk;  &#125;);</span><br><span class="line">            response.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">                let json = JSON.parse(body);</span><br><span class="line">                for (let i in json.list) &#123;</span><br><span class="line">                    let forecast = json.list[i];</span><br><span class="line">                    if ((forecast.rain &amp;&amp; forecast.rain[&apos;3h&apos;]) || (forecast.snow &amp;&amp; forecast.snow[&apos;3h&apos;])) &#123;</span><br><span class="line">                        let text = &apos;→ &apos; + labels.next(forecast.dt_txt) + labels.desc(forecast) + labels.prec(forecast);</span><br><span class="line">                        http.get(`http://api.openweathermap.org/data/2.5/weather?id=$&#123;city&#125;&amp;units=metric&amp;appid=$&#123;apikey&#125;`, (response) =&gt; &#123;</span><br><span class="line">                            let body = &apos;&apos;;</span><br><span class="line">                            response.setEncoding(&apos;utf8&apos;).on(&apos;data&apos;, (chunk) =&gt; &#123;  body += chunk;  &#125;);</span><br><span class="line">                            response.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">                                let current = JSON.parse(body);</span><br><span class="line">                                bot.say(&#123;</span><br><span class="line">                                    channel:   channel,</span><br><span class="line">                                    text:      text,</span><br><span class="line">                                    username:  `$&#123;current.weather[0].main&#125;($&#123;current.weather[0].description&#125;)`,</span><br><span class="line">                                    icon_url:  `http://openweathermap.org/img/w/$&#123;current.weather[0].icon.replace(&apos;n&apos;, &apos;d&apos;)&#125;.png`</span><br><span class="line">                                &#125;);</span><br><span class="line">                            &#125;);</span><br><span class="line">                        &#125;);</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    start: true,</span><br><span class="line">    timeZone: &apos;Asia/Tokyo&apos;</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p>基本的な構造は、朝の天気予報 の OpenWeatherMap API 呼び出し順が逆になるだけで、ほぼ同じです.<br><code>cronTime</code> は 平日の 9時～21時に、1時間ごとに実行するようにしました.<br>API 呼び出しは、最初に <code>/forecast</code> を <code>cnt=3</code> で 3時間毎 の データ を 3回分で 約 9時間を取得しています. その中に降水情報があったら アイコン と ユーザ名 に 使う、現在の天気 <code>/weather</code> を 取得します.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>予報も出せるようになったので、朝から傘が必要か、そして日中の天気の変化について知ることができ、降水確率 ○○％ というよりも、何時に、どのくらいの雨(雪) が 降るのかが分かるので、意外とよさそう.<br>これまで実装してきたものを組み替えるだけで簡単に作れました. API さまさま、ですね. ありがたい.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/10/Slackのボットで定期的に降水予報を通知する/" data-id="ckq2rxvbj004f44r2gpa8ytcu" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのボットで今日の天気を通知する-表示最適化編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/07/Slackのボットで今日の天気を通知する-表示最適化編/" class="article-date">
+  <time datetime="2017-02-06T15:00:00.000Z" itemprop="datePublished">2017-02-07</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/07/Slackのボットで今日の天気を通知する-表示最適化編/">Slack の ボット で 今日の天気を通知する - 表示最適化編</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p><a href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/">朝の天気と、その後の降水予報が Slack に 通知</a>できるようになりました！<br>これで毎朝の天気を確認できるわけですが、その情報を見るツールとしてスマホを使った時に少し気になる点がありました.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Android 6.0</li>
+<li>Slack 2.27.0 (Android App)</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit 0.4.9</li>
+</ul>
+<h2 id="スマホ表示の確認"><a href="#スマホ表示の確認" class="headerlink" title="スマホ表示の確認"></a>スマホ表示の確認</h2><p><img src="/assets/slack/weather/08.png" alt><br>ちゃんと表示されています！ が 天気アイコン、デカい！<br>分かりやすいと言えば分りやすいですが、ちょっと大きすぎですね. 1日分で、ほぼ画面が埋め尽くされてしまっています. もう少しコンパクトに表示するようにしたいと思います.</p>
+<h2 id="表示方法の検討"><a href="#表示方法の検討" class="headerlink" title="表示方法の検討"></a>表示方法の検討</h2><p>Slack の ボット は 発言する際に、アイコン と 名前 を 変えることができます. (<a href="https://api.slack.com/methods/chat.postMessage" target="_blank" rel="noopener">chat.postMessage method | Slack</a>)<br>これを使うことで、現在ロボットのアイコンが表示されている部分 を 天気アイコン にし、名前の部分に天気情報を入れることにすれば、すっきりしそうです.</p>
+<p>Botkit での 実装方法ですが、その辺についての説明はありませんでした. 残念.<br>近いところとしては <a href="https://github.com/howdyai/botkit#botreply" target="_blank" rel="noopener">Slack-specific fields and attachments</a> に リプライにアタッチする話があります. アタッチの中に　<code>username</code> や <code>icon_url</code> が 登場しますが、アタッチしたいわけではないのでちょっと異なりそうです.</p>
+<p>仕方がないのでソースに当たることにします.<br>ボットを話させているのは <a href="https://github.com/howdyai/botkit/blob/v0.4.9/lib/Slackbot_worker.js#L323" target="_blank" rel="noopener">Slackbot_worker.js#send() – Botkit v0.4.9</a> です. こちらを参照すると <code>slack_message</code> 変数を作っているところに見事に <code>username</code> や <code>icon_url</code> が あります. つまり、この関数の引数 <code>message</code> に 渡してあげることで設定できそうです. 以下に <code>Slackbot_worker.js#send()</code> を 抜粋.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre><td class="code"><pre><span class="line">bot.send = function(message, cb) &#123;</span><br><span class="line">    botkit.debug(&apos;SAY&apos;, message);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Construct a valid slack message.</span><br><span class="line">     */</span><br><span class="line">    var slack_message = &#123;</span><br><span class="line">        type: message.type || &apos;message&apos;,</span><br><span class="line">        channel: message.channel,</span><br><span class="line">        text: message.text || null,</span><br><span class="line">        username: message.username || null,</span><br><span class="line">        parse: message.parse || null,</span><br><span class="line">        link_names: message.link_names || null,</span><br><span class="line">        attachments: message.attachments ?</span><br><span class="line">        JSON.stringify(message.attachments) : null,</span><br><span class="line">        unfurl_links: typeof message.unfurl_links !== &apos;undefined&apos; ? message.unfurl_links : null,</span><br><span class="line">        unfurl_media: typeof message.unfurl_media !== &apos;undefined&apos; ? message.unfurl_media : null,</span><br><span class="line">        icon_url: message.icon_url || null,</span><br><span class="line">        icon_emoji: message.icon_emoji || null,</span><br><span class="line">    &#125;;</span><br><span class="line">    // (省略)...</span><br><span class="line">&#125;;</span><br></pre></table></figure></p>
+<p><code>username</code> や <code>icon_url</code> の 渡し方ですが、こちらは、もうあまり考えることは無いですね. 既に <code>channel</code> や <code>text</code> を 渡しているわけですから、それらと一緒に渡すだけになります.</p>
+<h2 id="Slack-ボット-の-実装"><a href="#Slack-ボット-の-実装" class="headerlink" title="Slack ボット の 実装"></a>Slack ボット の 実装</h2><p>以下にボットの発言部分 <code>bot.say()</code> の 実装を抜粋します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">bot.say(&#123;</span><br><span class="line">    channel:   channel,</span><br><span class="line">    text:      text,</span><br><span class="line">    username:  `$&#123;current.weather[0].main&#125;($&#123;current.weather[0].description&#125;)`,</span><br><span class="line">    icon_url:  `http://openweathermap.org/img/w/$&#123;current.weather[0].icon.replace(&apos;n&apos;, &apos;d&apos;)&#125;.png`</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p><code>channel</code> と <code>text</code> に 合わせて、<code>username</code> と <code>icon_url</code> を 設定するだけです.<br>前回は <code>text</code> に アイコン の URL を 使っていたので、Unix timestamp を パラメータでつけていましたが、今回は常に展開されるので Unix timestamp は 不要です.</p>
+<h2 id="通知！"><a href="#通知！" class="headerlink" title="通知！"></a>通知！</h2><p><img src="/assets/slack/weather/09.png" alt><br>アイコンと天気情報がコンパクトにまとまりました.<br>実際には “Today” の 線が引かれたりするので、さらに見やすくなると思われます.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>今回はプログラムのテストで朝の情報を夜に出していますが、Slack への ポスト・タイミング と 天気予報の計算時刻は、そう大きくはずれないので “6:52 現在” などを削ってもよいかもしれませんね.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/07/Slackのボットで今日の天気を通知する-表示最適化編/" data-id="ckq2rxvbc004344r27w1b33ko" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのボットで今日の天気を通知する-降水予報実装編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/" class="article-date">
+  <time datetime="2017-02-03T15:00:00.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/">Slack の ボット で 今日の天気を通知する - 降水予報 実装編</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p><a href="/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/">毎朝の天気が Slack に 通知</a>されるようになりました. これは現在の天気を通知しているので、朝の天気を知ることはできても、その後どうなるかはわかりません. 今回は、その後 雨(雪) が 降るのかの予報も合わせて通知するようにしたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit 0.4.9</li>
+<li>node-cron 1.2.1</li>
+<li>moment-timezone 0.5.10</li>
+</ul>
+<h2 id="通知方法の検討"><a href="#通知方法の検討" class="headerlink" title="通知方法の検討"></a>通知方法の検討</h2><p>OpenWeatherMap で 取得できる予報は、「3時間ごと 5日間」と「日次で 16日間」の 2つがあります. 無料で使えるのは「3時間ごと 5日間」なので、こちらを使って降水予報を実装したいと思います.<br><img src="/assets/slack/weather/01.png" alt></p>
+<p>取得できるデータには降水確率などの情報は無いですが、ダイレクトに天気状況と降水量があります. この降水量を使うことにして 24時間以内に降水量がある場合に、降水予報として通知するようにします.</p>
+<h2 id="Slack-ボット-の-実装"><a href="#Slack-ボット-の-実装" class="headerlink" title="Slack ボット の 実装"></a>Slack ボット の 実装</h2><p>以下に <a href="/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/">前回実装</a> の <code>onTick:</code> 部分を抜粋し今回の追加分をあげます.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre><td class="code"><pre><span class="line">onTick: () =&gt; &#123;</span><br><span class="line">    http.get(`http://api.openweathermap.org/data/2.5/weather?id=$&#123;city&#125;&amp;units=metric&amp;appid=$&#123;apikey&#125;`, (response) =&gt; &#123;</span><br><span class="line">        let body = &apos;&apos;;</span><br><span class="line">        response.setEncoding(&apos;utf8&apos;).on(&apos;data&apos;, (chunk) =&gt; &#123;  body += chunk;  &#125;);</span><br><span class="line">        response.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">            let current = JSON.parse(body);</span><br><span class="line">            let text =</span><br><span class="line">                    `$&#123;moment.unix(current.dt).format(&apos;H:mm&apos;)&#125; 現在 $&#123;current.name&#125; の 天気` +</span><br><span class="line">                    `&lt;http://openweathermap.org/img/w/$&#123;current.weather[0].icon.replace(&apos;n&apos;, &apos;d&apos;)&#125;.png?$&#123;moment().unix()&#125;| &gt; ` +</span><br><span class="line">                    `$&#123;current.weather[0].main&#125;($&#123;current.weather[0].description&#125;) / ` +</span><br><span class="line">                    `気温 $&#123;Math.round(current.main.temp)&#125; ℃ ` +</span><br><span class="line">                    `$&#123;current.rain &amp;&amp; current.rain[&apos;3h&apos;] ? &apos;/ 降雨量 &apos; + Math.ceil(current.rain[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;` +</span><br><span class="line">                    `$&#123;current.snow &amp;&amp; current.snow[&apos;3h&apos;] ? &apos;/ 降雪量 &apos; + Math.ceil(current.snow[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;`;</span><br><span class="line"></span><br><span class="line">            // ここから追加</span><br><span class="line">            http.get(`http://api.openweathermap.org/data/2.5/forecast?id=$&#123;city&#125;&amp;appid=$&#123;apikey&#125;&amp;units=metric&amp;cnt=8`, (response) =&gt; &#123;</span><br><span class="line">                body = &apos;&apos;;</span><br><span class="line">                response.setEncoding(&apos;utf8&apos;).on(&apos;data&apos;, (chunk) =&gt; &#123;  body += chunk;  &#125;);</span><br><span class="line">                response.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">                    let json = JSON.parse(body);</span><br><span class="line">                    for (let i in json.list) &#123;</span><br><span class="line">                        let forecast = json.list[i];</span><br><span class="line">                        if ((forecast.rain &amp;&amp; forecast.rain[&apos;3h&apos;]) || (forecast.snow &amp;&amp; forecast.snow[&apos;3h&apos;])) &#123;</span><br><span class="line">                            text +=</span><br><span class="line">                                `\n→ 降水予報 $&#123;moment.utc(forecast.dt_txt).fromNow()&#125; ` +</span><br><span class="line">                                `($&#123;moment.utc(forecast.dt_txt).utcOffset(9).format(&apos;M/D H:mm&apos;)&#125;) / $&#123;current.weather[0].main&#125; ` +</span><br><span class="line">                                `$&#123;forecast.rain &amp;&amp; forecast.rain[&apos;3h&apos;] ? &apos;/ 降雨量 &apos; + Math.ceil(forecast.rain[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;` +</span><br><span class="line">                                `$&#123;forecast.snow &amp;&amp; forecast.snow[&apos;3h&apos;] ? &apos;/ 降雪量 &apos; + Math.ceil(forecast.snow[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;`;</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    bot.say(&#123;  text: text,  channel: channel  &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">            // ここまで</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></table></figure></p>
+<p>予報は <code>json.list</code> に 入っているので for 文で 1つずつ処理します. 予報の時刻 <code>forecast.dt_txt</code> を 表示用にフォーマットし、後は現在の天気で処理したのとほぼ同じになります. アイコンが並ぶとわかりにくいので、予報のアイコンは不要としました.</p>
+<p>ボットが発言する <code>bot.say()</code> は、予報の JSON を 取得した後になります.</p>
+<h2 id="通知！"><a href="#通知！" class="headerlink" title="通知！"></a>通知！</h2><p><img src="/assets/slack/weather/07.png" alt><br>朝の天気に加え 20時間後、明日 の 午前 3:00 に 雨が降るとの予報も表示されました. この予報だと傘の出番はなさそうですね.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>予報も出せるようになったので、朝から傘が必要か、帰りには必要になるのかが分かるようになりました. 降水確率 ○○％ というよりも、何時に、どのくらいの雨(雪) が 降るのかがはっきりするのでよいさそうです.</p>
+<p>ちょっと気になるのが、天気の精度やデータの有無…<br>データやキャプチャは東京で統一するようにしたいと思っているのですが、天気の事なので思うような状態でないことはあります. その際に他の都市をいろいろと探すのですが、どうも他の天気予報と合ってなかったり、極端な話 <a href="http://openweathermap.org/weathermap?basemap=map&amp;cities=true&amp;layer=precipitation" target="_blank" rel="noopener">OpenWeatherMap の 地図</a> とも合ってない時があるような気も…<br>また、天気 が Rain に なっているのに、現在の天気 API に <code>rain.3h</code> が 入ってなかったりと、なのに Clear で 0.1 mm とか… 不思議だ…<br>無料で使わせてもらっているので、多くは望まないのですが、精度が悪いようだと困るなぁ. 今度、いろいろと比較を出して調べてみよう.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/" data-id="ckq2rxvbi004d44r2vepscaxd" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのボットで今日の天気を通知する-Slackボット実装編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/" class="article-date">
+  <time datetime="2017-01-31T15:00:00.000Z" itemprop="datePublished">2017-02-01</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/">Slack の ボット で 今日の天気を通知する - Slack ボット 実装編</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>OpenWeatherMap の サービスを使って、<a href="/2017/01/24/Slackのボットで今日の天気を通知する-JSON取得編/">天気情報を取得できる</a>ようになり、<a href="/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/">JSON の 内容も確認</a> しました.<br>いよいよ Slack の ボットに組み込んで、毎朝の天気を通知してもらいましょう.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit 0.4.9</li>
+<li>node-cron 1.2.1</li>
+<li>moment-timezone 0.5.10</li>
+</ul>
+<h2 id="通知方法の検討"><a href="#通知方法の検討" class="headerlink" title="通知方法の検討"></a>通知方法の検討</h2><p>天気は毎日の事なので、毎朝 7:00 に 通知してもらうことにしたいとおもいます. 土日はもう少し遅くてよいかもしれませんが… とりあえず使ってみて、調整しましょう.<br>通知内容は、天気、気温、降雨量(降雪量) にし、せっかくなので OpenWeatherMap の アイコン画像も表示します.</p>
+<h2 id="Slack-ボット-の-実装"><a href="#Slack-ボット-の-実装" class="headerlink" title="Slack ボット の 実装"></a>Slack ボット の 実装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">const Botkit = require(&apos;botkit&apos;);</span><br><span class="line">const http = require(&apos;http&apos;);</span><br><span class="line">const cron = require(&apos;cron&apos;);</span><br><span class="line">const moment = require(&apos;moment-timezone&apos;);</span><br><span class="line"></span><br><span class="line">const controller = Botkit.slackbot();</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token: process.env.bot_access_token</span><br><span class="line">&#125;).startRTM((err, bot, payload) =&gt; &#123;</span><br><span class="line">    moment.locale(&apos;ja&apos;);</span><br><span class="line">    moment.tz.setDefault(&apos;Asia/Tokyo&apos;);</span><br><span class="line"></span><br><span class="line">    const city = &apos;1850147&apos;;       // Tokyo</span><br><span class="line">    const channel = &apos;sandbox&apos;;    // #sandbox</span><br><span class="line">    const apikey = &apos;[API_KEY]&apos;;   // Please replace with your API_KEY</span><br><span class="line"></span><br><span class="line">    new cron.CronJob(&#123;</span><br><span class="line">        cronTime: &apos;00 00 7 * * *&apos;,</span><br><span class="line">        onTick: () =&gt; &#123;</span><br><span class="line">            http.get(`http://api.openweathermap.org/data/2.5/weather?id=$&#123;city&#125;&amp;units=metric&amp;appid=$&#123;apikey&#125;`, (response) =&gt; &#123;</span><br><span class="line">                let body = &apos;&apos;;</span><br><span class="line">                response.setEncoding(&apos;utf8&apos;).on(&apos;data&apos;, (chunk) =&gt; &#123;  body += chunk;  &#125;);</span><br><span class="line">                response.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">                    let current = JSON.parse(body);</span><br><span class="line">                    let text =</span><br><span class="line">                            `$&#123;moment.unix(current.dt).format(&apos;H:mm&apos;)&#125; 現在 $&#123;current.name&#125; の 天気` +</span><br><span class="line">                            `&lt;http://openweathermap.org/img/w/$&#123;current.weather[0].icon.replace(&apos;n&apos;, &apos;d&apos;)&#125;.png?$&#123;moment().unix()&#125;| &gt; ` +</span><br><span class="line">                            `$&#123;current.weather[0].main&#125;($&#123;current.weather[0].description&#125;) / ` +</span><br><span class="line">                            `気温 $&#123;Math.round(current.main.temp)&#125; ℃ ` +</span><br><span class="line">                            `$&#123;current.rain &amp;&amp; current.rain[&apos;3h&apos;] ? &apos;/ 降雨量 &apos; + Math.ceil(current.rain[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;` +</span><br><span class="line">                            `$&#123;current.snow &amp;&amp; current.snow[&apos;3h&apos;] ? &apos;/ 降雪量 &apos; + Math.ceil(current.snow[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;`;</span><br><span class="line">                    bot.say(&#123;  text: text,  channel: channel  &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        start: true,</span><br><span class="line">        timeZone: &apos;Asia/Tokyo&apos;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></table></figure>
+<p>Slack ボット の 基本的な作りは <a href="/2017/01/12/Slackのボットで定時アクション/">Slack の ボット で 定時アクション</a> の 実装と変わりがありません.<br>※ 今回は <code>#sandbox</code> へ 発言するので <code>const channel = &#39;sandbox&#39;;</code> としていますが、ID で 指定したほうがよいので <code>https://slack.com/api/channels.list?token=[API_TOKEN]</code> へ アクセスして、ID を 調べます. また、発言先のチャンネルへボットが参加している必要があります.</p>
+<p>今回は Unix Timestamp の 処理のために、<code>moment-timezone</code> を 使いました. Unix Timestamp から、指定したタイムゾーンでの表記にするには、<code>moment</code> ではなく <code>moment-timezone</code> が 必要となります. また、クラウド環境などでタイムゾーンが異なる環境で動作させる場合も、タイムゾーンを指定しておく必要があります. 今回はロケールに関する出力はありませんが、合わせて設定しておきます.  設定方法は以下のコードとなります.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">moment.locale(&apos;ja&apos;);</span><br><span class="line">moment.tz.setDefault(&apos;Asia/Tokyo&apos;);</span><br></pre></table></figure></p>
+<p>続いて、<code>cron.CronJob</code> の <code>onTick</code> で OpenWeatherMap の API へ HTTP GET して、天気情報を取得して、Botkit で 話してもらう処理になります.<br><a href="/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/">天気情報 の JSON も 確認</a>できましたので、この内容を文章化するだけになります. その辺が <code>let text = ...;</code> に なりますが、JSON (ここでは <code>current</code> 変数) から取り出してつなぐだけですが、文字列の連結なのでかなり、ごった煮状態です…</p>
+<p>文章を作っているところを 1行ずつ確認したいと思います.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">`$&#123;moment.unix(current.dt).format(&apos;H:mm&apos;)&#125; 現在 $&#123;current.name&#125; の 天気` +</span><br></pre></table></figure></p>
+<p>日付を扱う <a href="https://momentjs.com/" target="_blank" rel="noopener">Moment.js</a> を 使い、データ計算時間 の Unix 秒 を フォーマットし、<code>${current.name}</code> で 都市名を取り出しています.<br>都市名は ID を 指定している時点でわっているので明示しても良いのですが、都市 ID を 切り替えるだけで動作できるので、JSON から取り出しています.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">`&lt;http://openweathermap.org/img/w/$&#123;current.weather[0].icon.replace(&apos;n&apos;, &apos;d&apos;)&#125;.png?$&#123;moment().unix()&#125;| &gt; ` +</span><br></pre></table></figure>
+<p>OpenWeatherMap の アイコンを表示する部分になります. <code>&lt;url|text&gt;</code> の 形式 で ポストすることで、URL の 代わりに文字列のリンクをポストできます. 今回はリンクを出す必要がないので <code>&lt;url| &gt;</code> と スペースを入れることで潰しています. スペースなしだと URL が 表示されたのでスペースにしました.<br>アイコンのファイル名ですが、<code>${current.weather[0].icon.replace(&#39;n&#39;, &#39;d&#39;)}.png</code> としています. 午前 7時だと夜用アイコンが表示されるので、常に昼用のアイコンを使うようにしています.<br>また URL の 最後の <code>?${moment().unix()}</code> ですが、Slack が 同じ画像 の URL が ポストされた際に展開されない(画像表示されない) という動作をしました. そのため 現在 の Unix timestamp を 付けています. <code>current.dt</code> を つけるのも手です. (開発時に困ったので Unix timestamp にしました)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">`$&#123;current.weather[0].main&#125;($&#123;current.weather[0].description&#125;) / ` +</span><br></pre></table></figure>
+<p>現在 の 天気グループ と 天気状態 の 出力になります. (どちらかだけ、でもよかったかも…)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">`気温 $&#123;Math.round(current.main.temp)&#125; ℃ ` +</span><br></pre></table></figure>
+<p>気温です. 読みやすさ重視で、ざっくり小数点以下を四捨五入して、整数表示にしてます.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">`$&#123;current.rain &amp;&amp; current.rain[&apos;3h&apos;] ? &apos;/ 降雨量 &apos; + Math.ceil(current.rain[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;` +</span><br><span class="line">`$&#123;current.snow &amp;&amp; current.snow[&apos;3h&apos;] ? &apos;/ 降雪量 &apos; + Math.ceil(current.snow[&apos;3h&apos;] * 10) / 10 + &apos; mm &apos; : &apos;&apos; &#125;`;</span><br></pre></table></figure>
+<p>降水量です. 雨 と 雪 で データが異なり、また両方に値が入っているケースがあります. しかも、<code>current.rain</code> と <code>current.snow</code> に 空オブジェクトが入るケースがあったので、<code>current.rain &amp;&amp; current.rain[&#39;3h&#39;]</code> と 両方を確認して、値が存在したら出力するようにしています.<br>また四捨五入すると 天気 が 雨 なのに <code>0 mm</code> に なるケースもあるので、切り上げにしています.</p>
+<h2 id="通知！"><a href="#通知！" class="headerlink" title="通知！"></a>通知！</h2><p><img src="/assets/slack/weather/06.png" alt><br>天気が通知されました.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>これで定時アクションの定番、毎朝の天気情報 が Slack に 通知できるようになりました！</p>
+<p>天気情報が英語な部分が気になりますが、OpenWeatherMap は 他言語対応されているものの日本語には対応していないので、とりあえずアプリ側で対応する方法を考えてみたいとおもいます.</p>
+<p>また単に天気情報を通知するだけでしたら、もっと良いアプリや <a href="https://ja.wikipedia.org/wiki/IFTTT" target="_blank" rel="noopener">IFTTT</a> 連携などでもっと手軽に作れます. せっかく自前で実装したのですから、もう少し工夫を追加してみたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/02/01/Slackのボットで今日の天気を通知する-Slackボット実装編/" data-id="ckq2rxvbh004a44r2zvz5q8gs" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのボットで今日の天気を通知する-JSON確認編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/" class="article-date">
+  <time datetime="2017-01-28T15:00:00.000Z" itemprop="datePublished">2017-01-29</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/">Slack の ボット で 今日の天気を通知する - JSON 確認編</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>OpenWeatherMap の サービスを使って、<a href="/2017/01/24/Slackのボットで今日の天気を通知する-JSON取得編/">天気情報を取得できる</a>ようになりました.<br>今回は取得した JSON の 内容を確認し、必要な情報が使えるようにしたいと思います. 雨と雪の情報もほしかったので、札幌市の天気を取得しました.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Node.js 6.9.1 LTS</li>
+</ul>
+<h2 id="現在の天気情報-JSON"><a href="#現在の天気情報-JSON" class="headerlink" title="現在の天気情報 JSON"></a>現在の天気情報 JSON</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre><td class="code"><pre><span class="line">&#123; coord: &#123; lon: 141.35, lat: 43.06 &#125;,</span><br><span class="line">  weather:</span><br><span class="line">   [ &#123; id: 501,</span><br><span class="line">       main: 'Rain',</span><br><span class="line">       description: 'moderate rain',</span><br><span class="line">       icon: '10d' &#125; ],</span><br><span class="line">  base: 'stations',</span><br><span class="line">  main:</span><br><span class="line">   &#123; temp: 4.01,</span><br><span class="line">     pressure: 994.64,</span><br><span class="line">     humidity: 97,</span><br><span class="line">     temp_min: 4.01,</span><br><span class="line">     temp_max: 4.01,</span><br><span class="line">     sea_level: 1008.09,</span><br><span class="line">     grnd_level: 994.64 &#125;,</span><br><span class="line">  wind: &#123; speed: 9.56, deg: 194.002 &#125;,</span><br><span class="line">  rain: &#123; 3h: 4.905 &#125;,</span><br><span class="line">  clouds: &#123; all: 88 &#125;,</span><br><span class="line">  dt: 1485498017,</span><br><span class="line">  sys:</span><br><span class="line">   &#123; message: 0.0083,</span><br><span class="line">     country: 'JP',</span><br><span class="line">     sunrise: 1485467687,</span><br><span class="line">     sunset: 1485502824 &#125;,</span><br><span class="line">  id: 2128295,</span><br><span class="line">  name: 'Sapporo-shi',</span><br><span class="line">  cod: 200 &#125;</span><br></pre></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ノード
+<th style="text-align:left">参考値
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left"><code>coord</code>
+<td style="text-align:left"><code>{ lon: 141.35, lat: 43.06 }</code>
+<td style="text-align:left">都市の緯度経度
+
+<tr>
+<td style="text-align:left"><code>weather.id</code>
+<td style="text-align:left"><code>501</code>
+<td style="text-align:left">天気状態 の ID*
+
+<tr>
+<td style="text-align:left"><code>weather.main</code>
+<td style="text-align:left"><code>Rain</code>
+<td style="text-align:left">天気状態 の グループ名*
+
+<tr>
+<td style="text-align:left"><code>weather.description</code>
+<td style="text-align:left"><code>moderate rain</code>
+<td style="text-align:left">天気状態*
+
+<tr>
+<td style="text-align:left"><code>weather.icon</code>
+<td style="text-align:left"><code>10d</code>
+<td style="text-align:left">天気アイコン ID*
+
+<tr>
+<td style="text-align:left"><code>main.temp</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">気温
+
+<tr>
+<td style="text-align:left"><code>main.pressure</code>
+<td style="text-align:left"><code>994.64</code>
+<td style="text-align:left">気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>main.humidity</code>
+<td style="text-align:left"><code>97</code>
+<td style="text-align:left">湿度、単位は %
+
+<tr>
+<td style="text-align:left"><code>main.temp_min</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">現時点での最低気温
+
+<tr>
+<td style="text-align:left"><code>main.temp_max</code>
+<td style="text-align:left"><code>4.01</code>
+<td style="text-align:left">現時点での最高気温
+
+<tr>
+<td style="text-align:left"><code>main.sea_level</code>
+<td style="text-align:left"><code>1008.09</code>
+<td style="text-align:left">海上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>main.grnd_level</code>
+<td style="text-align:left"><code>994.64</code>
+<td style="text-align:left">地上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>wind.speed</code>
+<td style="text-align:left"><code>9.56</code>
+<td style="text-align:left">風速、単位は メートル/秒
+
+<tr>
+<td style="text-align:left"><code>wind.deg</code>
+<td style="text-align:left"><code>194.002</code>
+<td style="text-align:left">風向、北 0 の 時計回り
+
+<tr>
+<td style="text-align:left"><code>clouds</code>
+<td style="text-align:left"><code>{ all: 88 }</code>
+<td style="text-align:left">曇り度合、単位は %
+
+<tr>
+<td style="text-align:left"><code>rain.3h</code>
+<td style="text-align:left"><code>4.905</code>
+<td style="text-align:left">過去3時間の降雨量
+
+<tr>
+<td style="text-align:left"><code>snow.3h</code>
+<td style="text-align:left">
+<td style="text-align:left">過去3時間の降雪量
+
+<tr>
+<td style="text-align:left"><code>dt</code>
+<td style="text-align:left"><code>1485498017</code>
+<td style="text-align:left">データ計算時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>sys.country</code>
+<td style="text-align:left"><code>JP</code>
+<td style="text-align:left">国コード
+
+<tr>
+<td style="text-align:left"><code>sys.sunrise</code>
+<td style="text-align:left"><code>1485467687</code>
+<td style="text-align:left">日の出時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>sys.sunset</code>
+<td style="text-align:left"><code>1485502824</code>
+<td style="text-align:left">日の入り時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>id</code>
+<td style="text-align:left"><code>2128295</code>
+<td style="text-align:left">都市 ID
+
+<tr>
+<td style="text-align:left"><code>name</code>
+<td style="text-align:left"><code>Sapporo-shi</code>
+<td style="text-align:left">都市名
+
+
+</table>
+<ul>
+<li><a href="http://openweathermap.org/weather-conditions" target="_blank" rel="noopener">Weather condition codes</a> に 対応表がある<br>※ API ドキュメントに <code>Internal parameter</code> とあるものは除く</li>
+</ul>
+<h2 id="3時間ごと-5日間-の-天気予報-JSON"><a href="#3時間ごと-5日間-の-天気予報-JSON" class="headerlink" title="3時間ごと 5日間 の 天気予報 JSON"></a>3時間ごと 5日間 の 天気予報 JSON</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre><td class="code"><pre><span class="line">&#123; city:</span><br><span class="line">   &#123; id: 2128295,</span><br><span class="line">     name: 'Sapporo-shi',</span><br><span class="line">     coord: &#123; lon: 141.346939, lat: 43.064171 &#125;,</span><br><span class="line">     country: 'JP',</span><br><span class="line">     population: 0,</span><br><span class="line">     sys: &#123; population: 0 &#125; &#125;,</span><br><span class="line">  cod: '200',</span><br><span class="line">  message: 0.1264,</span><br><span class="line">  cnt: 38,</span><br><span class="line">  list:</span><br><span class="line">   [ &#123; dt: 1485507600,</span><br><span class="line">       main:</span><br><span class="line">        &#123; temp: 0.15,</span><br><span class="line">          temp_min: 0.15,</span><br><span class="line">          temp_max: 0.15,</span><br><span class="line">          pressure: 1000.35,</span><br><span class="line">          sea_level: 1013.94,</span><br><span class="line">          grnd_level: 1000.35,</span><br><span class="line">          humidity: 91,</span><br><span class="line">          temp_kf: 0 &#125;,</span><br><span class="line">       weather:</span><br><span class="line">        [ &#123; id: 500,</span><br><span class="line">            main: 'Rain',</span><br><span class="line">            description: 'light rain',</span><br><span class="line">            icon: '10n' &#125; ],</span><br><span class="line">       clouds: &#123; all: 56 &#125;,</span><br><span class="line">       rain: &#123; 3h: 0.2975&#125;,</span><br><span class="line">       snow: &#123; 3h: 0.1575&#125;,</span><br><span class="line">       wind: &#123; speed: 8.3, deg: 258.503 &#125;,</span><br><span class="line">       sys: &#123; pod: 'n' &#125;,</span><br><span class="line">       dt_txt: '2017-01-27 09:00:00' &#125;,</span><br><span class="line">     &#123; ... (3時間ごとの繰り返し) &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ノード
+<th style="text-align:left">参考値
+<th style="text-align:left">概要
+
+
+<tbody>
+<tr>
+<td style="text-align:left"><code>city.id</code>
+<td style="text-align:left"><code>2128295</code>
+<td style="text-align:left">都市 ID
+
+<tr>
+<td style="text-align:left"><code>city.name</code>
+<td style="text-align:left"><code>Sapporo-shi</code>
+<td style="text-align:left">都市名
+
+<tr>
+<td style="text-align:left"><code>city.coord</code>
+<td style="text-align:left"><code>{ lon: 141.346939, lat: 43.064171 }</code>
+<td style="text-align:left">都市の緯度経度
+
+<tr>
+<td style="text-align:left"><code>city.country</code>
+<td style="text-align:left"><code>JP</code>
+<td style="text-align:left">国コード
+
+<tr>
+<td style="text-align:left"><code>cnt</code>
+<td style="text-align:left"><code>38</code>
+<td style="text-align:left">レコード件数
+
+<tr>
+<td style="text-align:left"><code>list.dt</code>
+<td style="text-align:left"><code>1485507600</code>
+<td style="text-align:left">データ計算時間、Unix,UTC
+
+<tr>
+<td style="text-align:left"><code>list.main.temp</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">気温
+
+<tr>
+<td style="text-align:left"><code>list.main.temp_min</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">計算時の最低気温
+
+<tr>
+<td style="text-align:left"><code>list.main.temp_max</code>
+<td style="text-align:left"><code>0.15</code>
+<td style="text-align:left">計算時の最高気温
+
+<tr>
+<td style="text-align:left"><code>list.main.pressure</code>
+<td style="text-align:left"><code>1000.35</code>
+<td style="text-align:left">気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.sea_level</code>
+<td style="text-align:left"><code>1013.94</code>
+<td style="text-align:left">海上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.grnd_level</code>
+<td style="text-align:left"><code>1000.35</code>
+<td style="text-align:left">地上の気圧、単位は hPa
+
+<tr>
+<td style="text-align:left"><code>list.main.humidity</code>
+<td style="text-align:left"><code>91</code>
+<td style="text-align:left">湿度、単位は %
+
+<tr>
+<td style="text-align:left"><code>list.weather.id</code>
+<td style="text-align:left"><code>500</code>
+<td style="text-align:left">天気状態 の ID*
+
+<tr>
+<td style="text-align:left"><code>list.weather.main</code>
+<td style="text-align:left"><code>Rain</code>
+<td style="text-align:left">天気状態 の グループ名*
+
+<tr>
+<td style="text-align:left"><code>list.weather.description</code>
+<td style="text-align:left"><code>light rain</code>
+<td style="text-align:left">天気状態*
+
+<tr>
+<td style="text-align:left"><code>list.weather.icon</code>
+<td style="text-align:left"><code>10n</code>
+<td style="text-align:left">天気アイコン ID*
+
+<tr>
+<td style="text-align:left"><code>list.clouds.all</code>
+<td style="text-align:left"><code>56</code>
+<td style="text-align:left">曇り度合、単位は %
+
+<tr>
+<td style="text-align:left"><code>list.wind.speed</code>
+<td style="text-align:left"><code>8.3</code>
+<td style="text-align:left">風速、単位は メートル/秒
+
+<tr>
+<td style="text-align:left"><code>list.wind.deg</code>
+<td style="text-align:left"><code>258.503</code>
+<td style="text-align:left">風向、北 0 の 時計回り
+
+<tr>
+<td style="text-align:left"><code>list.rain.3h</code>
+<td style="text-align:left"><code>0.2975</code>
+<td style="text-align:left">過去3時間の降雨量
+
+<tr>
+<td style="text-align:left"><code>list.snow.3h</code>
+<td style="text-align:left"><code>0.1575</code>
+<td style="text-align:left">過去3時間の降雪量
+
+<tr>
+<td style="text-align:left"><code>list.dt_txt</code>
+<td style="text-align:left"><code>2017-01-27 09:00:00</code>
+<td style="text-align:left">データ計算時間、UTC
+
+
+</table>
+<ul>
+<li><a href="http://openweathermap.org/weather-conditions" target="_blank" rel="noopener">Weather condition codes</a> に 対応表がある<br>※ API ドキュメントに <code>Internal parameter</code> とあるものは除く</li>
+</ul>
+<h2 id="データの利用について検討"><a href="#データの利用について検討" class="headerlink" title="データの利用について検討"></a>データの利用について検討</h2><p>現在の天気と予報では JSON の パラメータ名が異なるものの、おおよそで同じような内容になっています.</p>
+<p>天気を表す部分では <code>weather.main</code> が 中心で、グループ名(<code>main</code>) もしくは 天気状態(<code>description</code>) や アイコンを使って天気を表す感じでしょうか.<br>アイコンは <a href="http://openweathermap.org/img/w/10d.png" target="_blank" rel="noopener">http://openweathermap.org/img/w/10d.png</a> の 最後の部分 <code>10d</code> に JSON で 取得した値を入れることで取得できます. 昼夜で <code>10d</code>、<code>10n</code> のようにアイコンが変わるようです.</p>
+<p>気温などは <code>main</code> に 入っています. ここは単位を付けるだけで簡単に使えそうです. <code>temp_min</code> と <code>temp_max</code> は 大きい都市で気温差が出るようなケースに値が変わるようです.</p>
+<p>風、特に風向きについては北を 0° として<a href="https://ja.wikipedia.org/wiki/%E9%A2%A8%E5%90%91" target="_blank" rel="noopener">表現するよう</a>です. 現在の天気の JSON では <code>wind: { speed: 9.56, deg: 194.002 }</code> と なっていたので、南南西の風 9.5 メートル/秒 ですね.</p>
+<p>降雨量 と 降雪量 は <code>rain.3h</code> と <code>snow.3h</code> に 過去3時間のデータが入ります. 降っていない場合は JSON に パラメータがないか、<code>3h</code> の パラメータがない状態となります. プログラム言語によって工夫が必要かもしれません. API ドキュメントには単位が乗ってませんでしたがミリメートルと思われます. 雨と雪の両方のデータが入っているケースがあり、その場合はどんな状況なのか、ちょっと気になります.</p>
+<p>現在の天気のデータ計算時間は <code>dt</code> に 入っており、Unix,UTC と なっているのですが、Unix <strong>秒</strong> です. <code>dt</code> や <code>sunrise</code>、<code>sunset</code> を 扱う場合は、プログラム言語の処理系に合わせての対応が必要です.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>必要なものがそろっており、JSON で 簡単にアクセスできるので助かります.<br>あとは、このデータを使わせてもらって、必要な時に必要な情報を流せるボットを作るだけですね！</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/01/29/Slackのボットで今日の天気を通知する-JSON確認編/" data-id="ckq2rxvd400a344r2q8sc2k4u" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/13/Slackのボットでランダムなカスタム絵文字リアクションをする/" title="Slack の ボット で ランダムなカスタム絵文字リアクション を する" rel="bookmark">Slack の ボット で ランダムなカスタム絵文字リアクション を する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 戻る</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">次へ &raquo;</a>
+  </nav></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

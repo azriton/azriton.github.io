@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない | 験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta name="description" content="前回 CircleCI で Hexo の 自動ビルド と デプロイ設定 で GitHub の source ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている master ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします">
+<meta name="keywords" content="CircleCI,GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない">
+<meta property="og:url" content="https://azriton.github.io/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:description" content="前回 CircleCI で Hexo の 自動ビルド と デプロイ設定 で GitHub の source ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている master ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/circleci.png">
+<meta property="og:image" content="https://azriton.github.io/assets/circleci/hexo-master-error.png">
+<meta property="og:updated_time" content="2021-06-18T20:17:45.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない">
+<meta name="twitter:description" content="前回 CircleCI で Hexo の 自動ビルド と デプロイ設定 で GitHub の source ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている master ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします">
+<meta name="twitter:image" content="https://azriton.github.io/assets/circleci/circleci.png">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" class="article-date">
+  <time datetime="2016-12-08T15:00:00.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p>前回 <a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/">CircleCI で Hexo の 自動ビルド と デプロイ設定</a> で GitHub の <code>source</code> ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.<br>これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている <code>master</code> ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします. (止めないと記事を公開するたびに、ビルドエラーの通知が来てしまう…)</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="エラー-の-原因"><a href="#エラー-の-原因" class="headerlink" title="エラー の 原因"></a>エラー の 原因</h2><p>CircleCI の ビルド画面 や、エラー通知のメールを見るとわかりますが [NO TESTS] と なっています. 前回の記事の通り、CircleCI は テストがないとエラーとして扱うためです.<br>では このエラーはどこから来たのか、これは [master] と 書かれているように、<code>master</code> ブランチをビルドして、テストがないためにエラーとなったものになります.<br><img src="/assets/circleci/hexo-master-error.png" alt></p>
+<p>はて、以下に抜粋した通り <code>circle.yml</code> で ビルドするのは <code>source</code> ブランチに限っているはずです. なぜ <code>master</code> ブランチでビルドが走ってしまったのでしょうか？<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line"><span class="attr">general:</span></span><br><span class="line"><span class="attr">  branches:</span></span><br><span class="line"><span class="attr">    only:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">source</span></span><br></pre></table></figure></p>
+<p>原因は、<a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">Hexo と GitHub Pages で ブログ環境の構築</a> で ウェブサイトのソースをコミットする <code>source</code> ブランチを <code>git checkout --orphan source</code> コマンドで作成しているとことにあります.</p>
+<p><code>git checkout --orphan</code> は 親を持たない空のブランチを作成するオプション指定です. これにより <code>master</code> と <code>source</code> は 関連を持たないブランチとなっています.<br>その関連のない <code>source</code> ブランチに <code>circle.yml</code> は あるので、<code>master</code> は <code>circle.yml</code> を 持たない状態になっています. そのため、いくらビルドするブランチから <code>master</code> を 外してもビルドは行われる状況になっていたということになります.</p>
+<h2 id="master-ブランチをビルドさせない対策検討"><a href="#master-ブランチをビルドさせない対策検討" class="headerlink" title="master ブランチをビルドさせない対策検討"></a>master ブランチをビルドさせない対策検討</h2><p>原因が分かったので対策に入りたいと思います.</p>
+<p>まず浮かぶのは <code>master</code> ブランチ に <code>circle.yml</code> を 置く方法です. この方法だと公開されるウェブサイトにも <code>circle.yml</code> が 配置され公開されることになります. う～ん、いまひとつ…</p>
+<p>ではどうするか、<a href="https://circleci.com/docs/skip-a-build/" target="_blank" rel="noopener">Skip a build - CircleCI</a> に 書かれている、コミット・メッセージ に <code>[ci skip]</code> もしくは <code>[skip ci]</code> を 含めるというやり方があります.</p>
+<p>この方法だと毎回のコミット・メッセージに <code>[ci skip]</code> を 入れることになりますが、ここのコミット・メッセージは Hexo が 自動で行っているため手間はかかりません. </p>
+<p>また コミット・メッセージ に 毎回入れてよいかという観点では、<code>master</code> ブランチは GitHub Pages の ウェブサイト公開用で Hexo で 上書きされ更新履歴のトラックも使っていません.</p>
+<p>以上の事から、コミット・メッセージに <code>[ci skip]</code> を いれても問題ないと考えられます.</p>
+<h2 id="コミット・メッセージ-に-ci-skip-を-入れる"><a href="#コミット・メッセージ-に-ci-skip-を-入れる" class="headerlink" title="コミット・メッセージ に [ci skip] を 入れる"></a>コミット・メッセージ に [ci skip] を 入れる</h2><p>Hexo の 設定ファイルである <code>_config.yml</code> の <code>deploy</code> セクション に <code>message</code> を 追加します.<br>今回はデフォルトのコメントの最後に <code>[ci skip]</code> を 追加する形にしました.<br>設定の詳細は、こちら <a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="noopener">Deployment | Hexo</a> に なります.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:[username]/[username].github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">"Site updated: <span class="template-variable">&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;</span> [ci skip]"</span></span><br></pre></table></figure></p>
+<hr>
+<p>以上で <code>master</code> ブランチのビルドを止めることができました.<br>CircleCI の ビルド・ログ にはスキップしたことが残ってしまいますが、基本的にエラーが発生しない限りは CI の 画面は見ないですし、不要な設定ファイルをウェブサイトのツリーに配置するよりはよいと思うので、まずは形で行こうかなと.<br>とはいえ、もっと良い方法があるといいのだけど.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" data-id="ckq2rxv9l000f44r2vyi3m1o8" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+      </footer>
+    
+  </div>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/12/11/Slackのアカウント作成/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Slack の アカウント作成
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">CircleCI で Hexo の 自動ビルド と デプロイ設定</div>
+    </a>
+  
+</nav>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/05/CircleCIのアカウント作成/" title="CircleCI の アカウント作成" rel="bookmark">CircleCI の アカウント作成</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/14/CircleCIの通知をSlackへ送る/" title="CircleCI の 通知 を Slack へ 送る" rel="bookmark">CircleCI の 通知 を Slack へ 送る</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

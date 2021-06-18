@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="験なきものを思はずは">
+<meta property="og:url" content="https://azriton.github.io/page/9/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="験なきものを思はずは">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HexoにGoogle-Analyticsを設置する" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/20/HexoにGoogle-Analyticsを設置する/" class="article-date">
+  <time datetime="2016-12-19T15:00:00.000Z" itemprop="datePublished">2016-12-20</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/HexoにGoogle-Analyticsを設置する/">Hexo に Google Analytics を 設置する</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/hexo/hexo-3.2.png" alt title="Hexo"></p>
+<p>ブログを設置するからにはアクセス数などが見れるようにしたくなるものです.<br>よく <a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF" target="_blank" rel="noopener">アクセスカウンタ</a> を 設置して訪問していただいた数を表示することをしていましたが、現在では Google Analytics などを使って詳細な分析をするのが定番ですね.<br>ということで、Google Analytics を 設置したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Hexo 3.2</li>
+<li>Hexo Theme Landscape</li>
+<li>Google Analytics</li>
+</ul>
+<h2 id="Google-Analytics-の-アカウント作成"><a href="#Google-Analytics-の-アカウント作成" class="headerlink" title="Google Analytics の アカウント作成"></a>Google Analytics の アカウント作成</h2><p>Google Analytics を 使うには、Google の アカウントがっ必要ですが Gmail で よいので、ここでは持っているものとして、Google Analytics の アカウント作成に入りたいと思います.<br><a href="https://www.google.com/intl/ja_jp/analytics/" target="_blank" rel="noopener">Google Analytics</a> の ウェブサイトへアクセスし、[アカウントを作成] ボタンをクリックします.<br><img src="/assets/analytics/signup/01.png" alt></p>
+<p>Google アカウント の メールアドレスを入力し、[次へ] ボタンをクリックします.<br>GoogleApps で 独自ドメインを設定しているメールアドレスでも利用できました.<br><img src="/assets/analytics/signup/02.png" alt></p>
+<p>Google アカウントのパスワードを入力し、[ログイン] ボタンをクリックします.<br><img src="/assets/analytics/signup/03.png" alt></p>
+<p>アカウント作成のステップが表示されるので、画面右の [お申込み] ボタンをクリックします.<br><img src="/assets/analytics/signup/04.png" alt></p>
+<p>アカウントの設定情報を入力する画面が表示されます. 自分のウェブサイトに合わせた情報を入力していきます.<br>今回は、アカウント名を GitHub Pages の リポジトリに合わせました.<br>サイト名 や URL は ウェブサイトに合せます.<br>業種は特に選択する必要はないですが、設定してないと後で設定するようにアラートがでます.<br>タイムゾーンは日本に合わせ、データ共有設定は初期値のままにしました.<br><img src="/assets/analytics/signup/05.png" alt></p>
+<p>利用規約の確認画面が表示されます. 同意しないと始まりませんが問題があるようでしたら同意せず利用しないという選択になります.<br>“お住まいの国または地域の利用規約に同意” と あるように、英語で表示されているものを [日本] に 選択しなおし、内容を確認し問題ないようでしたら [同意する] ボタンをクリックします.<br><img src="/assets/analytics/signup/06.png" alt></p>
+<p>Google Analytics の アカウントが作成され、トラッキング ID が 発行されます.<br>この ID を コピーしておきます.<br><img src="/assets/analytics/signup/07.png" alt></p>
+<h2 id="Hexo-Theme-Landscape-に-設定"><a href="#Hexo-Theme-Landscape-に-設定" class="headerlink" title="Hexo Theme Landscape に 設定"></a>Hexo Theme Landscape に 設定</h2><p>Hexo の デフォルト・テーマ Landscape は Google Analytics に 対応しています.<br>テーマの設定ファイル <code>/[username].github.io/themes/landscape/_config.yml</code> に Google Analytics の トラッキング ID を 設定します.<br><code>google_analytics</code> は すでに用意されているので、トラッキング ID を 書くだけの簡単設定です. たすかります！<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line"><span class="comment"># Miscellaneous</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">UA-7153XXXX-4</span></span><br></pre></table></figure></p>
+<p>※ Hexo の 設定ファイル <code>/[username].github.io/_config.yml</code> と 異なることに注意. ファイル名が同じですがテーマのフォルダの中になります.</p>
+<h2 id="いざ確認！"><a href="#いざ確認！" class="headerlink" title="いざ確認！"></a>いざ確認！</h2><p><code>hexo generate</code> して ローカルサーバで動作確認すると、<code>&lt;head&gt;</code> に Google Analytics のためのコードが追加されています.<br><img src="/assets/analytics/signup/08.png" alt></p>
+<p>トラック ID が 正しいことを確認し、<code>hexo deploy</code> で GitHub Pages へ アップします.<br>Google Analytics の リアルタイム・レポートを見ながら、もう一つのブラウザで本サイトへアクセスすると、アクセス数が表示されます.<br>うん、自分以外居ない… orz<br><img src="/assets/analytics/signup/09.png" alt></p>
+<hr>
+<p>無事、Google Analytics を 設置することができました.<br>トラッキング ID の 設定だけで追加してくれるので簡単ですね. 今後テーマを変えることもあるかと思いますが、できるだけ自動でやってくれるものを使いたいものです.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/20/HexoにGoogle-Analyticsを設置する/" data-id="ckq2rxv9n000k44r2xmhejq6b" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/13/Hexoの新規投稿パスをカスタマイズ/" title="Hexo の 新規投稿パス を カスタマイズ" rel="bookmark">Hexo の 新規投稿パス を カスタマイズ</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/07/Hexoのフィードとサイトマップを設定/" title="Hexo の フィード と サイトマップ を 設定" rel="bookmark">Hexo の フィード と サイトマップ を 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/10/ところで、Hexoって何て読むんだろ？/" title="ところで、Hexo って 何て読むんだろ？" rel="bookmark">ところで、Hexo って 何て読むんだろ？</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackにボットを設置する" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/17/Slackにボットを設置する/" class="article-date">
+  <time datetime="2016-12-16T15:00:00.000Z" itemprop="datePublished">2016-12-17</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ボット/">ボット</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/17/Slackにボットを設置する/">Slack に ボット を 設置する</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>Slack を <a href="/2016/12/14/CircleCIの通知をSlackへ送る/">CircleCI に 連携した</a> ように、Slack は さまざまなサービスと連携できます. またボットを設置して会話への応答やアクションを実行することも可能です. 最近は Slack の ような チャット・ツールからインフラのオペレーションを実行する ChatOps というキーワードも登場しています.<br>今回は Slack に 簡単なボットを設置したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Botkit 0.4.2</li>
+</ul>
+<h2 id="Slack-の-Bots-を-作成"><a href="#Slack-の-Bots-を-作成" class="headerlink" title="Slack の Bots を 作成"></a>Slack の Bots を 作成</h2><p>まずは Slack に Bots の カスタム連携 を 追加します.<br>Slack へ ログインし、ボットの追加画面 <a href="https://my.slack.com/services/new/bot" target="_blank" rel="noopener">https://my.slack.com/services/new/bot</a> へ アクセスします.<br>ボットの名前を入力し、[Add bot integration] ボタンをクリックします. 今回は <code>bot</code> と しました. (ちゃんと名前を付けてあげよう… orz)<br><img src="/assets/slack/bot/01.png" alt></p>
+<p>ボットが作成されました. 各種設定が行える画面が表示されるので、通知名やアイコンなどを必要に応じて変更します. せっかくのボットなので、ちゃんと名前とアイコンを付けてかわいがりましょう. 変更した際には画面下の [Save Integration] を クリックします.<br>最後に、API Token を コピーしておきます.<br><img src="/assets/slack/bot/02.png" alt></p>
+<p>Slack の チャット画面に戻り、ボットが参加するチャンネルを表示し、<code>/invite @[BOT_NAME]</code> と コマンドを実行します. 今回は <code>sandbox</code> チャンネル で　<code>/invite @bot</code> と しました.<br><img src="/assets/slack/bot/03.png" alt></p>
+<p>無事、ボットがチャンネルに参加しました.<br><img src="/assets/slack/bot/04.png" alt></p>
+<h2 id="Botkit-で-ボットのプログラムを作成"><a href="#Botkit-で-ボットのプログラムを作成" class="headerlink" title="Botkit で ボットのプログラムを作成"></a>Botkit で ボットのプログラムを作成</h2><p>ボットのプログラムを作成します. Slack の ボット というと、GitHub の <a href="https://hubot.github.com/" target="_blank" rel="noopener">Hubot</a> が 有名ですが、開発が止まってしまったようです. 残念…<br>今回は Slack から <a href="https://slackhq.com/the-slack-platform-launch-7a3feb5a423a#.y91c7qd6o" target="_blank" rel="noopener">発表</a> された Howdy の <a href="https://github.com/howdyai/botkit" target="_blank" rel="noopener">Botkit</a> を 使いたいと思います.</p>
+<p>作業ディレクトリを <code>c:\Develop\repos</code>、プロジェクト名 を <code>slack-bot</code> とします. まずは <code>npm init</code> で プロジェクト作成を行います. 基本的にはエンターを押していくだけで問題ありません. <code>license</code> は 公開するならライセンス設定をしますし、今回は特に公開しないので <code>UNLICENSED</code> に しました.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre><td class="code"><pre><span class="line">c:\Develop\repos&gt; mkdir slack-bot</span><br><span class="line">c:\Develop\repos&gt; cd slack-bot</span><br><span class="line"></span><br><span class="line">c:\Develop\repos\slack-bot&gt; npm init</span><br><span class="line">name: (slack-bot)</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description:</span><br><span class="line">entry point: (index.js)</span><br><span class="line">test command:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC) UNLICENSED</span><br><span class="line">About to write to c:\Develop\repos\slack-bot\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;test&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;UNLICENSED&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this ok? (yes)</span><br></pre></table></figure></p>
+<p>プロジェクト作成後、Botkit を インストールします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">c:\Develop\repos\slack-bot&gt; npm install botkit --save</span><br></pre></table></figure></p>
+<p>ボットのプログラムを作成します. プロジェクト直下に <code>index.js</code> ファイルを作成します.<br>まずは基本動作の確認からなので、Botkit の readme.md <a href="https://github.com/howdyai/botkit/blob/master/docs/readme.md#basic-usage" target="_blank" rel="noopener">#Basic Usage</a> になります.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">const</span> Botkit = <span class="built_in">require</span>(<span class="string">'botkit'</span>);</span><br><span class="line"><span class="keyword">const</span> controller = Botkit.slackbot();</span><br><span class="line"></span><br><span class="line">controller.spawn(&#123;</span><br><span class="line">    token : process.env.token</span><br><span class="line">&#125;).startRTM();</span><br><span class="line"></span><br><span class="line">controller.hears(<span class="string">'hello'</span>, [ <span class="string">'direct_message'</span>, <span class="string">'direct_mention'</span>, <span class="string">'mention'</span> ], (bot, message) =&gt; &#123;</span><br><span class="line">    bot.reply(message, <span class="string">'Hello yourself.'</span>);</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p>ボットのプログラムができたら起動します.<br><code>[API_TOKEN]</code> は Slack からコピーした、ボットの API Token に なります.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">c:\Develop\repos\slack-bot&gt; set token=[API_TOKEN]</span><br><span class="line">c:\Develop\repos\slack-bot&gt; node index.js</span><br><span class="line">info: ** No persistent storage method specified! Data may be lost when process shuts down.</span><br><span class="line">info: ** Setting up custom handlers for processing Slack messages</span><br><span class="line">info: ** API CALL: https://slack.com/api/rtm.start</span><br><span class="line">notice: ** BOT ID: bot ...attempting to connect to RTM!</span><br><span class="line">notice: RTM websocket opened</span><br></pre></table></figure></p>
+<h2 id="Hello-ボット！"><a href="#Hello-ボット！" class="headerlink" title="Hello ボット！"></a>Hello ボット！</h2><p>ボットのプログラムが起動すると、DIRECT MESSAGES の ボットのユーザ名(ここでは bot) の 左のアイコンに色がつき ● になります. 色がない ○ の 場合は接続できていないのでプログラムのログなどを確認し接続できるようにします.<br>接続できたら <code>@bot hello</code> と、メンション で <code>hello</code> を ボットに送ります.<br><img src="/assets/slack/bot/05.png" alt></p>
+<p>ボット が <code>Helllo yourself.</code> と 返してくれました！<br><img src="/assets/slack/bot/06.png" alt></p>
+<p>先ほどのプログラムの以下の部分が会話の処理になります.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">controller.hears(<span class="string">'hello'</span>, [ <span class="string">'direct_message'</span>, <span class="string">'direct_mention'</span>, <span class="string">'mention'</span> ], (bot, message) =&gt; &#123;</span><br><span class="line">    bot.reply(message, <span class="string">'Hello yourself.'</span>);</span><br><span class="line">&#125;);</span><br></pre></table></figure></p>
+<p><code>controller.hears()</code> の 第１引数で反応するメッセージ、第２引数で聞く(反応する)イベントを指定しています.<br>今回は <code>hello</code> という 文字列を以下のイベントで待っているという処理になります.</p>
+<ul>
+<li><strong>direct_message</strong>: ダイレクト・メッセージ</li>
+<li><strong>direct_mention</strong>: 名前で始まるメンションのメッセージ (e.g. <code>@bot hello</code>)</li>
+<li><strong>mention</strong>: メンションのメッセージ (e.g. <code>hello @bot</code>)</li>
+</ul>
+<p>第３引数 に イベントに対する反応の処理を渡します. <code>bot.reply()</code> なので、今回はメッセージに対して <code>Hello yourself.</code> と 返事をする処理になります.</p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>Botkit を 使うことで、簡単にボットを実装することができました. メッセージ対して返事をするだけでなく、さまざまな処理ができますので、このボットを育てていきたいともいます.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/17/Slackにボットを設置する/" data-id="ckq2rxvb3003k44r275ghzc0x" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Botkit/">Botkit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/06/19/Slackのボットで2FA未設定ユーザを監視する-API確認編/" title="Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編" rel="bookmark">Slack の ボット で 2FA(Two-Factor Authentication / 2要素認証) 未設定ユーザ を 監視する - API 確認編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/21/SlackのボットでJRA競馬の開催日を通知する-Slackボット実装編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - Slack ボット 実装編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-CircleCIの通知をSlackへ送る" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/14/CircleCIの通知をSlackへ送る/" class="article-date">
+  <time datetime="2016-12-13T15:00:00.000Z" itemprop="datePublished">2016-12-14</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/14/CircleCIの通知をSlackへ送る/">CircleCI の 通知 を Slack へ 送る</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p>CircleCI で ビルドが失敗した際にメールで通知されます. この通知をチャットの Slack へ 流れるようにしたいと思います. 今回は、これまで作成してきた Hexo の 自動ビルドとデプロイが失敗した場合に Slack へ 通知するようにします.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+<li>Slack</li>
+</ul>
+<h2 id="Slack-側-の-設定"><a href="#Slack-側-の-設定" class="headerlink" title="Slack 側 の 設定"></a>Slack 側 の 設定</h2><p>Slack へ ログインし、こちら <a href="https://my.slack.com/apps/A0F7VRE7N-circleci" target="_blank" rel="noopener">https://my.slack.com/apps/A0F7VRE7N-circleci</a> から [Install] ボタンをクリックして CircleCI の 連携 を 追加します.<br>※ <a href="https://my.slack.com" target="_blank" rel="noopener">https://my.slack.com</a> の <code>my</code> は、それぞれ 自分の Slack へ 行ける 特殊なキーワードなので置き換え不要です. これ便利な機能ですよね！<br><img src="/assets/circleci/slack/01.png" alt></p>
+<p>CircleCI の 通知をポストするチャンネルを選択します. チーム開発などを行っている場合は、開発用のチャンネルへポストするようにします. 今回はブログのビルドとデプロイなので自分のプライベート・チャンネル(DM) へ ポストするようにしました. [Add CircleCI Integration] ボタンをクリックします.<br><img src="/assets/circleci/slack/02.png" alt></p>
+<p>無事、Slack に CircleCI 連携が追加されました. 各種設定が行える画面が表示されるので、通知名やアイコンなどを必要に応じて変更します. 変更した際には画面下の [Save Integration] を クリックします.<br>最後に、Step 2 に ある Webhook URL を コピーしておきます.<br><img src="/assets/circleci/slack/03.png" alt></p>
+<h2 id="CircleCI-側-の-設定"><a href="#CircleCI-側-の-設定" class="headerlink" title="CircleCI 側 の 設定"></a>CircleCI 側 の 設定</h2><p>CircleCI へ ログインし、連携するプロジェクトの設定ボタンをクリックします.<br><img src="/assets/circleci/slack/04.png" alt></p>
+<p>プロジェクトの設定画面の左メニューから [Chat Notifications] を クリックし、右の詳細から [Slack] の [Webhook URL] へ Slack の 設定からコピーした Integration の Webhook URL を 貼り付けます.<br>必要に応じてオプションを選択し、[&amp; Test Hook] ボタンをクリックします.<br>今回はチャンネルの上書きは必要ないので [Override room?] を [OFF] にし、ビルドに失敗したときと復旧したときの通知に限りたいので [Fixed/Failed Only] を [ON] に しました.<br><img src="/assets/circleci/slack/05.png" alt></p>
+<p>Slack へ 通知を送るようになったので、メールの通知を止めます.<br>画面左の全体メニューから 歯車アイコン の [Account Settings] を クリックします.<br>アカウント設定画面の左メニューから [Notifications] を クリックし、右の詳細から [Don’t send me emails] を クリックします.<br><img src="/assets/circleci/slack/06.png" alt></p>
+<h2 id="Slack-に-テストの通知が来てる！"><a href="#Slack-に-テストの通知が来てる！" class="headerlink" title="Slack に テストの通知が来てる！"></a>Slack に テストの通知が来てる！</h2><p><img src="/assets/circleci/slack/07.png" alt></p>
+<hr>
+<p>これで CircleCI からの通知は、ビルドに失敗＆復旧したときだけ Slack の DM へ 流れてくるようになりました.<br>Slack は いろいろな連携ができるので、引き続きいろいろな挑戦をしたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/14/CircleCIの通知をSlackへ送る/" data-id="ckq2rxv9k000e44r2qacoyr1z" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/04/Slackのボットで今日の天気を通知する-降水予報実装編/" title="Slack の ボット で 今日の天気を通知する - 降水予報 実装編" rel="bookmark">Slack の ボット で 今日の天気を通知する - 降水予報 実装編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/05/CircleCIのアカウント作成/" title="CircleCI の アカウント作成" rel="bookmark">CircleCI の アカウント作成</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" title="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない" rel="bookmark">CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/17/Slackにボットを設置する/" title="Slack に ボット を 設置する" rel="bookmark">Slack に ボット を 設置する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/11/Slackのアカウント作成/" title="Slack の アカウント作成" rel="bookmark">Slack の アカウント作成</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Slackのアカウント作成" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/11/Slackのアカウント作成/" class="article-date">
+  <time datetime="2016-12-10T15:00:00.000Z" itemprop="datePublished">2016-12-11</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/Slackのアカウント作成/">Slack の アカウント作成</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/slack/slack.png" alt title="Slack"></p>
+<p>これまでのコミュニケーション・ツールはメールが中心でしたが、これからはチャットの時代と言われており、その起爆剤となったのが Slack とも言われています.<br>Slack を 使って様々なサービスを連携してコミュニケーション基盤を構築したいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Slack</li>
+</ul>
+<h2 id="Slack-とは？"><a href="#Slack-とは？" class="headerlink" title="Slack とは？"></a>Slack とは？</h2><p>IT 関連企業を中心に流行っているチャット・ツールです.<br>チャット・ツールはインターネット初期からあり人気を博してきたツールで、ウェブでのコミュニケーションから、企業でのビジネス・ツールとしても様々なツールがありました. 特別新しいものではないのですが、Slack は 登場してから “公開から24時間以内に8000の顧客にサインアップされた - <a href="https://ja.wikipedia.org/wiki/Slack_%28%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%29" target="_blank" rel="noopener">Wikipedia</a>“ とも言われるほどの人気を誇っています.</p>
+<p>ソースコードのスニペット(断片)を貼り付けた際にハイライトされることや、マークダウンが使えるなどのエンジニア・フレンドリーであったことや、豊富な外部サービスとの連携が提供されていること、ボットなどで自由にカスタマイズできることなどが人気を得たとも言われています.</p>
+<p>長い物には巻かれろ、ではないですが 人気/流行りのツールは情報も多いし、さらなる機能拡張なども期待できることから、しっかり流れに乗っておきたいと思います.</p>
+<h2 id="アカウントの作成"><a href="#アカウントの作成" class="headerlink" title="アカウントの作成"></a>アカウントの作成</h2><p>Slack の ウェブサイト <a href="https://slack.com" target="_blank" rel="noopener">https://slack.com</a> へ アクセスします.<br>画面中央 の [Email address] へ サインアップするアカウントのメールアドレスを入力し、[Create New Team] ボタンをクリックします.<br>ここから入力することは後から変更可能なので思い切ってどんどん進めましょう.<br><img src="/assets/slack/signup/01.png" alt></p>
+<p>コンファメーション・コードの確認画面が表示されます.<br>先に入力したメールアドレスへコンファメーション・コードが届いているので入力します.<br><img src="/assets/slack/signup/02.png" alt></p>
+<p>ユーザ名とアカウントの姓名の入力画面が表示されます. Slack の 利用用途によりニックネームにしておくか本名かなどのルールがあるかと思います. 用途に合わせて入力します.<br><img src="/assets/slack/signup/03.png" alt></p>
+<p>パスワードの入力画面が表示されます.<br>珍しく一発勝負のパスワード入力欄です. 間違えてしまったらメールによる再設定ができるので、二回入力させる必要がないのかもしれませんね. とは言え、一発勝負となると途中で間違えてないか、意味もなくドキドキします.<br><img src="/assets/slack/signup/04.png" alt></p>
+<p>Slack チーム の 用途 と 規模 を 聞かれます. いくつかのチームを作ったことがあり、パターンも異なったのですが、ここでの選択が何かに影響している様子はないのでアンケートでしょうか. 選ばないと進めないので選択します.<br><img src="/assets/slack/signup/05.png" alt></p>
+<p>グループ名を入力します. Slack では、基本的にチームで呼ばれていますが、なぜかここだけはグループなので気になりますが、チーム名を入力します.<br><img src="/assets/slack/signup/06.png" alt></p>
+<p>チームのドメイン名の入力画面が表示されます. <code>team.slack.com</code> の スタイルで <code>slack.com</code> の サブドメインになるため、世界で一意になる必要があります. つまり早い者勝ちです. このサブドメインすら後から変更可能です. 自由だ！<br><img src="/assets/slack/signup/07.png" alt></p>
+<p>サブドメインまで設定できると、最後に利用規約の確認があるので内容を確認し、同意する場合は [I Agree] ボタンをクリックして進めます.<br><img src="/assets/slack/signup/08.png" alt></p>
+<p>メンバーの招待画面が表示されます. 後で招待もできるので [Skip For Now] ボタンをクリックします.<br><img src="/assets/slack/signup/09.png" alt></p>
+<p>無事 Slack アカウント と チーム が できました！<br><img src="/assets/slack/signup/10.png" alt></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51SYfM4adrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">はじめてみようSlack 使いこなすための31のヒント</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">Slack研究会 パーソナルメディア 2016-08-03    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4893623265" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01L7HCBT2%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14364488%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>            <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-89-362326-3%2520%257C%25204-893-62326-3%2520%257C%25204-8936-2326-3%2520%257C%25204-89362-326-3%2520%257C%25204-893623-26-3%2520%257C%25204-8936232-6-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51g9K9r7quL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Slack入門 [ChatOpsによるチーム開発の効率化]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">松下 雅和,小島 泰洋,長瀬 敦史,坂本 卓巳 技術評論社 2016-06-28    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774182389" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01HI2TD28%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14263497%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418238-4%2520%257C%25204-774-18238-4%2520%257C%25204-7741-8238-4%2520%257C%25204-77418-238-4%2520%257C%25204-774182-38-4%2520%257C%25204-7741823-8-4" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>Slack は いろいろなサービスと連携できるので、様々な通知を Slack に 集約できるようにしたいですね. またボットを使っていろいろな事もできるので、そちらにも挑戦したいと思います.<br>まずは、CircleCI の ビルド失敗時に Slack へ 通知できるようにしたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/11/Slackのアカウント作成/" data-id="ckq2rxvb5003o44r2bahrhhoc" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slack/">Slack</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/02/10/Slackのボットで定期的に降水予報を通知する/" title="Slack の ボット で 定期的に降水予報を通知する" rel="bookmark">Slack の ボット で 定期的に降水予報を通知する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/14/CircleCIの通知をSlackへ送る/" title="CircleCI の 通知 を Slack へ 送る" rel="bookmark">CircleCI の 通知 を Slack へ 送る</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/26/Slackのボットによる代理ポストで、簡易匿名化/" title="Slack の ボットによる代理ポストで、簡易匿名化" rel="bookmark">Slack の ボットによる代理ポストで、簡易匿名化</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/15/SlackのボットでJRA競馬の開催日を通知する-JSON取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - JSON 取得編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/18/SlackのボットでJRA競馬の開催日を通知する-iCalendar取得編/" title="Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編" rel="bookmark">Slack の ボット で JRA 競馬 の 開催日を通知する - iCalendar 取得編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" class="article-date">
+  <time datetime="2016-12-08T15:00:00.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/">CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p>前回 <a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/">CircleCI で Hexo の 自動ビルド と デプロイ設定</a> で GitHub の <code>source</code> ブランチ に プッシュすると CircleCI が 自動的にビルドしてデプロイするようにしました.<br>これで記事が自動的に公開できるようになったのですが、CircleCI が 記事に使っている <code>master</code> ブランチもビルドしようとしてエラーが発生します. 今回はこのエラーの原因と対策をします. (止めないと記事を公開するたびに、ビルドエラーの通知が来てしまう…)</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="エラー-の-原因"><a href="#エラー-の-原因" class="headerlink" title="エラー の 原因"></a>エラー の 原因</h2><p>CircleCI の ビルド画面 や、エラー通知のメールを見るとわかりますが [NO TESTS] と なっています. 前回の記事の通り、CircleCI は テストがないとエラーとして扱うためです.<br>では このエラーはどこから来たのか、これは [master] と 書かれているように、<code>master</code> ブランチをビルドして、テストがないためにエラーとなったものになります.<br><img src="/assets/circleci/hexo-master-error.png" alt></p>
+<p>はて、以下に抜粋した通り <code>circle.yml</code> で ビルドするのは <code>source</code> ブランチに限っているはずです. なぜ <code>master</code> ブランチでビルドが走ってしまったのでしょうか？<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line"><span class="attr">general:</span></span><br><span class="line"><span class="attr">  branches:</span></span><br><span class="line"><span class="attr">    only:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">source</span></span><br></pre></table></figure></p>
+<p>原因は、<a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">Hexo と GitHub Pages で ブログ環境の構築</a> で ウェブサイトのソースをコミットする <code>source</code> ブランチを <code>git checkout --orphan source</code> コマンドで作成しているとことにあります.</p>
+<p><code>git checkout --orphan</code> は 親を持たない空のブランチを作成するオプション指定です. これにより <code>master</code> と <code>source</code> は 関連を持たないブランチとなっています.<br>その関連のない <code>source</code> ブランチに <code>circle.yml</code> は あるので、<code>master</code> は <code>circle.yml</code> を 持たない状態になっています. そのため、いくらビルドするブランチから <code>master</code> を 外してもビルドは行われる状況になっていたということになります.</p>
+<h2 id="master-ブランチをビルドさせない対策検討"><a href="#master-ブランチをビルドさせない対策検討" class="headerlink" title="master ブランチをビルドさせない対策検討"></a>master ブランチをビルドさせない対策検討</h2><p>原因が分かったので対策に入りたいと思います.</p>
+<p>まず浮かぶのは <code>master</code> ブランチ に <code>circle.yml</code> を 置く方法です. この方法だと公開されるウェブサイトにも <code>circle.yml</code> が 配置され公開されることになります. う～ん、いまひとつ…</p>
+<p>ではどうするか、<a href="https://circleci.com/docs/skip-a-build/" target="_blank" rel="noopener">Skip a build - CircleCI</a> に 書かれている、コミット・メッセージ に <code>[ci skip]</code> もしくは <code>[skip ci]</code> を 含めるというやり方があります.</p>
+<p>この方法だと毎回のコミット・メッセージに <code>[ci skip]</code> を 入れることになりますが、ここのコミット・メッセージは Hexo が 自動で行っているため手間はかかりません. </p>
+<p>また コミット・メッセージ に 毎回入れてよいかという観点では、<code>master</code> ブランチは GitHub Pages の ウェブサイト公開用で Hexo で 上書きされ更新履歴のトラックも使っていません.</p>
+<p>以上の事から、コミット・メッセージに <code>[ci skip]</code> を いれても問題ないと考えられます.</p>
+<h2 id="コミット・メッセージ-に-ci-skip-を-入れる"><a href="#コミット・メッセージ-に-ci-skip-を-入れる" class="headerlink" title="コミット・メッセージ に [ci skip] を 入れる"></a>コミット・メッセージ に [ci skip] を 入れる</h2><p>Hexo の 設定ファイルである <code>_config.yml</code> の <code>deploy</code> セクション に <code>message</code> を 追加します.<br>今回はデフォルトのコメントの最後に <code>[ci skip]</code> を 追加する形にしました.<br>設定の詳細は、こちら <a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="noopener">Deployment | Hexo</a> に なります.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:[username]/[username].github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">"Site updated: <span class="template-variable">&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;</span> [ci skip]"</span></span><br></pre></table></figure></p>
+<hr>
+<p>以上で <code>master</code> ブランチのビルドを止めることができました.<br>CircleCI の ビルド・ログ にはスキップしたことが残ってしまいますが、基本的にエラーが発生しない限りは CI の 画面は見ないですし、不要な設定ファイルをウェブサイトのツリーに配置するよりはよいと思うので、まずは形で行こうかなと.<br>とはいえ、もっと良い方法があるといいのだけど.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" data-id="ckq2rxv9l000f44r2vyi3m1o8" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/05/CircleCIのアカウント作成/" title="CircleCI の アカウント作成" rel="bookmark">CircleCI の アカウント作成</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/14/CircleCIの通知をSlackへ送る/" title="CircleCI の 通知 を Slack へ 送る" rel="bookmark">CircleCI の 通知 を Slack へ 送る</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-CircleCIでHexoの自動ビルドとデプロイ設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" class="article-date">
+  <time datetime="2016-12-07T15:00:00.000Z" itemprop="datePublished">2016-12-08</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/ブログ/">ブログ</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/">CircleCI で Hexo の 自動ビルド と デプロイ設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p><a href="/2016/12/05/CircleCIのアカウント作成/">CircleCI の アカウント作成</a> が できたので、ブログ生成に使っている Hexo の 自動ビルドとデプロイができるようします.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+<li>Node.js 6.9.1 LTS</li>
+<li>Hexo 3.2</li>
+</ul>
+<h2 id="CircleCI-の-設定を追加"><a href="#CircleCI-の-設定を追加" class="headerlink" title="CircleCI の 設定を追加"></a>CircleCI の 設定を追加</h2><p>ソース・ルート直下に <code>circle.yml</code> を 配置することで CircleCI の 設定を行います.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre><td class="code"><pre><span class="line"><span class="attr">general:</span></span><br><span class="line"><span class="attr">  branches:</span></span><br><span class="line"><span class="attr">    only:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">source</span></span><br><span class="line"></span><br><span class="line"><span class="attr">machine:</span></span><br><span class="line"><span class="attr">  timezone:</span> <span class="string">Asia/Tokyo</span></span><br><span class="line"><span class="attr">  node:</span></span><br><span class="line"><span class="attr">    version:</span> <span class="number">6.9</span><span class="number">.1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line"><span class="attr">  override:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">echo</span> <span class="string">"skip test"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deployment:</span></span><br><span class="line"><span class="attr">  deploy:</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">    commands:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">git</span> <span class="string">config</span> <span class="bullet">--global</span> <span class="string">user.name</span> <span class="string">"CircleCI"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">git</span> <span class="string">config</span> <span class="bullet">--global</span> <span class="string">user.email</span> <span class="string">[your</span> <span class="string">e-mail]</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></table></figure></p>
+<p><code>general - branches - only</code> で <code>source</code> ブランチだけビルドするようにしています.<br>指定方法の詳細は、こちらの <a href="https://circleci.com/docs/configuration/#branches" target="_blank" rel="noopener">Specifying branches to build</a> に なります. ビルドするブランチを指定する以外に、特定のブランチを無視したり、正規表現で指定できます.</p>
+<p><code>test - override - echo &quot;skip test&quot;</code> は、CircleCI が テストしないとビルドに失敗するようになっているので、テストがないことをコンソール出力するために設定しています.</p>
+<p><code>git config --global</code> で Git の ユーザ設定を追加します. <code>user.name</code> は CircleCI の ビルドであることが分かるようにしました. <code>user.email</code> は GitHub に 登録している自分のメールアドレスを指定しました.</p>
+<p><code>circle.yml</code> ファイルができたら、GitHub へ コミットしておきます.</p>
+<h2 id="CircleCI-に-リポジトリを追加"><a href="#CircleCI-に-リポジトリを追加" class="headerlink" title="CircleCI に リポジトリを追加"></a>CircleCI に リポジトリを追加</h2><p>CircleCI の <a href="https://circleci.com/add-projects" target="_blank" rel="noopener">プロジェクト追加</a> ページ へ 行きます.<br>自分の GitHub アカウントが表示されているのでクリックし、右側のプロジェクト一覧から GitHub Pages の <code>[username].github.io</code> プロジェクト 右 の [Build project] ボタンをクリックします.<br><img src="/assets/circleci/add/01.png" alt></p>
+<p>自動的にビルドが始まり、ビルド画面へ遷移します. しばらく待っているとビルドが失敗し、レッド の [FAILED] 表示がされます.<br>これは Hexo の デプロイ で GitHub へのアクセス権がなかったために起こるものなので、SSH キー を 追加します. このあたりの設定は <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank" rel="noopener">GitHub security and SSH keys - CircleCI</a> に 説明があります.<br>画面の上部中央にある [Project Settings] を クリックします.<br><img src="/assets/circleci/add/02.png" alt></p>
+<p>プロジェクト設定画面が表示されるので、左側のメニューを下へスクロールし [Checkout SSH Keys] を クリックします. 右側に設定内容が出てくるので、[Authorize with GitHub] ボタンをクリックします.<br><img src="/assets/circleci/add/03.png" alt></p>
+<p>GitHub の 画面が表示され、CircleCI へ Public SSH keys の 権限を許可するかを確認されます. 許可しないと始まらないのですが、問題ある場合は ここで止めて CircleCI の 自動デプロイをあきらめます.<br><img src="/assets/circleci/add/04.png" alt></p>
+<p>上記画面で [Authorize application] ボタンをクリックすると CircleCI の 画面に戻ります.<br>右側の設定から [Create and add [username] user key] ボタンをクリックし、SSH キー を GitHub へ 追加します.<br><img src="/assets/circleci/add/05.png" alt></p>
+<p>ボタンをクリックすると設定画面に [[username] user key] が 追加されているのを確認し、画面上部 の [View [username].github.io] リンクをクリックします.<br><img src="/assets/circleci/add/06.png" alt></p>
+<p>前回のビルドが失敗している履歴が表示されるので、[rebuild] を クリックします.<br><img src="/assets/circleci/add/07.png" alt></p>
+<p>自動的にビルドが始まり、ビルド画面へ遷移します. しばらく待っていると今度はビルドが成功し、グリーン の [FIXED] が 表示されます.<br><img src="/assets/circleci/add/08.png" alt></p>
+<hr>
+<p>これで、無事に自動ビルドとデプロイができるようになりました. 以降は <code>source</code> ブランチ へ プッシュするたびに自動でビルドが行われ、デプロイもされるようになります.<br>ローカルでの確認は必要ですが <code>hexo deploy</code> 無しで、自動的に記事が公開できるので便利ですね.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" data-id="ckq2rxv9h000a44r2potatkj8" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" title="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない" rel="bookmark">CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/23/GitHub-Desktop-v1.0.0リリース＆さっそく使う/" title="GitHub Desktop v1.0.0 リリース ＆ さっそく使う" rel="bookmark">GitHub Desktop v1.0.0 リリース ＆ さっそく使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/11/Hexoに404-Not-Foundページを追加する/" title="Hexo に 404 Not Found ページ を 追加する" rel="bookmark">Hexo に 404 Not Found ページ を 追加する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/" title="Hexo と GitHub Pages で ブログ環境の構築" rel="bookmark">Hexo と GitHub Pages で ブログ環境の構築</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-CircleCIのアカウント作成" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/05/CircleCIのアカウント作成/" class="article-date">
+  <time datetime="2016-12-04T15:00:00.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/CircleCIのアカウント作成/">CircleCI の アカウント作成</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/circleci/circleci.png" alt title="CircleCI"></p>
+<p>継続的インテグレーション(CI: Continuous Integration) の プラットフォームである <a href="https://circleci.com/" target="_blank" rel="noopener">CircleCI</a> を 使って、GitHub に ある 様々リポジトリをビルドできるようにしたいと思います.<br>うまく流れるようになると GitHub の 特定のブランチにマージされると、ソースコードのビルと、テスト、パッケージング、デプロイ までの一連の作業が自動的に行われるようになります！<br>まずはビルドを行う前に、アカウントの作成をします.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>CircleCI</li>
+</ul>
+<h2 id="CircleCI-とは？"><a href="#CircleCI-とは？" class="headerlink" title="CircleCI とは？"></a>CircleCI とは？</h2><p>こちらのスライド、<a href="http://www.slideshare.net/mogproject/circleci-51253223" target="_blank" rel="noopener">はじめての CircleCI</a> が しっかり まとめてくださっており、改めて書くことがないどころか、勉強になりました. 素晴らしいスライドありがとうございます！<br>ということで、やりたいことに特化してアカウント作成部分だけの記事にしたいと思います.</p>
+<h2 id="アカウントの作成"><a href="#アカウントの作成" class="headerlink" title="アカウントの作成"></a>アカウントの作成</h2><p>CircleCI の Signup ページ <a href="https://circleci.com/signup" target="_blank" rel="noopener">https://circleci.com/signup</a> へ アクセスします.<br>GitHub と Bitbucket の どちらで認証するか聞かれます. 今回は GitHub を 選択しました.<br><img src="/assets/circleci/signup/01.png" alt></p>
+<p>GitHub の サイトへリダイレクトされますので、GitHub へ サインインします.<br><img src="/assets/circleci/signup/02.png" alt></p>
+<p>CircleCI へ 渡す権限の確認画面が表示されます.<br>ここで許可しないと次へ進めないのもありますが、CircleCI で Private Repository の ビルドなども行うので妥当な権限と思いますので [Authorize application] を クリックして許可します.<br>問題がある場合は [Authorize application] を クリックせず、CircleCI の 利用は断念します.<br><img src="/assets/circleci/signup/03.png" alt></p>
+<p>CircleCI へ 戻されます. 無事ログインできました.<br><img src="/assets/circleci/signup/04.png" alt></p>
+<hr>
+<p>GitHub と 連携するだけなので、アカウント作成は簡単にできますね.<br>この後、まずは Circle CI で Hexo を 動かせるようにして、投稿の編集を GitHub の  <code>draft-xxx</code> ブランチで行い、<code>source</code> ブランチ へ マージされたら CircleCI が 回って、自動的にデプロイされるようにしたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/12/05/CircleCIのアカウント作成/" data-id="ckq2rxv9h000944r2d1vug5yq" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CircleCI/">CircleCI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/09/CircleCIの自動ビルドでHexoのmasterブランチをビルドさせない/" title="CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない" rel="bookmark">CircleCI の 自動ビルド で Hexo の master ブランチをビルドさせない</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/23/GitHub-Desktop-v1.0.0リリース＆さっそく使う/" title="GitHub Desktop v1.0.0 リリース ＆ さっそく使う" rel="bookmark">GitHub Desktop v1.0.0 リリース ＆ さっそく使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/01/06/HexoでPubSubHubbub通知をする/" title="Hexo で PubSubHubbub 通知をする" rel="bookmark">Hexo で PubSubHubbub 通知をする</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/01/Hexoのフッターにソーシャル・アイコンを設置/" title="Hexo の フッター に ソーシャル・アイコン を 設置" rel="bookmark">Hexo の フッター に ソーシャル・アイコン を 設置</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Raspbian-Jessie-LiteのSSH公開鍵認証設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" class="article-date">
+  <time datetime="2016-11-28T15:00:00.000Z" itemprop="datePublished">2016-11-29</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png" alt title="Raspbian Jessie Lite"></p>
+<p>Raspbian Jessie Lite に SSH 公開鍵認証 の 設定を行います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Raspbian Jessie Lite</li>
+</ul>
+<h2 id="使用するアルゴリズムの選択"><a href="#使用するアルゴリズムの選択" class="headerlink" title="使用するアルゴリズムの選択"></a>使用するアルゴリズムの選択</h2><p>なるべく強度が高く安全なものを使いたいので、今回は Ed25519、<a href="https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%89%E3%83%AF%E3%83%BC%E3%82%BA%E6%9B%B2%E7%B7%9A%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E7%BD%B2%E5%90%8D%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0" target="_blank" rel="noopener">エドワーズ曲線デジタル署名アルゴリズム</a> を 使うことにします.</p>
+<p>アルゴリズムや強度については、こちらの記事を参考にさせて頂きました. RSA で 鍵長を増やすことばかり考えていましたが、勉強になりました. ありがとうございます.</p>
+<ul>
+<li><a href="http://d.hatena.ne.jp/hnw/20140705" target="_blank" rel="noopener">GitHubユーザーのSSH鍵6万個を調べてみた - hnwの日記</a></li>
+<li><a href="http://jnst.hateblo.jp/entry/2014/12/15/200542" target="_blank" rel="noopener">GitHubでEd25519鍵をつかう - lnrvrs</a></li>
+<li><a href="http://qiita.com/suthio/items/2760e4cff0e185fe2db9" target="_blank" rel="noopener">お前らのSSH Keysの作り方は間違っている - Qiita</a></li>
+</ul>
+<h2 id="キー・ペア-の-生成"><a href="#キー・ペア-の-生成" class="headerlink" title="キー・ペア の 生成"></a>キー・ペア の 生成</h2><p><code>ssh-keygen</code> を 使い、キー・ペアを生成します. <code>ed25519</code> は 鍵長 が 256 bit 固定とのことなので、<code>-t ed25519</code> のみの指定となります.<br>ファイルの場所は特に問題ないのでデフォルトのままにしました. パスフレーズは設定したほうが安全です. 秘密鍵のファイルをとられてしまうと、守るものがなくなり素通しとなってしまいます.<br><code>ssh-keygen</code> は Microsoft が 開発している <a href="https://github.com/PowerShell/Win32-OpenSSH/releases" target="_blank" rel="noopener">Win32-OpenSSH</a> を 使いました. (2017年3月13日 追記)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre><td class="code"><pre><span class="line">c:\&gt; ssh-keygen -t ed25519 -C &quot;&quot;</span><br><span class="line">Generating public/private ed25519 key pair.</span><br><span class="line">Enter file in which to save the key (C:\Users\[username]/.ssh/id_ed25519):</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in C:\Users\[username]/.ssh/id_ed25519.</span><br><span class="line">Your public key has been saved in C:\Users\[username]/.ssh/id_ed25519.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:T69X1O58qiKv7Sp/aPJTI+PpzUdOZDO+EcD5ldc8ON8</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+--[ED25519 256]--+</span><br><span class="line">|         . .  .o.|</span><br><span class="line">|          +  oo.+|</span><br><span class="line">|           o .ooo|</span><br><span class="line">|            B ..E|</span><br><span class="line">|        S .+ = . |</span><br><span class="line">|        ooo.= . .|</span><br><span class="line">|       . *.=.+ o |</span><br><span class="line">|      o B+o.=   +|</span><br><span class="line">|       B*OB+...XX|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></table></figure></p>
+<h2 id="公開鍵-を-Raspberry-Pi-へ-送る"><a href="#公開鍵-を-Raspberry-Pi-へ-送る" class="headerlink" title="公開鍵 を Raspberry Pi へ 送る"></a>公開鍵 を Raspberry Pi へ 送る</h2><p>生成したキーペアで認証ができるように公開鍵を Raspberry Pi へ 送ります.<br><code>ssh-copy-id</code> コマンド が あると、簡単に転送できるのですが Windows 7 および Microsoft の <a href="https://github.com/PowerShell/Win32-OpenSSH/releases" target="_blank" rel="noopener">Win32-OpenSSH</a> では <code>ssh-copy-id</code> が ないので、<code>scp</code> で 転送してから、SSH 接続して鍵登録をします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">c:\&gt; scp %USERPROFILE%\.ssh\id_ed25519.pub pi@raspberrypi.local:~</span><br><span class="line">pi@raspberrypi.local&apos;s password: [PASSWORD]</span><br><span class="line">id_ed25519.pub                     100%   83     0.1KB/s   00:00</span><br></pre></table></figure></p>
+<p>SSH で Raspberry Pi で接続し、公開鍵の設定をします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ mkdir ~/.ssh</span><br><span class="line">pi@raspberrypi:~ $ chmod 700 ~/.ssh</span><br><span class="line">pi@raspberrypi:~ $ cat ~/id_ed25519.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">pi@raspberrypi:~ $ chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">pi@raspberrypi:~ $ rm -f ~/id_ed25519.pub</span><br></pre></table></figure></p>
+<h2 id="Raspberry-Pi-の-SSH-サーバ-設定"><a href="#Raspberry-Pi-の-SSH-サーバ-設定" class="headerlink" title="Raspberry Pi の SSH サーバ 設定"></a>Raspberry Pi の SSH サーバ 設定</h2><p>公開鍵で認証できるようになったので、パスワード認証を止めます.<br>合わせて <code>root</code> ユーザ の ログインも禁止します. (パスワードも公開鍵もないのでログインのしようもないのですが明示的に止めておきます)<br>以下に設定部分を抜粋します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/ssh/sshd_config</span><br><span class="line"># Authentication:</span><br><span class="line">PermitRootLogin no</span><br><span class="line">RSAAuthentication no</span><br><span class="line"></span><br><span class="line"># Change to no to disable tunnelled clear text passwords</span><br><span class="line">PasswordAuthentication no</span><br></pre></table></figure></p>
+<p>設定後 SSH サーバ を 再起動します. 再起動する前に公開鍵認証でログインできていることを再度確認しておきます. パスワード認証が行えなくなるため、公開鍵認証で入れないと SSH で ログインできなくなります.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo systemctl reload ssh</span><br></pre></table></figure></p>
+<h2 id="pi-ユーザ-の-パスワード削除"><a href="#pi-ユーザ-の-パスワード削除" class="headerlink" title="pi ユーザ の パスワード削除"></a>pi ユーザ の パスワード削除</h2><p>ついでに pi ユーザ の パスワードを削除します. これにより、Raspberry Pi へのアクセスは SSH からの 公開鍵認証 に しぼることができます. (ネットワーク障害などで完全に入れなくなることもありますが、その際には諦めるということで…)<br>とはいえ シングル・ユーザ・モード や 本体ごと or SD カード を 持っていかれれば簡単に入られてしまいますが、デフォルトで誰でも知っているパスワードを持っている必要もないので消しておきます.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo cat /etc/shadow | grep pi</span><br><span class="line">pi:$7$anh205TS$KBB826BAAEqF/kSsT71NkzkaBAjh8bbKrnn6b4oikeABwQTPHHoGRnaXXX.KX9MEn1eDm9XMSurRWiqg1pVXXX/:17067:0:99999:7:::</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo passwd -d pi</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo cat /etc/shadow | grep pi</span><br><span class="line">pi::17067:0:99999:7:::</span><br></pre></table></figure></p>
+<hr>
+<h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイを始めるには 全部入りの Raspberry Pi 3 が 手ごろではないでしょうか. <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB018K9NNJW%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero - ラズベリー・パイ ゼロ</a> や <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFAIKMI%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero W - ラズベリー・パイ ゼロ W</a> は 国内では入手しずらいため値上がりしてしてますし、GPIO ピン も 自分で付ける必要があったりと色々と手がかかります. その分楽しいというのもありますが.<br>届くまで時間がかかってもよい場合は こちら <a href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a> で 記事にしました <a href="https://pimoroni.com/" target="_blank" rel="noopener">Pimoroni</a> さん から購入する手もあります.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>これで、だいリモートアクセスを保護できるようになりました. ラズパイ自体が小さく(特に Zero)、また IoT デバイス のように使ったりするつもりなので シングルモード や SD カードが心配なので、追々調べていきます.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" data-id="ckq2rxvb2003i44r2o6lx3c2f" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspbian/">Raspbian</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/29/Raspberry-PiのCPU温度を記録する/" title="Raspberry Pi の CPU 温度 を 記録する" rel="bookmark">Raspberry Pi の CPU 温度 を 記録する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/04/05/Raspbian-Jessie-LiteでDockerする-GPIO-on-Alpine-Linux編/" title="Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編" rel="bookmark">Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/" title="Raspbian Jessie Lite の 初期設定" rel="bookmark">Raspbian Jessie Lite の 初期設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/" title="Raspbian Jessie Lite の SDカード 延命化" rel="bookmark">Raspbian Jessie Lite の SDカード 延命化</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/22/Raspberry-Pi-3-を-WiFi-アクセス・ポイント化する/" title="Raspberry Pi 3 を WiFi アクセス・ポイント化する" rel="bookmark">Raspberry Pi 3 を WiFi アクセス・ポイント化する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Raspbian-Jessie-LiteのWi-Fi設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/" class="article-date">
+  <time datetime="2016-11-24T15:00:00.000Z" itemprop="datePublished">2016-11-25</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/">Raspbian Jessie Lite の Wi-Fi 設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png" alt title="Raspbian Jessie Lite"></p>
+<p>Raspbian Jessie Lite に Wi-Fi の 設定を行います. Raspberry Pi へは SSH で 接続しているものとします. 今回は Raspberry Pi Zero ではなく、Wi-Fi が ついている Raspberry Pi 3 で 設定していきます.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Raspbian Jessie Lite</li>
+<li>Raspberry Pi 3 Model B</li>
+</ul>
+<h2 id="Wi-Fi-の-国コード-を-設定"><a href="#Wi-Fi-の-国コード-を-設定" class="headerlink" title="Wi-Fi の 国コード を 設定"></a>Wi-Fi の 国コード を 設定</h2><p>設定画面の説明に <code>Set the legal channels used in your country</code> と あるように、国ごとに利用できるチャンネルが異なるために設定を行います. 各国の利用できるチャンネルは <a href="https://en.wikipedia.org/wiki/List_of_WLAN_channels" target="_blank" rel="noopener">List of WLAN channels</a> に まとまっています.<br><code>sudo raspi-config</code> コマンドから、以下の順で設定します.</p>
+<ol>
+<li><code>5 Internationalisation Options</code> を 選択</li>
+<li><code>I4 Change Wi-fi Country</code> を 選択</li>
+<li><code>JP Japan</code> を 選択</li>
+</ol>
+<p>最後に <code>Finish</code> を 選択し、再起動します.</p>
+<h2 id="Wi-Fi-へ-接続"><a href="#Wi-Fi-へ-接続" class="headerlink" title="Wi-Fi へ 接続"></a>Wi-Fi へ 接続</h2><p>まずは現在の設定とアクセスポイントの一覧を見てみます.<br>設定ファイルは <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> で、先に設定した Wi-Fi の 国コード <code>JP</code> が 反映されているのが分かります.<br>また iwlist scan で アクセスポイントの一覧を見ることができます. <code>iwconfig wlan0</code> で <code>IEEE 802.11bgn</code> と 出ているように <code>IEEE 802.11n/g/b</code> で 接続できるアクセスポイントとなります. (ちゃんとリスト確認しないで、<code>IEEE 802.11n/a</code> の SSID を 入力して接続できずにはまりました…)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo cat /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ iwconfig wlan0</span><br><span class="line">wlan0     IEEE 802.11bgn  ESSID:off/any</span><br><span class="line">          Mode:Managed  Access Point: Not-Associated   Tx-Power=31 dBm</span><br><span class="line">          Retry short limit:7   RTS thr:off   Fragment thr:off</span><br><span class="line">          Power Management:on</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo iwlist wlan0 scan | grep ESSID</span><br><span class="line">                    ESSID:&quot;ABC-1234-56789X&quot;</span><br><span class="line">                    ESSID:&quot;DEF-9876-54321X&quot;</span><br><span class="line">                    ESSID:...</span><br></pre></table></figure></p>
+<p>接続するアクセスポイントが無事にリストに表示されていたら、<code>wpa_passphrase</code> コマンドで設定ファイルに接続情報を追記します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo sh -c &apos;wpa_passphrase [SSID] [PASSPHRASE] &gt;&gt; /etc/wpa_supplicant/wpa_supplicant.conf&apos;</span><br></pre></table></figure></p>
+<p>その後、設定ファイルに書かれている平文のパスワードを消します. テキストエディタで編集します. Raspbian の デフォルト・エディタ <code>nano</code> で 開きます.<br>普段は <code>vim</code> なので使い慣れないですが、デフォルトとのことなので使ってみます. <code>vim</code> と 異なりファイルを開いた直後から編集ができます. 行削除はなさそうなので、<code>#psk=&quot;xxx&quot;</code> の 行を地道に削除していきます. (範囲を指定しない切り取り <code>^K</code> で 一行切り取りもありでした. 使い慣れてないので手間がかかってしまった.)<br>保存 は <code>^O</code> で、終了 は <code>^X</code> です. 画面下に表示されています. Windows では、それぞれ <code>Ctrl + O</code> と <code>Ctrl + X</code> に なります.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line">country=JP</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=&quot;ABC-1234-56789X&quot;</span><br><span class="line">        #psk=&quot;----PLAIN-PASSPHRASE----&quot;  &lt;- この行を削除します</span><br><span class="line">        psk=055f68fd257ed0b7d41c6adb757a0a44fe1400737cac7f0fbefd6196ac66bf9a</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p>ネットワーク・インターフェースを再起動し、アクセスポイントへ接続できているか確認します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo ifdown wlan0</span><br><span class="line">pi@raspberrypi:~ $ sudo ifup wlan0</span><br><span class="line">pi@raspberrypi:~ $ iwconfig wlan0</span><br><span class="line">wlan0     IEEE 802.11bgn  ESSID:&quot;ABC-1234-56789X&quot;</span><br><span class="line">          Mode:Managed  Frequency:2.462 GHz  Access Point: 21:5E:4E:97:XX:XX</span><br><span class="line">          Bit Rate=65 Mb/s   Tx-Power=31 dBm</span><br><span class="line">          Retry short limit:7   RTS thr:off   Fragment thr:off</span><br><span class="line">          Power Management:on</span><br><span class="line">          Link Quality=69/70  Signal level=-41 dBm</span><br><span class="line">          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0</span><br><span class="line">          Tx excessive retries:0  Invalid misc:0   Missed beacon:0</span><br></pre></table></figure></p>
+<h2 id="パワーマネジメント-の-設定"><a href="#パワーマネジメント-の-設定" class="headerlink" title="パワーマネジメント の 設定"></a>パワーマネジメント の 設定</h2><p>Wi-Fi の パワーマネージメントによってネットワークアクセスが不安定になったり、遅延が生じるケースがあります. その際にはパワーマネージメントを切ることで改善されることがあります.<br>パワーマネージメントを切るということは、電力消費が上がったり、Wi-Fi モジュールの熱を逃がす時間が得られないなどのトレードオフが発生しますが、必要に応じて設定をします.</p>
+<p>設定は <code>/etc/network/interfaces</code> に <code>wireless-power off</code> を 追記します.<br>以下に <code>wireless-power off</code> を 記述した部分を抜粋します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/network/interfaces</span><br><span class="line">allow-hotplug wlan0</span><br><span class="line">iface wlan0 inet manual</span><br><span class="line">    wireless-power off</span><br><span class="line">    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></table></figure></p>
+<p>再起動し <code>iwconfig wlan0</code> コマンドで <code>Power Management:off</code> に なっていることを確認します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo reboot</span><br><span class="line">pi@raspberrypi:~ $ iwconfig wlan0</span><br><span class="line">wlan0     IEEE 802.11bgn  ESSID:&quot;ABC-1234-56789X&quot;</span><br><span class="line">          Mode:Managed  Frequency:2.462 GHz  Access Point: 21:5E:4E:97:XX:XX</span><br><span class="line">          Bit Rate=65 Mb/s   Tx-Power=31 dBm</span><br><span class="line">          Retry short limit:7   RTS thr:off   Fragment thr:off</span><br><span class="line">          Power Management:off</span><br><span class="line">          Link Quality=69/70  Signal level=-41 dBm</span><br><span class="line">          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0</span><br><span class="line">          Tx excessive retries:0  Invalid misc:0   Missed beacon:0</span><br></pre></table></figure></p>
+<p>設定については、こちらの <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=46569&amp;p=647343" target="_blank" rel="noopener">Disable power management for Ralink RT5370</a> を 参考にさせて頂きました.</p>
+<h2 id="固定-IP-アドレス-を-設定する"><a href="#固定-IP-アドレス-を-設定する" class="headerlink" title="固定 IP アドレス を 設定する"></a>固定 IP アドレス を 設定する</h2><p>avahi-daemon が 動作しているため Bonjour の クライアントが入っていれば、LAN 内では <code>ホスト名.local</code> で Raspberry Pi へ アクセスすることができます.<br>そのため 固定 IP を 設定しなくても困らないケースが多いとは思いますが、備忘録として 固定 IP の 設定方法を残しておきます. (ミニマム構成にするために avahi-daemon を 止めるというケースは想定されますね.)</p>
+<p>環境</p>
+<ul>
+<li>IP アドレス: 192.168.0.100</li>
+<li>ネットマスク: 255.255.255.0</li>
+<li>デフォルト GW: 192.168.0.1</li>
+</ul>
+<p>設定は <code>/etc/dhcpcd.conf</code> の 一番最後に以下の内容を記述します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo nano /etc/dhcpcd.conf</span><br><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.0.100/24</span><br><span class="line">static routers=192.168.0.1</span><br><span class="line">static domain_name_servers=192.168.0.1</span><br></pre></table></figure></p>
+<p>※ <code>interface wlan0</code> は 無線 LAN の ネットワーク・インターフェース、有線 LAN で IP アドレス を 固定する場合は <code>wlan0</code> を <code>eth0</code> にします.</p>
+<p>DHCP の クライアント を 再起動し、設定した IP アドレス で アクセスできるか確認します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo service dhcpcd reload</span><br></pre></table></figure></p>
+<h2 id="SD-カード-作成時-に-Wi-Fi-設定をしておく-2017-03-07-追記"><a href="#SD-カード-作成時-に-Wi-Fi-設定をしておく-2017-03-07-追記" class="headerlink" title="SD カード 作成時 に Wi-Fi 設定をしておく (2017.03.07 追記)"></a>SD カード 作成時 に Wi-Fi 設定をしておく (2017.03.07 追記)</h2><p>Raspberry Pi 3 や Raspberry Pi Zero W の OS イメージ を Raspbian で 作る際に、あらかじめ <code>wpa_supplicant.conf</code> を 作っておくことで、初回起動時から Wi-Fi へ 接続しておくことができます.</p>
+<p>詳しくは、こちら <a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a> を ご参照ください.</p>
+<hr>
+<h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイを始めるには 全部入りの Raspberry Pi 3 が 手ごろではないでしょうか. <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB018K9NNJW%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero - ラズベリー・パイ ゼロ</a> や <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFAIKMI%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero W - ラズベリー・パイ ゼロ W</a> は 国内では入手しずらいため値上がりしてしてますし、GPIO ピン も 自分で付ける必要があったりと色々と手がかかります. その分楽しいというのもありますが.<br>届くまで時間がかかってもよい場合は こちら <a href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a> で 記事にしました <a href="https://pimoroni.com/" target="_blank" rel="noopener">Pimoroni</a> さん から購入する手もあります.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="USB-の-WiFi-モジュール"><a href="#USB-の-WiFi-モジュール" class="headerlink" title="USB の WiFi モジュール"></a>USB の WiFi モジュール</h3><p>内臓 WiFi が 無い Raspberry Pi 2 や Raspberry Pi Zero の 場合は、USB の WiFi モジュール を 使いすることで使えます. いろいろな種類がありますが PLANEX さん のがよさそうです.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB00ESA34GA%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/31IF86QEZIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB00ESA34GA%2Fref%3Dnosim" target="_blank">PLANEX 無線LAN子機 (USBアダプター型) 11n/g/b 150Mbps MacOS X10.10対応 GW-USNANO2A (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> プラネックス 2013-09-06    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DPLANEX%2520GW-USNANO2A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPLANEX%2520GW-USNANO2A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="USB-の-変換アダプタ"><a href="#USB-の-変換アダプタ" class="headerlink" title="USB の 変換アダプタ"></a>USB の 変換アダプタ</h3><p>Raspberry Pi Zero で USB 機器を使う場合に、マイクロ USB の 製品があると便利ですが、上記 WiFi モジュール のように マイクロ USB ではない場合は、この製品が便利です.<br>なんと USB の コネクタ内に入ってしまうので、通常の変換製品より圧倒的に出っ張りが少ないです！</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFOOXO8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41rqVckFbrL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFOOXO8%2Fref%3Dnosim" target="_blank">Mumiji クリニーク超ミニDMマイクロUSB5ピンOTGアダプタコネクタ携帯電話タブレット＆USBケーブル・アンド・フラッシュディスク用</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Mumiji     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DOTG%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FOTG%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>無事 Wi-Fi へ 接続できるようになりました. 小型なのがラズパイの魅力だから Wi-Fi で ネットに接続できることで更に取り回しが楽になりますね.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/25/Raspbian-Jessie-LiteのWi-Fi設定/" data-id="ckq2rxve500cv44r25a911gt9" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspbian/">Raspbian</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/19/Raspbian-Jessie-Liteその他設定/" title="Raspbian Jessie Lite その他 設定" rel="bookmark">Raspbian Jessie Lite その他 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" title="Raspbian Jessie Lite の SSH/公開鍵認証 設定" rel="bookmark">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/29/Raspberry-PiのCPU温度を記録する/" title="Raspberry Pi の CPU 温度 を 記録する" rel="bookmark">Raspberry Pi の CPU 温度 を 記録する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/19/Raspbian-Jessie-Liteのインストール/" title="Raspbian Jessie Lite の インストール" rel="bookmark">Raspbian Jessie Lite の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/11/12/ラズパイのOSイメージを焼くときはEtcherが便利＆UIカッコいい/" title="ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい" rel="bookmark">ラズパイ の OS イメージを焼くときは Etcher が 便利 ＆ UI カッコいい</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Raspbian-Jessie-Liteの初期設定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/" class="article-date">
+  <time datetime="2016-11-21T15:00:00.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/電子工作/">電子工作</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/Raspbian-Jessie-Liteの初期設定/">Raspbian Jessie Lite の 初期設定</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/raspi/raspbian-jessie-lite/raspbian-jessie-lite.png" alt title="Raspbian Jessie Lite"></p>
+<p>Raspbian Jessie Lite に 最小限の初期設定を行います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 7</li>
+<li>Raspbian Jessie Lite</li>
+</ul>
+<h2 id="Raspberry-Pi-へ-SSH-接続"><a href="#Raspberry-Pi-へ-SSH-接続" class="headerlink" title="Raspberry Pi へ SSH 接続"></a>Raspberry Pi へ SSH 接続</h2><p>Raspbian Jessie は avahi-daemon という <a href="http://avahi.org" target="_blank" rel="noopener">Avahi</a> の ソフトウェアが自動的に起動しています.<br>Avahi は Apple の <a href="https://support.apple.com/ja-jp/bonjour" target="_blank" rel="noopener">Bonjour</a> という ネットワークを自動設定するための仕様を実装したソフトウェアです. これにより PC に Bonjour の クライアントが入っていれば、LAN 内では <code>ホスト名.local</code> で Raspberry Pi へ アクセスすることができます.</p>
+<p>Windows 7 は Bonjour を 利用することができないため、<a href="http://www.apple.com/jp/itunes/download" target="_blank" rel="noopener">iTunes</a> か <a href="https://support.apple.com/kb/DL999" target="_blank" rel="noopener">Bonjour Print Services</a> を インストールする必要があります.</p>
+<p>SSH クライアントは Microsoft が 開発している <a href="https://github.com/PowerShell/Win32-OpenSSH/releases" target="_blank" rel="noopener">Win32-OpenSSH</a> を 使いました.</p>
+<p>では、SSH で Raspberry Pi へ 接続します.<br>コマンド プロンプト から <code>ssh pi@raspberrypi.local</code> を 実行します.<br>初めてアクセスするためホスト鍵の確認がありますので、<code>yes</code> を 入力します.<br>最後にパスワードを聞かれるので、初期パスワード の <code>raspberry</code> を 入力します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre><td class="code"><pre><span class="line">c:\&gt; ssh pi@raspberrypi.local</span><br><span class="line">The authenticity of host &apos;raspberrypi.local (fd91::3f13:2b1:fa24:XXXX)&apos; can&apos;t be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:HDYEUoWS6x4RsD63mQgqbEdFsvnKyPBhT4forJCXXXX.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? [yes]</span><br><span class="line">Warning: Permanently added &apos;raspberrypi.local,fd91::3f13:2b1:fa24:XXXX&apos; (ECDSA) to the list of known hosts.</span><br><span class="line">pi@raspberrypi.local&apos;s password: [raspberry]</span><br></pre></table></figure></p>
+<p>無事に接続ができ、Raspberry Pi へ SSH 接続できました. bash が 起動していることが確認できます.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ echo $SHELL</span><br><span class="line">/bin/bash</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $</span><br></pre></table></figure></p>
+<h2 id="ファイルシステム-の-拡張"><a href="#ファイルシステム-の-拡張" class="headerlink" title="ファイルシステム の 拡張"></a>ファイルシステム の 拡張</h2><p>Raspbian インストール直後は、2GB 程度のディスク容量しかなく <code>raspi-config</code> で ファイルシステムを拡張する必要があるらしいのですが、<code>df</code> や <code>fdisk</code> で 確認したところ、なぜか SD カード の 16GB が ちゃんと認識されているようでした…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/root        15G  840M   14G   6% /</span><br><span class="line">devtmpfs        459M     0  459M   0% /dev</span><br><span class="line">tmpfs           463M     0  463M   0% /dev/shm</span><br><span class="line">tmpfs           463M   12M  451M   3% /run</span><br><span class="line">tmpfs           5.0M  4.0K  5.0M   1% /run/lock</span><br><span class="line">tmpfs           463M     0  463M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mmcblk0p1   63M   21M   43M  33% /boot</span><br></pre></table></figure></p>
+<p><strong>2017年3月22日 追記</strong><br>リリース・ノート 2016-05-10 に 下記の記述がありました.<br>ファイルシステムは自動的に拡張されているので下記手順は不要でした.<br>“File system automatically expanded on first boot – <a href="http://downloads.raspberrypi.org/raspbian/release_notes.txt" target="_blank" rel="noopener">Release notes</a>“</p>
+<p><del>よくわかりませんが、念のためファイルシステムの拡張を実行しておきます.</del><br><del><code>sudo raspi-config</code> コマンドから実行します.</del><br><del>1. <code>1 Expand Filesystem</code> を 選択</del><br><del>2. <code>OK</code> する</del><br><del>3. <code>Finish</code> して再起動</del><br><del>再起動後 の <code>df -h</code> に 変化がないので 16GB が ちゃんと使えているようです.</del></p>
+<h2 id="ホスト名-の-設定"><a href="#ホスト名-の-設定" class="headerlink" title="ホスト名 の 設定"></a>ホスト名 の 設定</h2><p>デフォルトのホスト名は <code>raspberrypi</code> に なっています. 複数 の Raspberry Pi が ある場合に、Bonjour の <code>ホスト名.local</code> で アクセスする際には、適切なホスト名を設定しておく必要があります.<br><code>sudo raspi-config</code> コマンドから設定します.</p>
+<ol>
+<li><code>7 Advanced Options</code> を 選択</li>
+<li><code>A2 Hostname</code> を 選択</li>
+<li>設定したいホスト名を入力し、<code>了解</code> を 選択</li>
+</ol>
+<h2 id="ロケール-と-タイムゾーン-の-設定"><a href="#ロケール-と-タイムゾーン-の-設定" class="headerlink" title="ロケール と タイムゾーン の 設定"></a>ロケール と タイムゾーン の 設定</h2><p><code>sudo raspi-config</code> コマンドから設定します.</p>
+<p>以下の順でロケールを設定します.</p>
+<ol>
+<li><code>5 Internationalisation Options</code> を 選択</li>
+<li><code>I1 Change Locale</code> を 選択</li>
+<li><code>[*] en_GB.UTF-8 UTF-8</code> で スペースを押して <code>*</code> を 外す</li>
+<li><code>[ ] ja_JP.UTF-8 UTF-8</code> で スペースを押して <code>*</code> を 付ける</li>
+<li><code>OK</code> する</li>
+<li><code>Default locale for the system environment:</code> と 聞かれるので、<code>ja_JP.UTF-8</code> を 選択</li>
+</ol>
+<p>最初のメニューに戻るので、以下の順でタイムゾーンを設定します.</p>
+<ol>
+<li><code>5 Internationalisation Options</code> を 選択</li>
+<li><code>I2 Change Timezone</code> を 選択</li>
+<li><code>Asia</code> → <code>Tokyo</code> と 選択</li>
+</ol>
+<p>最後に <code>Finish</code> を 選択し、再起動します.<br>SSH で 使っている分にはキーボード設定やフォントの追加は不要ですが、直接利用する場合は設定が必要ですが、PC ではないので SSH 接続だけで十分なので、そのままにしました.</p>
+<h2 id="パッケージ-の-アップデート"><a href="#パッケージ-の-アップデート" class="headerlink" title="パッケージ の アップデート"></a>パッケージ の アップデート</h2><p><code>apt-get</code> を 使って、パッケージをアップデートします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo apt-get update</span><br><span class="line">pi@raspberrypi:~ $ sudo apt-get dist-upgrade -y</span><br></pre></table></figure></p>
+<p>続いて <code>rpi-update</code> コマンドで、ファームウェアの更新をします. ファームウェアの更新というと ROM を 更新するようなイメージがありますが、Raspberry Pi の 場合は SD カード にある OS の Kernel を 更新します. SD カード を 初期化すると元に戻ります. ファームウェア更新後は再起動します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ uname -a</span><br><span class="line">Linux raspberrypi 4.4.21-v7+ #911 SMP Thu Sep 15 14:22:38 BST 2016 armv7l GNU/Linux</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ apt-cache search rpi-update</span><br><span class="line">rpi-update - Raspberry Pi firmware updating tool</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo apt-get install rpi-update -y --no-install-recommends</span><br><span class="line">pi@raspberrypi:~ $ sudo rpi-update</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ sudo reboot</span><br><span class="line"></span><br><span class="line">pi@raspberrypi:~ $ uname -a</span><br><span class="line">Linux raspberrypi 4.4.33-v7+ #927 SMP Sat Nov 19 18:15:38 GMT 2016 armv7l GNU/Linux</span><br></pre></table></figure></p>
+<p>最後にクリーンアップします.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">pi@raspberrypi:~ $ sudo apt-get autoremove</span><br><span class="line">pi@raspberrypi:~ $ sudo apt-get autoclean</span><br><span class="line">pi@raspberrypi:~ $ sudo apt-get clean</span><br><span class="line">pi@raspberrypi:~ $ sudo rm -rf /var/lib/apt/lists/*</span><br><span class="line">pi@raspberrypi:~ $ sudo rm -rf /var/cache/apt/archives/*</span><br></pre></table></figure></p>
+<hr>
+<h3 id="Raspberry-Pi-3"><a href="#Raspberry-Pi-3" class="headerlink" title="Raspberry Pi 3"></a>Raspberry Pi 3</h3><p>ラズパイを始めるには 全部入りの Raspberry Pi 3 が 手ごろではないでしょうか. <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB018K9NNJW%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero - ラズベリー・パイ ゼロ</a> や <a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01GFAIKMI%2Fref%3Dnosim" target="_blank">Raspberry Pi Zero W - ラズベリー・パイ ゼロ W</a> は 国内では入手しずらいため値上がりしてしてますし、GPIO ピン も 自分で付ける必要があったりと色々と手がかかります. その分楽しいというのもありますが.<br>届くまで時間がかかってもよい場合は こちら <a href="/2016/11/13/Raspberry-Pi-Zeroの購入/">Raspberry Pi Zero の 購入</a> で 記事にしました <a href="https://pimoroni.com/" target="_blank" rel="noopener">Pimoroni</a> さん から購入する手もあります.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41zcKgUQXtL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01CFHHYF4%2Fref%3Dnosim" target="_blank">Raspberry Pi 3 MODEL B 【RS正規流通品】</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> Raspberry Pi 2016-01-28    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="Raspberry-Pi-3-の-電源"><a href="#Raspberry-Pi-3-の-電源" class="headerlink" title="Raspberry Pi 3 の 電源"></a>Raspberry Pi 3 の 電源</h3><p>Raspberry Pi 3 は 5V/3A の 電源が必要になります. スマホの充電アダプタでは出力が足りない場合もあるので確認が必要です.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/41p5wekKaIL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01N8ZIJL8%2Fref%3Dnosim" target="_blank">Raspberry Pi用電源セット(5V 3.0A)－Pi3フル負荷検証済</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> TechShare     </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FRaspberry%2520Pi%25203%2520%25E9%259B%25BB%25E6%25BA%2590%25203A%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h3 id="マイクロ-SD-カード"><a href="#マイクロ-SD-カード" class="headerlink" title="マイクロ SD カード"></a>マイクロ SD カード</h3><p>ラズパイ の OS や ストレージに必要です. 16GB あれば十分だと思いますが、用途次第なので お好みのサイズで用意します.</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51JBMptiJgL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="kaerebalink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB015J44QS8%2Fref%3Dnosim" target="_blank">【Amazon.co.jp限定】Transcend microSDHCカード 16GB Class10 UHS-I対応 無期限保証 Nintendo Switch / 3DS 動作確認済 TS16GUSDU1PE (FFP)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px"> トランセンド・ジャパン 2015-10-02    </div><div class="kaerebalink-link1" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fsearch%3Fkeywords%3DTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%26__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/kl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=54&pc_id=54&pl_id=616&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520microSDHC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0" target="_blank">楽天市場で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=54&pc_id=54&pl_id=616" width="1" height="1" style="border:none"></div></div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>以上で、最小限の初期設定ができました. これから、いろいろと細かい設定をしていきますが、まずはこれで使い始められますね. ラズパイでの開発、楽しみ.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2016/11/22/Raspbian-Jessie-Liteの初期設定/" data-id="ckq2rxvd1009v44r2mlduillz" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspbian/">Raspbian</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/04/05/Raspbian-Jessie-LiteでDockerする-GPIO-on-Alpine-Linux編/" title="Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編" rel="bookmark">Raspbian Jessie Lite で Docker する - GPIO on Alpine Linux 編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/29/Raspbian-Jessie-LiteのSSH公開鍵認証設定/" title="Raspbian Jessie Lite の SSH/公開鍵認証 設定" rel="bookmark">Raspbian Jessie Lite の SSH/公開鍵認証 設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/11/19/Raspbian-Jessie-Liteのインストール/" title="Raspbian Jessie Lite の インストール" rel="bookmark">Raspbian Jessie Lite の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/16/Raspbian-Jessie-LiteのSDカード延命化/" title="Raspbian Jessie Lite の SDカード 延命化" rel="bookmark">Raspbian Jessie Lite の SDカード 延命化</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/22/Raspberry-Pi-3-を-WiFi-アクセス・ポイント化する/" title="Raspberry Pi 3 を WiFi アクセス・ポイント化する" rel="bookmark">Raspberry Pi 3 を WiFi アクセス・ポイント化する</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 戻る</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">次へ &raquo;</a>
+  </nav></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+

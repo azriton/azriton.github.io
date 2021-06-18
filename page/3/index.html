@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-108646205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+  
+  <title>験なきものを思はずは</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="google-site-verification" content="6BVUUhfChBaBuvPT_Bt0TjOGRaY58Ym-h0x9b9_M1uU">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="験なきものを思はずは">
+<meta property="og:url" content="https://azriton.github.io/page/3/index.html">
+<meta property="og:site_name" content="験なきものを思はずは">
+<meta property="og:locale" content="ja">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="験なきものを思はずは">
+<meta name="twitter:creator" content="@azriton">
+  
+    <link rel="alternate" href="/atom.xml" title="験なきものを思はずは" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4479317936085716",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner" style="filter:brightness(74%)"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">験なきものを思はずは</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Azriton&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link Home" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-github-link" class="nav-icon" href="https://github.com/azriton" title="GitHub"></a>
+        <a id="nav-twitter-link" class="nav-icon" href="https://twitter.com/azriton" title="Twitter"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://azriton.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TypeScriptのtsconfig.jsonを考える" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/07/TypeScriptのtsconfig.jsonを考える/" class="article-date">
+  <time datetime="2017-09-06T15:00:00.000Z" itemprop="datePublished">2017-09-07</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/07/TypeScriptのtsconfig.jsonを考える/">TypeScript の tsconfig.json を 考える</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/typescript/typescript.png" alt title="TypeScript"></p>
+<p><a href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/">TypeScript で Hello World</a> が できたところで、TypeScript について深堀したいと思います. なにせ、初めて使うものですから… まず <code>tsconfig.json</code> に 何を設定しておいた方がいいのか、考えたいと思います.<br>今回の検討の前提として、TypeScript の コードはサーバーサイドで使うことを想定しています. ブラウザ内で動作する JavaScript は いったん考慮外としています. また既存のしがらみは無く、新しく作るものを想定しています.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Node.js 8.4.0 64bit</li>
+<li>TypeScript 2.4</li>
+</ul>
+<h2 id="前回-Hello-World-の-設定を振り返る"><a href="#前回-Hello-World-の-設定を振り返る" class="headerlink" title="前回 Hello World の 設定を振り返る"></a>前回 Hello World の 設定を振り返る</h2><p>前回の Hello World では Visual Studio Code の <a href="https://code.visualstudio.com/docs/languages/typescript#_tsconfigjson" target="_blank" rel="noopener">公式ドキュメント の tsconfig.json</a> を基に作成しました. まずは、この内容について振り返りをしたいと思います.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">        <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</span><br><span class="line">        <span class="attr">"sourceMap"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></table></figure>
+<p>設定したのはコンパイラーのオプションでだけになります. (よくトランスパイル/トランスパイラーって見聞きして真似てたけど、もしかしてコンパイル/コンパイラーが正しい？ ^^;)</p>
+<p><code>target</code> は、TypeScript を トランスパイルする先の、ECMAScript の ターゲット・バージョンになります. <code>es3</code> が デフォルトで、前回は <code>es5</code>  ECMAScript 5 に 設定していました. Hello World 的にはあまり関係はないのでサンプルのままです. 今後の設定としてはサーバーサイト前提なので 2017年8月現在 最新 の async/await が 使える <code>es2017</code> になります.</p>
+<p><code>module</code> は、モジュールコードの生成方法になります. Hello World では、もちろん関係ありません… 後々使っていく場合の設定値としては、サーバー再度用途で Node.js で 動かすので <code>commonjs</code> に設定したいと思います.</p>
+<p><code>sourceMap</code> は、 <code>.map</code> ファイルを生成するオプションです. <code>.map</code> ファイルがないとデバッガーはトランスパイルされた <code>.js</code> ファイルを参照するため、 <code>.ts</code> を 見ているエンジニア側とミスマッチが発生します. デバッガーなどのツールに<code>.map</code> ファイルを参照してもらうことで、 <code>.ts</code> ファイルを参照してもらうことができるので、ほぼ必須のオプションでしょう.</p>
+<h2 id="tsconfig-json-の-仕様について調査"><a href="#tsconfig-json-の-仕様について調査" class="headerlink" title="tsconfig.json の 仕様について調査"></a>tsconfig.json の 仕様について調査</h2><p>つづいて <code>tsconfig.json</code> の 仕様はどうなっているのか、公式ドキュメント <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank" rel="noopener">https://www.typescriptlang.org/docs/handbook/tsconfig-json.html</a> から大筋を参照したいと思います.</p>
+<h3 id="Overview-Using-tsconfig-json"><a href="#Overview-Using-tsconfig-json" class="headerlink" title="Overview / Using tsconfig.json"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#overview" target="_blank" rel="noopener">Overview</a> / <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#using-tsconfigjson" target="_blank" rel="noopener">Using tsconfig.json</a></h3><p>まず、 <code>tsconfig.json</code> がある ディレクトリを TypeScript プロジェクトのルートとして認識するとのことです. <code>tsc</code> を 実行する際に、 <code>tsconfig.json</code> を 関連度ディレクトリから親ディレクトリ方向に探していき使うか、 <code>-p (--project)</code> オプションで <code>tsconfig.json</code> の パスを指定します.</p>
+<h3 id="Examples-Details"><a href="#Examples-Details" class="headerlink" title="Examples / Details"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#examples" target="_blank" rel="noopener">Examples</a> / <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details" target="_blank" rel="noopener">Details</a></h3><p><code>tsconfig.json</code> の 記述形式は <code>compilerOptions</code> プロパティに続き、 <code>files</code> プロパティ を使用する形式と、 <code>include/exclude</code> プロパティを使用する形式に分かれます.</p>
+<p><code>files</code> プロパティの使用例 (公式ドキュメントから抜粋)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "compilerOptions": &#123; ... &#125;,</span><br><span class="line">    "files": [</span><br><span class="line">        "core.ts",</span><br><span class="line">        "sys.ts",</span><br><span class="line">        <span class="string">"types.ts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p><code>include/exclude</code> プロパティの使用例 (公式ドキュメントから抜粋)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "compilerOptions": &#123; ... &#125;,</span><br><span class="line">    "include": [</span><br><span class="line">        <span class="string">"src/**/*"</span></span><br><span class="line">    ],</span><br><span class="line">    "exclude": [</span><br><span class="line">        "node_modules",</span><br><span class="line">        <span class="string">"**/*.spec.ts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></table></figure></p>
+<p><code>compilerOptions</code> プロパティについては、省略した場合はコンパイラーのデフォルトが使われ、明示的に指定する場合は <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">Compiler Options</a> を 参照とのこと. 設定項目が多いので後日.</p>
+<p><code>files</code> プロパティは、相対または絶対のファイルパスのリストとのことで、たぶん使うのは面倒くさいので置いとき、 <code>include/exclude</code> プロパティを使うのがよいでしょう.</p>
+<p><code>include/exclude</code> プロパティは、glob のようなパターンで指定できます. glob、Linux などで <code>*.txt</code> の <code>*</code> のような “ワイルドカードでファイル名のセットを指定するパターンのこと - <a href="https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%AD%E3%83%96" target="_blank" rel="noopener">グロブ - Wikipedia</a>“ とのことで、こっちで指定する方が便利です. 以下のワイルドカードからパターンを作ります.</p>
+<ul>
+<li><code>*</code> ０個以上の文字</li>
+<li><code>?</code> 任意の１文字</li>
+<li><code>**/</code> 任意のサブディレクトリに再帰的にマッチ</li>
+</ul>
+<p><code>files</code> プロパティ と <code>include/exclude</code> プロパティ の 有無や、組み合わせなどの複雑なルールについての記載もあるけど、あまり頑張らないで簡単な構造にしたいのでパスします.</p>
+<h3 id="types-typeRoots-and-types"><a href="#types-typeRoots-and-types" class="headerlink" title="@types, typeRoots and types"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types" target="_blank" rel="noopener">@types, typeRoots and types</a></h3><p><code>@types</code> パッケージは、すべてコンパイルに含まれるとのこと. その制御については <code>compilerOptions</code> の <code>typeRoots</code> と <code>types</code> で できる.<br>全部入って問題ないような気もします. 使うとしたら、 <code>types</code> で パッケージ (e.g. node, lodash, express) を 明示するのでよさそうです.</p>
+<h3 id="Configuration-inheritance-with-extends"><a href="#Configuration-inheritance-with-extends" class="headerlink" title="Configuration inheritance with extends"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#configuration-inheritance-with-extends" target="_blank" rel="noopener">Configuration inheritance with extends</a></h3><p><code>tsconfig.json</code> は <code>extends</code> プロパティを使って別ファイルから構成を継承できます. ベース(継承元) の 設定がロードされて、継承している設定が上書きロードします.<br>ある程度の規模で複数プロジェクトに分けて構成する場合に便利なので使う機会は結構ありそうです. すぐには使う機会はなさそうですが、このような設定ができることを覚えておくと、後で便利そうです.</p>
+<h3 id="compileOnSave"><a href="#compileOnSave" class="headerlink" title="compileOnSave"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#compileonsave" target="_blank" rel="noopener">compileOnSave</a></h3><p><code>compileOnSave</code> プロパティを設定すると、 <code>tsconfig.json</code> 保存時に すべてのファイルを再生成するように、この機能をサポートしている IDE へ 通知します.<br><code>tsconfig.json</code> の 試行錯誤段階ではよさそうだけど、ある程度固まってきたら使わないのかもしれないです. ところで、今回使う Visual Studio Code の 記載がないが対応しているのだろうか？</p>
+<h3 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#schema" target="_blank" rel="noopener">Schema</a></h3><p>スキーマは、ここだよ <a href="http://json.schemastore.org/tsconfig" target="_blank" rel="noopener">http://json.schemastore.org/tsconfig</a> って、ことで後で眺める.</p>
+<h3 id="サマリ"><a href="#サマリ" class="headerlink" title="サマリ"></a>サマリ</h3><p><code>compilerOptions</code> を どう設定するかがメインになりそう.<br>後は <code>include/exclude</code> . これは、Java の <a href="https://maven.apache.org/" target="_blank" rel="noopener">Maven</a> のように 定番があると嬉しいのですが、サンプル以外に特に具体的なパターンはなかったです. あまり独自のスタイルを作るよりも、定番に乗っかっていきたいところ.</p>
+<h2 id="TypeScript-を-使っているプロジェクトを調査"><a href="#TypeScript-を-使っているプロジェクトを調査" class="headerlink" title="TypeScript を 使っているプロジェクトを調査"></a>TypeScript を 使っているプロジェクトを調査</h2><h3 id="Microsoft-TypeScript"><a href="#Microsoft-TypeScript" class="headerlink" title="Microsoft/TypeScript"></a><a href="https://github.com/Microsoft/TypeScript/" target="_blank" rel="noopener">Microsoft/TypeScript</a></h3><p>TypeScript 自身のリポジトリ. テストケース用なのか <code>tests</code> ディレクトリ以下にかなりの <code>tsconfig.json</code> が あります.<br>その中から <code>src</code> 以下をいくつか参照したところ、<code>/src/tsconfig-base.json</code> を 継承して作られているようで、こちらは <code>compilerOptions</code> だけなので、後日参照.<br>継承してる側は <code>files</code> プロパティで列挙でした.</p>
+<h3 id="Microsoft-vscode"><a href="#Microsoft-vscode" class="headerlink" title="Microsoft/vscode"></a><a href="https://github.com/Microsoft/vscode" target="_blank" rel="noopener">Microsoft/vscode</a></h3><p>Visual Studio Code の ベースとなっているリポジトリ. (製品版とは異なるらしい → <a href="https://ja.wikipedia.org/wiki/Visual_Studio_Code" target="_blank" rel="noopener">Visual Studio Code - Wikipedia</a>)<br><code>src/tsconfig.json</code> が あり、また <code>extensions/</code> 以下に各拡張機能用の <code>tsconfig.json</code> があります. 継承関係は無いです..</p>
+<p><code>/build/tsconfig.json</code> では <code>&quot;node_modules/**&quot;</code> を<code>exclue</code> 、拡張機能系はファイルが分かれているが大体同じで、 <code>&quot;src/**/*&quot;</code> の <code>include</code> でした.</p>
+<h2 id="今のところの設定"><a href="#今のところの設定" class="headerlink" title="今のところの設定"></a>今のところの設定</h2><p><code>compilerOptions</code> は 改めて調査するとして、今までのところで作ると以下のような感じでしょうか. って、結局 公式ドキュメントのサンプル…</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "compilerOptions": &#123; ... &#125;,</span><br><span class="line">    "include": [</span><br><span class="line">        <span class="string">"src/**/*"</span></span><br><span class="line">    ],</span><br><span class="line">    "exclude": [</span><br><span class="line">        "node_modules",</span><br><span class="line">        <span class="string">"**/*.spec.ts"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></table></figure>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51bLLkWaH4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">TypeScript実践マスター</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">古賀慎一 日経BP社 2017-12-12    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F15269698%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-82-229897-5%2520%257C%25204-822-29897-5%2520%257C%25204-8222-9897-5%2520%257C%25204-82229-897-5%2520%257C%25204-822298-97-5%2520%257C%25204-8222989-7-5" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51UE0ypcmKL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank">速習TypeScript: altJSのデファクトスタンダートを素早く学ぶ！ 速習シリーズ[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">山田祥寛 WINGSプロジェクト 2017-06-21    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>プロジェクトのディレクトリ構造にかかわる設定なので、いろいろと悩んでしまいます. とりあえず公式ドキュメントのサンプルに則って定義しておきたいと思います.<br>使い込んでみてわかることなのでしょう. きっと.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/09/07/TypeScriptのtsconfig.jsonを考える/" data-id="ckq2rxvca006o44r2yyzb6jew" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/16/TypeScriptのtslint.jsonを調べる/" title="TypeScript の tslint.json を 調べる" rel="bookmark">TypeScript の tslint.json を 調べる</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" title="Node.js 8 64bit & TypeScript の インストール" rel="bookmark">Node.js 8 64bit & TypeScript の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/" title="TypeScript の tsconfig.json を 考える - コンパイル・オプション編" rel="bookmark">TypeScript の tsconfig.json を 考える - コンパイル・オプション編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/19/TypeScriptのtslint.jsonを考える/" title="TypeScript の tslint.json を 考える" rel="bookmark">TypeScript の tslint.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/" title="Visual Studio Code で Hello TypeScript！" rel="bookmark">Visual Studio Code で Hello TypeScript！</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Visual-Studio-CodeでHello-TypeScript！" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/" class="article-date">
+  <time datetime="2017-09-03T15:00:00.000Z" itemprop="datePublished">2017-09-04</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/">Visual Studio Code で Hello TypeScript！</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p><a href="/2017/08/26/Visual-Studio-Code最初の設定変更/">TypeScript の インストールと設定</a>ができました！ さっそく Visual Studio Code から TypeScript で Hello World を！<br>Visual Studio Code の <a href="https://code.visualstudio.com/docs/languages/typescript" target="_blank" rel="noopener">公式ドキュメント</a> が 詳しいので、ドキュメントに則って進めたいと思います.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Node.js 8.4.0 64bit</li>
+<li>TypeScript 2.4</li>
+<li>Visual Studio Code</li>
+</ul>
+<h2 id="Visual-Studio-Code-に-TypeScript-サポート-の-拡張機能を追加"><a href="#Visual-Studio-Code-に-TypeScript-サポート-の-拡張機能を追加" class="headerlink" title="Visual Studio Code に TypeScript サポート の 拡張機能を追加"></a>Visual Studio Code に TypeScript サポート の 拡張機能を追加</h2><p>Visual Studio Code は 標準で TypeScript に 手厚いサポート “VS Code provides many features for TypeScript out of the box. - <a href="https://code.visualstudio.com/docs/languages/typescript" target="_blank" rel="noopener">TypeScript Programming with Visual Studio Code</a>“ がついています. ただし Lint については 拡張機能が必要なようで、今回は <a href="https://marketplace.visualstudio.com/items?itemName=eg2.tslint" target="_blank" rel="noopener">egamma さん の 拡張機能</a> を 使わせていただくことにしました.<br>レーティングが高く、インストール数も多く、また「ようこそ」画面で推薦されていることなどからの選定となります. Thank you for the great extension!, egamma-san!!</p>
+<p>Visual Studio Code を 起動し「ようこそ」画面から、[カスタマイズする] - [ツールと言語] - [TypeScript] を クリックします.<br>※ 「ようこそ」 が 表示されない場合は、メニュー の [ヘルプ] - [ようこそ] を 選択します<br><img src="/assets/vscode/typescript/01.png" alt></p>
+<p>「TypeScript に追加サポートをインストールしたあと、ウィンドウが再読み込みされます.」 が 表示されるので [OK] を クリックします.<br><img src="/assets/vscode/typescript/02.png" alt></p>
+<p>Visual Studio Code が 再起動し、「ようこそ」の TypeScript の 色が変わり TypeScript サポートがインストールされました.<br><img src="/assets/vscode/typescript/03.png" alt></p>
+<p>また、<code>Ctrl + Shift + X</code> で 拡張機能を表示するとインストール済みに TypeScript が 追加されていることからも確認できます.<br><img src="/assets/vscode/typescript/04.png" alt></p>
+<h2 id="プロジェクト・フォルダー-の-作成-と-展開"><a href="#プロジェクト・フォルダー-の-作成-と-展開" class="headerlink" title="プロジェクト・フォルダー の 作成 と 展開"></a>プロジェクト・フォルダー の 作成 と 展開</h2><p>例によって <code>Ctrl + @</code> で 統合コンソールを表示. 下記コマンドを実行しフォルダーの作成 と Visual Studio Code で フォルダーを開きます. 今回は <code>C:\Develop\workspace\hello-typescript</code> に フォルダーを作成しました.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">PS C:\Users\username&gt; mkdir C:\Develop\workspace\hello-typescript</span><br><span class="line">PS C:\Users\username&gt; code C:\Develop\workspace\hello-typescript\</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/typescript/05.png" alt></p>
+<h2 id="tsconfig-json-と-tslint-json-の-作成"><a href="#tsconfig-json-と-tslint-json-の-作成" class="headerlink" title="tsconfig.json と tslint.json の 作成"></a>tsconfig.json と tslint.json の 作成</h2><p>まず最初に <code>tsconfig.json</code> を 作成し、TypeScript プロジェクトの設定を行います.<br><code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>new file</code> で <code>tsconfig.json</code> を 作成し、以下の内容で保存します.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">        <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</span><br><span class="line">        <span class="attr">"sourceMap"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></table></figure>
+<p><img src="/assets/vscode/typescript/06.png" alt></p>
+<p><code>Ctrl + Shift + P</code> で <code>tslint</code> 絞り込み、[TSLint: Create a “tslint.json” file] を 選択します.<br><img src="/assets/vscode/typescript/07.png" alt></p>
+<p><code>tslint.json</code> ファイルが追加されます. このファイルがないと TSLint の 拡張機能が動作しないので要注意です. 今回は TSLint の 設定をデフォルトのままとしました.<br><img src="/assets/vscode/typescript/08.png" alt></p>
+<h2 id="TypeScript-コーディング"><a href="#TypeScript-コーディング" class="headerlink" title="TypeScript コーディング"></a>TypeScript コーディング</h2><p><code>Ctrl + Shift + P</code> - <code>new file</code> - <code>hello.ts</code> を 以下の内容で作成します.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line"><span class="keyword">class</span> Startup &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> main(): <span class="built_in">number</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello TypeScript！'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Startup.main();</span><br></pre></table></figure>
+<p><img src="/assets/vscode/typescript/09.png" alt></p>
+<h2 id="ビルド-＆-実行"><a href="#ビルド-＆-実行" class="headerlink" title="ビルド ＆ 実行"></a>ビルド ＆ 実行</h2><p><code>Ctrl + Shift + B</code> で ビルドを実行します. ビルド・タスクを聞かれるので <code>tsc: ビルド - tsconfig.json</code> を 選択します.<br><img src="/assets/vscode/typescript/10.png" alt></p>
+<p><code>tsc</code> によって トランスパイルされ、 <code>hello.js</code> と <code>hello.js.map</code> が 生成されます.<br><img src="/assets/vscode/typescript/11.png" alt></p>
+<p><code>Ctrl + Shift + @</code> で 新しい統合ターミナルを開き、 <code>node</code> を 実行します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">PS C:\Develop\workspace\hello-typescript&gt; node .\hello.js</span><br><span class="line">Hello TypeScript！</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/typescript/12.png" alt></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51bLLkWaH4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">TypeScript実践マスター</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">古賀慎一 日経BP社 2017-12-12    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F15269698%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-82-229897-5%2520%257C%25204-822-29897-5%2520%257C%25204-8222-9897-5%2520%257C%25204-82229-897-5%2520%257C%25204-822298-97-5%2520%257C%25204-8222989-7-5" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51UE0ypcmKL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank">速習TypeScript: altJSのデファクトスタンダートを素早く学ぶ！ 速習シリーズ[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">山田祥寛 WINGSプロジェクト 2017-06-21    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>Visual Studio Code で TypeScript の Hello World が できました！</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/" data-id="ckq2rxvcd006v44r22u48nmyz" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/16/TypeScriptのtslint.jsonを調べる/" title="TypeScript の tslint.json を 調べる" rel="bookmark">TypeScript の tslint.json を 調べる</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" title="Node.js 8 64bit & TypeScript の インストール" rel="bookmark">Node.js 8 64bit & TypeScript の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/" title="TypeScript の tsconfig.json を 考える - コンパイル・オプション編" rel="bookmark">TypeScript の tsconfig.json を 考える - コンパイル・オプション編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/07/TypeScriptのtsconfig.jsonを考える/" title="TypeScript の tsconfig.json を 考える" rel="bookmark">TypeScript の tsconfig.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/19/TypeScriptのtslint.jsonを考える/" title="TypeScript の tslint.json を 考える" rel="bookmark">TypeScript の tslint.json を 考える</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Node.js-8-64bit-and-TypeScriptのインストール" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" class="article-date">
+  <time datetime="2017-08-31T15:00:00.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/">Node.js 8 64bit &amp; TypeScript の インストール</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/nodejs/nodejs.png" alt title="Node.js"></p>
+<p>急遽 TypeScript を 使うことになり… インストールとか環境構築とか. ちょっと手を広げすぎている感があるけど、勉強する機会があるのはよいこと、と考えることにして Let’s Go！</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Node.js 8.4.0 64bit</li>
+<li>TypeScript 2.4.2</li>
+</ul>
+<h1 id="バージョン-と-インストールする環境について検討"><a href="#バージョン-と-インストールする環境について検討" class="headerlink" title="バージョン と インストールする環境について検討"></a>バージョン と インストールする環境について検討</h1><p>ブログ環境を構築する <a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">Hexo を インストール</a>した際に、Node.js 6.9 LTS を インストールしました. その際には “開発用途ではないので LTS(Long Term Support) である v6.9.1 LTS” としてました. が、今回はバージョン指定があり Node.js 8.x に なります.<br>指定があるということは、考えることがないですね.</p>
+<p>なお Hexo の 方も、この際バージョンアップしてしまうことにします. 2つのバージョンを管理したり行き来するのが手間ですし、そもそも v6 LTS の 選択は Hexo 以外に用途がなかったのでサポートが長い LTS にしていたという経緯になります. 今回開発に使うので、ちゃんと新しいバージョンへの追随やトラブルシュートもやる(たぶｎ)ので、あまり困らないかなぁと.</p>
+<h2 id="Node-js-の-インストール-と-動作確認"><a href="#Node-js-の-インストール-と-動作確認" class="headerlink" title="Node.js の インストール と 動作確認"></a>Node.js の インストール と 動作確認</h2><p>Node.js の トップ・ページ <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> へ アクセスします.<br>画面中ほどにダウンロードリンクがあります.<br>今回は、ちゃんと Windows の 64bit であることを認識して、[Download for Windows (x64)] で 表示してくれています. と、いうことで素直に [v8.4.0 Current] を クリックしてダウンロードします.<br><img src="/assets/nodejs/install-8/01.png" alt></p>
+<p>チェックサム は ダウンロード・ページ <a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">https://nodejs.org/en/download/current/</a> に [Signed SHASUMS for release files] が あります. 今回ダウンロードした node-v8.4.0-x64.msi は <code>8efbd1b94ff8338bd36a1c30a86aba4fae3b80b61e265401fa97e7a4c5478ab2</code> でした.<br>確認方法は Windows PowerShell 4.0 以降の <code>Get-FileHash</code> コマンドを使います.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">c:\&gt; powershell Get-FileHash -Algorithm SHA256 c:\node-v8.4.0-x64.msi</span><br><span class="line"></span><br><span class="line">Algorithm  Hash</span><br><span class="line">---------  ----</span><br><span class="line">SHA256     8EFBD1B94FF8338BD36A1C30A86ABA4FAE3B80B61E265401FA97E7A4C5478AB2</span><br></pre></table></figure></p>
+<p>ダウンロードした <code>node-v8.4.0-x64.msi</code> を ダブルクリックして、インストーラーを起動します.<br><img src="/assets/nodejs/install-8/02.png" alt><br><img src="/assets/nodejs/install-8/03.png" alt></p>
+<p>End-User License Agreement が 表示されます. 内容を確認し、同意できたら [I accept the terms in the Lisence Agreement] に チェックして [Next] を クリックします.<br><img src="/assets/nodejs/install-8/04.png" alt></p>
+<p>インストール先を指定します. 今回は <code>C:\Develop\sdk\nodejs8\</code> と しました.<br><img src="/assets/nodejs/install-8/05.png" alt></p>
+<p>Custom Setup で オプションを聞かれます. 今回は特に変更なしで、すべて インストールしました.<br><img src="/assets/nodejs/install-8/06.png" alt></p>
+<p>インストール確認が表示されるので、[Install] ボタンをクリックしてインストールします.<br><img src="/assets/nodejs/install-8/07.png" alt></p>
+<p>インストールが完了しました.<br><img src="/assets/nodejs/install-8/08.png" alt></p>
+<p>動作確認としてコマンド プロンプト で バージョンを出力してみます. コマンドは <code>node --version</code> もしくは <code>node -v</code> です. インストール・オプションで [Add to PATH] に チェックした(変更しなかった)ので、パスが通っており、直接 <code>node</code> コマンドが実行できます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line">c:\&gt; echo %PATH%</span><br><span class="line">C:\Develop\sdk\nodejs8\;C:\Users\username\AppData\Roaming\npm; ...(省略)</span><br><span class="line"></span><br><span class="line">c:\&gt; node --version</span><br><span class="line">v8.4.0</span><br><span class="line"></span><br><span class="line">c:\&gt; node -v</span><br><span class="line">v8.4.0</span><br></pre></table></figure></p>
+<h2 id="TypeScript-の-インストール-と-動作確認"><a href="#TypeScript-の-インストール-と-動作確認" class="headerlink" title="TypeScript の インストール と 動作確認"></a>TypeScript の インストール と 動作確認</h2><p><code>npm</code> コマンドでインストールします. TypeScript の トランスパイラー に加え、Lint も 合わせて入れておきます.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">c:\&gt; npm install -g typescript tslint</span><br><span class="line">+ tslint@5.6.0</span><br><span class="line">+ typescript@2.4.2</span><br><span class="line">added 31 packages in 4.277s</span><br></pre></table></figure></p>
+<p>動作確認は TS コンパイラー の <code>tsc</code> コマンドで行います.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">c:\&gt; tsc --version</span><br><span class="line">Version 2.4.2</span><br><span class="line"></span><br><span class="line">c:\&gt; tsc -v</span><br><span class="line">Version 2.4.2</span><br></pre></table></figure></p>
+<hr>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51bLLkWaH4L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">TypeScript実践マスター</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">古賀慎一 日経BP社 2017-12-12    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4822298973" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F15269698%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-82-229897-5%2520%257C%25204-822-29897-5%2520%257C%25204-8222-9897-5%2520%257C%25204-82229-897-5%2520%257C%25204-822298-97-5%2520%257C%25204-8222989-7-5" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51UE0ypcmKL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK" target="_blank">速習TypeScript: altJSのデファクトスタンダートを素早く学ぶ！ 速習シリーズ[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">山田祥寛 WINGSプロジェクト 2017-06-21    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB0733113NK%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>とりあえず、Node.js 8 と TypeScript が インストールできました. ついでに Hexo 環境もバージョンアップとなりましたが、今のところ特に困ったことはなさそうです. (そりゃ、そうだ)</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/09/01/Node.js-8-64bit-and-TypeScriptのインストール/" data-id="ckq2rxvc7006e44r2acdgho49" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/16/TypeScriptのtslint.jsonを調べる/" title="TypeScript の tslint.json を 調べる" rel="bookmark">TypeScript の tslint.json を 調べる</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/10/TypeScriptのtsconfig.jsonを考える-コンパイル・オプション編/" title="TypeScript の tsconfig.json を 考える - コンパイル・オプション編" rel="bookmark">TypeScript の tsconfig.json を 考える - コンパイル・オプション編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/07/TypeScriptのtsconfig.jsonを考える/" title="TypeScript の tsconfig.json を 考える" rel="bookmark">TypeScript の tsconfig.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/19/TypeScriptのtslint.jsonを考える/" title="TypeScript の tslint.json を 考える" rel="bookmark">TypeScript の tslint.json を 考える</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/04/Visual-Studio-CodeでHello-TypeScript！/" title="Visual Studio Code で Hello TypeScript！" rel="bookmark">Visual Studio Code で Hello TypeScript！</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Visual-Studio-CodeでHello-Python3！" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/29/Visual-Studio-CodeでHello-Python3！/" class="article-date">
+  <time datetime="2017-08-28T15:00:00.000Z" itemprop="datePublished">2017-08-29</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/29/Visual-Studio-CodeでHello-Python3！/">Visual Studio Code で Hello Python3！</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p>ようやく <a href="/2017/08/26/Visual-Studio-Code最初の設定変更/">Visual Studio Code の 準備</a>ができました！ さっそく Python の コーディングに入りたいと思います. まずは基本の Hello World から！</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Python 3.6 64bit</li>
+<li>Visual Studio Code</li>
+</ul>
+<h2 id="Python-サポート-の-拡張機能を追加"><a href="#Python-サポート-の-拡張機能を追加" class="headerlink" title="Python サポート の 拡張機能を追加"></a>Python サポート の 拡張機能を追加</h2><p>Visual Studio Code で Python の コード補完や、Lint、デバッグ を 行うには、Pyhton サポート の 拡張機能を追加します.<br>Python サポート の 拡張機能は <a href="https://marketplace.visualstudio.com/search?term=tag%3Apython&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance" target="_blank" rel="noopener">かなりの数</a> 登録されています. その中から、今回は <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python" target="_blank" rel="noopener">Don Jayamanne さん の 拡張機能</a> を 使わせていただくことにしました.<br>レーティングが高く、インストール数も多く、また <a href="https://code.visualstudio.com/docs/languages/python" target="_blank" rel="noopener">Visual Studio Code の 公式ドキュメントで紹介</a>されていること、「ようこそ」画面で推薦されていることなどからの選定となります. Thank you for the great extension!, Don Jayamanne-san!!</p>
+<p>Visual Studio Code を 起動し「ようこそ」画面から、[カスタマイズする] - [ツールと言語] - [Python] を クリックします.<br>※ 「ようこそ」 が 表示されない場合は、メニュー の [ヘルプ] - [ようこそ] を 選択します<br><img src="/assets/vscode/python/01.png" alt></p>
+<p>「Python に追加サポートをインストールしたあと、ウィンドウが再読み込みされます.」 が 表示されるので [OK] を クリックします.<br><img src="/assets/vscode/python/02.png" alt></p>
+<p>Visual Studio Code が 再起動し、「ようこそ」の Python の 色が変わり Python サポートがインストールされました.<br><img src="/assets/vscode/python/03.png" alt></p>
+<p>また、<code>Ctrl + Shift + X</code> で 拡張機能を表示するとインストール済みに Python が 追加されていることからも確認できます.<br><img src="/assets/vscode/python/04.png" alt></p>
+<h2 id="プロジェクト・フォルダー-の-作成-と-展開"><a href="#プロジェクト・フォルダー-の-作成-と-展開" class="headerlink" title="プロジェクト・フォルダー の 作成 と 展開"></a>プロジェクト・フォルダー の 作成 と 展開</h2><p>さっそくプロジェクト用のフォルダーを作成し開きます. <code>Ctrl + K</code> <code>Ctrl + O</code> から フォルダー選択ダイアログを表示してもよいのですが、今回はフォルダーを作成する必要があるので “Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them. - Basic Editing in Visual Studio Code - <a href="https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts" target="_blank" rel="noopener">Keyboard shortcuts</a>“ にならい、統合コンソールから開くことにします.</p>
+<p><code>Ctrl + @</code> で 統合コンソールを表示. 下記コマンドを実行しフォルダーの作成 と Visual Studio Code で フォルダーを開きます. 今回は <code>C:\Develop\workspace\hello-python3</code> に フォルダーを作成しました.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">PS C:\Users\username&gt; mkdir C:\Develop\workspace\hello-python3</span><br><span class="line">PS C:\Users\username&gt; code C:\Develop\workspace\hello-python3\</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/python/05.png" alt></p>
+<h2 id="Python-の-仮想環境-を-作成"><a href="#Python-の-仮想環境-を-作成" class="headerlink" title="Python の 仮想環境 を 作成"></a>Python の 仮想環境 を 作成</h2><p>Hello World なので、仮想環境を作成するほどでは無いのですが、Visual Studio Code の 設定確認もかねて.<br><code>Ctrl + @</code> で 統合コンソールを表示し、 <code>venv</code> を 実行します. フォルダーを開いているので、カレント・フォルダーが自動的にプロジェクト用のフォルダになっています.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">PS C:\Develop\workspace\hello-python3&gt; python -m venv venv</span><br></pre></table></figure></p>
+<p>Visual Studio Code で 仮想環境を使うように設定します.<br><code>Ctrl + Shift + P</code> で コマンドパレット、<code>interp</code> と 入力して、[Python: Select Workspace Interpreter] を 選択します.<br>続いて利用可能な <code>python.exe</code> の 候補が出るので、 <code>venv - python.exe</code> を 選択します.<br><img src="/assets/vscode/python/06.png" alt><br><img src="/assets/vscode/python/07.png" alt></p>
+<p>続いて新しいファイルを作成します. <code>Ctrl + N</code> でもよいのですが、Visual Studio Code っぽく <code>Ctrl + Shift + P</code> で コマンドパレット、<code>new file</code> を 入力して、Visual Studio Code の エクスプローラーに直接ファイルを追加します. ファイル名は <code>hello.py</code> としました.<br><img src="/assets/vscode/python/08.png" alt></p>
+<p>ファイル名を確定すると「Linter pylint is not installed」の エラーが表示されます. [Install pylint] を クリックしてインストールします.<br><img src="/assets/vscode/python/09.png" alt></p>
+<p>新しい統合ターミナルが起動し Pylint が インストールされます. 先ほど仮想環境を選択しているので実行する <code>python.exe</code> が <code>venv</code> の ものになっています. インストールできたら、統合ターミナルは不要なので <code>Ctrl + @</code> で 閉じておきます.<br><img src="/assets/vscode/python/10.png" alt></p>
+<h2 id="Python-コーディング"><a href="#Python-コーディング" class="headerlink" title="Python コーディング"></a>Python コーディング</h2><p>単純な Hello World ならぬ Hello Python3！ なので <code>print(&#39;Hello Python3！&#39;)</code> 以上、なのですが Visual Studio Code を 使うからには入力補完を使うようなコードにしたいところです. ちょっと回りくどいですが <code>main()</code> から <code>hello()</code> を 呼ぶような構造にしました.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(<span class="string">'Hello '</span> + name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    hello(<span class="string">'Python3！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></table></figure>
+<p>では早速. <code>d</code> と タイプすると入力補完が即時立ち上がりました！ (間違えて消えてしまったら <code>Ctrl + Space</code> )<br>いくつかの候補があり迷いますが、コード・スニペット の <code>def</code> を 選択します.<br><img src="/assets/vscode/python/11.png" alt></p>
+<p>ファンクション定義のスニペットが展開されました. <code>funcname</code> に フォーカスが当たっているので、ファンクション名 <code>hello</code> を 入力し、 <code>Tab</code> キーを押下します.<br><img src="/assets/vscode/python/12.png" alt></p>
+<p><code>parameter_list</code> へ フォーカスが移るので、今回のパラメーター <code>name</code> を 入力し、 <code>Tab</code> キーを押下します.<br><img src="/assets/vscode/python/13.png" alt></p>
+<p>ファンクションのボディに展開されていた <code>pass</code> へ フォーカスが当たるので、 <code>print</code>文 を 入力します.<br><img src="/assets/vscode/python/14.png" alt></p>
+<p><code>print</code> は <code>print</code> の 文字列の入力補完が効きますが括弧はつかないようです. また、 <code>name</code> は パラメーター定義があるのを見てくれて入力補完のリストが表示されます.<br><img src="/assets/vscode/python/15.png" alt></p>
+<p><code>print</code> 文のパラメーター <code>&#39;Hello &#39; + name</code> まで入力し、 <code>Ctrl + Enter</code> すると行の途中(今回は閉じ括弧のが残っている状態)でも、残りを改行せずにカーソルだけ次行へ改行してくれます. <code>Ctrl + S</code> で ファイルを保存します.<br><code>def</code> に 警告が表示されています. 「[pylint] C0111:Missing module docstring」と「[pylint] C0111:Missing function docstring」ですね…<br>マウス・カーソルを警告が出ている波線にのせるほか、 <code>Ctrl + Shift + M</code> で 問題ビューを表示できます.<br><img src="/assets/vscode/python/16.png" alt></p>
+<p>とりあえず先に進んで、 <code>main()</code> を 実装します.<br><code>main()</code> は、そのあとの <code>if __name__ == &#39;__main__&#39;:</code> と ペアになります. そのため <code>if</code> 文の入力補完を期待して <code>if</code> から入力し、 <code>if(main)</code> の 入力補完を選択します.<br><img src="/assets/vscode/python/17.png" alt></p>
+<p>期待通りの <code>main()</code> と <code>if __name__ == &#39;__main__&#39;:</code> を 補完してくれました！ <code>pass</code> に フォーカスが当たっているので <code>hello(&#39;Python3！&#39;)</code> を 入力します.<br><img src="/assets/vscode/python/18.png" alt></p>
+<p>実装できたので <code>Ctrl + S</code> で 保存します. 警告 を すべて無くしてから完成ですが、今回は Visual Studio Code で Python を 実行することが目的で、コードは残さないので、このまま進めます.<br><img src="/assets/vscode/python/19.png" alt></p>
+<h2 id="Python-プログラム-の-実行"><a href="#Python-プログラム-の-実行" class="headerlink" title="Python プログラム の 実行"></a>Python プログラム の 実行</h2><p>まずは Python 拡張機能 の [Python: Run Python File in Terminal] から実行してみます. <code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>Python run</code> と 入力して絞り込みます.<br><img src="/assets/vscode/python/20.png" alt></p>
+<p>[Python: Run Python File in Terminal] を 選択し、実行します.<br><img src="/assets/vscode/python/21.png" alt></p>
+<h2 id="その他-venv-仮想環境-の-python-exe-の-パス"><a href="#その他-venv-仮想環境-の-python-exe-の-パス" class="headerlink" title="その他 - venv 仮想環境 の python.exe の パス"></a>その他 - venv 仮想環境 の python.exe の パス</h2><p><code>venv</code> の 仮想環境 <code>python.exe</code> の パスは <code>.vscode\settings.json</code> の <code>&quot;python.pythonPath&quot;</code> に フル・パスで記述されています. <code>.vscode\settings.json</code> を Git などへコミットし共有する場合は、絶対パスか<code>&quot;${workspaceRoot}/venv/scripts/python.exe&quot;</code> のように、プロジェクトのディレクトリをさす <code>${workspaceRoot}</code> に 置き換えておきます. 詳細は こちら <a href="https://github.com/DonJayamanne/pythonVSCode/wiki/Python-Path-and-Version#relative-paths-to-python-interpreter" target="_blank" rel="noopener">Relative Paths to Python Interpreter - Python Path and Version · DonJayamanne/pythonVSCode Wiki</a><br><img src="/assets/vscode/python/98.png" alt>.</p>
+<h2 id="その他-統合ターミナルから-venv-仮想環境-の-実行"><a href="#その他-統合ターミナルから-venv-仮想環境-の-実行" class="headerlink" title="その他 - 統合ターミナルから venv 仮想環境 の 実行"></a>その他 - 統合ターミナルから venv 仮想環境 の 実行</h2><p><code>Ctrl + @</code> で 統合ターミナルを起動し、そこから Python および 関連コマンド(e.g. pip)を実行する場合、 venv を 有効化する必要があります. この場合は [Python: Select Workspace Interpreter] が 効いていないので注意が必要です.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">PS C:\Develop\workspace\hello-python3&gt; Set-ExecutionPolicy RemoteSigned -Scope Process</span><br><span class="line">PS C:\Develop\workspace\hello-python3&gt; .\venv\Scripts\Activate.ps1</span><br><span class="line">(venv) PS C:\Develop\workspace\hello-python3&gt;</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/python/99.png" alt></p>
+<p><a href="//af.moshimo.com/af/c/click?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0453/000000019703.jpg" width="300" height="250" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=871746&p_id=1296&pc_id=2120&pl_id=19703" width="1" height="1" style="border:none"></p>
+<hr>
+<p>主にクロール系の処理になるので、こちらで勉強しています.<br>最初の言語として勉強するための本には向いていませんが、Python の 言語使用の話もあるので他の言語を知ってる場合には、これ１冊でも十分ではないでしょうか.<br>またクローラーを作るという観点では、Python の 基本機能だけではなく Shell や Python の 外部ライブラリを使ったりと、バリエーションを持たせて解説があるので とても分かりやすいほか、法律に関する話などもあるのが素晴らしいです！</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51MK3rXBRRL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P" target="_blank">Pythonクローリング＆スクレイピング ―データ収集・解析のための実践開発ガイド―[Kindle版]</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">加藤 耕太 技術評論社 2016-12-16    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkkindle" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2FB01NGWKE0P%2F" target="_blank">Kindleで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4774183679%2F" target="_blank">Amazon[書籍版]で調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div>                                                  </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>Visual Studio Code で Hello World が できました！<br>これで Python プログラミングが始められます. 何を作ろうかなぁ～</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/29/Visual-Studio-CodeでHello-Python3！/" data-id="ckq2rxvc4006344r2tra13kmx" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" title="Visual Studio Code 最初の設定変更" rel="bookmark">Visual Studio Code 最初の設定変更</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/18/Visual-Studio-Codeのインストール/" title="Visual Studio Code の インストール" rel="bookmark">Visual Studio Code の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" title="Visual Studio Code で Git を 使う" rel="bookmark">Visual Studio Code で Git を 使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/" title="Visual Studio Code で git.exe が 見つからないと言われた場合の対処" rel="bookmark">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Visual-Studio-Code最初の設定変更" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" class="article-date">
+  <time datetime="2017-08-25T15:00:00.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/26/Visual-Studio-Code最初の設定変更/">Visual Studio Code 最初の設定変更</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p><a href="/2017/08/18/Visual-Studio-Codeのインストール/">Visual Studio Code が インストールでき</a>、<a href="/2017/08/23/Visual-Studio-CodeでGitを使う/">Git も 使える</a>ようになりました. まだ使いこんでいないので、よい設定や便利な拡張機能が見いだせていないですが、とりあえず必要最低限の最初の設定をしておきます.<br>Eclipse での設定と同様、各種設定については、お好みがあると思います. ご参考になれば、といったところでしょうか.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Visual Studio Code</li>
+</ul>
+<h2 id="ユーザー設定の表示"><a href="#ユーザー設定の表示" class="headerlink" title="ユーザー設定の表示"></a>ユーザー設定の表示</h2><p>Visual Studio Code を 起動します.<br><img src="/assets/vscode/config/01.png" alt></p>
+<p><code>Ctrl + ,</code> で ユーザー設定 の settings.json を 表示します.<br>Visual Studio Code は GUI の 設定を持っておらず、JSON ファイルを編集して設定します. とはいえ、各設定に説明がついていこと、エディターによる支援もあるので、難しいことなく設定できます.<br><img src="/assets/vscode/config/02.png" alt></p>
+<h2 id="設定変更の方法概要"><a href="#設定変更の方法概要" class="headerlink" title="設定変更の方法概要"></a>設定変更の方法概要</h2><p>ユーザー設定が分割エディターで表示されています.<br>左側が既存の設定でデフォルトになります. そこから変更する項目を右側にコピーして値を変更します.<br>コピーと設定変更は、左側で変更したい項目にマウスをのせると、鉛筆アイコンが出てくるので、クリックします.<br>クリックすると、設定できる値に応じて選択肢が表示されたり、テキスト入力の場合はコピーするといったアクションが表示されます. アクションに応じて設定を変更していきます.<br>Visual Studio Code の 再起動が必要な場合は、ダイアログが表示されるので指示に従います.</p>
+<h2 id="フォントの変更"><a href="#フォントの変更" class="headerlink" title="フォントの変更"></a>フォントの変更</h2><p>まずはフォントを例に設定変更します.<br>開発環境にとってフォントは大事、今回も Eclipse でも使っている M+とIPAの合成フォント さん の <a href="http://mix-mplus-ipa.osdn.jp/migu/" target="_blank" rel="noopener">Migu 1M</a> を 使わせていただきます.. 素晴らしいフォントをありがとうございます！！</p>
+<p>分割されているユーザー設定の左側、既存の設定 から [エディター] を 開きます.<br><img src="/assets/vscode/config/03.png" alt></p>
+<p><code>&quot;editor.fontFamily&quot;: &quot;Consolas, &#39;Courier New&#39;, monospace&quot;,</code> の 行に マウスをのせると [鉛筆アイコン] が 表示されます.<br><img src="/assets/vscode/config/04.png" alt></p>
+<p>[鉛筆アイコン] を クリックします.<br>今回はテキスト入力の設定項目のため [設定にコピー] が 表示されるので、クリックします.<br><img src="/assets/vscode/config/05.png" alt></p>
+<p>右側にコピーされ、設定値 ここでは <code>&quot;Consolas, &#39;Courier New&#39;, monospace&quot;</code> に フォーカスがあたります.<br><img src="/assets/vscode/config/06.png" alt></p>
+<p>右側にcopyされた設定を <code>&quot;&#39;Migu 1M&#39;&quot;</code> にし、 <code>Ctrl + S</code> で 保存します. エディターに表示されているフォントが即時に変更されます.<br><img src="/assets/vscode/config/07.png" alt></p>
+<h2 id="空白文字の表示方法を変更"><a href="#空白文字の表示方法を変更" class="headerlink" title="空白文字の表示方法を変更"></a>空白文字の表示方法を変更</h2><p>続いて選択肢のある設定変更の例として、空白文字の表示方法を変更します.<br>左側から <code>&quot;editor.renderWhitespace&quot;: &quot;none&quot;,</code> を 探す or 設定の検索 をし、 [鉛筆アイコン] を クリックします.<br><img src="/assets/vscode/config/08.png" alt></p>
+<p>設定値の選択肢が表示されるので選択します. 今回は <code>&quot;boundary&quot;</code> を 選択しました.<br>右側にコピーされ、値が <code>&quot;boundary&quot;</code> に なっています.<br><img src="/assets/vscode/config/09.png" alt></p>
+<h2 id="今回設定した項目"><a href="#今回設定した項目" class="headerlink" title="今回設定した項目"></a>今回設定した項目</h2><p>上記 フォント変更 や 空白文字の表示方法 の 設定変更のように、左側の [鉛筆アイコン] から アクションを選択し、右側で設定を変更していくことで、設定が変更できます.<br>これを Visual Studio Code 1.15.0 時点、354個 の 項目から変更する値を探して設定します. 凄い設定項目数ですね…</p>
+<p>今回は以下の設定を行いました.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">設定項目
+<th style="text-align:left">設定値
+<th style="text-align:left">設定内容
+
+
+<tbody>
+<tr>
+<td style="text-align:left">editor.fontFamily
+<td style="text-align:left">“‘Migu 1M’”
+<td style="text-align:left">フォント を Migu 1M
+
+<tr>
+<td style="text-align:left">editor.rulers
+<td style="text-align:left">[80, 120]
+<td style="text-align:left">垂直ルーラー は 標準の <code>80</code> と よく使う <code>120</code>
+
+<tr>
+<td style="text-align:left">editor.minimap.showSlider
+<td style="text-align:left">“always”
+<td style="text-align:left">ミニマップのスライダー を 常に表示
+
+<tr>
+<td style="text-align:left">editor.cursorBlinking
+<td style="text-align:left">“smooth”
+<td style="text-align:left">カーソル・アニメーション を スムーズに
+
+<tr>
+<td style="text-align:left">editor.renderWhitespace
+<td style="text-align:left">“boundary”
+<td style="text-align:left">空白文字を単語間の単一スペース以外表示
+
+<tr>
+<td style="text-align:left">files.autoGuessEncoding
+<td style="text-align:left">true
+<td style="text-align:left">ファイルを開くときに文字セット エンコードを推測
+
+<tr>
+<td style="text-align:left">files.eol
+<td style="text-align:left">“\n”
+<td style="text-align:left">既定の改行文字を LF に設定
+
+<tr>
+<td style="text-align:left">files.trimTrailingWhitespace
+<td style="text-align:left">true
+<td style="text-align:left">ファイルの保存時に末尾の空白をトリミング
+
+<tr>
+<td style="text-align:left">files.insertFinalNewline
+<td style="text-align:left">true
+<td style="text-align:left">ファイルの保存時に最新の行を末尾に挿入
+
+<tr>
+<td style="text-align:left">terminal.integrated.scrollback
+<td style="text-align:left">200000
+<td style="text-align:left">ターミナルの最大行数
+
+
+</table>
+<p><strong>更新</strong><br>2017年9月4日 <code>editor.minimap.showSlider</code> を 追加</p>
+<hr>
+<p>とりあえず基本設定はできました. <code>files.insertFinalNewline</code> などは よい設定ですね. 私は習慣化しているのでエディターの支援が効く機会が少ないかもしれませんが、チーム開発ではチョイチョイ引っかかるケースがあるので、設定に入れてしまって自動でやってしまうのがよさそうです.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/26/Visual-Studio-Code最初の設定変更/" data-id="ckq2rxva0001n44r261sumgkj" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/18/Visual-Studio-Codeのインストール/" title="Visual Studio Code の インストール" rel="bookmark">Visual Studio Code の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" title="Visual Studio Code で Git を 使う" rel="bookmark">Visual Studio Code で Git を 使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/" title="Visual Studio Code で git.exe が 見つからないと言われた場合の対処" rel="bookmark">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/29/Visual-Studio-CodeでHello-Python3！/" title="Visual Studio Code で Hello Python3！" rel="bookmark">Visual Studio Code で Hello Python3！</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Visual-Studio-CodeでGitを使う" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" class="article-date">
+  <time datetime="2017-08-22T15:00:00.000Z" itemprop="datePublished">2017-08-23</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/Visual-Studio-CodeでGitを使う/">Visual Studio Code で Git を 使う</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p><a href="/2017/08/21/PortableGit-for-Windowsのインストール/">Git for Windows Portable</a> を インストールし Git が 使えるようになったので、さっそく Visual Studio Code から使ってみます.<br><em>2017.12.18 追記</em>　<a href="/2017/08/21/PortableGit-for-Windowsのインストール/">PortableGit-for-Windowsのインストール</a> の方法の場合、Visual Studio Code で <code>git.exe</code> が 見つからないという警告が出るケースがありました. 詳しくは こちら <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual-Studio-Codeでgitが見つからないと言われた場合の対処</a> を 参照ください.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Git for Windows Portable 64bit</li>
+<li>Visual Studio Code</li>
+<li>Git Hub</li>
+</ul>
+<h2 id="Visual-Studio-Code-を-使って-GitHub-からの-クローン"><a href="#Visual-Studio-Code-を-使って-GitHub-からの-クローン" class="headerlink" title="Visual Studio Code を 使って GitHub からの クローン"></a>Visual Studio Code を 使って GitHub からの クローン</h2><p>Visual Studio Code を 起動します.<br>※ GitHub の アカウント設定と公開鍵の登録などの設定ができている前提とします.<br><img src="/assets/vscode/git/01.png" alt></p>
+<p>統合ターミナル を <code>Ctrl + @</code> で 表示します.<br><img src="/assets/vscode/git/02.png" alt></p>
+<p>統合ターミナルで以下を実行しクローンします.<br>※ 下記 <code>azriton/test</code> は クローンするリポジトリに置き換えます<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre><td class="code"><pre><span class="line">PS C:\Users\username&gt; cd C:\Temp\</span><br><span class="line">PS C:\Temp&gt; git clone git@github.com:azriton/test.git</span><br><span class="line">Cloning into 'test'...</span><br><span class="line">The authenticity of host 'github.com (192.30.255.113)' can't be established.</span><br><span class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added 'github.com,192.30.255.113' (RSA) to the list of known hosts.</span><br><span class="line">remote: Counting objects: 3, done.</span><br><span class="line">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Receiving objects: 100% (3/3), done.</span><br><span class="line">PS C:\Temp&gt;</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/03.png" alt></p>
+<p>Git の 設定で <code>user.useConfigOnly true</code> している場合は、ここでユーザ名とメールアドレスを設定します.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre><td class="code"><pre><span class="line">PS C:\Temp&gt; cd test</span><br><span class="line">PS C:\Temp\test&gt; git config --local user.email "you@example.com"</span><br><span class="line">PS C:\Temp\test&gt; git config --local user.name "Your Name"</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/04.png" alt></p>
+<p>Visual Studio Code で プロジェクトのように扱うため、 <code>code</code> コマンドにクローンしたリポジトリのディレクトリを渡してフォルダを開きます. (前回リポジトリのディレクトリに入っているので、ここでは <code>.</code> カレント・ディレクトリを渡しています)<br>(GUI から開く場合は <code>Ctrl + K</code> <code>Ctrl + O</code>)<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">PS C:\Temp\test&gt; code .</span><br></pre></table></figure></p>
+<p><img src="/assets/vscode/git/05.png" alt></p>
+<p>クローンしたディレクトリが開いた状態の新しいウィンドウが表示されます.<br><img src="/assets/vscode/git/06.png" alt></p>
+<h2 id="Visual-Studio-Code-から-変更-を-プッシュ"><a href="#Visual-Studio-Code-から-変更-を-プッシュ" class="headerlink" title="Visual Studio Code から 変更 を プッシュ"></a>Visual Studio Code から 変更 を プッシュ</h2><p><code>README.md</code> を ダブルクリックしてエディタに表示しします.<br><img src="/assets/vscode/git/07.png" alt></p>
+<p>改行コードがあっていないので <code>Ctrl + Shift + P</code> で コマンドパレットを表示し <code>line s</code> と 入力すると絞り込みされるので、[改行コードの変更] を 選択し、続い改行コードの選択が表示されるので [LF] を 選択します.<br><img src="/assets/vscode/git/08.png" alt><br><img src="/assets/vscode/git/09.png" alt></p>
+<p>ステータス・バー の 改行コード が <code>LF</code> に なっていることを確認し <code>README.md</code> を 編集<br>、保存すると ソース管理アイコンに変更されたファイル数がつきます.<br><img src="/assets/vscode/git/10.png" alt></p>
+<p>ソース管理画面 を <code>Ctrl + Shift + G</code> で 表示します.<br><img src="/assets/vscode/git/11.png" alt></p>
+<p>すべての変更をステージしたいので、 <code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>stage</code> と 入力すると絞り込みされるので、[Git: すべての変更のステージング] を 選択します.<br>※ 個別に指定する場合は、各ファイルにマウス・フォーカスを与えると [＋] アイコンが出るのでクリックして追加します.<br><img src="/assets/vscode/git/12.png" alt><br><img src="/assets/vscode/git/13.png" alt></p>
+<p>[Message (press Ctrl+Enter to commit)] の テキスト・ボックスにフォーカスが外れてしまったので、再度 <code>Ctrl + Shift + G</code> で フォーカスを与え、コミットメッセージを入力し <code>Ctrl + Enter</code> します. これで変更がコミットされます.<br><img src="/assets/vscode/git/14.png" alt><br><img src="/assets/vscode/git/15.png" alt></p>
+<p>ステータス・バー に 発信 [0↓ 1↑] が 出ているのでコミット済み、プッシュ前の変更があることが分かります.<br><code>Ctrl + Shift + P</code> で コマンドパレットを表示、 <code>push</code> と 入力すると絞り込みされるので、[Git: プッシュ] を 選択します.<br><img src="/assets/vscode/git/16.png" alt></p>
+<p>ステータス・バー が [0↓ 0↑] なので 無事、変更をプッシュすることができました！ (ちょっと、わかりにくいかもｗ)<br><img src="/assets/vscode/git/17.png" alt></p>
+<hr>
+<p>統合コンソールがあるので、もしかしたら Git コマンドを直接使った方が便利かもしれないですね.<br>とはいえ、Git の 準備もできました. いよいよ Visual Studio Code で コーディングが始められます. たのみー！</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/23/Visual-Studio-CodeでGitを使う/" data-id="ckq2rxva3001u44r2rq2kfxcr" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/13/Gitの全体gitignoreを再設定する/" title="Git の 全体 gitignore を 再設定する" rel="bookmark">Git の 全体 gitignore を 再設定する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/13/GitHubのPrivate-Repositoryからデプロイキーを使ってRead-only-cloneを許可する/" title="GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する" rel="bookmark">GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/23/GitHub-Desktop-v1.0.0リリース＆さっそく使う/" title="GitHub Desktop v1.0.0 リリース ＆ さっそく使う" rel="bookmark">GitHub Desktop v1.0.0 リリース ＆ さっそく使う</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-PortableGit-for-Windowsのインストール" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/21/PortableGit-for-Windowsのインストール/" class="article-date">
+  <time datetime="2017-08-20T15:00:00.000Z" itemprop="datePublished">2017-08-21</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/21/PortableGit-for-Windowsのインストール/">PortableGit for Windows 64bit の インストール</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p><a href="/2017/08/18/Visual-Studio-Codeのインストール/">Visual Studio Code の 開発環境を整理</a>し始めました. Visual Studio Code は Git を サポートしていますが別途インストールする必要があります. 今回は Git for Windows Portable を 導入します.<br><em>2017.12.18 追記</em>　<a href="/2017/08/21/PortableGit-for-Windowsのインストール/">PortableGit-for-Windowsのインストール</a> の方法の場合、Visual Studio Code で <code>git.exe</code> が 見つからないという警告が出るケースがありました. 詳しくは こちら <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual-Studio-Codeでgitが見つからないと言われた場合の対処</a> を 参照ください.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>PortableGit 64bit</li>
+<li>Git Hub</li>
+</ul>
+<h2 id="Git-for-Windows-Portable-“thumbdrive-edition”-とは"><a href="#Git-for-Windows-Portable-“thumbdrive-edition”-とは" class="headerlink" title="Git for Windows Portable (“thumbdrive edition”) とは"></a>Git for Windows Portable (“thumbdrive edition”) とは</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 公式パッケージの１つで、ポータブル・アプリケーションと呼ばれる特定の環境にインストールする必要がなく、USB メモリーなどで持ち運び、任意の環境(OS は Windows版なら、Windows の 必要はありますが)で利用できるパッケージ の Git に なります.<br>今回は PC に インストールするので、Git の 実行環境だけを持ち出すことは無いのですが、git コマンドぐらいしか使わないので、いろいろインストールせずに済ませたいことからポータブル版にしました.</p>
+<h2 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a>インストール手順</h2><p>git-for-windows の GitHub 最新のリリース <a href="https://github.com/git-for-windows/git/releases/latest" target="_blank" rel="noopener">https://github.com/git-for-windows/git/releases/latest</a> へ アクセスします. Git の ウェブサイト <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a> の ダウンロード・ページへ行ってもよいのですが、自動ダウンロードが動作することと、チェックサムが無いので、ダウンロード・ページが見ている GitHub の リリース・ページからダウンロードしました.<br><img src="/assets/vscode/install-git/01.png" alt></p>
+<p>例によって Windows PowerShell の <code>Get-FileHash</code> コマンドでチェックサムを確認します.<br>先のリリースページに記載されている PortableGit-2.14.0.2-64-bit.7z.exe の チェックサムは <code>5236c21de3cdf52b538322de0b0444f6cd49a5bae6006ea89f0683598cbda7ac</code> でした.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">c:\&gt; powershell Get-FileHash -Algorithm SHA256 c:\temp\PortableGit-2.14.0.2-64-bit.7z.exe</span><br><span class="line"></span><br><span class="line">Algorithm  Hash</span><br><span class="line">---------  ----</span><br><span class="line">SHA256     5236C21DE3CDF52B538322DE0B0444F6CD49A5BAE6006EA89F0683598CBDA7AC</span><br></pre></table></figure></p>
+<p>ダウンロードした [PortableGit-2.14.0.2-64-bit.7z.exe] を ダブルクリックして、7-Zip の 自己解凍ウィザードを起動します.<br><img src="/assets/vscode/install-git/02.png" alt></p>
+<p>解凍先を聞かれるので任意のフォルダを指定します. 今回は <code>C:\Develop\tool\PortableGit</code> に しました.<br><img src="/assets/vscode/install-git/03.png" alt></p>
+<p>環境変数 PATH を 設定します.  システムのプロパティから追加してもよいですし、以下のコマンドからも実行可能です.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">powershell [Environment]::SetEnvironmentVariable('PATH', [Environment]::GetEnvironmentVariable('PATH', 'User') + ';' + 'C:\Develop\tool\PortableGit\cmd', 'User')</span><br></pre></table></figure></p>
+<h2 id="gitconfig-の-設定"><a href="#gitconfig-の-設定" class="headerlink" title=".gitconfig の 設定"></a>.gitconfig の 設定</h2><p>とりあえず最小限の <code>.gitconfig</code> の 設定</p>
+<ul>
+<li><code>core.autocrlf</code> は、改行コードをエディタで明示するので変換なしにしました</li>
+<li><code>core.excludesfile</code> は、全体の <code>.gitignore</code> ファイルの指定で、先に作成したファイルを指定します</li>
+<li><code>user.useConfigOnly</code> は、リポジトリごとに <code>user.name</code> や <code>user.email</code> を 指定する設定です<br>チェックアウトした後に設定するのが面倒ではありますがアカウントが別なリポジトリがあったりすると便利です</li>
+<li><code>credential.helper</code> は、HTTPS で クローンする際にクレデンシャル情報を記憶してくれます (<a href="https://help.github.com/articles/caching-your-github-password-in-git/" target="_blank" rel="noopener">Caching your GitHub password in Git - User Documentation</a>)<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">c:\&gt; git config --global core.autocrlf false</span><br><span class="line">c:\&gt; git config --global core.excludesfile ~/.gitignore</span><br><span class="line">c:\&gt; git config --global user.useConfigOnly true</span><br><span class="line">c:\&gt; git config --global credential.helper wincred</span><br></pre></table></figure>
+</li>
+</ul>
+<h2 id="全体の-gitignore-設定"><a href="#全体の-gitignore-設定" class="headerlink" title="全体の .gitignore 設定"></a>全体の .gitignore 設定</h2><p><code>.gitignore</code> は 各リポジトリに配置するのとは別に、全体の設定ができます. 先の <code>core.excludesfile</code> で 設定したファイルが それにあたり、今回は <code>~/.gitignore</code> ホームディレクトリにあるファイルに設定しています.</p>
+<p>まずはファイルを作成します. Windows には <code>touch</code> コマンドが無いのですが、 <code>type nul &gt; ファイル名</code> で 空のファイルが作れます. つい <code>null</code> と 指が動きたくなりますが <code>l</code> は １つになります. <code>nul</code> は Linux などで言うところの <code>/dev/null</code> でしょうかね. <a href="https://support.microsoft.com/ja-jp/help/40592/shell-redirected-to-nul-device-suppresses-ms-dos-message" target="_blank" rel="noopener">NUL デバイスにリダイレクトされたシェルは、MS-DOS のメッセージを表示しません。 - Microsoft サポート</a>.</p>
+<p>また、エクスプローラーから作成する場合は 自分のホーム・フォルダーを表示し [右クリック] - [新規作成] - [テキスト ドキュメント] から、ファイル名を <code>.gitignore.</code> と 最後に <code>.</code> を 付けて作成します. 拡張子に関する警告が出ますが [はい] を クリックすると、最後の <code>.</code> が 消えて <code>.gitignore</code> に なります.</p>
+<p>余談ですが <a href="https://support.microsoft.com/ja-jp/help/69581/updating-the-date-and-time-stamps-on-files" target="_blank" rel="noopener">日付とファイルのタイムスタンプを更新 - Microsoft サポート</a> は <code>COPY /B ファイル名 +,,</code> らしいです.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">type nul &gt; %USERPROFILE%\.gitignore</span><br></pre></table></figure></p>
+<p>作成したファイルに Git で 管理しないファイルの設定をします.<br>リポジトリにコミットしないので自分の環境ならではの指定もできるのでうれしいです. Windows なので、とりあえず Thumbs.db を. (<a href="/2016/11/01/HexoとGitHub-Pagesでブログ環境の構築/">このブログは GitHub Pages で 作っている</a> ので、画像がソースツリーにあるから必要)<br>その他、ちょっとしたスニペットを入れておく自分用フォルダなどを追加してもよさそうです.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">Thumbs.db</span><br></pre></table></figure></p>
+<p><strong> 2017年9月10日 追記 </strong><br>もっと良い設定方法があったので、全体 .gitignore の 設定 を 見直しました.<br>詳しくは、こちら <a href="/2017/09/13/Gitの全体gitignoreを再設定する/">Git の 全体 gitignore を 再設定する</a> を ご参照ください.</p>
+<h2 id="Proxy-が-必要な環境での設定"><a href="#Proxy-が-必要な環境での設定" class="headerlink" title="Proxy が 必要な環境での設定"></a>Proxy が 必要な環境での設定</h2><p>たまに必要になってハマることがあるのでメモ.<br>※ 以下の例の <code>[hostname]:[port]</code> は 利用する HTTP Proxy の ホスト名 と ポート番号に置き換えてください.</p>
+<h3 id="https-で-クローンする場合"><a href="#https-で-クローンする場合" class="headerlink" title="https:// で クローンする場合"></a><code>https://</code> で クローンする場合</h3><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre><td class="code"><pre><span class="line">c:\Temp&gt; git config --global http.proxy http://[hostname]:[port]</span><br><span class="line">c:\Temp&gt; git clone https://github.com/azriton/test.git</span><br></pre></table></figure>
+<p><strong> 2017年11月25日 追記 </strong><br>HTTPS を 使う場合、上記のように設定ファイルに設定を行わなくても 環境変数 <code>HTTP_PROXY</code> と <code>HTTPS_PROXY</code> に プロキシ設定がある場合は、そちらを使ってくれます.<br>プロキシを自動構成するタスクを作りましたので、こちら <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a> も 併せて ご参照いただければ幸いです.</p>
+<h3 id="git-で-クローンする場合"><a href="#git-で-クローンする場合" class="headerlink" title="git:// で クローンする場合"></a><code>git://</code> で クローンする場合</h3><p>ホーム・ディレクトリの <code>.ssh</code> ディレクトリに以下の内容で <code>config</code> ファイルを作成します.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  Port 443</span><br><span class="line">  ProxyCommand connect.exe -H [hostname]:[port] %h %p</span><br></pre></table></figure></p>
+<p>後はいつも通りクローンします.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">c:\Temp&gt; git clone git@github.com:azriton/test.git</span><br></pre></table></figure></p>
+<h3 id="Eclipse-と-混在して利用する場合"><a href="#Eclipse-と-混在して利用する場合" class="headerlink" title="Eclipse と 混在して利用する場合"></a>Eclipse と 混在して利用する場合</h3><p>片方は HTTPS を 使うのが無難な気がしますが、両方とも <code>git://</code> を 使うには細工が必要です. Eclipse が <code>config</code> を 参照して うまく動かなくなるので、 <code>git</code> コマンドで利用する側の設定を変更します.<br><code>Host</code> の 文字列を任意の文字列に変更します. 今回は <code>proxy.github.com</code> としました.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre><td class="code"><pre><span class="line">Host proxy.github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  Port 443</span><br><span class="line">  ProxyCommand connect.exe -H [hostname]:[port] %h %p</span><br></pre></table></figure></p>
+<p>クローンする際に、<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:azriton/test.git:<code>の</code>github.com<code>を</code>Host<code>に 設定した文字列に置き換えます. 今回の例では</code>proxy.github.com` に なります.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre><td class="code"><pre><span class="line">c:\Temp&gt; git clone git@proxy.github.com:azriton/test.git</span><br></pre></table></figure></p>
+<p>クローンする際に GitHub からコピーした文字列を変更する必要があり、ひと手間かかりますがクローン後は特に意識することは無いです.</p>
+<hr>
+<p>Git の 準備ができました. Visual Studio Code で Git を 使って開発の準備に取り掛かりたいと思います.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/21/PortableGit-for-Windowsのインストール/" data-id="ckq2rxvc2005w44r2vi3bvfh7" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" title="Visual Studio Code で Git を 使う" rel="bookmark">Visual Studio Code で Git を 使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/13/Gitの全体gitignoreを再設定する/" title="Git の 全体 gitignore を 再設定する" rel="bookmark">Git の 全体 gitignore を 再設定する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/03/13/GitHubのPrivate-Repositoryからデプロイキーを使ってRead-only-cloneを許可する/" title="GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する" rel="bookmark">GitHub の Private Repository から デプロイキーを使って Read-only clone を 許可する</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2016/12/08/CircleCIでHexoの自動ビルドとデプロイ設定/" title="CircleCI で Hexo の 自動ビルド と デプロイ設定" rel="bookmark">CircleCI で Hexo の 自動ビルド と デプロイ設定</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/23/GitHub-Desktop-v1.0.0リリース＆さっそく使う/" title="GitHub Desktop v1.0.0 リリース ＆ さっそく使う" rel="bookmark">GitHub Desktop v1.0.0 リリース ＆ さっそく使う</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Visual-Studio-Codeのインストール" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/18/Visual-Studio-Codeのインストール/" class="article-date">
+  <time datetime="2017-08-17T15:00:00.000Z" itemprop="datePublished">2017-08-18</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/18/Visual-Studio-Codeのインストール/">Visual Studio Code の インストール</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/vscode/visual-studio-code.png" alt title="Visual Studio Code"></p>
+<p>最近 <a href="/2017/07/25/Python-3.6-64bitのインストール/">Python に 手を出し始め</a>ました. 以前でしたら何でも Eclipse で～っと Plug-in を 入れるのですが、最近は <a href="https://atom.io/" target="_blank" rel="noopener">Atom</a> や <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> といった高機能エディターの流行が気になります. 今回は Visual Studio Code で Python を 始めてみようと思うので、さっそくセットアップをしたいと思います. (セットアップ話が続くなぁ…)</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Visual Studio Code</li>
+</ul>
+<h2 id="Visual-Studio-Code-とは"><a href="#Visual-Studio-Code-とは" class="headerlink" title="Visual Studio Code とは"></a>Visual Studio Code とは</h2><p>マイクロソフト社によって開発された高機能エディタです. Windows だけではなく、Linux や Mac OS X でも動作します.<br>インテリセンスという高性能なコード入力補完機能があり、加えて Git クライアント統合 や ターミナル統合(PowerShell、コマンドプロンプト、WLS Bash、Git Bash)、リファクタリング、デバッグなどが行え、ソースコード向けの機能がそろっています.<br>多くの機能が GUI による メニューがなく、コマンドパレット から使うようになっています. マウスを使用せずにコーディングを継続するように操作できるのだとか.</p>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> の ウェブサイトの他に、マイクロソフト社のウェブサイトに日本語の製品紹介のサイト <a href="https://www.microsoft.com/ja-jp/dev/products/code-vs.aspx" target="_blank" rel="noopener">Visual Studio Code - Visual Studio</a> もあります. こちらから Visual Studio Code Preview ファースト ステップ ガイド が ダウンロードできます. 2015年7月17日版なので、少し古いですが概要を理解するにはよいかもしれません.</p>
+<h2 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a>インストール手順</h2><p>Visual Studio Code の ウェブサイト <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a> へ アクセスします.<br>[Download for Windows] の 右にある [∨] を クリックし、OS の 一覧が表示されるので、[Windows x32] の 下にある [64bit version] リンクをクリックして、[Windows x64] を 追加します.<br>[Windows x64] の 右にある [Installer] の [Stable] の [↓] リンクをクリックしてインストーラーをダウンロードします.<br>※ [Download for Windows] を 直接クリックすると 32bit 版がダウンロードされたので、プラットフォームを直接指定しました.<br><img src="/assets/vscode/install/01.png" alt></p>
+<p><em>2017年9月19日 追記</em><br><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a> の 下に [See SHA-256 Hashes] が ありました.<br><del>チェックサムが見つからなかったので、そのままダウンロードされた [VSCodeSetup-x64-1.16.1.exe] を ダブルクリックして、インストーラーを起動します.</del><br><del>チェックサム、確認したいんだけどなぁ…</del></p>
+<p>いつもの Windows PowerShell の <code>Get-FileHash</code> コマンドでチェックサムを確認します.<br>先のダウンロード・ページに記載されている Windows 64 bit の チェックサムは <code>62b6f28d0bd02c0193389fb1b716fed1a2e8d5aea7d38ed39c70e2c2d0b20797</code> でした.<br><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre><td class="code"><pre><span class="line">c:\&gt; powershell Get-FileHash -Algorithm SHA256 c:\temp\VSCodeSetup-x64-1.16.1.exe</span><br><span class="line"></span><br><span class="line">Algorithm  Hash</span><br><span class="line">---------  ----</span><br><span class="line">SHA256     62b6f28d0bd02c0193389fb1b716fed1a2e8d5aea7d38ed39c70e2c2d0b20797</span><br></pre></table></figure></p>
+<p>ダウンロードされた [VSCodeSetup-x64-1.16.1.exe] を ダブルクリックして、インストーラーを起動します.<br><img src="/assets/vscode/install/02.png" alt></p>
+<p>セットアップウィザードが表示されるので、[次へ] ボタンをクリックして進めます.<br><img src="/assets/vscode/install/03.png" alt></p>
+<p>ライセンスの確認が表示されます. 内容を確認し同意できるようでしたら [同意する] を 選択して [次へ] ボタンをクリックします.<br>同意できなかったら終了なので、あきらめて同意できるエディタを探します.<br><img src="/assets/vscode/install/04.png" alt></p>
+<p>インストール先を指定します.<br>本当は <code>C:\Develop</code> 以下にまとめたいところですが、インストーラー・モノなので、指定されたまま進めました.<br><img src="/assets/vscode/install/05.png" alt></p>
+<p>プログラムグループを指定します. 特に何もせず進めます.<br><img src="/assets/vscode/install/06.png" alt></p>
+<p>追加タスクを選択します. 以下を設定しました.</p>
+<ul>
+<li>エクスプローラー の ファイル コンテキスト メニュー に [Code で 開く] アクションを追加する</li>
+<li>エクスプローラー の ディレクトリ コンテキスト メニュー に [Code で 開く] アクションを追加する</li>
+<li>サポートされているファイルの種類のエディターとして Code を 登録する</li>
+</ul>
+<p>デフォルトのエディタとして使わない場合は、[ファイル コンテキスト] と [サポートされいるファイルの種類] は チェックしない方が良いです. 特に関連付けを持っていかれると大変です.</p>
+<p>一方で Visual Studio Code は ディレクトリ を プロジェクトのように扱うので、[ディレクトリ コンテキスト] は、どのような使い方にしてもチェックしておいた方が便利です.<br><img src="/assets/vscode/install/07.png" alt></p>
+<p>インストールの設定確認が表示されるので、確認し、問題なければ [インストール] ボタンをクリックします.<br><img src="/assets/vscode/install/08.png" alt></p>
+<p>Visual Studio Code が インストールされました. せっかくなので [Visual Studio Code を 実行する] に チェックしたまま [完了] します.<br><img src="/assets/vscode/install/09.png" alt></p>
+<p>Visual Studio Code が 起動しました！<br>「ようこそ」画面が表示されています. 次回から表示しないようにするには [起動時にウェルカム ページを表示] の チェックを外します. また明示的に自分で表示するにはメニューの [ヘルプ] - [ようこそ] を 選択します.<br><img src="/assets/vscode/install/10.png" alt></p>
+<hr>
+<p>まずはインストールだけですが、使い心地がよさそうなのでデフォルトのエディタとして使ってみることにしました.<br>エディタとしては若干起動が遅いので、メモ用途にも使うデフォルトのエディタという観点からは他のエディタの方が良いかもしれないと思いつつも、まずは手足のようになるまで使い込んでみてから改めて考えてみます. (新しいものは、これまでの記憶、特にマッスル・メモリーが上書きされるまで使い込んでこそ、ようやく良し悪しについて考えられると思ったりも)</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/18/Visual-Studio-Codeのインストール/" data-id="ckq2rxva2001q44r2wkokytsu" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/26/Visual-Studio-Code最初の設定変更/" title="Visual Studio Code 最初の設定変更" rel="bookmark">Visual Studio Code 最初の設定変更</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/23/Visual-Studio-CodeでGitを使う/" title="Visual Studio Code で Git を 使う" rel="bookmark">Visual Studio Code で Git を 使う</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/" title="Visual Studio Code で git.exe が 見つからないと言われた場合の対処" rel="bookmark">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/21/PortableGit-for-Windowsのインストール/" title="PortableGit for Windows 64bit の インストール" rel="bookmark">PortableGit for Windows 64bit の インストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/29/Visual-Studio-CodeでHello-Python3！/" title="Visual Studio Code で Hello Python3！" rel="bookmark">Visual Studio Code で Hello Python3！</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Eclipse-4.7-Oxygenに3rd-PartyのPlug-inを追加" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/15/Eclipse-4.7-Oxygenに3rd-PartyのPlug-inを追加/" class="article-date">
+  <time datetime="2017-08-14T15:00:00.000Z" itemprop="datePublished">2017-08-15</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/15/Eclipse-4.7-Oxygenに3rd-PartyのPlug-inを追加/">Eclipse 4.7 Oxygen に 3rd Party の Plug-in を 追加</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/eclipse/4.7-oxygen.png" alt title="Eclipse Oxygen"></p>
+<p>ようやく Eclipse の 設定ができました. 最後に 3rd Party の Plug-in を 追加して完了となります.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Java SE Development Kit 1.8.0_141</li>
+<li>Eclipse 4.7 Oxygen</li>
+</ul>
+<h2 id="Plug-in-の-追加"><a href="#Plug-in-の-追加" class="headerlink" title="Plug-in の 追加"></a>Plug-in の 追加</h2><p>Eclipse の メニューから [ヘルプ] - [新規ソフトウェアのインストール] を クリックします. 以降、この [使用可能なソフトウェア] ウィンドウを使って追加していきます.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/01.png" alt></p>
+<h2 id="SpotBugs-FindBugs"><a href="#SpotBugs-FindBugs" class="headerlink" title="SpotBugs (FindBugs)"></a>SpotBugs (FindBugs)</h2><p><a href="https://spotbugs.github.io/" target="_blank" rel="noopener">SpotBugs</a> は 問題になるコードを検出してくれるツールです. Eclipse Plug-in を 入れることでリアルタイムに検出してくれるので便利です. 以前は FindBugs というプロダクトだったのですが、最近は SpotBugs に なったようです.</p>
+<p>[作業対象] に <code>https://spotbugs.github.io/eclipse/</code> を 入力し Enter キーを押下します.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/11.png" alt></p>
+<p>しばらく待つとウィンドウ中央のツリーに SpotBugs が 追加されるのでチェックをつけ、[次へ] ボタンをクリックします.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/12.png" alt></p>
+<p>インストールの詳細が表示されます. [次へ] ボタンをクリックして進めます.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/13.png" alt></p>
+<p>ライセンスの確認画面が表示されます. ライセンスを確認し同意できたら [使用条件の条項に同意します] を 選択し、[完了] ボタンをクリックします.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/14.png" alt></p>
+<p>セキュリティ警告が出ますが、[インストール] ボタンをクリックして進めます.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/15.png" alt></p>
+<p>インストール後、再起動を確認されます. 再起動しないと Plug-in が 有効にならないので [今すぐ再起動] ボタンをクリックします.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/16.png" alt></p>
+<p>再起動後 [ウィンドウ] - [設定] から Eclipse の 設定を表示し設定を行います.<br>[Java] - [SpotBugs] - [報告構成]</p>
+<ul>
+<li>分析力: 最大</li>
+<li>報告する最小ランク: 1</li>
+<li>レポートする最低の信頼度: Low</li>
+<li>報告(可視) バグ・カテゴリー: 実験用 以外 すべてチェック</li>
+</ul>
+<p>Eclipse の Java コンパイラー設定同様に、とにかく厳しくします.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/17.png" alt></p>
+<p>[Java] - [SpotBugs] - [ディテクター構成]</p>
+<ul>
+<li>隠しディテクターを表示: チェック</li>
+<li>ディテクター: すべてチェック</li>
+</ul>
+<p>実際のチェックを行う設定は、ディテクターになるので、ここも厳しく設定します.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/18.png" alt></p>
+<h2 id="Eclipse-Class-Decompiler"><a href="#Eclipse-Class-Decompiler" class="headerlink" title="Eclipse Class Decompiler"></a>Eclipse Class Decompiler</h2><p><a href="http://www.cpupk.com/decompiler/" target="_blank" rel="noopener">Eclipse Class Decompiler</a> は JD, Jad, FernFlower, CFR, Procyon といった Java の デコンパイラーを使えるようにする Plug-in です.<br>普段使うことは無いのですが、ソースがロスとされている古いライブラリがあり仕方なしにデコンパイルすることがあるので入ってます. そんなもの捨ててしまえばいいのに…</p>
+<p>Eclipse の メニューから [ヘルプ] - [新規ソフトウェアのインストール] で [使用可能なソフトウェア] ウィンドウ を 表示し、[作業対象] に <code>https://spotbugs.github.io/eclipse/</code> を 入力し Enter キーを押下します.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/21.png" alt></p>
+<p>すべてにチェックをつけ [次へ] ボタンをクリックして進めます. 以降は SpotBugs の 手順同様に インストールの詳細を確認し、ライセンスの確認と同意、インストールして再起動します.<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/22.png" alt></p>
+<p>再起動後 [ウィンドウ] - [設定] から Eclipse の 設定を表示し設定を行います.<br>[Java] - [逆コンパイラー]</p>
+<ul>
+<li>デフォルトのクラス逆コンパイラー: FernFlower</li>
+<li>オリジナル行番号をコメントとして出力</li>
+</ul>
+<p>いろいろな逆コンパイラーが使えるので好みの逆コンパイラーを設定します. 違いについては こちら <a href="http://qiita.com/cypher256/items/2384d6797ac49740f217#jadclipse-jad--jd-core-%E3%81%8B%E3%82%89-eclipse-class-decompiler-%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%B8%E5%A4%89%E6%9B%B4" target="_blank" rel="noopener">Jadclipse (Jad + JD-Core) から Eclipse Class Decompiler プラグインへ変更 - Eclipse 4.6 Neon 新機能 TOP10！と Spring Boot STS - Qiita</a> の <a href="http://qiita.com/cypher256" target="_blank" rel="noopener">cypher256</a> さんが整理してくださっています. 逆コンパイル結果まで載せてくださっており、とても助かります. 素晴らしい まとめ ありがとうございます！<br><img src="/assets/eclipse/4.7-oxygen-3rd-party-plugins/23.png" alt></p>
+<hr>
+<h2 id="Eclipse-の-書籍"><a href="#Eclipse-の-書籍" class="headerlink" title="Eclipse の 書籍"></a>Eclipse の 書籍</h2><p>本記事の 4.7 より古いバージョンとなりますが、Eclipse の 使い方について一通り知るにはよいでしょう. Eclipse は だいぶ枯れているので、大きな違いはないので多少のバージョン違いでも特に問題なく対応できます. (※ Eclipse や IDE を すでに使っている場合には不要です)</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/61UJFDCJZyL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank">Eclipse 4.4 完全攻略 (完全攻略シリーズ)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">石黒 尚久 SBクリエイティブ 2014-10-25    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12960645%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-79-738095-8%2520%257C%25204-797-38095-8%2520%257C%25204-7973-8095-8%2520%257C%25204-79738-095-8%2520%257C%25204-797380-95-8%2520%257C%25204-7973809-5-8" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h2 id="Java-の-書籍"><a href="#Java-の-書籍" class="headerlink" title="Java の 書籍"></a>Java の 書籍</h2><p>IDE は あくまでも道具なので、プログラミングの知識はしっかりつけておきたいところです.<br>Java 8 までを、しっかり身に着けるには こちらの書籍がよいです. こんな感じで Java 9 も 出してほしいですね.</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51741IwOl5L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank">Java本格入門 ~モダンスタイルによる基礎からオブジェクト指向・実用ライブラリまで</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">谷本 心,阪本 雄一郎,岡田 拓也,秋葉 誠,村田 賢一郎 技術評論社 2017-04-18    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14782914%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418909-3%2520%257C%25204-774-18909-3%2520%257C%25204-7741-8909-3%2520%257C%25204-77418-909-3%2520%257C%25204-774189-09-3%2520%257C%25204-7741890-9-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>コードカバレッジが取れる <a href="http://www.eclemma.org/" target="_blank" rel="noopener">EclEmma</a> が デフォルトで入ってくれるようになったので、ここでの設定が減ってよかったです.<br>ようやく Eclipse の 設定が完了しました. 長かった～. 年１回とはいえなかなかヘビーですね.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/15/Eclipse-4.7-Oxygenに3rd-PartyのPlug-inを追加/" data-id="ckq2rxvbx005i44r2e2xphvf1" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/07/31/Eclipse-4.7-OxygenにEclipse-FoundationからPlug-inを追加/" title="Eclipse 4.7 Oxygen に Eclipse Foundation から Plug-in を 追加" rel="bookmark">Eclipse 4.7 Oxygen に Eclipse Foundation から Plug-in を 追加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/09/Eclipse-4.7-Oxygenの設定-JavaScript編/" title="Eclipse 4.7 Oxygen の 設定 - JavaScript編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - JavaScript編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/03/Eclipse-4.7-Oxygenの設定-一般編/" title="Eclipse 4.7 Oxygen の 設定 - 一般編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - 一般編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/12/Eclipse-4.7-Oxygenの設定-Web-XML編/" title="Eclipse 4.7 Oxygen の 設定 - Web/XML編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - Web/XML編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/06/Eclipse-4.7-Oxygenの設定-Java編/" title="Eclipse 4.7 Oxygen の 設定 - Java編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - Java編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+    <article id="post-Eclipse-4.7-Oxygenの設定-Web-XML編" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/12/Eclipse-4.7-Oxygenの設定-Web-XML編/" class="article-date">
+  <time datetime="2017-08-11T15:00:00.000Z" itemprop="datePublished">2017-08-12</time>
+</a>
+      <div class="article-category">
+    <a class="article-category-link" href="/categories/開発環境/">開発環境</a>
+  </div>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/12/Eclipse-4.7-Oxygenの設定-Web-XML編/">Eclipse 4.7 Oxygen の 設定 - Web/XML編</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/eclipse/4.7-oxygen.png" alt title="Eclipse Oxygen"></p>
+<p>Eclipse 4.7 Oxygen の 設定も大詰め、Web/XML の 設定になります. ここはエディターの設定を少し変えたいぐらいになります.<br>大きくは、インデントを <a href="https://google.github.io/styleguide/htmlcssguide.html" target="_blank" rel="noopener">Google の HTML/CSS Style Guide</a> の “Indent by 2 spaces at a time. - <a href="https://google.github.io/styleguide/htmlcssguide.html#Indentation" target="_blank" rel="noopener">2.2.1 Indentation</a>“ に ならって設定したところと、XML の 検証が無効になっているので有効にします.</p>
+<p>また行の幅を <code>999</code> に しています. 私は HTML や XML の タグは折り返したくないというがあり、最長の設定にしています. ここはチームによってかなり温度差がありそうです. 周りとよく相談のうえで設定が必要ですね.</p>
+<p><strong>作業環境</strong></p>
+<ul>
+<li>Windows 10 64bit</li>
+<li>Java SE Development Kit 1.8.0_141</li>
+<li>Eclipse 4.7 Oxygen</li>
+</ul>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>まずは、いつも通り Eclipse の メニュー から [ウィンドウ] - [設定] を クリックし、設定ウィンドウを表示します.<br><img src="/assets/eclipse/4.7-oxygen-config/001.png" alt></p>
+<h3 id="Web-CSS-ファイル-エディター"><a href="#Web-CSS-ファイル-エディター" class="headerlink" title="[Web] - [CSS ファイル] - [エディター]"></a>[Web] - [CSS ファイル] - [エディター]</h3><ul>
+<li>行の幅: 999</li>
+<li>スペースを使用したインデント: チェック</li>
+<li>インデント・サイズ: 2<br><img src="/assets/eclipse/4.7-oxygen-config/401.png" alt></li>
+</ul>
+<h3 id="Web-HTML-ファイル-エディター"><a href="#Web-HTML-ファイル-エディター" class="headerlink" title="[Web] - [HTML ファイル] - [エディター]"></a>[Web] - [HTML ファイル] - [エディター]</h3><ul>
+<li>行の幅: 999</li>
+<li>スペースを使用したインデント: チェック</li>
+<li>インデント・サイズ: 2<br><img src="/assets/eclipse/4.7-oxygen-config/402.png" alt></li>
+</ul>
+<h3 id="XML-XML-ファイル-エディター"><a href="#XML-XML-ファイル-エディター" class="headerlink" title="[XML] - [XML ファイル] - [エディター]"></a>[XML] - [XML ファイル] - [エディター]</h3><ul>
+<li>行の幅: 999</li>
+<li>スペースを使用したインデント: チェック</li>
+<li>インデント・サイズ: 2<br><img src="/assets/eclipse/4.7-oxygen-config/403.png" alt></li>
+</ul>
+<h3 id="XML-XML-ファイル-検証"><a href="#XML-XML-ファイル-検証" class="headerlink" title="[XML] - [XML ファイル] - [検証]"></a>[XML] - [XML ファイル] - [検証]</h3><ul>
+<li>文法指定なし: 警告 (必要に応じて 無視)</li>
+<li>マークアップ検証を使用可能にする: チェック<br><img src="/assets/eclipse/4.7-oxygen-config/404.png" alt></li>
+</ul>
+<hr>
+<h2 id="Eclipse-の-書籍"><a href="#Eclipse-の-書籍" class="headerlink" title="Eclipse の 書籍"></a>Eclipse の 書籍</h2><p>本記事の 4.7 より古いバージョンとなりますが、Eclipse の 使い方について一通り知るにはよいでしょう. Eclipse は だいぶ枯れているので、大きな違いはないので多少のバージョン違いでも特に問題なく対応できます. (※ Eclipse や IDE を すでに使っている場合には不要です)</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/61UJFDCJZyL._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank">Eclipse 4.4 完全攻略 (完全攻略シリーズ)</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">石黒 尚久 SBクリエイティブ 2014-10-25    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4797380950" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12960645%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>          <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-79-738095-8%2520%257C%25204-797-38095-8%2520%257C%25204-7973-8095-8%2520%257C%25204-79738-095-8%2520%257C%25204-797380-95-8%2520%257C%25204-7973809-5-8" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+<h2 id="Java-の-書籍"><a href="#Java-の-書籍" class="headerlink" title="Java の 書籍"></a>Java の 書籍</h2><p>IDE は あくまでも道具なので、プログラミングの知識はしっかりつけておきたいところです.<br>Java 8 までを、しっかり身に着けるには こちらの書籍がよいです. こんな感じで Java 9 も 出してほしいですね.</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom:1;overflow:hidden"><div class="booklink-image" style="float:left;margin:0 15px 10px 0"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/51741IwOl5L._SL160_.jpg" style="border:none"></a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="booklink-info" style="line-height:120%;/zoom:1;overflow:hidden"><div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank">Java本格入門 ~モダンスタイルによる基礎からオブジェクト指向・実用ライブラリまで</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"><div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div></div><div class="booklink-detail" style="margin-bottom:5px">谷本 心,阪本 雄一郎,岡田 拓也,秋葉 誠,村田 賢一郎 技術評論社 2017-04-18    </div><div class="booklink-link2" style="margin-top:10px"><div class="shoplinkamazon" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 0 no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860699&p_id=170&pc_id=185&pl_id=4062&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F477418909X" target="_blank">Amazonで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=860699&p_id=170&pc_id=185&pl_id=4062" width="1" height="1" style="border:none"></div><div class="shoplinkrakuten" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -50px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=862013&p_id=56&pc_id=56&pl_id=637&s_v=b5Rz2P0601xu&url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F14782914%2F" target="_blank">楽天ブックスで調べる</a><img src="//i.moshimo.com/af/i/impression?a_id=862013&p_id=56&pc_id=56&pl_id=637" width="1" height="1" style="border:none"></div>           <div class="shoplinkseven" style="margin-right:5px;background:url(//img.yomereba.com/yl.gif) 0 -100px no-repeat;padding:2px 0 2px 18px;white-space:nowrap"><a href="//af.moshimo.com/af/c/click?a_id=860693&p_id=932&pc_id=1188&pl_id=12456&s_v=b5Rz2P0601xu&url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D4-77-418909-3%2520%257C%25204-774-18909-3%2520%257C%25204-7741-8909-3%2520%257C%25204-77418-909-3%2520%257C%25204-774189-09-3%2520%257C%25204-7741890-9-3" target="_blank">7netで調べる<img src="//i.moshimo.com/af/i/impression?a_id=860693&p_id=932&pc_id=1188&pl_id=12456" width="1" height="1" style="border:none"></a></div>                          </div></div><div class="booklink-footer" style="clear:left"></div></div>
+
+
+
+<hr>
+<p>ここは、あまり設定項目がなかったので簡単に終わりました. 残すは 3rd Party の Plug-in 導入と設定になります. もう一息.</p>
+      
+    </div>
+    
+      <footer class="article-footer">
+        <a data-url="https://azriton.github.io/2017/08/12/Eclipse-4.7-Oxygenの設定-Web-XML編/" data-id="ckq2rxvc1005t44r2cz7ybtid" class="article-share-link">共有</a>
+        
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li></ul>
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+  <nav id="related-posts" class="article-inner" style="font-size:smaller">
+    <div class="article-entry">
+      <h2>関連投稿</h2>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/07/31/Eclipse-4.7-OxygenにEclipse-FoundationからPlug-inを追加/" title="Eclipse 4.7 Oxygen に Eclipse Foundation から Plug-in を 追加" rel="bookmark">Eclipse 4.7 Oxygen に Eclipse Foundation から Plug-in を 追加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/15/Eclipse-4.7-Oxygenに3rd-PartyのPlug-inを追加/" title="Eclipse 4.7 Oxygen に 3rd Party の Plug-in を 追加" rel="bookmark">Eclipse 4.7 Oxygen に 3rd Party の Plug-in を 追加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/09/Eclipse-4.7-Oxygenの設定-JavaScript編/" title="Eclipse 4.7 Oxygen の 設定 - JavaScript編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - JavaScript編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/03/Eclipse-4.7-Oxygenの設定-一般編/" title="Eclipse 4.7 Oxygen の 設定 - 一般編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - 一般編</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/08/06/Eclipse-4.7-Oxygenの設定-Java編/" title="Eclipse 4.7 Oxygen の 設定 - Java編" rel="bookmark">Eclipse 4.7 Oxygen の 設定 - Java編</a></h3></div></li></ul>
+    </div>
+  </nav>
+
+
+<section style="margin:50px 0;text-align:center">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5414788142"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 戻る</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">次へ &raquo;</a>
+  </nav></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title profile">Profile</h3>
+  <div class="widget profile">
+    <div><img src="/assets/profile.jpg"></div>
+    <div class="outline">
+      <strong>Azriton</strong> (<code>@azriton</code>) <br>
+      IT エンジニア に なりたかった、ただの何でも屋、いや ただの酒呑み. 日本酒 バーボン ビール に アブサン 焼酎 どぶろく テキーラ なんでも来いっす. <br>
+    </div>
+    <div class="links">
+      <a href="https://twitter.com/azriton" class="widget-profile-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="widget-profile-link-github" target="_blank" title="GitHub @azriton"></a>
+      <a href="/atom.xml" class="widget-profile-link-atom" target="_blank" title="RSS/Atom"></a>
+      <span class="separator">|</span>
+      <a href="/pages/about.html" class="widget-profile-link-about" title="このサイトについて"></a>
+      <a href="/pages/pp.html" class="widget-profile-link-pp" title="プライバシーポリシー"></a>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title category">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ブログ/">ブログ</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/プレゼン/">プレゼン</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ボット/">ボット</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/勉強会/">勉強会</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/書籍/">書籍</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/開発環境/">開発環境</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/雑記/">雑記</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/電子工作/">電子工作</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tag">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Botkit/">Botkit</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CircleCI/">CircleCI</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Crystal-Signal-Pi/">Crystal Signal Pi</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disqus/">Disqus</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/">Eclipse</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AIY/">Google AIY</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Raspbian/">Raspbian</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slack/">Slack</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twitter/">Twitter</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio-Code/">Visual Studio Code</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reveal-js/">reveal.js</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size:13.33px">Git</a> <a href="/tags/Windows/" style="font-size:10.83px">Windows</a> <a href="/tags/Visual-Studio-Code/" style="font-size:14.17px">Visual Studio Code</a> <a href="/tags/Node-js/" style="font-size:20px">Node.js</a> <a href="/tags/reveal-js/" style="font-size:10px">reveal.js</a> <a href="/tags/TypeScript/" style="font-size:12.5px">TypeScript</a> <a href="/tags/Slack/" style="font-size:19.17px">Slack</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/Raspbian/" style="font-size:15.83px">Raspbian</a> <a href="/tags/Twitter/" style="font-size:11.67px">Twitter</a> <a href="/tags/Eclipse/" style="font-size:14.17px">Eclipse</a> <a href="/tags/Raspberry-Pi/" style="font-size:18.33px">Raspberry Pi</a> <a href="/tags/Disqus/" style="font-size:10.83px">Disqus</a> <a href="/tags/Google-AIY/" style="font-size:11.67px">Google AIY</a> <a href="/tags/Botkit/" style="font-size:17.5px">Botkit</a> <a href="/tags/CircleCI/" style="font-size:11.67px">CircleCI</a> <a href="/tags/Crystal-Signal-Pi/" style="font-size:11.67px">Crystal Signal Pi</a> <a href="/tags/JavaScript/" style="font-size:17.5px">JavaScript</a> <a href="/tags/Hexo/" style="font-size:16.67px">Hexo</a> <a href="/tags/GitHub/" style="font-size:15px">GitHub</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title recent">最近の投稿</h3>
+    <div class="widget">
+      <ul class="recent-list">
+        
+          <li>
+            <a href="/2017/12/18/Visual-Studio-Codeでgitが見つからないと言われた場合の対処/">Visual Studio Code で git.exe が 見つからないと言われた場合の対処</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/ラズパイの簡易スマート・スピーカーGoogle-AIYでVoice-Recognizerを作る/">ラズパイ の 簡易スマート・スピーカー Google AIY で Voice Recognizer を 作る</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/2017年に買ってよかったもの！/">2017年 に 買ってよかったもの！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/25/Windowsのプロキシを自動設定するタスクを作成/">Windows の プロキシ を 自動設定するタスクを作成</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/15/ラズパイの簡易スマート・スピーカーGoogle-AIYの初期セットアップ/">ラズパイ の 簡易スマート・スピーカー Google AIY の 初期セットアップ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title archive">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4479317936085716" data-ad-slot="5642018856"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Azriton
+      <a href="https://twitter.com/azriton" class="article-link-twitter" target="_blank" title="Twitter @azriton"></a>
+      <a href="https://github.com/azriton" class="article-link-github" target="_blank" title="GitHub @azriton"></a>
+      <br>
+      投稿内容／発言／見解／酒癖／時報 は、私的なものであり、所属している企業や組織には関係ありません.
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+
